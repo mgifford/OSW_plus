@@ -467,27 +467,56 @@
           + `&location=${encodeURIComponent(loc)}`;
       }
 
+      /** Escape a value for use in an ICS property value (RFC 5545 §3.3.11) */
+      function icsEscape(value) {
+        return String(value ?? "")
+          .replace(/\\/g, "\\\\")
+          .replace(/;/g, "\\;")
+          .replace(/,/g, "\\,")
+          .replace(/[\r\n]+/g, "\\n");
+      }
+
       /** Generate per-event ICS content and return as a blob: URL */
       function singleIcsUrl(event) {
         const tz = event.timezone || "America/New_York";
         const loc = event.location?.address || event.location?.name || "New York, NY";
-        const desc = ((event.summary || "") + (event.original_source_url ? "\\nRSVP: " + event.original_source_url : "")).replace(/\n/g, "\\n");
+        const rawDesc = (event.summary || "") + (event.original_source_url ? "\nRSVP: " + event.original_source_url : "");
+        const desc = icsEscape(rawDesc);
         const start = toCalDt(event.event_date, event.start_time);
         const end   = toCalDt(event.event_date, event.end_time);
-        const uid   = (event.id || event.title.replace(/\s+/g, "-").toLowerCase()) + "@osweekplus.nyc";
+        // Include event_date in fallback UID to avoid collisions with same-title events on different days
+        const uid = (event.id || (event.event_date + "-" + event.title.replace(/\s+/g, "-").toLowerCase())) + "@osweekplus.nyc";
         const ics = [
           "BEGIN:VCALENDAR",
           "VERSION:2.0",
           "PRODID:-//OSWeek Plus NYC//Community Calendar//EN",
           "CALSCALE:GREGORIAN",
           "METHOD:PUBLISH",
+          // VTIMEZONE component for America/New_York so TZID references are self-contained (RFC 5545 §3.6.5)
+          "BEGIN:VTIMEZONE",
+          "TZID:America/New_York",
+          "BEGIN:STANDARD",
+          "DTSTART:19671029T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=11",
+          "TZNAME:EST",
+          "TZOFFSETFROM:-0400",
+          "TZOFFSETTO:-0500",
+          "END:STANDARD",
+          "BEGIN:DAYLIGHT",
+          "DTSTART:20070311T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3",
+          "TZNAME:EDT",
+          "TZOFFSETFROM:-0500",
+          "TZOFFSETTO:-0400",
+          "END:DAYLIGHT",
+          "END:VTIMEZONE",
           "BEGIN:VEVENT",
           `UID:${uid}`,
-          `SUMMARY:${event.title}`,
+          `SUMMARY:${icsEscape(event.title)}`,
           `DTSTART;TZID=${tz}:${start}`,
           `DTEND;TZID=${tz}:${end}`,
           `DESCRIPTION:${desc}`,
-          `LOCATION:${loc}`,
+          `LOCATION:${icsEscape(loc)}`,
           "END:VEVENT",
           "END:VCALENDAR",
         ].join("\r\n");
