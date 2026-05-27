@@ -84,6 +84,18 @@
     </header>
 
     <main id="main-content">
+
+      <section style="margin-bottom:1.5rem;padding:1rem;background:#e8f4fb;border:1px solid #b3d8ef;border-radius:0.5rem;font-size:0.9rem;">
+        <p style="margin:0 0 0.5rem;font-weight:700;">📅 Official Event Sources &amp; Full Calendars</p>
+        <p style="margin:0 0 0.75rem;color:#4a6080;">OSW+ NYC is a community fringe calendar. For the full official programme and DPGA-affiliated events, visit these sources:</p>
+        <ul style="margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.3rem;">
+          <li><a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">🇺🇳 UN Open Source Week — Official Agenda<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://digitalpublicgoods.net/events" target="_blank" rel="noopener noreferrer">🌐 Digital Public Goods Alliance (DPGA) Events<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">📋 Community Event Pad (HackMD)<span class="visually-hidden"> (opens in new tab)</span></a> — this site syncs from this pad daily</li>
+          <li><a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">➕ Submit a Community Event<span class="visually-hidden"> (opens in new tab)</span></a></li>
+        </ul>
+      </section>
+
       <section class="section" aria-labelledby="runway-heading">
         <h2 id="runway-heading">Era 1 · The Runway (Pre-Week Weekend)</h2>
         <div id="runway" class="grid"></div>
@@ -184,8 +196,8 @@
           const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
-          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet.</p>';
-          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet.</p>';
+          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
             <section class="day-block" aria-labelledby="${dayId}">
@@ -210,7 +222,7 @@
       function renderSection(id, events) {
         const root = document.getElementById(id);
         if (!events.length) {
-          root.innerHTML = '<p class="empty">No events listed yet.</p>';
+          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a> or check the <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">community pad</a>.</p>';
           return;
         }
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");

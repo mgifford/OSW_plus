@@ -295,6 +295,51 @@
         margin-bottom: 1.5rem;
       }
 
+      /* ─── Official sources section ─── */
+      .sources-section {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      .sources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .source-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .source-card-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0;
+      }
+      .source-card-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin: 0;
+        flex: 1;
+      }
+      .source-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.83rem;
+        font-weight: 700;
+        color: var(--un-blue);
+        text-decoration: none;
+        margin-top: 0.3rem;
+      }
+      .source-card-link:hover { color: var(--un-blue-dark); text-decoration: underline; }
+
       /* ─── Bulk ICS banner ─── */
       .cal-banner {
         background: var(--surface);
@@ -378,6 +423,52 @@
         Events below are organized by the community, independent of the official <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a> programme.
         Want to add an event? <a href="https://github.com/mgifford/OSW_plus/issues/new" target="_blank" rel="noopener noreferrer">Submit via GitHub<span class="visually-hidden"> (opens in new tab)</span></a>.
       </div>
+
+      <section class="sources-section" aria-labelledby="official-sources-heading">
+        <h2 id="official-sources-heading" class="section-heading">
+          <span class="era-badge">Official</span> Event Sources &amp; Full Calendars
+        </h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);margin:0 0 0.75rem;">
+          OSW+ NYC is a <em>community fringe calendar</em>. For the full official programme and DPGA-affiliated events, visit these sources directly:
+        </p>
+        <div class="sources-grid">
+          <div class="source-card">
+            <p class="source-card-title">🇺🇳 UN Open Source Week — Official Agenda</p>
+            <p class="source-card-desc">The official programme at UN Headquarters, June 22–26, 2026. Includes all UN-hosted sessions and keynotes.</p>
+            <a class="source-card-link" href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">
+              View UN Agenda<span class="visually-hidden"> (opens in new tab)</span> →
+            </a>
+          </div>
+          <div class="source-card">
+            <p class="source-card-title">🌐 Digital Public Goods Alliance (DPGA) Events</p>
+            <p class="source-card-desc">The DPGA coordinates events around UN Open Source Week, including workshops, roundtables, and fringe gatherings.</p>
+            <a class="source-card-link" href="https://digitalpublicgoods.net/events" target="_blank" rel="noopener noreferrer">
+              View DPGA Events<span class="visually-hidden"> (opens in new tab)</span> →
+            </a>
+          </div>
+          <div class="source-card">
+            <p class="source-card-title">📋 Community Event Pad (HackMD)</p>
+            <p class="source-card-desc">A community-maintained list of fringe events, socials, and side gatherings. This site syncs from this pad daily.</p>
+            <a class="source-card-link" href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">
+              View Community Pad<span class="visually-hidden"> (opens in new tab)</span> →
+            </a>
+          </div>
+          <div class="source-card">
+            <p class="source-card-title">📅 OSPOs for Good 2026</p>
+            <p class="source-card-desc">OSPOs for Good is co-located with UN Open Source Week and brings together government, civil society, and open-source practitioners.</p>
+            <a class="source-card-link" href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">
+              Learn More<span class="visually-hidden"> (opens in new tab)</span> →
+            </a>
+          </div>
+          <div class="source-card">
+            <p class="source-card-title">➕ Submit a Community Event</p>
+            <p class="source-card-desc">Organizing a breakfast, social, or side event during OSW week? Add it to this calendar via a simple GitHub Issue form.</p>
+            <a class="source-card-link" href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">
+              Submit Your Event<span class="visually-hidden"> (opens in new tab)</span> →
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section class="section" aria-labelledby="runway-heading">
         <h2 id="runway-heading" class="section-heading">
@@ -622,8 +713,8 @@
           const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
-          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet.</p>';
-          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet.</p>';
+          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
             <section class="day-block" aria-labelledby="${dayId}">
@@ -648,7 +739,7 @@
       function renderSection(id, events) {
         const root = document.getElementById(id);
         if (!events.length) {
-          root.innerHTML = '<p class="empty">No events listed yet — check back soon!</p>';
+          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a> or check the <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">community pad</a>.</p>';
           return;
         }
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");
