@@ -44,7 +44,8 @@ jobs:
           python scripts/scrape_hackmd.py \
             --events-file data/2026/events.json \
             --api-file api/2026/events.json \
-            --source "https://hackmd.io/@dpga/Sk05Nc21Me/download"
+            --dpga-source "https://hackmd.io/@dpga/Sk05Nc21Me/download" \
+            --dpga-page   "https://hackmd.io/@dpga/Sk05Nc21Me"
 
       - name: Scrape UN Open Source Week agenda
         if: steps.window.outputs.active == 'true'
