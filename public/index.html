@@ -6,43 +6,103 @@
     <title>OS Week Plus NYC</title>
     <meta name="description" content="Community-driven fringe calendar and directory for UN Open Source Week in New York City." />
     <style>
+      /* Skip navigation */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        background: #0f172a;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        z-index: 9999;
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus { top: 0; }
+
+      /* Base */
       :root { color-scheme: light; }
+      *, *::before, *::after { box-sizing: border-box; }
       body { font-family: system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+
+      /* Visible focus — meets WCAG 2.2 2.4.11 */
+      :focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 2px;
+      }
+
+      /* Layout */
+      header { background: #0f172a; color: #fff; padding: 1rem 1.25rem; }
+      header p { margin: 0.25rem 0 0; font-size: 0.95rem; color: #cbd5e1; }
       main { max-width: 1080px; margin: 0 auto; padding: 1.25rem; }
-      h1, h2, h3 { margin: 0.5rem 0; }
+      footer { border-top: 1px solid #e2e8f0; padding: 1rem 1.25rem; text-align: center; font-size: 0.85rem; color: #475569; }
+
+      h1, h2, h3, h4, h5 { margin: 0.5rem 0; }
+
       .section { margin-top: 1.5rem; }
       .grid { display: grid; gap: 1rem; }
       .card { background: #fff; border: 1px solid #cbd5e1; border-radius: 0.65rem; padding: 1rem; }
-      .cta { display: inline-block; margin-top: 0.75rem; background: #0f172a; color: #fff; text-decoration: none; padding: 0.55rem 0.8rem; border-radius: 0.5rem; font-weight: 700; }
+      .cta {
+        display: inline-block;
+        margin-top: 0.75rem;
+        background: #0f172a;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.55rem 0.8rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+      }
+      .cta:hover { background: #1e3a5f; }
+
       .day-block { border: 1px solid #94a3b8; border-radius: 0.75rem; background: #fff; overflow: hidden; }
-      .day-header { background: #e2e8f0; padding: 0.75rem 1rem; font-weight: 700; }
+      .day-header { background: #e2e8f0; padding: 0.75rem 1rem; font-size: 1rem; font-weight: 700; margin: 0; }
       .slot { padding: 0.75rem 1rem; border-top: 1px solid #e2e8f0; }
       .slot.un { background: #f1f5f9; }
-      .slot-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+      .slot-title { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem; }
       .slot-note { margin: 0; font-size: 0.9rem; }
       .empty { color: #475569; font-style: italic; }
+
+      /* Screen-reader-only helper */
+      .visually-hidden {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
     </style>
   </head>
   <body>
-    <main>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
       <h1>OS Week Plus (OSW+) NYC</h1>
       <p>Open-source community breakfasts, socials, and weekend events around UN Open Source Week.</p>
+    </header>
 
-      <section class="section">
-        <h2>Era 1 · The Runway (Pre-Week Weekend)</h2>
+    <main id="main-content">
+      <section class="section" aria-labelledby="runway-heading">
+        <h2 id="runway-heading">Era 1 · The Runway (Pre-Week Weekend)</h2>
         <div id="runway" class="grid"></div>
       </section>
 
-      <section class="section">
-        <h2>Era 2 · The Core Week</h2>
+      <section class="section" aria-labelledby="core-week-heading">
+        <h2 id="core-week-heading">Era 2 · The Core Week</h2>
         <div id="core-week" class="grid"></div>
       </section>
 
-      <section class="section">
-        <h2>Era 3 · The Aftermath (Post-Week Weekend)</h2>
+      <section class="section" aria-labelledby="aftermath-heading">
+        <h2 id="aftermath-heading">Era 3 · The Aftermath (Post-Week Weekend)</h2>
         <div id="aftermath" class="grid"></div>
       </section>
     </main>
+
+    <footer>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+    </footer>
 
     <script>
       const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -66,16 +126,19 @@
         }
       }
 
-      function cardMarkup(event) {
+      function cardMarkup(event, headingLevel = 3) {
         const location = event.location?.name || event.location?.address || "NYC";
         const safeHref = safeUrl(event.original_source_url);
         return `
           <article class="card">
-            <h3>${escapeHtml(event.title)}</h3>
+            <h${headingLevel}>${escapeHtml(event.title)}</h${headingLevel}>
             <p><strong>${escapeHtml(event.event_date)}</strong> · ${escapeHtml(event.start_time)}–${escapeHtml(event.end_time)}</p>
             <p>${escapeHtml(event.summary)}</p>
             <p><strong>Organizer:</strong> ${escapeHtml(event.organizer)}<br /><strong>Location:</strong> ${escapeHtml(location)}</p>
-            <a class="cta" href="${safeHref}" target="_blank" rel="noopener">👉 View Original Event & RSVP</a>
+            <a class="cta" href="${safeHref}" target="_blank" rel="noopener noreferrer"
+               aria-label="View original event and RSVP for ${escapeHtml(event.title)} (opens in new tab)">
+              <span aria-hidden="true">👉 </span>View Original Event &amp; RSVP
+            </a>
           </article>
         `;
       }
@@ -121,21 +184,22 @@
           const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
-          const breakfastHtml = breakfasts.length ? breakfasts.map(cardMarkup).join("") : '<p class="empty">No breakfast listings yet.</p>';
-          const eveningHtml = evenings.length ? evenings.map(cardMarkup).join("") : '<p class="empty">No evening listings yet.</p>';
+          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet.</p>';
+          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet.</p>';
+          const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
-            <section class="day-block">
-              <div class="day-header">${day}</div>
+            <section class="day-block" aria-labelledby="${dayId}">
+              <h3 id="${dayId}" class="day-header">${day}</h3>
               <div class="slot">
-                <div class="slot-title">7:30 AM – 9:00 AM · Breakfast & Coffee</div>
+                <h4 class="slot-title">7:30 AM \u2013 9:00 AM \u00b7 Breakfast &amp; Coffee</h4>
                 ${breakfastHtml}
               </div>
               <div class="slot un">
-                <div class="slot-title">9:00 AM – 5:30 PM · Official UN Programming Block</div>
-                <p class="slot-note">Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener">Click here to view the UN Agenda</a>.</p>
+                <h4 class="slot-title">9:00 AM \u2013 5:30 PM \u00b7 Official UN Programming Block</h4>
+                <p class="slot-note">Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
               </div>
               <div class="slot">
-                <div class="slot-title">5:30 PM+ · Evening Socials</div>
+                <h4 class="slot-title">5:30 PM+ \u00b7 Evening Socials</h4>
                 ${eveningHtml}
               </div>
             </section>
@@ -149,10 +213,11 @@
           root.innerHTML = '<p class="empty">No events listed yet.</p>';
           return;
         }
-        root.innerHTML = events.map(cardMarkup).join("");
+        root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");
       }
 
-      fetch("/api/2026/events.json")
+      // Relative URL works on GitHub Pages (/OSW_plus/) and local dev
+      fetch("api/2026/events.json")
         .then((response) => response.json())
         .then((events) => {
           renderSection("runway", events.filter((event) => event.timeframe === "runway"));
