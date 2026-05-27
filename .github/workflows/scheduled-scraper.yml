@@ -17,28 +17,55 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check scraping window
+        id: window
+        # Run daily scraping only while events are still happening (through end of June 2026).
+        # Set active=false after the last scheduled event (aftermath weekend: June 27-28 2026).
+        run: |
+          CUTOFF="2026-06-30"
+          TODAY=$(date -u +%Y-%m-%d)
+          if [[ "$TODAY" <= "$CUTOFF" ]]; then
+            echo "active=true"  >> "$GITHUB_OUTPUT"
+            echo "Scraping window is active (today=$TODAY, cutoff=$CUTOFF)"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+            echo "Scraping window has ended (today=$TODAY, cutoff=$CUTOFF) — skipping scrape."
+          fi
+
       - name: Setup Python
+        if: steps.window.outputs.active == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Scrape HackMD sources
+      - name: Scrape HackMD community pad
+        if: steps.window.outputs.active == 'true'
         run: |
           python scripts/scrape_hackmd.py \
             --events-file data/2026/events.json \
             --api-file api/2026/events.json \
             --source "https://hackmd.io/@dpga/Sk05Nc21Me/download"
 
+      - name: Scrape UN Open Source Week agenda
+        if: steps.window.outputs.active == 'true'
+        run: |
+          python scripts/scrape_agenda.py \
+            --events-file data/2026/events.json \
+            --api-file api/2026/events.json \
+            --source "https://www.unopensource.org/agenda"
+
       - name: Rebuild ICS
+        if: steps.window.outputs.active == 'true'
         run: |
           python scripts/generate_ics.py \
             --events-file data/2026/events.json \
             --output-file public/calendar.ics
 
       - name: Create pull request
+        if: steps.window.outputs.active == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: 'chore: run scheduled event scraper'
           title: 'chore: run scheduled event scraper'
-          body: 'Automated scheduled scrape of community event sources.'
+          body: 'Automated scheduled scrape of community event sources (HackMD pad + unopensource.org/agenda).'
           branch: automation/scheduled-scraper
