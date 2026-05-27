@@ -1,0 +1,81 @@
+name: "📍 Suggest a Place to Meet"
+description: "Recommend a coffee shop, restaurant, bar, or outdoor space near the UN for OSW+ NYC attendees."
+labels: ["place-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a place! We're building a community-curated map of spots near the UN where OSW attendees can meet, eat, and recharge.
+        Please keep suggestions within **~20 minutes** walk or one subway stop of the UN (405 E 42nd St, Midtown East).
+
+  - type: input
+    id: name
+    attributes:
+      label: "Place Name"
+      placeholder: "e.g., Gregory's Coffee"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Category"
+      options:
+        - "Coffee"
+        - "Food"
+        - "Quick Bites"
+        - "Restaurant"
+        - "Bar"
+        - "Park"
+    validations:
+      required: true
+
+  - type: input
+    id: neighborhood
+    attributes:
+      label: "Neighborhood"
+      placeholder: "e.g., Turtle Bay, Midtown East, Grand Central"
+    validations:
+      required: true
+
+  - type: input
+    id: address
+    attributes:
+      label: "Address"
+      placeholder: "123 E 45th St, New York, NY 10017"
+    validations:
+      required: true
+
+  - type: input
+    id: link
+    attributes:
+      label: "Website (optional)"
+      placeholder: "https://example.com"
+
+  - type: input
+    id: distance
+    attributes:
+      label: "Distance / travel time from UN HQ"
+      placeholder: "~8 min walk"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: "Why is it good for OSW attendees?"
+      placeholder: "Great WiFi and quiet seating for sidebar conversations; affordable lunch for a busy conference day..."
+    validations:
+      required: true
+
+  - type: input
+    id: dietary
+    attributes:
+      label: "Dietary notes (optional)"
+      placeholder: "vegan-friendly, gluten-free options, halal, n/a"
+
+  - type: textarea
+    id: tips
+    attributes:
+      label: "Tips (optional)"
+      placeholder: "Reservations recommended for groups; best time to go; cash only; etc."
