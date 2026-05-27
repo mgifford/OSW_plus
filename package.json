@@ -1,0 +1,13 @@
+{
+  "name": "osw-plus",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:a11y": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@playwright/test": "^1.49.1",
+    "serve": "^14.2.4"
+  }
+}
