@@ -40,7 +40,12 @@ def _collect_links() -> list[tuple[str, str]]:
             text = md_file.read_text(encoding="utf-8")
             for url in LINK_RE.findall(text):
                 # Strip trailing punctuation that isn't part of the URL.
-                url = url.rstrip(".,;:!?)")
+                # Only strip ')' when it has no matching '(' inside the URL
+                # (e.g. markdown "](url)" syntax), so that URLs containing
+                # balanced parentheses like /page_(disambiguation) are kept.
+                url = re.sub(r"[.,;:!?]+$", "", url)
+                if url.endswith(")") and "(" not in url:
+                    url = url[:-1]
                 if url in seen:
                     continue
                 if any(p.search(url) for p in SKIP_PATTERNS):
@@ -55,7 +60,7 @@ def _check_url(url: str) -> tuple[int | None, str]:
     Return (status_code, error_message).
     Uses HEAD first; falls back to GET if the server rejects HEAD.
     """
-    headers = {"User-Agent": "OSW-link-checker/1.0 (CI test)"}
+    headers = {"User-Agent": "OSW_plus-link-checker/1.0 (CI test)"}
     for method in ("HEAD", "GET"):
         req = urllib.request.Request(url, headers=headers, method=method)
         try:
