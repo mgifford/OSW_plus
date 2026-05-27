@@ -12,7 +12,9 @@
         crossorigin="" />
 
   <!-- Papa Parse for CSV parsing -->
-  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"
+          integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb"
+          crossorigin="anonymous"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -278,7 +280,15 @@
           }
         });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Failed to load places data:", err);
+        const banner = document.querySelector(".contribute-banner");
+        if (banner) {
+          const note = document.createElement("p");
+          note.style.cssText = "margin:0.5rem 0 0;color:#b91c1c;font-weight:600;";
+          note.textContent = "⚠ Could not load venue data. Please refresh or check back later.";
+          banner.appendChild(note);
+        }
         // Fallback: just show the UN pin
         L.marker([40.7489, -73.968], {
           icon: createIcon("#dc2626", true),

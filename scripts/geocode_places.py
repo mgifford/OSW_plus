@@ -39,8 +39,10 @@ def geocode(address: str) -> tuple[float, float] | tuple[None, None]:
         results = resp.json()
         if results:
             return float(results[0]["lat"]), float(results[0]["lon"])
-    except Exception as exc:  # noqa: BLE001
-        print(f"  ⚠  Geocoding error for '{address}': {exc}")
+    except requests.RequestException as exc:
+        print(f"  ⚠  Network error geocoding '{address}': {exc}")
+    except (KeyError, ValueError, IndexError) as exc:
+        print(f"  ⚠  Unexpected response geocoding '{address}': {exc}")
     return None, None
 
 
