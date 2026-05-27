@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar · OSW+ NYC</title>
+    <meta name="description" content="3-week calendar view of community side events around UN Open Source Week 2026 in NYC — June 14–28." />
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      :root {
+        --un-blue: #009EDB;
+        --un-blue-light: #e8f4fb;
+        --navy: #0d1f3c;
+        --navy-mid: #1a3558;
+        --accent: #f59e0b;
+        --bg: #f0f4f8;
+        --surface: #ffffff;
+        --border: #d1dce8;
+        --text: #0d1f3c;
+        --text-muted: #4a6080;
+        --runway-bg: #fef9ec;
+        --runway-border: #fcd34d;
+        --osw-bg: #e8f4fb;
+        --osw-border: #7dd3f0;
+        --aftermath-bg: #f0fdf4;
+        --aftermath-border: #86efac;
+        color-scheme: light;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+      .skip-link {
+        position: absolute; top: -100%; left: 0;
+        background: var(--navy); color: #fff;
+        padding: 0.5rem 1rem; text-decoration: none;
+        font-weight: 700; z-index: 9999;
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus { top: 0; }
+
+      /* ─── Page header ─── */
+      .page-header {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        color: #fff;
+        padding: 2rem 1.5rem;
+      }
+      .page-header-inner { max-width: 1080px; margin: 0 auto; }
+      .page-header h1 {
+        margin: 0 0 0.35rem;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 800;
+      }
+      .page-header p { margin: 0 0 1rem; color: #b8d4e8; font-size: 0.95rem; }
+      .ics-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--accent);
+        color: var(--navy);
+        text-decoration: none;
+        padding: 0.5rem 0.9rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+      }
+      .ics-btn:hover { background: #d97706; }
+
+      /* ─── Main ─── */
+      main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+
+      /* ─── Legend ─── */
+      .cal-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+      .leg {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.65rem;
+        border-radius: 0.4rem;
+        border: 1.5px solid transparent;
+      }
+      .leg-runway   { background: var(--runway-bg);    border-color: var(--runway-border);   color: #92400e; }
+      .leg-osw      { background: var(--osw-bg);       border-color: var(--osw-border);      color: #0369a1; }
+      .leg-aftermath{ background: var(--aftermath-bg); border-color: var(--aftermath-border);color: #166534; }
+      .leg-dot      { color: var(--text-muted); }
+      .event-dot {
+        display: inline-block;
+        width: 7px; height: 7px;
+        background: var(--un-blue);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* ─── Calendar grid ─── */
+      .cal-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        margin-bottom: 1.5rem;
+      }
+      .cal-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      .cal-table thead th {
+        background: var(--navy);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-align: center;
+        padding: 0.6rem 0.25rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      /* Week label column */
+      .cal-table .week-label {
+        background: var(--navy-mid);
+        color: #93c5fd;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-align: center;
+        padding: 0.4rem 0.2rem;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border-right: 1px solid var(--border);
+        white-space: nowrap;
+        width: 28px;
+      }
+      .cal-table td {
+        border: 1px solid var(--border);
+        vertical-align: top;
+        padding: 0;
+      }
+      .cal-cell {
+        min-height: 72px;
+        padding: 0.5rem 0.6rem;
+        cursor: pointer;
+        width: 100%;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-family: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .cal-cell:hover { background: #f8fafc; }
+      .cal-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+      .cal-cell.selected { background: #eff6ff; }
+      .cell-date {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .cell-dow {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+      .cell-events {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        margin-top: auto;
+      }
+      .cell-event-badge {
+        font-size: 0.7rem;
+        font-weight: 700;
+        background: var(--un-blue);
+        color: #fff;
+        padding: 1px 5px;
+        border-radius: 999px;
+      }
+      .cell-un-block {
+        font-size: 0.7rem;
+        color: #0369a1;
+        font-weight: 600;
+        background: var(--un-blue-light);
+        padding: 2px 5px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .cal-cell.empty-cell { cursor: default; opacity: 0.35; }
+      .cal-cell.empty-cell:hover { background: transparent; }
+
+      /* Era background colours for cells */
+      td.era-runway   { background: var(--runway-bg); }
+      td.era-osw      { background: var(--osw-bg); }
+      td.era-aftermath{ background: var(--aftermath-bg); }
+
+      /* ─── Day detail panel ─── */
+      .day-detail {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        margin-top: 0.5rem;
+      }
+      .day-detail-heading {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid var(--un-blue);
+      }
+      .un-block-note {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--un-blue-light);
+        border: 1px solid var(--osw-border);
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.88rem;
+        color: #0369a1;
+        margin-bottom: 1rem;
+      }
+      .detail-card {
+        border: 1px solid var(--border);
+        border-radius: 0.65rem;
+        padding: 1rem 1.1rem;
+        margin-bottom: 0.75rem;
+        background: var(--surface);
+      }
+      .detail-card h3 { margin: 0 0 0.3rem; font-size: 0.97rem; color: var(--navy); }
+      .detail-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin: 0 0 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .detail-summary { font-size: 0.9rem; margin: 0 0 0.6rem; }
+      .detail-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        text-decoration: none;
+        padding: 0.4rem 0.7rem;
+        border-radius: 0.45rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        white-space: nowrap;
+        font-family: inherit;
+      }
+      .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .btn-primary { background: var(--navy); color: #fff; }
+      .btn-primary:hover { background: var(--navy-mid); }
+      .btn-gcal { background: #4285F4; color: #fff; }
+      .btn-gcal:hover { background: #2d6dd4; }
+      .btn-outlook { background: #0078D4; color: #fff; }
+      .btn-outlook:hover { background: #005fa3; }
+      .btn-ics { background: var(--surface); color: var(--navy); border: 1.5px solid var(--border); }
+      .btn-ics:hover { background: var(--bg); }
+      .detail-empty { font-size: 0.9rem; color: var(--text-muted); font-style: italic; }
+
+      /* ─── Footer ─── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        background: var(--surface);
+        margin-top: 2rem;
+      }
+      footer a { color: #2563eb; }
+
+      @media (max-width: 640px) {
+        .cal-table .week-label { display: none; }
+        .cal-table thead th { font-size: 0.72rem; padding: 0.4rem 0.1rem; }
+        .cal-cell { min-height: 56px; padding: 0.35rem 0.4rem; }
+        .cell-date { font-size: 0.82rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="page-header">
+      <div class="page-header-inner">
+        <h1>📅 Calendar Overview</h1>
+        <p>Community events around UN Open Source Week · June 14–28, 2026</p>
+        <a class="ics-btn" href="calendar.ics" download>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.9 3 3 3.9 3 5v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"/></svg>
+          Subscribe / Download Full Calendar (.ics)
+        </a>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+      <!-- Legend -->
+      <div class="cal-legend" aria-label="Calendar colour legend" role="note">
+        <span class="leg leg-runway">🗓️ Pre-Week (Jun 20–21)</span>
+        <span class="leg leg-osw">🇺🇳 OSW Core Week (Jun 22–26)</span>
+        <span class="leg leg-aftermath">🎉 Post-Week (Jun 27–28)</span>
+        <span class="leg leg-dot">
+          <span class="event-dot" aria-hidden="true"></span> = community event
+        </span>
+      </div>
+
+      <!-- Calendar grid -->
+      <div class="cal-wrap" role="region" aria-label="June 2026 event calendar">
+        <table class="cal-table" role="grid" aria-describedby="cal-desc">
+          <caption id="cal-desc" class="visually-hidden">
+            Three-week calendar grid showing June 14–28, 2026. Click or tap a date to see events for that day.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" aria-label="Week label"></th>
+              <th scope="col">Sun</th>
+              <th scope="col">Mon</th>
+              <th scope="col">Tue</th>
+              <th scope="col">Wed</th>
+              <th scope="col">Thu</th>
+              <th scope="col">Fri</th>
+              <th scope="col">Sat</th>
+            </tr>
+          </thead>
+          <tbody id="cal-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Day detail panel (hidden until a day is selected) -->
+      <section id="day-detail" class="day-detail" aria-live="polite" aria-atomic="true" hidden>
+        <h2 id="day-detail-heading" class="day-detail-heading"></h2>
+        <div id="day-detail-content"></div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
+      <p style="margin-top:0.4rem;"><a href="https://github.com/mgifford/OSW_plus" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="visually-hidden"> (opens in new tab)</span></a></p>
+    </footer>
+
+    <script src="nav.js" defer></script>
+    <script>
+      // ─── Date constants ───────────────────────────────────────────
+      // All in America/New_York context; we compare as YYYY-MM-DD strings
+      const OSW_WEEK_DATES  = ["2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26"];
+      const RUNWAY_DATES    = ["2026-06-20","2026-06-21"];
+      const AFTERMATH_DATES = ["2026-06-27","2026-06-28"];
+      const SUBMIT_URL = "https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml";
+      const UN_LINK    = "https://www.un.org/en/open-source-week";
+
+      // Build three weeks: rows starting Sun Jun 14, Sun Jun 21, Sun Jun 28
+      // June 14 2026 is a Sunday (Jun 22 = Monday → Jun 22 - 8 = Jun 14 = Sunday)
+      const WEEKS = [
+        { label: "Pre-Week",   dates: ["2026-06-14","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-19","2026-06-20"] },
+        { label: "OSW Week",   dates: ["2026-06-21","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-27"] },
+        { label: "Post-Week",  dates: ["2026-06-28","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03","2026-07-04"] }
+      ];
+
+      // Key display range — only show events for Jun 14–28
+      const DISPLAY_RANGE_END = "2026-06-28";
+
+      function eraForDate(dateStr) {
+        if (OSW_WEEK_DATES.includes(dateStr))  return "osw";
+        if (RUNWAY_DATES.includes(dateStr))    return "runway";
+        if (AFTERMATH_DATES.includes(dateStr)) return "aftermath";
+        return "";
+      }
+
+      function formatDate(dateStr) {
+        // Format "2026-06-22" → "Monday, June 22"
+        const d = new Date(dateStr + "T12:00:00");
+        return d.toLocaleDateString("en-US", {
+          weekday: "long", month: "long", day: "numeric",
+          timeZone: "America/New_York"
+        });
+      }
+
+      function shortDay(dateStr) {
+        return new Date(dateStr + "T12:00:00").toLocaleDateString("en-US", {
+          month: "numeric", day: "numeric",
+          timeZone: "America/New_York"
+        });
+      }
+
+      // ─── Calendar utilities (mirrors index.html) ─────────────────
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;").replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+      function safeUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? url.toString() : "#";
+        } catch { return "#"; }
+      }
+      function toCalDt(date, time) {
+        return date.replace(/-/g, "") + "T" + time.replace(":", "") + "00";
+      }
+      function googleCalUrl(event) {
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const details = encodeURIComponent(
+          (event.summary || "") + (event.original_source_url ? "\n\nRSVP: " + event.original_source_url : "")
+        );
+        const start = toCalDt(event.event_date, event.start_time);
+        const end   = toCalDt(event.event_date, event.end_time);
+        return "https://calendar.google.com/calendar/render?action=TEMPLATE"
+          + "&text=" + encodeURIComponent(event.title)
+          + "&dates=" + start + "/" + end
+          + "&details=" + details
+          + "&location=" + encodeURIComponent(loc);
+      }
+      function outlookCalUrl(event) {
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const body = encodeURIComponent(
+          (event.summary || "") + (event.original_source_url ? "\n\nRSVP: " + event.original_source_url : "")
+        );
+        return "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent"
+          + "&subject=" + encodeURIComponent(event.title)
+          + "&startdt=" + event.event_date + "T" + event.start_time + ":00"
+          + "&enddt="   + event.event_date + "T" + event.end_time   + ":00"
+          + "&body=" + body
+          + "&location=" + encodeURIComponent(loc);
+      }
+      function icsEscape(value) {
+        return String(value ?? "")
+          .replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+          .replace(/,/g, "\\,").replace(/[\r\n]+/g, "\\n");
+      }
+      function singleIcsUrl(event) {
+        const tz  = event.timezone || "America/New_York";
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const rawDesc = (event.summary || "") + (event.original_source_url ? "\nRSVP: " + event.original_source_url : "");
+        const start = toCalDt(event.event_date, event.start_time);
+        const end   = toCalDt(event.event_date, event.end_time);
+        const uidSlug = (event.id || (event.event_date + "-" + event.title))
+          .toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "");
+        const ics = [
+          "BEGIN:VCALENDAR", "VERSION:2.0",
+          "PRODID:-//OSWeek Plus NYC//Community Calendar//EN",
+          "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+          "BEGIN:VTIMEZONE", "TZID:America/New_York",
+          "BEGIN:STANDARD", "DTSTART:19671029T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=11",
+          "TZNAME:EST", "TZOFFSETFROM:-0400", "TZOFFSETTO:-0500",
+          "END:STANDARD", "BEGIN:DAYLIGHT", "DTSTART:20070311T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3",
+          "TZNAME:EDT", "TZOFFSETFROM:-0500", "TZOFFSETTO:-0400",
+          "END:DAYLIGHT", "END:VTIMEZONE",
+          "BEGIN:VEVENT",
+          "UID:" + uidSlug + "@osweekplus.nyc",
+          "SUMMARY:" + icsEscape(event.title),
+          "DTSTART;TZID=" + tz + ":" + start,
+          "DTEND;TZID=" + tz + ":" + end,
+          "DESCRIPTION:" + icsEscape(rawDesc),
+          "LOCATION:" + icsEscape(loc),
+          "END:VEVENT", "END:VCALENDAR"
+        ].join("\r\n");
+        return URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+      }
+
+      // ─── Calendar grid rendering ─────────────────────────────────
+      let eventsByDate = {};  // "2026-06-22" → [event, ...]
+      let selectedDate = null;
+
+      function buildGrid() {
+        const tbody = document.getElementById("cal-body");
+        tbody.innerHTML = "";
+        WEEKS.forEach(week => {
+          const tr = document.createElement("tr");
+          // Week label cell
+          const th = document.createElement("th");
+          th.scope = "row";
+          th.className = "week-label";
+          th.textContent = week.label;
+          tr.appendChild(th);
+
+          week.dates.forEach(dateStr => {
+            const td = document.createElement("td");
+            const era = eraForDate(dateStr);
+            if (era) td.className = "era-" + era;
+
+            const dayNum = dateStr.split("-")[2];
+            const isOSWWeekday = OSW_WEEK_DATES.includes(dateStr);
+            const dayEvents = eventsByDate[dateStr] || [];
+            const inRange   = dateStr <= DISPLAY_RANGE_END;
+
+            const btn = document.createElement("button");
+            btn.className = "cal-cell" + (inRange ? "" : " empty-cell");
+            btn.setAttribute("aria-label",
+              formatDate(dateStr) +
+              (isOSWWeekday ? ", UN Open Source Week" : "") +
+              (dayEvents.length ? ", " + dayEvents.length + " community event" + (dayEvents.length !== 1 ? "s" : "") : ", no events")
+            );
+            if (!inRange) {
+              btn.disabled = true;
+            }
+            btn.dataset.date = dateStr;
+
+            let inner = `<span class="cell-date">Jun ${parseInt(dayNum, 10)}</span>`;
+
+            if (isOSWWeekday) {
+              inner += `<span class="cell-un-block">🇺🇳 OSW</span>`;
+            }
+
+            if (dayEvents.length) {
+              inner += `<div class="cell-events">
+                <span class="cell-event-badge">${dayEvents.length} event${dayEvents.length !== 1 ? "s" : ""}</span>
+              </div>`;
+            }
+
+            btn.innerHTML = inner;
+            btn.addEventListener("click", () => selectDate(dateStr, btn));
+            td.appendChild(btn);
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+      }
+
+      function selectDate(dateStr, btn) {
+        // Deselect previous
+        document.querySelectorAll(".cal-cell.selected").forEach(el => el.classList.remove("selected"));
+        if (selectedDate === dateStr) {
+          // Toggle off
+          selectedDate = null;
+          document.getElementById("day-detail").hidden = true;
+          return;
+        }
+        selectedDate = dateStr;
+        btn.classList.add("selected");
+        renderDayDetail(dateStr);
+      }
+
+      function renderDayDetail(dateStr) {
+        const panel   = document.getElementById("day-detail");
+        const heading = document.getElementById("day-detail-heading");
+        const content = document.getElementById("day-detail-content");
+
+        panel.hidden = false;
+        heading.textContent = formatDate(dateStr);
+
+        const dayEvents   = (eventsByDate[dateStr] || []).slice().sort((a, b) => {
+          const ta = a.start_time || "00:00";
+          const tb = b.start_time || "00:00";
+          return ta < tb ? -1 : ta > tb ? 1 : 0;
+        });
+        const isOSWWeekday = OSW_WEEK_DATES.includes(dateStr);
+        let html = "";
+
+        if (isOSWWeekday) {
+          html += `<div class="un-block-note" role="note">
+            🇺🇳 <strong>Official UN Programming Block</strong> — 9:00 AM–5:30 PM ·
+            <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>
+          </div>`;
+        }
+
+        if (!dayEvents.length) {
+          html += `<p class="detail-empty">No community events listed for this day yet. 
+            <a href="${SUBMIT_URL}" target="_blank" rel="noopener noreferrer">Submit one via GitHub Issues<span class="visually-hidden"> (opens in new tab)</span></a>.
+          </p>`;
+        } else {
+          dayEvents.forEach(event => {
+            const locationName = event.location?.name || "NYC";
+            const locationAddr = event.location?.address || "";
+            const locationText = locationAddr && locationAddr !== "TBD"
+              ? locationName + " · " + locationAddr : locationName;
+            const safeHref    = safeUrl(event.original_source_url);
+            const gcalHref    = escapeHtml(googleCalUrl(event));
+            const outlookHref = escapeHtml(outlookCalUrl(event));
+            const icsHref     = singleIcsUrl(event);
+            const slugTitle   = (event.title || "event").toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "") || "event";
+            const title       = escapeHtml(event.title);
+
+            html += `
+              <div class="detail-card">
+                <h3>${title}</h3>
+                <div class="detail-meta">
+                  <span>🕐 ${escapeHtml(event.start_time)}–${escapeHtml(event.end_time)}</span>
+                  <span>📍 ${escapeHtml(locationText)}</span>
+                  <span>👤 ${escapeHtml(event.organizer)}</span>
+                </div>
+                <p class="detail-summary">${escapeHtml(event.summary)}</p>
+                <div class="detail-actions">
+                  <a class="btn btn-primary" href="${safeHref}" target="_blank" rel="noopener noreferrer"
+                     aria-label="View event and RSVP for ${title} (opens in new tab)">
+                    👉 RSVP
+                  </a>
+                  <a class="btn btn-gcal" href="${gcalHref}" target="_blank" rel="noopener noreferrer"
+                     aria-label="Add ${title} to Google Calendar (opens in new tab)">Google Cal</a>
+                  <a class="btn btn-outlook" href="${outlookHref}" target="_blank" rel="noopener noreferrer"
+                     aria-label="Add ${title} to Outlook (opens in new tab)">Outlook</a>
+                  <a class="btn btn-ics" href="${icsHref}" download="${slugTitle}.ics"
+                     aria-label="Download .ics for ${title}">.ics</a>
+                </div>
+              </div>`;
+          });
+        }
+
+        content.innerHTML = html;
+        // Scroll detail panel into view
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      // ─── Load events ─────────────────────────────────────────────
+      fetch("api/2026/events.json")
+        .then(r => r.json())
+        .then(events => {
+          eventsByDate = {};
+          events.forEach(e => {
+            if (!eventsByDate[e.event_date]) eventsByDate[e.event_date] = [];
+            eventsByDate[e.event_date].push(e);
+          });
+          buildGrid();
+        })
+        .catch(() => {
+          // Still render the grid, just without event dots
+          buildGrid();
+        });
+    </script>
+  </body>
+</html>

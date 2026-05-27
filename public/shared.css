@@ -1,0 +1,171 @@
+/* shared.css — Site-wide navigation bar and footer CTA styles
+   Included by all pages via <link rel="stylesheet" href="shared.css">   */
+
+:root {
+  --sn-height: 52px;
+}
+
+/* ─── Visually hidden utility (in case a page doesn't define it inline) ─── */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Account for sticky nav when jumping to anchor targets ─── */
+#main-content,
+#map,
+:target {
+  scroll-margin-top: calc(var(--sn-height) + 8px);
+}
+
+/* ─── Site Navigation Bar ─── */
+.site-nav {
+  background: #0d1f3c;
+  border-bottom: 2px solid #009EDB;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.site-nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: var(--sn-height);
+  position: relative;
+}
+
+.site-nav-brand {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+.site-nav-brand:hover,
+.site-nav-brand:focus-visible {
+  color: #93c5fd;
+}
+
+.site-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.site-nav-links a {
+  display: inline-flex;
+  align-items: center;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+.site-nav-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.site-nav-links a[aria-current="page"] {
+  background: rgba(0, 158, 219, 0.25);
+  color: #fff;
+}
+.site-nav-links a:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Submit Event CTA button in nav */
+.site-nav-submit {
+  background: #f59e0b !important;
+  color: #0d1f3c !important;
+  border-radius: 0.4rem;
+  margin-left: 0.25rem;
+}
+.site-nav-submit:hover {
+  background: #d97706 !important;
+  color: #0d1f3c !important;
+}
+
+/* ─── Mobile hamburger toggle ─── */
+.site-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  margin-left: auto;
+  border-radius: 0.35rem;
+}
+.site-nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+.site-nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.site-nav-toggle:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+  .site-nav-toggle {
+    display: flex;
+  }
+  .site-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0d1f3c;
+    border-bottom: 2px solid #009EDB;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0.75rem;
+    gap: 0.2rem;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .site-nav-links.open {
+    display: flex;
+  }
+  .site-nav-links a {
+    padding: 0.6rem 0.75rem;
+  }
+  .site-nav-submit {
+    margin-left: 0;
+  }
+}
+
+/* ─── Footer contribution CTA (injected by nav.js) ─── */
+.footer-cta {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+.footer-cta a {
+  color: #2563eb;
+  font-weight: 600;
+}

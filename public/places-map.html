@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OSW+ NYC · Places to Meet</title>
-  <meta name="description" content="Community-curated map of coffee spots, food, parks, and evening venues near the UN for UN Open Source Week." />
+  <title>OSW+ NYC · Meet Up / Food / Coffee</title>
+  <meta name="description" content="Community-curated guide to coffee spots, food, parks, and evening venues near the UN for UN Open Source Week attendees." />
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin="" />
+
+  <!-- Shared nav styles -->
+  <link rel="stylesheet" href="shared.css" />
 
   <!-- Papa Parse for CSV parsing -->
   <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"
@@ -37,14 +40,47 @@
 
     :focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
 
+    /* ─── Page header ─── */
     header {
-      background: #0f172a;
+      background: linear-gradient(135deg, #0d1f3c 0%, #1a3558 100%);
       color: #fff;
-      padding: 1rem 1.25rem;
+      padding: 1.75rem 1.25rem;
     }
-    header h1 { margin: 0; font-size: 1.4rem; }
-    header p { margin: 0.25rem 0 0; font-size: 0.9rem; color: #cbd5e1; }
-    header a { color: #93c5fd; }
+    .header-inner { max-width: 1200px; margin: 0 auto; }
+    header h1 { margin: 0 0 0.4rem; font-size: 1.5rem; font-weight: 800; }
+    .header-sub {
+      margin: 0 0 1rem;
+      font-size: 0.92rem;
+      color: #b8d4e8;
+      max-width: 680px;
+      line-height: 1.55;
+    }
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #f59e0b;
+      color: #0d1f3c;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+    }
+    .header-btn:hover { background: #d97706; }
+    .header-link {
+      color: #93c5fd;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .header-link:hover { color: #fff; text-decoration: underline; }
 
     .container { max-width: 1200px; margin: 0 auto; }
 
@@ -88,14 +124,6 @@
     .dot-bar         { background: #7c3aed; }
     .dot-park        { background: #16a34a; }
 
-    .contribute-banner {
-      padding: 0.75rem 1.25rem;
-      background: #eff6ff;
-      border-bottom: 1px solid #bfdbfe;
-      font-size: 0.875rem;
-    }
-    .contribute-banner a { color: #2563eb; font-weight: 600; }
-
     footer {
       border-top: 1px solid #e2e8f0;
       padding: 1rem 1.25rem;
@@ -130,27 +158,20 @@
   <a class="skip-link" href="#map">Skip to map</a>
 
   <header>
-    <div class="container">
-      <h1>📍 OSW+ NYC · Places to Meet</h1>
-      <p>
-        Community-curated coffee spots, food, parks &amp; evening venues near the UN ·
-        <a href="index.html">← Back to events calendar</a>
+    <div class="header-inner">
+      <h1>☕ Meet Up / Food / Coffee near the UN</h1>
+      <p class="header-sub">
+        A community-curated guide to coffee, food, and evening spots near the UN — perfect for
+        pre-event breakfasts, working lunches, or after-hours meetups during Open Source Week.
       </p>
+      <div class="header-actions">
+        <a class="header-btn" href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml" target="_blank" rel="noopener noreferrer">
+          📍 Suggest a Place<span class="visually-hidden"> (opens in new tab)</span>
+        </a>
+        <a class="header-link" href="index.html">← Back to events</a>
+      </div>
     </div>
   </header>
-
-  <div class="contribute-banner" role="note">
-    <div class="container">
-      Know a great spot near the UN that's missing?
-      <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml" target="_blank" rel="noopener noreferrer">
-        Suggest a place via GitHub Issues
-      </a>
-      or
-      <a href="https://github.com/mgifford/OSW_plus/blob/main/CONTRIBUTING-places.md" target="_blank" rel="noopener noreferrer">
-        add it directly with a pull request
-      </a>.
-    </div>
-  </div>
 
   <div class="container">
     <div class="legend">
@@ -282,12 +303,12 @@
       })
       .catch((err) => {
         console.error("Failed to load places data:", err);
-        const banner = document.querySelector(".contribute-banner");
-        if (banner) {
+        const footer = document.querySelector("footer");
+        if (footer) {
           const note = document.createElement("p");
           note.style.cssText = "margin:0.5rem 0 0;color:#b91c1c;font-weight:600;";
           note.textContent = "⚠ Could not load venue data. Please refresh or check back later.";
-          banner.appendChild(note);
+          footer.insertAdjacentElement("afterbegin", note);
         }
         // Fallback: just show the UN pin
         L.marker([40.7489, -73.968], {
@@ -297,5 +318,6 @@
           .bindPopup('<p class="popup-name">UN Headquarters</p><p class="popup-why">UN Open Source Week anchor venue</p>');
       });
   </script>
+  <script src="nav.js" defer></script>
 </body>
 </html>

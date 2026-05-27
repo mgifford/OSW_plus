@@ -4,6 +4,15 @@
     <loc>https://osweekplus.nyc/</loc>
   </url>
   <url>
+    <loc>https://osweekplus.nyc/events.html</loc>
+  </url>
+  <url>
+    <loc>https://osweekplus.nyc/calendar-view.html</loc>
+  </url>
+  <url>
+    <loc>https://osweekplus.nyc/places-map.html</loc>
+  </url>
+  <url>
     <loc>https://osweekplus.nyc/api/2026/events.json</loc>
   </url>
   <url>
