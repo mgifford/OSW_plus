@@ -1,0 +1,20 @@
+[
+  {
+    "id": "evt-2026-001",
+    "title": "Drupal NYC Evening Social & Slices",
+    "organizer": "Drupal NYC Community",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "18:00",
+    "end_time": "21:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "The Mid-Manhattan Pizza Co.",
+      "neighborhood": "Midtown East",
+      "address": "123 Lexington Ave, New York, NY"
+    },
+    "summary": "Join local and visiting Drupalistas for a casual slice, craft beers, and chat about open-source digital public goods outside the UN framework.",
+    "original_source_url": "https://meetup.com/drupal-nyc/events/12345",
+    "submission_source": "seed_data"
+  }
+]

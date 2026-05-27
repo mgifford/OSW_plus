@@ -1,0 +1,55 @@
+name: Process Side Event Submission
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  process-submission:
+    if: contains(github.event.issue.labels.*.name, 'side-event-submission')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Persist issue body
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          Path('/tmp/issue_body.md').write_text(os.environ['ISSUE_BODY'], encoding='utf-8')
+          PY
+
+      - name: Process submission
+        run: |
+          python scripts/process_issue_submission.py \
+            --issue-body-file /tmp/issue_body.md \
+            --issue-number "${{ github.event.issue.number }}" \
+            --events-file data/2026/events.json \
+            --api-file api/2026/events.json
+
+      - name: Rebuild ICS
+        run: |
+          python scripts/generate_ics.py \
+            --events-file data/2026/events.json \
+            --output-file public/calendar.ics
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: ingest side-event submission #${{ github.event.issue.number }}"
+          title: "chore: ingest side-event submission #${{ github.event.issue.number }}"
+          body: "Automated event ingestion from issue submission."
+          branch: "automation/issue-submission-${{ github.event.issue.number }}"

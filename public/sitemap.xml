@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://osweekplus.nyc/</loc>
+  </url>
+  <url>
+    <loc>https://osweekplus.nyc/api/2026/events.json</loc>
+  </url>
+  <url>
+    <loc>https://osweekplus.nyc/calendar.ics</loc>
+  </url>
+</urlset>

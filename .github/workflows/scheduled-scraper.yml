@@ -1,0 +1,44 @@
+name: Scheduled Community Scraper
+
+on:
+  schedule:
+    - cron: '30 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Scrape HackMD sources
+        run: |
+          python scripts/scrape_hackmd.py \
+            --events-file data/2026/events.json \
+            --api-file api/2026/events.json \
+            --source "https://hackmd.io/@dpga/Sk05Nc21Me/download"
+
+      - name: Rebuild ICS
+        run: |
+          python scripts/generate_ics.py \
+            --events-file data/2026/events.json \
+            --output-file public/calendar.ics
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore: run scheduled event scraper'
+          title: 'chore: run scheduled event scraper'
+          body: 'Automated scheduled scrape of community event sources.'
+          branch: automation/scheduled-scraper

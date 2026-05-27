@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OS Week Plus NYC</title>
+    <meta name="description" content="Community-driven fringe calendar and directory for UN Open Source Week in New York City." />
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+      main { max-width: 1080px; margin: 0 auto; padding: 1.25rem; }
+      h1, h2, h3 { margin: 0.5rem 0; }
+      .section { margin-top: 1.5rem; }
+      .grid { display: grid; gap: 1rem; }
+      .card { background: #fff; border: 1px solid #cbd5e1; border-radius: 0.65rem; padding: 1rem; }
+      .cta { display: inline-block; margin-top: 0.75rem; background: #0f172a; color: #fff; text-decoration: none; padding: 0.55rem 0.8rem; border-radius: 0.5rem; font-weight: 700; }
+      .day-block { border: 1px solid #94a3b8; border-radius: 0.75rem; background: #fff; overflow: hidden; }
+      .day-header { background: #e2e8f0; padding: 0.75rem 1rem; font-weight: 700; }
+      .slot { padding: 0.75rem 1rem; border-top: 1px solid #e2e8f0; }
+      .slot.un { background: #f1f5f9; }
+      .slot-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+      .slot-note { margin: 0; font-size: 0.9rem; }
+      .empty { color: #475569; font-style: italic; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>OS Week Plus (OSW+) NYC</h1>
+      <p>Open-source community breakfasts, socials, and weekend events around UN Open Source Week.</p>
+
+      <section class="section">
+        <h2>Era 1 · The Runway (Pre-Week Weekend)</h2>
+        <div id="runway" class="grid"></div>
+      </section>
+
+      <section class="section">
+        <h2>Era 2 · The Core Week</h2>
+        <div id="core-week" class="grid"></div>
+      </section>
+
+      <section class="section">
+        <h2>Era 3 · The Aftermath (Post-Week Weekend)</h2>
+        <div id="aftermath" class="grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+      const UN_LINK = "https://www.un.org/en/open-source-week";
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function safeUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? url.toString() : "#";
+        } catch {
+          return "#";
+        }
+      }
+
+      function cardMarkup(event) {
+        const location = event.location?.name || event.location?.address || "NYC";
+        const safeHref = safeUrl(event.original_source_url);
+        return `
+          <article class="card">
+            <h3>${escapeHtml(event.title)}</h3>
+            <p><strong>${escapeHtml(event.event_date)}</strong> · ${escapeHtml(event.start_time)}–${escapeHtml(event.end_time)}</p>
+            <p>${escapeHtml(event.summary)}</p>
+            <p><strong>Organizer:</strong> ${escapeHtml(event.organizer)}<br /><strong>Location:</strong> ${escapeHtml(location)}</p>
+            <a class="cta" href="${safeHref}" target="_blank" rel="noopener">👉 View Original Event & RSVP</a>
+          </article>
+        `;
+      }
+
+      function appendJsonLd(event) {
+        const ld = {
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: event.title,
+          startDate: `${event.event_date}T${event.start_time}:00`,
+          endDate: `${event.event_date}T${event.end_time}:00`,
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          location: {
+            "@type": "Place",
+            name: event.location?.name || "NYC",
+            address: event.location?.address || "New York, NY"
+          },
+          organizer: {
+            "@type": "Organization",
+            name: event.organizer || "Community Organizer"
+          },
+          description: event.summary,
+          url: safeUrl(event.original_source_url)
+        };
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.text = JSON.stringify(ld);
+        document.head.appendChild(script);
+      }
+
+      function eventWeekday(event) {
+        return new Date(`${event.event_date}T12:00:00`).toLocaleDateString("en-US", {
+          weekday: "long",
+          timeZone: "America/New_York"
+        });
+      }
+
+      function renderCoreWeek(events) {
+        const root = document.getElementById("core-week");
+        const weekdayByEventId = new Map(events.map((event) => [event.id, eventWeekday(event)]));
+        for (const day of DAYS) {
+          const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
+          const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
+          const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
+          const breakfastHtml = breakfasts.length ? breakfasts.map(cardMarkup).join("") : '<p class="empty">No breakfast listings yet.</p>';
+          const eveningHtml = evenings.length ? evenings.map(cardMarkup).join("") : '<p class="empty">No evening listings yet.</p>';
+          root.insertAdjacentHTML("beforeend", `
+            <section class="day-block">
+              <div class="day-header">${day}</div>
+              <div class="slot">
+                <div class="slot-title">7:30 AM – 9:00 AM · Breakfast & Coffee</div>
+                ${breakfastHtml}
+              </div>
+              <div class="slot un">
+                <div class="slot-title">9:00 AM – 5:30 PM · Official UN Programming Block</div>
+                <p class="slot-note">Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener">Click here to view the UN Agenda</a>.</p>
+              </div>
+              <div class="slot">
+                <div class="slot-title">5:30 PM+ · Evening Socials</div>
+                ${eveningHtml}
+              </div>
+            </section>
+          `);
+        }
+      }
+
+      function renderSection(id, events) {
+        const root = document.getElementById(id);
+        if (!events.length) {
+          root.innerHTML = '<p class="empty">No events listed yet.</p>';
+          return;
+        }
+        root.innerHTML = events.map(cardMarkup).join("");
+      }
+
+      fetch("/api/2026/events.json")
+        .then((response) => response.json())
+        .then((events) => {
+          renderSection("runway", events.filter((event) => event.timeframe === "runway"));
+          renderCoreWeek(events.filter((event) => event.timeframe.startsWith("weekday_")));
+          renderSection("aftermath", events.filter((event) => event.timeframe === "aftermath"));
+          events.forEach(appendJsonLd);
+        })
+        .catch(() => {
+          document.getElementById("runway").innerHTML = '<p class="empty">Event feed unavailable.</p>';
+        });
+    </script>
+  </body>
+</html>

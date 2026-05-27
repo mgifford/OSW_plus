@@ -1,0 +1,65 @@
+name: "🗽 Add your NYC Side Event"
+description: "Submit a breakfast, evening meetup, or weekend gathering for OSW+ NYC."
+labels: ["side-event-submission"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: "Event Title"
+      placeholder: "e.g., Drupal NYC Evening Social & Slices"
+    validations:
+      required: true
+  - type: input
+    id: organizer
+    attributes:
+      label: "Organizer / Community"
+      placeholder: "e.g., Drupal NYC Community"
+    validations:
+      required: true
+  - type: dropdown
+    id: timeframe
+    attributes:
+      label: "When is it happening?"
+      options:
+        - "The Runway (Weekend Before: June 20-21)"
+        - "Weekday Breakfast (7:30 AM - 9:00 AM)"
+        - "Weekday After-Hours (5:30 PM Onward)"
+        - "The Aftermath (Weekend After: June 27-28)"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: "Exact Date"
+      placeholder: "YYYY-MM-DD (e.g., 2026-06-23)"
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: "Original Event Link (RSVP Page)"
+      placeholder: "https://meetup.com/..., https://lu.ma/..."
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Brief Event Summary"
+      placeholder: "Keep it short. What should open-source folks expect?"
+    validations:
+      required: true
+  - type: input
+    id: venue_name
+    attributes:
+      label: "Venue Name (optional)"
+      placeholder: "e.g., The Mid-Manhattan Pizza Co."
+  - type: input
+    id: neighborhood
+    attributes:
+      label: "Neighborhood (optional)"
+      placeholder: "e.g., Midtown East"
+  - type: input
+    id: address
+    attributes:
+      label: "Address (optional)"
+      placeholder: "123 Lexington Ave, New York, NY"

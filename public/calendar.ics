@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OSWeek Plus NYC//Community Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:evt-2026-001@osweekplus.nyc
+SUMMARY:Drupal NYC Evening Social & Slices
+DTSTART;TZID=America/New_York:20260623T180000
+DTEND;TZID=America/New_York:20260623T213000
+DESCRIPTION:Join local and visiting Drupalistas for a casual slice, craft beers, and chat about open-source digital public goods outside the UN framework.\nRSVP: https://meetup.com/drupal-nyc/events/12345
+LOCATION:123 Lexington Ave, New York, NY
+END:VEVENT
+END:VCALENDAR
