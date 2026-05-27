@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events · OSW+ NYC</title>
+    <meta name="description" content="All community side events around UN Open Source Week in NYC, in chronological order. Filter by timeframe and add events to your calendar." />
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      :root {
+        --un-blue: #009EDB;
+        --un-blue-dark: #007db3;
+        --navy: #0d1f3c;
+        --navy-mid: #1a3558;
+        --accent: #f59e0b;
+        --bg: #f0f4f8;
+        --surface: #ffffff;
+        --border: #d1dce8;
+        --text: #0d1f3c;
+        --text-muted: #4a6080;
+        color-scheme: light;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+      .skip-link {
+        position: absolute; top: -100%; left: 0;
+        background: var(--navy); color: #fff;
+        padding: 0.5rem 1rem; text-decoration: none;
+        font-weight: 700; z-index: 9999;
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus { top: 0; }
+
+      /* ─── Page header ─── */
+      .page-header {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        color: #fff;
+        padding: 2rem 1.5rem;
+      }
+      .page-header-inner { max-width: 1080px; margin: 0 auto; }
+      .page-header h1 {
+        margin: 0 0 0.35rem;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 800;
+      }
+      .page-header p { margin: 0; color: #b8d4e8; font-size: 0.95rem; }
+
+      /* ─── Main content ─── */
+      main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+
+      /* ─── Filter chips ─── */
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+        align-items: center;
+      }
+      .filter-bar-label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        margin-right: 0.25rem;
+        flex-shrink: 0;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: 2px solid var(--border);
+        background: var(--surface);
+        color: var(--text-muted);
+        font-family: inherit;
+      }
+      .chip:hover { border-color: var(--un-blue); color: var(--navy); }
+      .chip:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .chip[aria-pressed="true"] {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+      }
+
+      /* ─── Event count ─── */
+      .event-count {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin: 0 0 1rem;
+      }
+
+      /* ─── Event list ─── */
+      .events-list { display: grid; gap: 1rem; }
+
+      /* ─── Cards ─── */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      }
+      .card h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.05rem;
+        color: var(--navy);
+      }
+      .card-meta {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        margin: 0 0 0.6rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .card-meta strong { color: var(--text); }
+      .era-chip {
+        display: inline-flex;
+        align-items: center;
+        background: var(--un-blue);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .card-summary { margin: 0 0 0.5rem; font-size: 0.93rem; }
+      .card-detail { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 0.75rem; }
+
+      /* Buttons */
+      .card-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        text-decoration: none;
+        padding: 0.45rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        white-space: nowrap;
+        font-family: inherit;
+      }
+      .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .btn-primary { background: var(--navy); color: #fff; }
+      .btn-primary:hover { background: var(--navy-mid); }
+      .btn-gcal { background: #4285F4; color: #fff; }
+      .btn-gcal:hover { background: #2d6dd4; }
+      .btn-outlook { background: #0078D4; color: #fff; }
+      .btn-outlook:hover { background: #005fa3; }
+      .btn-ics { background: var(--surface); color: var(--navy); border: 1.5px solid var(--border); }
+      .btn-ics:hover { background: var(--bg); }
+
+      /* ─── Empty state ─── */
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        background: var(--surface);
+        border: 1px dashed var(--border);
+        border-radius: 0.75rem;
+        color: var(--text-muted);
+      }
+      .empty-state p { margin: 0.5rem 0; font-size: 0.95rem; }
+      .empty-state a { color: var(--un-blue); font-weight: 600; }
+
+      /* ─── Footer ─── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        background: var(--surface);
+      }
+      footer a { color: #2563eb; }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="page-header">
+      <div class="page-header-inner">
+        <h1>📋 All Events</h1>
+        <p>Community side events around UN Open Source Week · June 20–28, 2026 · New York City</p>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+      <div class="filter-bar" role="group" aria-label="Filter events by timeframe">
+        <span class="filter-bar-label" id="filter-label">Filter:</span>
+        <button class="chip" data-filter="all"                aria-pressed="true">All</button>
+        <button class="chip" data-filter="runway"             aria-pressed="false">Pre-Week</button>
+        <button class="chip" data-filter="weekday_breakfast"  aria-pressed="false">Core Week Mornings</button>
+        <button class="chip" data-filter="weekday_evening"    aria-pressed="false">Core Week Evenings</button>
+        <button class="chip" data-filter="aftermath"          aria-pressed="false">Post-Week</button>
+      </div>
+
+      <p class="event-count" id="event-count" aria-live="polite" aria-atomic="true"></p>
+
+      <div id="events-list" class="events-list" aria-busy="true"></div>
+
+    </main>
+
+    <footer>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
+      <p style="margin-top:0.4rem;"><a href="https://github.com/mgifford/OSW_plus" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="visually-hidden"> (opens in new tab)</span></a></p>
+    </footer>
+
+    <script src="nav.js" defer></script>
+    <script>
+      const SUBMIT_EVENT_URL = "https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml";
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;").replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function safeUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? url.toString() : "#";
+        } catch { return "#"; }
+      }
+
+      function toCalDt(date, time) {
+        return date.replace(/-/g, "") + "T" + time.replace(":", "") + "00";
+      }
+
+      function googleCalUrl(event) {
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const details = encodeURIComponent(
+          (event.summary || "") + (event.original_source_url ? "\n\nRSVP: " + event.original_source_url : "")
+        );
+        const start = toCalDt(event.event_date, event.start_time);
+        const end   = toCalDt(event.event_date, event.end_time);
+        return "https://calendar.google.com/calendar/render?action=TEMPLATE"
+          + "&text=" + encodeURIComponent(event.title)
+          + "&dates=" + start + "/" + end
+          + "&details=" + details
+          + "&location=" + encodeURIComponent(loc);
+      }
+
+      function outlookCalUrl(event) {
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const body = encodeURIComponent(
+          (event.summary || "") + (event.original_source_url ? "\n\nRSVP: " + event.original_source_url : "")
+        );
+        return "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent"
+          + "&subject=" + encodeURIComponent(event.title)
+          + "&startdt=" + event.event_date + "T" + event.start_time + ":00"
+          + "&enddt="   + event.event_date + "T" + event.end_time   + ":00"
+          + "&body=" + body
+          + "&location=" + encodeURIComponent(loc);
+      }
+
+      function icsEscape(value) {
+        return String(value ?? "")
+          .replace(/\\/g, "\\\\").replace(/;/g, "\\;")
+          .replace(/,/g, "\\,").replace(/[\r\n]+/g, "\\n");
+      }
+
+      function singleIcsUrl(event) {
+        const tz  = event.timezone || "America/New_York";
+        const loc = event.location?.address || event.location?.name || "New York, NY";
+        const rawDesc = (event.summary || "") + (event.original_source_url ? "\nRSVP: " + event.original_source_url : "");
+        const start = toCalDt(event.event_date, event.start_time);
+        const end   = toCalDt(event.event_date, event.end_time);
+        const uidSlug = (event.id || (event.event_date + "-" + event.title))
+          .toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "");
+        const uid = uidSlug + "@osweekplus.nyc";
+        const ics = [
+          "BEGIN:VCALENDAR", "VERSION:2.0",
+          "PRODID:-//OSWeek Plus NYC//Community Calendar//EN",
+          "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+          "BEGIN:VTIMEZONE", "TZID:America/New_York",
+          "BEGIN:STANDARD", "DTSTART:19671029T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=11",
+          "TZNAME:EST", "TZOFFSETFROM:-0400", "TZOFFSETTO:-0500",
+          "END:STANDARD", "BEGIN:DAYLIGHT", "DTSTART:20070311T020000",
+          "RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3",
+          "TZNAME:EDT", "TZOFFSETFROM:-0500", "TZOFFSETTO:-0400",
+          "END:DAYLIGHT", "END:VTIMEZONE",
+          "BEGIN:VEVENT",
+          "UID:" + uid,
+          "SUMMARY:" + icsEscape(event.title),
+          "DTSTART;TZID=" + tz + ":" + start,
+          "DTEND;TZID=" + tz + ":" + end,
+          "DESCRIPTION:" + icsEscape(rawDesc),
+          "LOCATION:" + icsEscape(loc),
+          "END:VEVENT", "END:VCALENDAR"
+        ].join("\r\n");
+        const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+        return URL.createObjectURL(blob);
+      }
+
+      function eraLabel(timeframe) {
+        const map = {
+          runway:              "Pre-Week",
+          weekday_breakfast:   "Core Week · Morning",
+          weekday_evening:     "Core Week · Evening",
+          aftermath:           "Post-Week"
+        };
+        return map[timeframe] || timeframe;
+      }
+
+      function calendarButtons(event) {
+        const title       = escapeHtml(event.title);
+        const icsHref     = singleIcsUrl(event);
+        const gcalHref    = escapeHtml(googleCalUrl(event));
+        const outlookHref = escapeHtml(outlookCalUrl(event));
+        const slugTitle   = (event.title || "event").toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "") || "event";
+        return `
+          <div class="card-actions">
+            <a class="btn btn-gcal" href="${gcalHref}" target="_blank" rel="noopener noreferrer"
+               aria-label="Add ${title} to Google Calendar (opens in new tab)">
+              Google Calendar
+            </a>
+            <a class="btn btn-outlook" href="${outlookHref}" target="_blank" rel="noopener noreferrer"
+               aria-label="Add ${title} to Outlook (opens in new tab)">
+              Outlook
+            </a>
+            <a class="btn btn-ics" href="${icsHref}" download="${slugTitle}.ics"
+               aria-label="Download .ics for ${title}">
+              Download .ics
+            </a>
+          </div>`;
+      }
+
+      function cardMarkup(event) {
+        const locationName = event.location?.name || "NYC";
+        const locationAddr = event.location?.address || "";
+        const neighborhood = event.location?.neighborhood || "";
+        const locationText = locationAddr && locationAddr !== "TBD"
+          ? locationName + " · " + locationAddr : locationName;
+        const safeHref = safeUrl(event.original_source_url);
+        return `
+          <article class="card">
+            <span class="era-chip">${escapeHtml(eraLabel(event.timeframe))}</span>
+            <h2>${escapeHtml(event.title)}</h2>
+            <div class="card-meta">
+              <span>📅 <strong>${escapeHtml(event.event_date)}</strong></span>
+              <span>🕐 ${escapeHtml(event.start_time)}–${escapeHtml(event.end_time)}</span>
+              <span>📍 ${escapeHtml(locationText)}</span>
+              ${neighborhood ? `<span>🏙️ ${escapeHtml(neighborhood)}</span>` : ""}
+            </div>
+            <p class="card-summary">${escapeHtml(event.summary)}</p>
+            <p class="card-detail"><strong>Organizer:</strong> ${escapeHtml(event.organizer)}</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="${safeHref}" target="_blank" rel="noopener noreferrer"
+                 aria-label="View event and RSVP for ${escapeHtml(event.title)} (opens in new tab)">
+                👉 View Event &amp; RSVP
+              </a>
+            </div>
+            ${calendarButtons(event)}
+          </article>`;
+      }
+
+      // Sort by date + start time, then by timeframe priority
+      const TIMEFRAME_ORDER = ["runway", "weekday_breakfast", "weekday_evening", "aftermath"];
+
+      function sortEvents(events) {
+        return events.slice().sort((a, b) => {
+          const keyA = a.event_date + "T" + (a.start_time || "00:00");
+          const keyB = b.event_date + "T" + (b.start_time || "00:00");
+          if (keyA < keyB) return -1;
+          if (keyA > keyB) return  1;
+          return TIMEFRAME_ORDER.indexOf(a.timeframe) - TIMEFRAME_ORDER.indexOf(b.timeframe);
+        });
+      }
+
+      let allEvents  = [];
+      let activeFilter = "all";
+
+      function renderEvents() {
+        const filtered = activeFilter === "all"
+          ? sortEvents(allEvents)
+          : sortEvents(allEvents.filter(e => e.timeframe === activeFilter));
+
+        const list  = document.getElementById("events-list");
+        const count = document.getElementById("event-count");
+
+        list.removeAttribute("aria-busy");
+
+        if (!filtered.length) {
+          list.innerHTML = `
+            <div class="empty-state">
+              <p>😔 No events found for this filter yet — check back soon!</p>
+              <p>
+                <a href="${SUBMIT_EVENT_URL}" target="_blank" rel="noopener noreferrer">
+                  ➕ Submit an event via GitHub Issues
+                  <span class="visually-hidden"> (opens in new tab)</span>
+                </a>
+              </p>
+            </div>`;
+          count.textContent = "0 events";
+          return;
+        }
+
+        list.innerHTML = filtered.map(cardMarkup).join("");
+        count.textContent = filtered.length + " event" + (filtered.length !== 1 ? "s" : "");
+      }
+
+      // Filter chip interactions
+      document.querySelectorAll(".chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", "false"));
+          btn.setAttribute("aria-pressed", "true");
+          activeFilter = btn.dataset.filter;
+          renderEvents();
+        });
+      });
+
+      fetch("api/2026/events.json")
+        .then(r => r.json())
+        .then(events => {
+          allEvents = events;
+          renderEvents();
+        })
+        .catch(() => {
+          const list = document.getElementById("events-list");
+          list.removeAttribute("aria-busy");
+          list.innerHTML = `
+            <div class="empty-state">
+              <p>⚠️ Could not load events. Please try again later.</p>
+            </div>`;
+          document.getElementById("event-count").textContent = "";
+        });
+    </script>
+  </body>
+</html>
