@@ -80,6 +80,17 @@ _TIME_RANGE = re.compile(r"(\d{1,2}:\d{2})\s*[-–—]\s*(\d{1,2}:\d{2})")
 # Pipe-delimited table row (at least two cells)
 _TABLE_ROW = re.compile(r"^\|(.+)\|$")
 
+# Characters stripped from the end of a title extracted from an inline text line.
+_TITLE_TRAILING_CHARS = "\u2013\u2014-|,\t "
+
+
+def _is_table_separator_row(line: str) -> bool:
+    """Return True if *line* is a markdown table separator like ``| --- | --- |``."""
+    return (
+        line.startswith("|")
+        and set(line.replace("|", "").replace("-", "").replace(":", "").replace(" ", "")) == set()
+    )
+
 
 def _heading_to_anchor(heading_text: str) -> str:
     """Convert a markdown heading text to a HackMD URL anchor fragment.
@@ -154,7 +165,7 @@ def parse_dpga_events(
 
         # Detect start / end of a pipe table
         stripped = line.strip()
-        if stripped.startswith("|") and set(stripped.replace("|", "").replace("-", "").replace(":", "").replace(" ", "")) == set():
+        if _is_table_separator_row(stripped):
             # Separator row like "| --- | --- |"
             in_table = True
             continue
@@ -229,7 +240,7 @@ def parse_dpga_events(
             if not tm:
                 continue
             # Try to extract a title from the same line (text before the time)
-            title = stripped[: tm.start()].strip().rstrip("–—-|,\t ")
+            title = stripped[: tm.start()].strip().rstrip(_TITLE_TRAILING_CHARS)
             if not title:
                 continue
 
