@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OSW+ NYC · Community Fringe Events around UN Open Source Week</title>
-    <meta name="description" content="Community-driven fringe calendar and directory for UN Open Source Week in New York City. Breakfasts, socials, and side events — not an official UN event." />
+    <meta name="description" content="A website promoting the UN Open Source Week Plus Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure." />
     <link rel="stylesheet" href="shared.css" />
     <style>
       /* Skip navigation */
@@ -462,13 +462,13 @@
         <div class="hero-text">
           <span class="fringe-badge">🌐 Community Fringe Event · NYC</span>
           <h1>OSW+ NYC</h1>
-          <p class="hero-sub">Breakfasts, socials, and community side events around <strong style="color:#fff;">UN Open Source Week</strong> — June 22–26, 2026.</p>
+          <p class="hero-sub">A website promoting the <strong style="color:#fff;">UN Open Source Week Plus</strong> Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure.</p>
           <p class="not-un-notice">
             <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
             Not an official UN event — independently organized by the open-source community.
           </p>
           <nav class="hero-links" aria-label="Quick links">
-            <a class="hero-link" href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">
+            <a class="hero-link" href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">
               🇺🇳 Official UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span>
             </a>
             <a class="hero-link" href="calendar.ics" download>
@@ -517,7 +517,7 @@
 
       <div class="un-stripe" role="note">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
-        Events below are organized by the community, independent of the official <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a> programme.
+        Events below are organized by the community, independent of the official <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a> programme.
         Want to add an event? <a href="https://github.com/mgifford/OSW_plus/issues/new" target="_blank" rel="noopener noreferrer">Submit via GitHub<span class="visually-hidden"> (opens in new tab)</span></a>.
       </div>
 
@@ -532,7 +532,7 @@
           <div class="source-card">
             <p class="source-card-title">🇺🇳 UN Open Source Week — Official Agenda</p>
             <p class="source-card-desc">The official programme at UN Headquarters, June 22–26, 2026. Includes all UN-hosted sessions and keynotes.</p>
-            <a class="source-card-link" href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">
+            <a class="source-card-link" href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">
               View UN Agenda<span class="visually-hidden"> (opens in new tab)</span> →
             </a>
           </div>
@@ -553,7 +553,7 @@
           <div class="source-card">
             <p class="source-card-title">📅 OSPOs for Good 2026</p>
             <p class="source-card-desc">OSPOs for Good is co-located with UN Open Source Week (June 22–26, 2026) and brings together government, civil society, and open-source practitioners to advance open-source in public institutions.</p>
-            <a class="source-card-link" href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">
+            <a class="source-card-link" href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">
               Learn More<span class="visually-hidden"> (opens in new tab)</span> →
             </a>
           </div>
@@ -594,13 +594,21 @@
     </main>
 
     <footer>
-      <p>OSW+ NYC · Community-driven side events around <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
       <p style="margin-top:0.4rem;"><a href="https://github.com/mgifford/OSW_plus" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="visually-hidden"> (opens in new tab)</span></a></p>
     </footer>
 
     <script>
       const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-      const UN_LINK = "https://www.un.org/en/open-source-week";
+      const UN_LINK = "https://www.unopensource.org/agenda";
+
+      const DAY_THEMES = {
+        Monday:    "UN Tech Open Hack-A-Thon · Edit-A-Thon · Maintain-A-Thon",
+        Tuesday:   "Open Source × AI",
+        Wednesday: "Digital Public Infrastructure (DPI)",
+        Thursday:  "OSPOs for Good",
+        Friday:    "Community-Led Events"
+      };
 
       function escapeHtml(value) {
         return String(value ?? "")
@@ -822,7 +830,7 @@
               </div>
               <div class="slot un">
                 <h4 class="slot-title">🇺🇳 9:00 AM – 5:30 PM · Official UN Programming Block</h4>
-                <p class="slot-note">Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+                <p class="slot-note"><strong>Theme: ${DAY_THEMES[day]}</strong> — Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
               </div>
               <div class="slot">
                 <h4 class="slot-title">🌆 5:30 PM+ · Evening Socials</h4>

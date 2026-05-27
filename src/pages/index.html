@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OS Week Plus NYC</title>
-    <meta name="description" content="Community-driven fringe calendar and directory for UN Open Source Week in New York City." />
+    <meta name="description" content="A website promoting the UN Open Source Week Plus Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure." />
     <style>
       /* Skip navigation */
       .skip-link {
@@ -80,7 +80,7 @@
 
     <header>
       <h1>OS Week Plus (OSW+) NYC</h1>
-      <p>Open-source community breakfasts, socials, and weekend events around UN Open Source Week.</p>
+      <p>A website promoting the UN Open Source Week Plus Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure.</p>
     </header>
 
     <main id="main-content">
@@ -89,7 +89,7 @@
         <p style="margin:0 0 0.5rem;font-weight:700;">📅 Official Event Sources &amp; Full Calendars</p>
         <p style="margin:0 0 0.75rem;color:#4a6080;">OSW+ NYC is a community fringe calendar. For the full official programme and DPGA-affiliated events, visit these sources:</p>
         <ul style="margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.3rem;">
-          <li><a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">🇺🇳 UN Open Source Week — Official Agenda<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">🇺🇳 UN Open Source Week — Official Agenda<span class="visually-hidden"> (opens in new tab)</span></a></li>
           <li><a href="https://digitalpublicgoods.net/events" target="_blank" rel="noopener noreferrer">🌐 Digital Public Goods Alliance (DPGA) Events<span class="visually-hidden"> (opens in new tab)</span></a></li>
           <li><a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">📋 Community Event Pad (HackMD)<span class="visually-hidden"> (opens in new tab)</span></a> — this site syncs from this pad daily</li>
           <li><a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">➕ Submit a Community Event<span class="visually-hidden"> (opens in new tab)</span></a></li>
@@ -113,12 +113,20 @@
     </main>
 
     <footer>
-      <p>OSW+ NYC · Community-driven side events around <a href="https://www.un.org/en/open-source-week" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
     </footer>
 
     <script>
       const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-      const UN_LINK = "https://www.un.org/en/open-source-week";
+      const UN_LINK = "https://www.unopensource.org/agenda";
+
+      const DAY_THEMES = {
+        Monday:    "UN Tech Open Hack-A-Thon · Edit-A-Thon · Maintain-A-Thon",
+        Tuesday:   "Open Source × AI",
+        Wednesday: "Digital Public Infrastructure (DPI)",
+        Thursday:  "OSPOs for Good",
+        Friday:    "Community-Led Events"
+      };
 
       function escapeHtml(value) {
         return String(value ?? "")
@@ -207,8 +215,8 @@
                 ${breakfastHtml}
               </div>
               <div class="slot un">
-                <h4 class="slot-title">9:00 AM \u2013 5:30 PM \u00b7 Official UN Programming Block</h4>
-                <p class="slot-note">Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+                <h4 class="slot-title">9:00 AM – 5:30 PM · Official UN Programming Block</h4>
+                <p class="slot-note"><strong>Theme: ${DAY_THEMES[day]}</strong> — Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
               </div>
               <div class="slot">
                 <h4 class="slot-title">5:30 PM+ \u00b7 Evening Socials</h4>
