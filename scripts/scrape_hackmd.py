@@ -8,6 +8,7 @@ from datetime import datetime
 
 from event_utils import TIME_RANGES, event_exists, load_events, next_event_id, save_events
 
+# Expected source line format: YYYY-MM-DD | Event Title | https://event-url.example
 LINE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})\s*[|,-]\s*(?P<title>[^|]+?)\s*[|,-]\s*(?P<url>https?://\S+)")
 
 

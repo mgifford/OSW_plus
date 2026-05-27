@@ -88,10 +88,18 @@
         document.head.appendChild(script);
       }
 
+      function eventWeekday(event) {
+        return new Date(`${event.event_date}T12:00:00`).toLocaleDateString("en-US", {
+          weekday: "long",
+          timeZone: "America/New_York"
+        });
+      }
+
       function renderCoreWeek(events) {
         const root = document.getElementById("core-week");
+        const weekdayByEventId = new Map(events.map((event) => [event.id, eventWeekday(event)]));
         for (const day of DAYS) {
-          const dayEvents = events.filter((event) => new Date(`${event.event_date}T12:00:00`).toLocaleDateString("en-US", { weekday: "long", timeZone: "America/New_York" }) === day);
+          const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
           const breakfastHtml = breakfasts.length ? breakfasts.map(cardMarkup).join("") : '<p class="empty">No breakfast listings yet.</p>';
