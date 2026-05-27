@@ -485,7 +485,9 @@
         const start = toCalDt(event.event_date, event.start_time);
         const end   = toCalDt(event.event_date, event.end_time);
         // Include event_date in fallback UID to avoid collisions with same-title events on different days
-        const uid = (event.id || (event.event_date + "-" + event.title.replace(/\s+/g, "-").toLowerCase())) + "@osweekplus.nyc";
+        const uidSlug = (event.id || (event.event_date + "-" + event.title))
+          .toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "");
+        const uid = uidSlug + "@osweekplus.nyc";
         const ics = [
           "BEGIN:VCALENDAR",
           "VERSION:2.0",
@@ -529,7 +531,7 @@
         const icsHref = singleIcsUrl(event);
         const gcalHref = escapeHtml(googleCalUrl(event));
         const outlookHref = escapeHtml(outlookCalUrl(event));
-        const slugTitle = (event.title || "event").replace(/[^a-z0-9]+/gi, "-").toLowerCase();
+        const slugTitle = (event.title || "event").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "") || "event";
         return `
           <div class="card-actions" aria-label="Add ${title} to your calendar">
             <a class="btn btn-gcal" href="${gcalHref}" target="_blank" rel="noopener noreferrer"
