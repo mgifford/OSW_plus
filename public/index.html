@@ -296,50 +296,17 @@
         margin-bottom: 1.5rem;
       }
 
-      /* ─── Official sources section ─── */
-      .sources-section {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-      }
-      .sources-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-      .source-card {
+      /* ─── Official links note ─── */
+      .official-links-note {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin: 1.5rem 0 0.5rem;
+        padding: 0.6rem 0.9rem;
         background: var(--surface);
         border: 1px solid var(--border);
-        border-radius: 0.75rem;
-        padding: 1rem 1.1rem;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+        border-radius: 0.5rem;
       }
-      .source-card-title {
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--navy);
-        margin: 0;
-      }
-      .source-card-desc {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin: 0;
-        flex: 1;
-      }
-      .source-card-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
-        font-size: 0.83rem;
-        font-weight: 700;
-        color: var(--un-blue-deeper);
-        text-decoration: none;
-        margin-top: 0.3rem;
-      }
-      .source-card-link:hover { color: var(--un-blue-dark); text-decoration: underline; }
+      .official-links-note a { color: var(--un-blue-deeper); font-weight: 600; }
 
       /* ─── Bulk ICS banner ─── */
       .cal-banner {
@@ -521,51 +488,13 @@
         Want to add an event? <a href="https://github.com/mgifford/OSW_plus/issues/new" target="_blank" rel="noopener noreferrer">Submit via GitHub<span class="visually-hidden"> (opens in new tab)</span></a>.
       </div>
 
-      <section class="sources-section" aria-labelledby="official-sources-heading">
-        <h2 id="official-sources-heading" class="section-heading">
-          <span class="era-badge">Official</span> Event Sources &amp; Full Calendars
-        </h2>
-        <p style="font-size:0.9rem;color:var(--text-muted);margin:0 0 0.75rem;">
-          OSW+ NYC is a <em>community fringe calendar</em>. For the full official programme and DPGA-affiliated events, visit these sources directly:
-        </p>
-        <div class="sources-grid">
-          <div class="source-card">
-            <p class="source-card-title">🇺🇳 UN Open Source Week — Official Agenda</p>
-            <p class="source-card-desc">The official programme at UN Headquarters, June 22–26, 2026. Includes all UN-hosted sessions and keynotes.</p>
-            <a class="source-card-link" href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">
-              View UN Agenda<span class="visually-hidden"> (opens in new tab)</span> →
-            </a>
-          </div>
-          <div class="source-card">
-            <p class="source-card-title">🌐 Digital Public Goods Alliance (DPGA) Events</p>
-            <p class="source-card-desc">The DPGA coordinates events around UN Open Source Week, including workshops, roundtables, and fringe gatherings.</p>
-            <a class="source-card-link" href="https://digitalpublicgoods.net/events" target="_blank" rel="noopener noreferrer">
-              View DPGA Events<span class="visually-hidden"> (opens in new tab)</span> →
-            </a>
-          </div>
-          <div class="source-card">
-            <p class="source-card-title">📋 Community Event Pad (HackMD)</p>
-            <p class="source-card-desc">A community-maintained list of fringe events, socials, and side gatherings. This site syncs from this pad daily.</p>
-            <a class="source-card-link" href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">
-              View Community Pad<span class="visually-hidden"> (opens in new tab)</span> →
-            </a>
-          </div>
-          <div class="source-card">
-            <p class="source-card-title">📅 OSPOs for Good 2026</p>
-            <p class="source-card-desc">OSPOs for Good is co-located with UN Open Source Week (June 22–26, 2026) and brings together government, civil society, and open-source practitioners to advance open-source in public institutions.</p>
-            <a class="source-card-link" href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">
-              Learn More<span class="visually-hidden"> (opens in new tab)</span> →
-            </a>
-          </div>
-          <div class="source-card">
-            <p class="source-card-title">➕ Submit a Community Event</p>
-            <p class="source-card-desc">Organizing a breakfast, social, or side event during OSW week? Add it to this calendar via a simple GitHub Issue form.</p>
-            <a class="source-card-link" href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">
-              Submit Your Event<span class="visually-hidden"> (opens in new tab)</span> →
-            </a>
-          </div>
-        </div>
-      </section>
+      <aside class="official-links-note" aria-label="Official event sources">
+        <span role="img" aria-label="United Nations flag">🇺🇳</span> <strong>Official event:</strong>
+        <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>
+        · <a href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">View Agenda<span class="visually-hidden"> (opens in new tab)</span></a>
+        · <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">DPGA Community Pad<span class="visually-hidden"> (opens in new tab)</span></a>
+        <span aria-hidden="true">·</span> <em>OSW+ NYC is a community fringe calendar — not an official UN event.</em>
+      </aside>
 
       <section class="section" aria-labelledby="runway-heading">
         <h2 id="runway-heading" class="section-heading">
