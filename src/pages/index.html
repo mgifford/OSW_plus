@@ -90,8 +90,8 @@
         <p style="margin:0 0 0.75rem;color:#4a6080;">OSW+ NYC is a community fringe calendar. For the full official programme and DPGA-affiliated events, visit these sources:</p>
         <ul style="margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.3rem;">
           <li><a href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">🇺🇳 UN Open Source Week — Official Agenda<span class="visually-hidden"> (opens in new tab)</span></a></li>
-          <li><a href="https://digitalpublicgoods.net/events" target="_blank" rel="noopener noreferrer">🌐 Digital Public Goods Alliance (DPGA) Events<span class="visually-hidden"> (opens in new tab)</span></a></li>
-          <li><a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">📋 Community Event Pad (HackMD)<span class="visually-hidden"> (opens in new tab)</span></a> — this site syncs from this pad daily</li>
+          <li><a href="https://www.digitalpublicgoods.net" target="_blank" rel="noopener noreferrer">🌐 Digital Public Goods Alliance (DPGA)<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">📋 DPGA Events List (HackMD)<span class="visually-hidden"> (opens in new tab)</span></a> — DPGA-maintained list of events; this calendar syncs from it daily</li>
           <li><a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">➕ Submit a Community Event<span class="visually-hidden"> (opens in new tab)</span></a></li>
         </ul>
       </section>
@@ -230,7 +230,7 @@
       function renderSection(id, events) {
         const root = document.getElementById(id);
         if (!events.length) {
-          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a> or check the <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">community pad</a>.</p>';
+          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           return;
         }
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");
