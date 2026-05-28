@@ -993,13 +993,19 @@
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");
       }
 
+      // Calendar dates that belong exclusively to each non-weekday section.
+      // Used as a defence-in-depth guard: even if an event record has the wrong
+      // timeframe, it will not appear in the wrong section of the page.
+      const RUNWAY_DATES = new Set(["2026-06-20", "2026-06-21"]);
+      const AFTERMATH_DATES = new Set(["2026-06-27", "2026-06-28"]);
+
       // Relative URL resolves correctly when _site/ is served from root (GitHub Pages, local serve)
       fetch("api/2026/events.json")
         .then((response) => response.json())
         .then((events) => {
-          renderSection("runway", events.filter((event) => event.timeframe === "runway"));
+          renderSection("runway", events.filter((event) => event.timeframe === "runway" && RUNWAY_DATES.has(event.event_date)));
           renderCoreWeek(events.filter((event) => event.timeframe.startsWith("weekday_")));
-          renderSection("aftermath", events.filter((event) => event.timeframe === "aftermath"));
+          renderSection("aftermath", events.filter((event) => event.timeframe === "aftermath" && AFTERMATH_DATES.has(event.event_date)));
           events.forEach(appendJsonLd);
         })
         .catch(() => {

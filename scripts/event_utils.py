@@ -20,6 +20,14 @@ TIME_RANGES = {
     "aftermath": ("10:00", "16:00"),
 }
 
+# Calendar dates that belong exclusively to each non-weekday section.
+# These are used to override a mismatched user-supplied timeframe.
+_RUNWAY_DATES: frozenset[str] = frozenset({"2026-06-20", "2026-06-21"})
+_AFTERMATH_DATES: frozenset[str] = frozenset({"2026-06-27", "2026-06-28"})
+_CORE_WEEK_DATES: frozenset[str] = frozenset({
+    "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26",
+})
+
 
 def load_events(path: str | Path) -> list[dict[str, Any]]:
     file_path = Path(path)
@@ -70,9 +78,30 @@ def next_event_id(events: list[dict[str, Any]], year: int) -> str:
     return f"{prefix}{last_number + 1:03d}"
 
 
+def _reconcile_timeframe(timeframe: str, date_str: str) -> str:
+    """Return the correct timeframe for *date_str*, overriding *timeframe* where needed.
+
+    Weekend dates (Runway / Aftermath) are authoritative: if the calendar date
+    falls on a runway or aftermath weekend, the timeframe is forced to the
+    matching value regardless of what the submitter chose.  Conversely, if the
+    date is a Core Week weekday (June 22–26) but the submitter picked "runway"
+    or "aftermath", the timeframe is corrected to "weekday_evening" so the
+    event does not appear in the wrong section of the site.
+    """
+    if date_str in _RUNWAY_DATES:
+        return "runway"
+    if date_str in _AFTERMATH_DATES:
+        return "aftermath"
+    if date_str in _CORE_WEEK_DATES and timeframe in ("runway", "aftermath"):
+        # Core-week date was incorrectly tagged as a weekend section.
+        return "weekday_evening"
+    return timeframe
+
+
 def build_event_from_submission(fields: dict[str, str], issue_number: int, existing_events: list[dict[str, Any]]) -> dict[str, Any]:
     date_value = datetime.strptime(fields["exact date"], "%Y-%m-%d").date()
     timeframe = normalize_timeframe(fields["when is it happening?"])
+    timeframe = _reconcile_timeframe(timeframe, date_value.isoformat())
     start_time, end_time = TIME_RANGES[timeframe]
 
     return {
