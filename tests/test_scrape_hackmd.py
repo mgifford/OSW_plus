@@ -176,6 +176,27 @@ class ParseDpgaEventsNonJuneTests(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
+# parse_dpga_events — en-dash heading variant
+# ---------------------------------------------------------------------------
+
+_EN_DASH_HEADING_MARKDOWN = """\
+## AI Day – Tuesday, 23 June
+
+| Event | Location | Time |
+| --- | --- | --- |
+| AI Summit | Conference Room | 09:00 - 12:00 |
+"""
+
+class ParseDpgaEventsEnDashHeadingTests(unittest.TestCase):
+    def test_en_dash_heading_parsed(self):
+        # Headings that use en dash (–) instead of em dash (—) should still parse.
+        events = parse_dpga_events(_EN_DASH_HEADING_MARKDOWN, BASE_URL, [], "test")
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["event_date"], "2026-06-23")
+        self.assertEqual(events[0]["title"], "AI Summit")
+
+
+# ---------------------------------------------------------------------------
 # Legacy parse_events (simple line format) unchanged
 # ---------------------------------------------------------------------------
 
@@ -268,11 +289,27 @@ class ParseDpgaEventsTabSeparatedTests(unittest.TestCase):
         self.assertEqual(evt["event_date"], "2026-06-23")
         self.assertEqual(evt["start_time"], "10:00")
 
-    def test_tbc_events_skipped(self):
+    def test_tbc_events_included_with_default_times(self):
+        # TBC events should be included with default weekday_evening times and
+        # a "Time TBD" note in the summary, so they still appear on the site.
         titles = [e["title"] for e in self.events]
-        self.assertNotIn("AI Potential & Sustainability (UNICEF & DPGA)", titles)
-        self.assertNotIn("DPGA + UNICC AI Collection", titles)
-        self.assertNotIn("DPGA Breakfast", titles)
+        self.assertIn("AI Potential & Sustainability (UNICEF & DPGA)", titles)
+        self.assertIn("DPGA + UNICC AI Collection", titles)
+        self.assertIn("DPGA Breakfast", titles)
+
+    def test_tbc_events_have_time_tbd_in_summary(self):
+        tbc_event = next(
+            e for e in self.events if e["title"] == "DPGA Breakfast"
+        )
+        self.assertIn("Time TBD", tbc_event["summary"])
+
+    def test_tbc_events_use_default_times(self):
+        tbc_event = next(
+            e for e in self.events if e["title"] == "DPGA Breakfast"
+        )
+        from event_utils import TIME_RANGES
+        self.assertEqual(tbc_event["start_time"], TIME_RANGES["weekday_evening"][0])
+        self.assertEqual(tbc_event["end_time"], TIME_RANGES["weekday_evening"][1])
 
     def test_tba_event_skipped(self):
         titles = [e["title"] for e in self.events]
