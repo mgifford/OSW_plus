@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check scraping window
         id: window
@@ -34,7 +34,7 @@ jobs:
 
       - name: Setup Python
         if: steps.window.outputs.active == 'true'
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -64,7 +64,7 @@ jobs:
 
       - name: Create pull request
         if: steps.window.outputs.active == 'true'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: 'chore: run scheduled event scraper'
           title: 'chore: run scheduled event scraper'
