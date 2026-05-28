@@ -30,6 +30,8 @@ def main() -> int:
     ]
 
     for event in events:
+        summary_text = event.get('summary', '').replace('\n', ' ')
+        rsvp_url = event.get('original_source_url', '')
         lines.extend(
             [
                 "BEGIN:VEVENT",
@@ -37,7 +39,7 @@ def main() -> int:
                 f"SUMMARY:{event['title']}",
                 f"DTSTART;TZID={event.get('timezone', 'America/New_York')}:{to_ics_dt(event['event_date'], event['start_time'])}",
                 f"DTEND;TZID={event.get('timezone', 'America/New_York')}:{to_ics_dt(event['event_date'], event['end_time'])}",
-                f"DESCRIPTION:{event.get('summary', '').replace('\n', ' ')}\\nRSVP: {event.get('original_source_url', '')}",
+                f"DESCRIPTION:{summary_text}\\nRSVP: {rsvp_url}",
                 f"LOCATION:{event.get('location', {}).get('address', 'New York, NY')}",
                 "END:VEVENT",
             ]
