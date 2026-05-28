@@ -170,6 +170,8 @@ def parse_dpga_events(
     current_anchor: str | None = None
     in_table = False
     pending_title: str | None = None
+    _unmatched_heading_count = 0
+    _MAX_UNMATCHED_HEADING_LOG = 20
 
     for line in raw_markdown.splitlines():
         # Check for a day-section heading (format A: title-first; format B: date-first)
@@ -192,9 +194,12 @@ def parse_dpga_events(
                     print(f"[scrape_hackmd] Section heading matched: {line!r} → date={current_date}")
             continue
 
-        # Log heading-like lines that were NOT matched (only the first 20 to avoid noise)
-        if verbose and line.startswith("#"):
+        # Log heading-like lines that were NOT matched (cap output to avoid noise)
+        if verbose and line.startswith("#") and _unmatched_heading_count < _MAX_UNMATCHED_HEADING_LOG:
             print(f"[scrape_hackmd] Unmatched heading: {line!r}")
+            _unmatched_heading_count += 1
+            if _unmatched_heading_count == _MAX_UNMATCHED_HEADING_LOG:
+                print(f"[scrape_hackmd] (further unmatched headings suppressed)")
 
         if current_date is None:
             continue
@@ -520,8 +525,9 @@ def main() -> int:
         page_url = dpga_pages[idx] if idx < len(dpga_pages) else dpga_source.replace("/download", "")
         raw_text = fetch_text(dpga_source)
         if args.verbose:
+            _VERBOSE_PREVIEW_LENGTH = 500
             print(f"[scrape_hackmd] Fetched {len(raw_text)} bytes from {dpga_source}")
-            print(f"[scrape_hackmd] First 500 chars: {raw_text[:500]!r}")
+            print(f"[scrape_hackmd] First {_VERBOSE_PREVIEW_LENGTH} chars: {raw_text[:_VERBOSE_PREVIEW_LENGTH]!r}")
         new_events = parse_dpga_events(raw_text, page_url, events, source_name=f"hackmd-dpga:{dpga_source}", verbose=args.verbose)
         print(f"[scrape_hackmd] DPGA strategy: found {len(new_events)} new event(s) from {dpga_source}")
         events.extend(new_events)
