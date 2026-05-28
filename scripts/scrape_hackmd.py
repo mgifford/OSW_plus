@@ -59,8 +59,10 @@ LINE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})\s*[|,-]\s*(?P<title>[^|]
 
 # Matches headings like "## UN Tech Over — Monday 22 June"
 # or "## Digital Public Goods — Tuesday, 23 June 2026" (comma after weekday is optional)
+# Accepts em dash (—), en dash (–), or regular hyphen (-) as the section separator,
+# using explicit alternation so only these specific dash characters are matched.
 _SECTION_HEADING = re.compile(
-    r"^#{1,3}\s+(?P<heading>.+?)\s*—\s*"
+    r"^#{1,3}\s+(?P<heading>.+?)\s*(?:—|–|-)\s*"
     r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+"
     r"(?P<day>\d{1,2})\s+"
     r"(?P<month>January|February|March|April|May|June|July|August|"
@@ -305,6 +307,32 @@ def parse_dpga_events(
                             "address": "New York, NY",
                         },
                         "summary": f"Imported from the DPGA UN Open Source Week schedule. See {section_url} for details.",
+                        "original_source_url": section_url,
+                        "submission_source": source_name,
+                    }
+                    if not event_exists(existing_events + parsed, candidate):
+                        parsed.append(candidate)
+                    pending_title = None
+                elif title and not start_time:
+                    # Time is TBC/TBA — include the event with default times so it
+                    # still appears on the site; the summary notes the time is TBD.
+                    timeframe = "weekday_evening"
+                    section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
+                    candidate = {
+                        "id": next_event_id(existing_events + parsed, default_year),
+                        "title": title,
+                        "organizer": "Digital Public Goods Alliance",
+                        "timeframe": timeframe,
+                        "event_date": current_date,
+                        "start_time": TIME_RANGES[timeframe][0],
+                        "end_time": TIME_RANGES[timeframe][1],
+                        "timezone": "America/New_York",
+                        "location": {
+                            "name": "TBD",
+                            "neighborhood": "TBD",
+                            "address": "New York, NY",
+                        },
+                        "summary": f"Time TBD. Imported from the DPGA UN Open Source Week schedule. See {section_url} for details.",
                         "original_source_url": section_url,
                         "submission_source": source_name,
                     }
