@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   scrape:
@@ -63,11 +62,15 @@ jobs:
             --events-file data/2026/events.json \
             --output-file public/calendar.ics
 
-      - name: Create pull request
+      - name: Commit and push updated data
         if: steps.window.outputs.active == 'true'
-        uses: peter-evans/create-pull-request@v8
-        with:
-          commit-message: 'chore: run scheduled event scraper'
-          title: 'chore: run scheduled event scraper'
-          body: 'Automated scheduled scrape of community event sources (HackMD pad + unopensource.org/agenda).'
-          branch: automation/scheduled-scraper
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/2026/events.json api/2026/events.json public/calendar.ics
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: run scheduled event scraper"
+            git push origin main
+          fi
