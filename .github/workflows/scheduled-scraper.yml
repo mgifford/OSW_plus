@@ -24,7 +24,7 @@ jobs:
         run: |
           CUTOFF="2026-06-30"
           TODAY=$(date -u +%Y-%m-%d)
-          if [[ "$TODAY" <= "$CUTOFF" ]]; then
+          if [[ ! "$TODAY" > "$CUTOFF" ]]; then
             echo "active=true"  >> "$GITHUB_OUTPUT"
             echo "Scraping window is active (today=$TODAY, cutoff=$CUTOFF)"
           else
