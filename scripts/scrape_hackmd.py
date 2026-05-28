@@ -37,6 +37,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import html as _html
 import re
 import urllib.error
 import urllib.parse
@@ -57,10 +58,10 @@ LINE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})\s*[|,-]\s*(?P<title>[^|]
 # ---------------------------------------------------------------------------
 
 # Matches headings like "## UN Tech Over — Monday 22 June"
-# or "## Digital Public Goods — Tuesday 23 June 2026"
+# or "## Digital Public Goods — Tuesday, 23 June 2026" (comma after weekday is optional)
 _SECTION_HEADING = re.compile(
     r"^#{1,3}\s+(?P<heading>.+?)\s*—\s*"
-    r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+"
+    r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+"
     r"(?P<day>\d{1,2})\s+"
     r"(?P<month>January|February|March|April|May|June|July|August|"
     r"September|October|November|December)"
@@ -76,6 +77,9 @@ _MONTH_NUMS: dict[str, str] = {
 
 # Time range in cell: "10:00 - 18:00" or "10:00–18:00" or "10:00 – 18:00"
 _TIME_RANGE = re.compile(r"(\d{1,2}:\d{2})\s*[-–—]\s*(\d{1,2}:\d{2})")
+
+# Single time without an explicit end (e.g. "10:00")
+_SINGLE_TIME_RE = re.compile(r"\b(\d{1,2}:\d{2})\b")
 
 # Pipe-delimited table row (at least two cells)
 _TABLE_ROW = re.compile(r"^\|(.+)\|$")
@@ -141,6 +145,7 @@ def parse_dpga_events(
     current_date: str | None = None
     current_anchor: str | None = None
     in_table = False
+    pending_title: str | None = None
 
     for line in raw_markdown.splitlines():
         # Check for a day-section heading
@@ -149,6 +154,7 @@ def parse_dpga_events(
             current_date = None
             current_anchor = None
             in_table = False
+            pending_title = None
             day = heading_match.group("day").zfill(2)
             month = _MONTH_NUMS.get(heading_match.group("month").lower())
             year = heading_match.group("year") or str(default_year)
@@ -165,6 +171,8 @@ def parse_dpga_events(
 
         # Detect start / end of a pipe table
         stripped = line.strip()
+        if not stripped:
+            continue
         if _is_table_separator_row(stripped):
             # Separator row like "| --- | --- |"
             in_table = True
@@ -234,41 +242,121 @@ def parse_dpga_events(
             if not event_exists(existing_events + parsed, candidate):
                 parsed.append(candidate)
         else:
-            # Outside a table: look for a time pattern on the line itself to
-            # handle bulleted lists or plain-text event rows.
-            tm = _TIME_RANGE.search(stripped)
-            if not tm:
-                continue
-            # Try to extract a title from the same line (text before the time)
-            title = stripped[: tm.start()].strip().rstrip(_TITLE_TRAILING_CHARS)
-            if not title:
-                continue
+            # Outside a pipe table: handle tab-separated rows and
+            # bulleted/plain-text event rows.
+            if "\t" in stripped:
+                # Tab-separated format used by the DPGA agenda pad:
+                #   "Event Title\tTime"  or  "(Location)\tTime"
+                # HTML entities (e.g. &amp;) are decoded before processing.
+                parts = [_html.unescape(p.strip()) for p in stripped.split("\t")]
+                title_candidate = parts[0]
+                time_cells = parts[1:]
 
-            start_time = tm.group(1)
-            end_time = tm.group(2)
-            timeframe = _infer_timeframe_from_times(start_time, end_time)
-            section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
+                # Skip header rows like "Activity\tTime"
+                if title_candidate.lower() in {"activity", "event", "session", "title", "name", "time"}:
+                    continue
 
-            candidate = {
-                "id": next_event_id(existing_events + parsed, default_year),
-                "title": title,
-                "organizer": "Digital Public Goods Alliance",
-                "timeframe": timeframe,
-                "event_date": current_date,
-                "start_time": start_time,
-                "end_time": end_time,
-                "timezone": "America/New_York",
-                "location": {
-                    "name": "TBD",
-                    "neighborhood": "TBD",
-                    "address": "New York, NY",
-                },
-                "summary": f"Imported from the DPGA UN Open Source Week schedule. See {section_url} for details.",
-                "original_source_url": section_url,
-                "submission_source": source_name,
-            }
-            if not event_exists(existing_events + parsed, candidate):
-                parsed.append(candidate)
+                # Determine whether the first column describes a location
+                # rather than an event title (e.g. "(Room A)" or "Location: …").
+                is_location = (
+                    title_candidate.startswith("(")
+                    or bool(re.match(r"^location\s*:", title_candidate, re.IGNORECASE))
+                )
+
+                # Extract the first recognisable time from the remaining cells.
+                start_time: str | None = None
+                end_time: str | None = None
+                for cell in time_cells:
+                    tm = _TIME_RANGE.search(cell)
+                    if tm:
+                        start_time = tm.group(1)
+                        end_time = tm.group(2)
+                        break
+                    # Accept a single time (no end) e.g. "10:00"
+                    tm_single = _SINGLE_TIME_RE.search(cell)
+                    if tm_single:
+                        start_time = tm_single.group(1)
+                        break
+
+                if is_location:
+                    # Use the title collected from the preceding non-tab line.
+                    title = pending_title
+                    pending_title = None
+                else:
+                    title = title_candidate
+                    # Keep in pending_title so a following location row can find it.
+                    pending_title = title_candidate
+
+                if title and start_time:
+                    timeframe = _infer_timeframe_from_times(start_time, end_time or "")
+                    section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
+                    candidate = {
+                        "id": next_event_id(existing_events + parsed, default_year),
+                        "title": title,
+                        "organizer": "Digital Public Goods Alliance",
+                        "timeframe": timeframe,
+                        "event_date": current_date,
+                        "start_time": start_time,
+                        "end_time": end_time or TIME_RANGES[timeframe][1],
+                        "timezone": "America/New_York",
+                        "location": {
+                            "name": "TBD",
+                            "neighborhood": "TBD",
+                            "address": "New York, NY",
+                        },
+                        "summary": f"Imported from the DPGA UN Open Source Week schedule. See {section_url} for details.",
+                        "original_source_url": section_url,
+                        "submission_source": source_name,
+                    }
+                    if not event_exists(existing_events + parsed, candidate):
+                        parsed.append(candidate)
+                    pending_title = None
+            else:
+                # No tab: look for a time pattern inline (bulleted lists, etc.)
+                tm = _TIME_RANGE.search(stripped)
+                if not tm:
+                    # Store as a potential pending title for the next tab row
+                    # (handles multi-line events where the title appears on its
+                    # own line before a "(location)\ttime" line).
+                    if stripped and stripped.lower() not in {"activity", "time", "event"}:
+                        pending_title = _html.unescape(stripped)
+                    continue
+                # Try to extract a title from the same line (text before the time)
+                title = _html.unescape(
+                    stripped[: tm.start()].strip().rstrip(_TITLE_TRAILING_CHARS)
+                )
+                if not title:
+                    title = pending_title
+                if not title:
+                    pending_title = None
+                    continue
+
+                start_time = tm.group(1)
+                end_time = tm.group(2)
+                timeframe = _infer_timeframe_from_times(start_time, end_time)
+                section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
+
+                candidate = {
+                    "id": next_event_id(existing_events + parsed, default_year),
+                    "title": title,
+                    "organizer": "Digital Public Goods Alliance",
+                    "timeframe": timeframe,
+                    "event_date": current_date,
+                    "start_time": start_time,
+                    "end_time": end_time,
+                    "timezone": "America/New_York",
+                    "location": {
+                        "name": "TBD",
+                        "neighborhood": "TBD",
+                        "address": "New York, NY",
+                    },
+                    "summary": f"Imported from the DPGA UN Open Source Week schedule. See {section_url} for details.",
+                    "original_source_url": section_url,
+                    "submission_source": source_name,
+                }
+                if not event_exists(existing_events + parsed, candidate):
+                    parsed.append(candidate)
+                pending_title = None
 
     return parsed
 

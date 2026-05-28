@@ -189,5 +189,134 @@ class ParseEventsLegacyTests(unittest.TestCase):
         self.assertEqual(events[0]["original_source_url"], "https://example.org/summit")
 
 
+# ---------------------------------------------------------------------------
+# parse_dpga_events — tab-separated format (actual DPGA agenda style)
+# ---------------------------------------------------------------------------
+
+# Mirrors the format used in https://hackmd.io/@dpga/Sk05Nc21Me, with:
+#   - Comma after weekday in the heading ("Monday, 22 June")
+#   - Tab-separated rows instead of pipe tables
+#   - Multi-line events: title on its own line, then "(location)\ttime"
+#   - HTML entities (&amp;) in event names
+#   - Single times without an end ("10:00")
+#   - TBC/TBA times that should be skipped
+
+_DPGA_ACTUAL_FORMAT = (
+    "## UN Tech Over \u2014 Monday, 22 June\n"
+    "Activity\tTime\n"
+    "UN Tech Over Hack-A-Thon, Edit-A-Thon, and Maintain-A-Thon\n"
+    "\n"
+    "(location details)\t10:00 - 18:00\n"
+    "Octane Side Event: Sustainable Open Source Funding Infrastructure.\n"
+    "\n"
+    "Location: Michael J Fox Foundation Offices, 111 W34th St.\t12:00 \u2013 17:00\n"
+    "\n"
+    "## AI Day \u2014 Tuesday, 23 June\n"
+    "Activity\tTime\n"
+    "UNGA81 Event\t10:00\n"
+    "AI Potential &amp; Sustainability (UNICEF &amp; DPGA)\tTBC\n"
+    "DPGA + UNICC AI Collection\tTBC\n"
+    "\n"
+    "## DPI Day \u2014 Wednesday, 24 June\n"
+    "Activity\tTime\n"
+    "DPGA Breakfast\tTBC\n"
+    "Advancing Population-Scale Innovation with Safe &amp; Inclusive DPI\t12:00 - 13:00 &amp; 15:00 - 16:00\n"
+    "\n"
+    "## Community Day \u2014 Friday, 26 June\n"
+    "Activity\tTime\n"
+    "DPG Showcase &amp; Networking \u2013 Community Event (More details TBA)\n"
+    "\n"
+    "Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice\t14:20 - 15:20\n"
+)
+
+
+class ParseDpgaEventsTabSeparatedTests(unittest.TestCase):
+    def setUp(self):
+        self.events = parse_dpga_events(_DPGA_ACTUAL_FORMAT, BASE_URL, [], "test")
+
+    def test_multiline_event_title_extracted(self):
+        titles = [e["title"] for e in self.events]
+        self.assertIn(
+            "UN Tech Over Hack-A-Thon, Edit-A-Thon, and Maintain-A-Thon", titles
+        )
+
+    def test_multiline_event_with_location_prefix(self):
+        titles = [e["title"] for e in self.events]
+        self.assertIn(
+            "Octane Side Event: Sustainable Open Source Funding Infrastructure.", titles
+        )
+
+    def test_multiline_event_date(self):
+        evt = next(
+            e for e in self.events if "Hack-A-Thon" in e["title"]
+        )
+        self.assertEqual(evt["event_date"], "2026-06-22")
+
+    def test_multiline_event_times(self):
+        evt = next(
+            e for e in self.events if "Hack-A-Thon" in e["title"]
+        )
+        self.assertEqual(evt["start_time"], "10:00")
+        self.assertEqual(evt["end_time"], "18:00")
+
+    def test_single_time_event_included(self):
+        titles = [e["title"] for e in self.events]
+        self.assertIn("UNGA81 Event", titles)
+
+    def test_single_time_event_date(self):
+        evt = next(e for e in self.events if e["title"] == "UNGA81 Event")
+        self.assertEqual(evt["event_date"], "2026-06-23")
+        self.assertEqual(evt["start_time"], "10:00")
+
+    def test_tbc_events_skipped(self):
+        titles = [e["title"] for e in self.events]
+        self.assertNotIn("AI Potential & Sustainability (UNICEF & DPGA)", titles)
+        self.assertNotIn("DPGA + UNICC AI Collection", titles)
+        self.assertNotIn("DPGA Breakfast", titles)
+
+    def test_tba_event_skipped(self):
+        titles = [e["title"] for e in self.events]
+        self.assertFalse(any("DPG Showcase" in t for t in titles))
+
+    def test_html_entities_decoded_in_titles(self):
+        for evt in self.events:
+            self.assertNotIn("&amp;", evt["title"])
+
+    def test_ampersand_entity_decoded(self):
+        # "Advancing Population-Scale Innovation with Safe &amp; Inclusive DPI"
+        # should appear as "… Safe & Inclusive DPI"
+        titles = [e["title"] for e in self.events]
+        self.assertTrue(any("Safe & Inclusive DPI" in t for t in titles))
+
+    def test_multiple_time_ranges_uses_first(self):
+        # "12:00 - 13:00 & 15:00 - 16:00" → start 12:00 end 13:00
+        evt = next(
+            e for e in self.events if "Safe & Inclusive DPI" in e["title"]
+        )
+        self.assertEqual(evt["start_time"], "12:00")
+        self.assertEqual(evt["end_time"], "13:00")
+
+    def test_community_day_event_extracted(self):
+        titles = [e["title"] for e in self.events]
+        self.assertIn(
+            "Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice",
+            titles,
+        )
+
+    def test_organizer_is_dpga(self):
+        for evt in self.events:
+            self.assertEqual(evt["organizer"], "Digital Public Goods Alliance")
+
+    def test_unique_ids(self):
+        ids = [e["id"] for e in self.events]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_comma_heading_date_parsed(self):
+        # Headings use "Monday, 22 June" (comma after weekday).
+        dates = {e["event_date"] for e in self.events}
+        self.assertIn("2026-06-22", dates)
+        self.assertIn("2026-06-23", dates)
+
+
 if __name__ == "__main__":
     unittest.main()
