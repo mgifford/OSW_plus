@@ -328,7 +328,6 @@ def parse_dpga_events(
                 if not title:
                     title = pending_title
                 if not title:
-                    pending_title = None
                     continue
 
                 start_time = tm.group(1)
