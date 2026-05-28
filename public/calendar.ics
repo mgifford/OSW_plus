@@ -3,4 +3,100 @@ VERSION:2.0
 PRODID:-//OSWeek Plus NYC//Community Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
+BEGIN:VEVENT
+UID:evt-2026-001@osweekplus.nyc
+SUMMARY:UN Tech Over Hack-A-Thon, Edit-A-Thon, and Maintain-A-Thon <br /><br /> ([location details](https://unopensource.org/agenda))
+DTSTART;TZID=America/New_York:20260622T100000
+DTEND;TZID=America/New_York:20260622T180000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-002@osweekplus.nyc
+SUMMARY:Octane Side Event: Sustainable Open Source Funding Infrastructure. <br /><br /> Location: Michael J Fox Foundation Offices, 111 W34th St.
+DTSTART;TZID=America/New_York:20260622T120000
+DTEND;TZID=America/New_York:20260622T170000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-003@osweekplus.nyc
+SUMMARY:Advancing Population-Scale Innovation with Safe & Inclusive DPI
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-004@osweekplus.nyc
+SUMMARY:UNICC & UNESCO DPI Sustainability for Health, Learning and Science
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-005@osweekplus.nyc
+SUMMARY:Government of the Dominican Republic & UNICEF – Making DPI Work for Children: From Country Experience to Implementer Tactics
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-006@osweekplus.nyc
+SUMMARY:UN ODET — Data Governance for the Public Good: Equity, Openness and Community Stewardship
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-007@osweekplus.nyc
+SUMMARY:UN ODET & GitHub — Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-008@osweekplus.nyc
+SUMMARY:IDB — Financing Open Source and Digital Public Goods: A Multi-Stakeholder Approach
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-009@osweekplus.nyc
+SUMMARY:ADB & UN ODET — AI as a Digital Public Good: Insights from ADB’s Research
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-010@osweekplus.nyc
+SUMMARY:UN ODET & Decidim — Cities, Democracy, and Open Source
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-011@osweekplus.nyc
+SUMMARY:UN ODET & ITU — From Policy to Practice: Establishing Government OSPOs in Low- and Middle-Income Countries
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPO-Day-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-012@osweekplus.nyc
+SUMMARY:DPG Showcase & Networking – Community Event (More details TBA) <br /><br /> Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice
+DTSTART;TZID=America/New_York:20260626T142000
+DTEND;TZID=America/New_York:20260626T152000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June
+LOCATION:New York, NY
+END:VEVENT
 END:VCALENDAR
