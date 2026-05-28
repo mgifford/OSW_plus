@@ -128,18 +128,35 @@ def _heading_to_anchor(heading_text: str) -> str:
     return urllib.parse.quote(slug, safe="-_.~")
 
 
-def _infer_timeframe_from_times(start: str, end: str) -> str:
-    """Return the closest timeframe key based on extracted start/end times."""
+_RUNWAY_DATES    = {"2026-06-20", "2026-06-21"}
+_AFTERMATH_DATES = {"2026-06-27", "2026-06-28"}
+
+
+def _infer_timeframe_from_times(start: str, end: str, event_date: str | None = None) -> str:
+    """Return the closest timeframe key based on the event date and start time.
+
+    When *event_date* is provided (``YYYY-MM-DD``), it is used to classify
+    runway / aftermath events by calendar date rather than time-of-day.  For
+    weekday dates the start time is used to distinguish breakfast slots from
+    evening slots.
+    """
+    if event_date is not None:
+        if event_date in _RUNWAY_DATES:
+            return "runway"
+        if event_date in _AFTERMATH_DATES:
+            return "aftermath"
+        # Known weekday date — classify by time
+        try:
+            start_h, start_m = (int(x) for x in start.split(":"))
+        except ValueError:
+            return "weekday_evening"
+        return "weekday_breakfast" if start_h * 60 + start_m < 10 * 60 else "weekday_evening"
+    # No date context — fall back to time-only heuristic (legacy / generic pads)
     try:
         start_h, start_m = (int(x) for x in start.split(":"))
     except ValueError:
         return "weekday_evening"
-    start_minutes = start_h * 60 + start_m
-    if start_minutes < 12 * 60:   # before noon → morning / runway
-        return "runway"
-    if start_minutes < 15 * 60:   # 12:00–14:59 → daytime, treat as runway
-        return "runway"
-    return "weekday_evening"
+    return "weekday_breakfast" if start_h * 60 + start_m < 10 * 60 else "weekday_evening"
 
 
 def parse_dpga_events(
@@ -245,7 +262,7 @@ def parse_dpga_events(
             if start_time is None:
                 start_time, end_time = TIME_RANGES["weekday_evening"]
 
-            timeframe = _infer_timeframe_from_times(start_time, end_time or "")
+            timeframe = _infer_timeframe_from_times(start_time, end_time or "", event_date=current_date)
 
             # Location is the cell that contains neither a time range nor the title
             location_name = "TBD"
@@ -323,7 +340,7 @@ def parse_dpga_events(
                     pending_title = title_candidate
 
                 if title and start_time:
-                    timeframe = _infer_timeframe_from_times(start_time, end_time or "")
+                    timeframe = _infer_timeframe_from_times(start_time, end_time or "", event_date=current_date)
                     section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
                     candidate = {
                         "id": next_event_id(existing_events + parsed, default_year),
@@ -393,7 +410,7 @@ def parse_dpga_events(
 
                 start_time = tm.group(1)
                 end_time = tm.group(2)
-                timeframe = _infer_timeframe_from_times(start_time, end_time)
+                timeframe = _infer_timeframe_from_times(start_time, end_time, event_date=current_date)
                 section_url = f"{page_url}#{current_anchor}" if current_anchor else page_url
 
                 candidate = {
