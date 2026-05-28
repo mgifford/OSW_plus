@@ -59,9 +59,10 @@ LINE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})\s*[|,-]\s*(?P<title>[^|]
 
 # Matches headings like "## UN Tech Over — Monday 22 June"
 # or "## Digital Public Goods — Tuesday, 23 June 2026" (comma after weekday is optional)
-# Accepts em dash (—), en dash (–), or regular hyphen (-) as the section separator.
+# Accepts em dash (—), en dash (–), or regular hyphen (-) as the section separator,
+# using explicit alternation so only these specific dash characters are matched.
 _SECTION_HEADING = re.compile(
-    r"^#{1,3}\s+(?P<heading>.+?)\s*[—–-]\s*"
+    r"^#{1,3}\s+(?P<heading>.+?)\s*(?:—|–|-)\s*"
     r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+"
     r"(?P<day>\d{1,2})\s+"
     r"(?P<month>January|February|March|April|May|June|July|August|"

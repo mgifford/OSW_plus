@@ -10,6 +10,7 @@ from scrape_hackmd import (  # noqa: E402
     parse_dpga_events,
     parse_events,
 )
+from event_utils import TIME_RANGES  # noqa: E402
 
 BASE_URL = "https://hackmd.io/@dpga/Sk05Nc21Me"
 
@@ -307,7 +308,6 @@ class ParseDpgaEventsTabSeparatedTests(unittest.TestCase):
         tbc_event = next(
             e for e in self.events if e["title"] == "DPGA Breakfast"
         )
-        from event_utils import TIME_RANGES
         self.assertEqual(tbc_event["start_time"], TIME_RANGES["weekday_evening"][0])
         self.assertEqual(tbc_event["end_time"], TIME_RANGES["weekday_evening"][1])
 
