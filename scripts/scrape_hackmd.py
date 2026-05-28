@@ -57,17 +57,37 @@ LINE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})\s*[|,-]\s*(?P<title>[^|]
 # Strategy 2: DPGA agenda format
 # ---------------------------------------------------------------------------
 
-# Matches headings like "## UN Tech Over — Monday 22 June"
-# or "## Digital Public Goods — Tuesday, 23 June 2026" (comma after weekday is optional)
-# Accepts em dash (—), en dash (–), or regular hyphen (-) as the section separator,
-# using explicit alternation so only these specific dash characters are matched.
-_SECTION_HEADING = re.compile(
-    r"^#{1,3}\s+(?P<heading>.+?)\s*(?:—|–|-)\s*"
-    r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+"
-    r"(?P<day>\d{1,2})\s+"
+# Common dash alternatives used in markdown headings.  Explicit alternation is
+# used (rather than a character-class) to avoid accidentally matching unrelated
+# characters.  Order: em dash, en dash, figure dash, minus sign, hyphen-minus.
+_DASH_PAT = r"(?:—|–|\u2012|\u2212|-)"
+
+_WEEKDAY_PAT = r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
+_MONTH_PAT = (
     r"(?P<month>January|February|March|April|May|June|July|August|"
     r"September|October|November|December)"
+)
+
+# Format A: "## Section Name — Weekday DD Month [Year]"
+# e.g. "## UN Tech Over — Monday, 22 June 2026"
+_SECTION_HEADING = re.compile(
+    r"^#{1,3}\s+(?P<heading>.+?)\s*" + _DASH_PAT + r"\s*"
+    r"" + _WEEKDAY_PAT + r",?\s+"
+    r"(?P<day>\d{1,2})\s+"
+    + _MONTH_PAT +
     r"(?:\s+(?P<year>\d{4}))?",
+    re.IGNORECASE,
+)
+
+# Format B: "## Weekday DD Month [Year] — Section Name"
+# e.g. "## Monday, 22 June — UN Tech Over"
+_SECTION_HEADING_DATE_FIRST = re.compile(
+    r"^#{1,3}\s+" + _WEEKDAY_PAT + r",?\s+"
+    r"(?P<day>\d{1,2})\s+"
+    + _MONTH_PAT +
+    r"(?:\s+(?P<year>\d{4}))?"
+    r"\s*" + _DASH_PAT + r"\s*"
+    r"(?P<heading>.+)",
     re.IGNORECASE,
 )
 
@@ -128,6 +148,7 @@ def parse_dpga_events(
     existing_events: list[dict],
     source_name: str,
     default_year: int = 2026,
+    verbose: bool = False,
 ) -> list[dict]:
     """Parse DPGA-style agenda markdown and return new event dicts.
 
@@ -142,6 +163,7 @@ def parse_dpga_events(
         existing_events: Already-known events used for deduplication.
         source_name: Value for the ``submission_source`` field.
         default_year: Year to use when the heading omits the year (default 2026).
+        verbose: When True, print diagnostic info about headings and rows.
     """
     parsed: list[dict] = []
     current_date: str | None = None
@@ -150,8 +172,8 @@ def parse_dpga_events(
     pending_title: str | None = None
 
     for line in raw_markdown.splitlines():
-        # Check for a day-section heading
-        heading_match = _SECTION_HEADING.match(line)
+        # Check for a day-section heading (format A: title-first; format B: date-first)
+        heading_match = _SECTION_HEADING.match(line) or _SECTION_HEADING_DATE_FIRST.match(line)
         if heading_match:
             current_date = None
             current_anchor = None
@@ -166,7 +188,13 @@ def parse_dpga_events(
                 # Reconstruct the original heading by stripping the leading #
                 raw_heading = line.lstrip("#").strip()
                 current_anchor = _heading_to_anchor(raw_heading)
+                if verbose:
+                    print(f"[scrape_hackmd] Section heading matched: {line!r} → date={current_date}")
             continue
+
+        # Log heading-like lines that were NOT matched (only the first 20 to avoid noise)
+        if verbose and line.startswith("#"):
+            print(f"[scrape_hackmd] Unmatched heading: {line!r}")
 
         if current_date is None:
             continue
@@ -475,6 +503,10 @@ def main() -> int:
             "used to build anchor links. Provide in the same order as --dpga-source."
         ),
     )
+    parser.add_argument(
+        "--verbose", action="store_true",
+        help="Print diagnostic output about headings matched/missed during DPGA parsing",
+    )
     args = parser.parse_args()
 
     events = load_events(args.events_file)
@@ -487,7 +519,10 @@ def main() -> int:
     for idx, dpga_source in enumerate(args.dpga_source):
         page_url = dpga_pages[idx] if idx < len(dpga_pages) else dpga_source.replace("/download", "")
         raw_text = fetch_text(dpga_source)
-        new_events = parse_dpga_events(raw_text, page_url, events, source_name=f"hackmd-dpga:{dpga_source}")
+        if args.verbose:
+            print(f"[scrape_hackmd] Fetched {len(raw_text)} bytes from {dpga_source}")
+            print(f"[scrape_hackmd] First 500 chars: {raw_text[:500]!r}")
+        new_events = parse_dpga_events(raw_text, page_url, events, source_name=f"hackmd-dpga:{dpga_source}", verbose=args.verbose)
         print(f"[scrape_hackmd] DPGA strategy: found {len(new_events)} new event(s) from {dpga_source}")
         events.extend(new_events)
 

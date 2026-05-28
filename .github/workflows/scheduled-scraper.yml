@@ -45,7 +45,8 @@ jobs:
             --events-file data/2026/events.json \
             --api-file api/2026/events.json \
             --dpga-source "https://hackmd.io/@dpga/Sk05Nc21Me/download" \
-            --dpga-page   "https://hackmd.io/@dpga/Sk05Nc21Me"
+            --dpga-page   "https://hackmd.io/@dpga/Sk05Nc21Me" \
+            --verbose
 
       - name: Scrape UN Open Source Week agenda
         if: steps.window.outputs.active == 'true'

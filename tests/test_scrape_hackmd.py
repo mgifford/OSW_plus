@@ -198,6 +198,45 @@ class ParseDpgaEventsEnDashHeadingTests(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
+# parse_dpga_events — date-first heading format
+# ---------------------------------------------------------------------------
+
+_DATE_FIRST_HEADING_MARKDOWN = """\
+## Monday, 22 June — UN Tech Over
+
+| Event | Location | Time |
+| --- | --- | --- |
+| Hack-A-Thon | UN Conference Room A | 10:00 - 18:00 |
+
+## Tuesday 23 June — AI Day
+
+| Event | Location | Time |
+| --- | --- | --- |
+| AI Summit | Brookfield Place | 09:00 - 12:00 |
+"""
+
+class ParseDpgaEventsDateFirstHeadingTests(unittest.TestCase):
+    def setUp(self):
+        self.events = parse_dpga_events(_DATE_FIRST_HEADING_MARKDOWN, BASE_URL, [], "test")
+
+    def test_extracts_correct_count(self):
+        self.assertEqual(len(self.events), 2)
+
+    def test_first_event_date(self):
+        evt = next(e for e in self.events if "Hack-A-Thon" in e["title"])
+        self.assertEqual(evt["event_date"], "2026-06-22")
+
+    def test_second_event_date(self):
+        evt = next(e for e in self.events if "AI Summit" in e["title"])
+        self.assertEqual(evt["event_date"], "2026-06-23")
+
+    def test_first_event_times(self):
+        evt = next(e for e in self.events if "Hack-A-Thon" in e["title"])
+        self.assertEqual(evt["start_time"], "10:00")
+        self.assertEqual(evt["end_time"], "18:00")
+
+
+# ---------------------------------------------------------------------------
 # Legacy parse_events (simple line format) unchanged
 # ---------------------------------------------------------------------------
 
