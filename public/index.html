@@ -960,8 +960,10 @@
         for (const day of DAYS) {
           const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
+          const daytimes = dayEvents.filter((e) => e.timeframe === "weekday_daytime");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
           const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
@@ -974,6 +976,10 @@
               <div class="slot un">
                 <h4 class="slot-title">🇺🇳 9:00 AM – 5:30 PM · Official UN Programming Block</h4>
                 <p class="slot-note"><strong>Theme: ${DAY_THEMES[day]}</strong> — Official programming inside UN HQ is running. <a href="${UN_LINK}" target="_blank" rel="noopener noreferrer">View the UN Agenda<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+              </div>
+              <div class="slot">
+                <h4 class="slot-title">☀️ 9:00 AM – 5:30 PM · Daytime Side Events</h4>
+                ${daytimeHtml}
               </div>
               <div class="slot">
                 <h4 class="slot-title">🌆 5:30 PM+ · Evening Socials</h4>
