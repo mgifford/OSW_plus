@@ -23,6 +23,7 @@ body:
       options:
         - "The Runway (Weekend Before: June 20-21)"
         - "Weekday Breakfast (7:30 AM - 9:00 AM)"
+        - "Weekday Daytime (9:00 AM - 5:30 PM)"
         - "Weekday After-Hours (5:30 PM Onward)"
         - "The Aftermath (Weekend After: June 27-28)"
     validations:

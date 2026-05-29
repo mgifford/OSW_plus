@@ -6,6 +6,7 @@ import unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 from scrape_hackmd import (  # noqa: E402
+    _classify_weekday_time,
     _heading_to_anchor,
     parse_dpga_events,
     parse_events,
@@ -31,6 +32,35 @@ class HeadingToAnchorTests(unittest.TestCase):
 
     def test_already_ascii_no_spaces(self):
         self.assertEqual(_heading_to_anchor("NoSpaces"), "NoSpaces")
+
+
+# ---------------------------------------------------------------------------
+# _classify_weekday_time
+# ---------------------------------------------------------------------------
+
+class ClassifyWeekdayTimeTests(unittest.TestCase):
+    def test_before_9am_is_breakfast(self):
+        self.assertEqual(_classify_weekday_time(7 * 60 + 30), "weekday_breakfast")  # 7:30
+        self.assertEqual(_classify_weekday_time(8 * 60 + 59), "weekday_breakfast")  # 8:59
+
+    def test_9am_is_daytime(self):
+        self.assertEqual(_classify_weekday_time(9 * 60), "weekday_daytime")  # 9:00
+
+    def test_midday_is_daytime(self):
+        self.assertEqual(_classify_weekday_time(12 * 60), "weekday_daytime")  # 12:00
+        self.assertEqual(_classify_weekday_time(10 * 60), "weekday_daytime")  # 10:00
+        self.assertEqual(_classify_weekday_time(14 * 60 + 20), "weekday_daytime")  # 14:20
+        self.assertEqual(_classify_weekday_time(15 * 60), "weekday_daytime")  # 15:00
+
+    def test_just_before_530pm_is_daytime(self):
+        self.assertEqual(_classify_weekday_time(17 * 60 + 29), "weekday_daytime")  # 17:29
+
+    def test_530pm_is_evening(self):
+        self.assertEqual(_classify_weekday_time(17 * 60 + 30), "weekday_evening")  # 17:30
+
+    def test_after_530pm_is_evening(self):
+        self.assertEqual(_classify_weekday_time(18 * 60), "weekday_evening")  # 18:00
+        self.assertEqual(_classify_weekday_time(21 * 60), "weekday_evening")  # 21:00
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +140,16 @@ class ParseDpgaEventsTableTests(unittest.TestCase):
     def test_unique_ids(self):
         ids = [e["id"] for e in self.events]
         self.assertEqual(len(ids), len(set(ids)))
+
+    def test_daytime_event_has_weekday_daytime_timeframe(self):
+        # 10:00 start → daytime slot
+        evt = next(e for e in self.events if "Hack-A-Thon" in e["title"])
+        self.assertEqual(evt["timeframe"], "weekday_daytime")
+
+    def test_evening_event_has_weekday_evening_timeframe(self):
+        # 18:00 start → evening slot
+        evt = next(e for e in self.events if "Evening Social" in e["title"])
+        self.assertEqual(evt["timeframe"], "weekday_evening")
 
 
 # ---------------------------------------------------------------------------
@@ -392,6 +432,16 @@ class ParseDpgaEventsTabSeparatedTests(unittest.TestCase):
         dates = {e["event_date"] for e in self.events}
         self.assertIn("2026-06-22", dates)
         self.assertIn("2026-06-23", dates)
+
+    def test_daytime_event_has_weekday_daytime_timeframe(self):
+        # "UN Tech Over Hack-A-Thon" starts at 10:00 → weekday_daytime
+        evt = next(e for e in self.events if "Hack-A-Thon" in e["title"])
+        self.assertEqual(evt["timeframe"], "weekday_daytime")
+
+    def test_daytime_noon_event_has_weekday_daytime_timeframe(self):
+        # "Advancing Population-Scale Innovation…" starts at 12:00 → weekday_daytime
+        evt = next(e for e in self.events if "Safe & Inclusive DPI" in e["title"])
+        self.assertEqual(evt["timeframe"], "weekday_daytime")
 
 
 if __name__ == "__main__":
