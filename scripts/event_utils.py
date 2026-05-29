@@ -9,6 +9,7 @@ from typing import Any
 TIMEFRAME_MAP = {
     "The Runway (Weekend Before: June 20-21)": "runway",
     "Weekday Breakfast (7:30 AM - 9:00 AM)": "weekday_breakfast",
+    "Weekday Daytime (9:00 AM - 5:30 PM)": "weekday_daytime",
     "Weekday After-Hours (5:30 PM Onward)": "weekday_evening",
     "The Aftermath (Weekend After: June 27-28)": "aftermath",
 }
@@ -16,6 +17,7 @@ TIMEFRAME_MAP = {
 TIME_RANGES = {
     "runway": ("10:00", "18:00"),
     "weekday_breakfast": ("07:30", "09:00"),
+    "weekday_daytime": ("09:00", "17:30"),
     "weekday_evening": ("17:30", "21:30"),
     "aftermath": ("10:00", "16:00"),
 }

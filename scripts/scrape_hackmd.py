@@ -131,6 +131,19 @@ def _heading_to_anchor(heading_text: str) -> str:
 _RUNWAY_DATES    = {"2026-06-20", "2026-06-21"}
 _AFTERMATH_DATES = {"2026-06-27", "2026-06-28"}
 
+# Time boundaries in minutes from midnight
+_BREAKFAST_END   = 9 * 60        # 09:00 — end of breakfast window
+_EVENING_START   = 17 * 60 + 30  # 17:30 — start of evening window
+
+
+def _classify_weekday_time(total_minutes: int) -> str:
+    """Return the weekday timeframe bucket for *total_minutes* (minutes from midnight)."""
+    if total_minutes < _BREAKFAST_END:
+        return "weekday_breakfast"
+    if total_minutes < _EVENING_START:
+        return "weekday_daytime"
+    return "weekday_evening"
+
 
 def _infer_timeframe_from_times(start: str, end: str, event_date: str | None = None) -> str:
     """Return the closest timeframe key based on the event date and start time.
@@ -150,13 +163,13 @@ def _infer_timeframe_from_times(start: str, end: str, event_date: str | None = N
             start_h, start_m = (int(x) for x in start.split(":"))
         except ValueError:
             return "weekday_evening"
-        return "weekday_breakfast" if start_h * 60 + start_m < 10 * 60 else "weekday_evening"
+        return _classify_weekday_time(start_h * 60 + start_m)
     # No date context — fall back to time-only heuristic (legacy / generic pads)
     try:
         start_h, start_m = (int(x) for x in start.split(":"))
     except ValueError:
         return "weekday_evening"
-    return "weekday_breakfast" if start_h * 60 + start_m < 10 * 60 else "weekday_evening"
+    return _classify_weekday_time(start_h * 60 + start_m)
 
 
 def parse_dpga_events(
