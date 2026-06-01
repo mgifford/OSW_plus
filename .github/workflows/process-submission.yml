@@ -52,5 +52,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: ingest side-event submission #${{ github.event.issue.number }}"
           title: "chore: ingest side-event submission #${{ github.event.issue.number }}"
-          body: "Automated event ingestion from issue submission."
+          body: |
+            Automated event ingestion from issue submission.
+
+            Closes #${{ github.event.issue.number }}
           branch: "automation/issue-submission-${{ github.event.issue.number }}"
