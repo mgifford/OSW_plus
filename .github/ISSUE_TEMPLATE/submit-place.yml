@@ -36,7 +36,7 @@ body:
       label: "Neighborhood"
       placeholder: "e.g., Turtle Bay, Midtown East, Grand Central"
     validations:
-      required: true
+      required: false
 
   - type: input
     id: address
@@ -58,7 +58,7 @@ body:
       label: "Distance / travel time from UN HQ"
       placeholder: "~8 min walk"
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: why
@@ -66,7 +66,7 @@ body:
       label: "Why is it good for OSW attendees?"
       placeholder: "Great WiFi and quiet seating for sidebar conversations; affordable lunch for a busy conference day..."
     validations:
-      required: true
+      required: false
 
   - type: input
     id: dietary
