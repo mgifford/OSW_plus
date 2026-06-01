@@ -42,6 +42,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: "chore: ingest place suggestion #${{ github.event.issue.number }}"
           title: "chore: ingest place suggestion #${{ github.event.issue.number }}"
           body: "Automated place ingestion from issue #${{ github.event.issue.number }}."
