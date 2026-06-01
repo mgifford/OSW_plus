@@ -1,0 +1,48 @@
+name: Process Place Suggestion
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  process-place:
+    if: contains(github.event.issue.labels.*.name, 'place-suggestion')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Persist issue body
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          Path('/tmp/issue_body.md').write_text(os.environ['ISSUE_BODY'], encoding='utf-8')
+          PY
+
+      - name: Process place submission
+        run: |
+          python scripts/process_place_submission.py \
+            --issue-body-file /tmp/issue_body.md \
+            --issue-number "${{ github.event.issue.number }}" \
+            --places-file data/places.csv
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: ingest place suggestion #${{ github.event.issue.number }}"
+          title: "chore: ingest place suggestion #${{ github.event.issue.number }}"
+          body: "Automated place ingestion from issue #${{ github.event.issue.number }}."
+          branch: "automation/place-suggestion-${{ github.event.issue.number }}"
