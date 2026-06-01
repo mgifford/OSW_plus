@@ -3,14 +3,23 @@ name: Process Place Suggestion
 on:
   issues:
     types: [opened, labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to reprocess'
+        required: true
+        type: number
 
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   process-place:
-    if: contains(github.event.issue.labels.*.name, 'place-suggestion')
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.issue.labels.*.name, 'place-suggestion')
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +31,25 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Persist issue body
+      - name: Resolve issue number
+        id: resolve
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "issue_number=${{ github.event.inputs.issue_number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "issue_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch issue body (workflow_dispatch only)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/issues/${{ steps.resolve.outputs.issue_number }} \
+            --jq '.body' > /tmp/issue_body.md
+
+      - name: Persist issue body (issues event)
+        if: github.event_name != 'workflow_dispatch'
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
@@ -36,17 +63,17 @@ jobs:
         run: |
           python scripts/process_place_submission.py \
             --issue-body-file /tmp/issue_body.md \
-            --issue-number "${{ github.event.issue.number }}" \
+            --issue-number "${{ steps.resolve.outputs.issue_number }}" \
             --places-file data/places.csv
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GH_TOKEN }}
-          commit-message: "chore: ingest place suggestion #${{ github.event.issue.number }}"
-          title: "chore: ingest place suggestion #${{ github.event.issue.number }}"
+          commit-message: "chore: ingest place suggestion #${{ steps.resolve.outputs.issue_number }}"
+          title: "chore: ingest place suggestion #${{ steps.resolve.outputs.issue_number }}"
           body: |
-            Automated place ingestion from issue #${{ github.event.issue.number }}.
+            Automated place ingestion from issue #${{ steps.resolve.outputs.issue_number }}.
 
-            Closes #${{ github.event.issue.number }}
-          branch: "automation/place-suggestion-${{ github.event.issue.number }}"
+            Closes #${{ steps.resolve.outputs.issue_number }}
+          branch: "automation/place-suggestion-${{ steps.resolve.outputs.issue_number }}"
