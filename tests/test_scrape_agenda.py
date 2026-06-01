@@ -154,7 +154,7 @@ class EventsFromHtmlPatternsTests(unittest.TestCase):
 </div>
 </body></html>"""
         events = events_from_html_patterns(html, "https://example.org", [], "test")
-        self.assertTrue(len(events) >= 1)
+        self.assertTrue(events)
         self.assertEqual(events[0]["access"], "invite_only")
 
     def test_html_public_event_access(self):
@@ -167,7 +167,7 @@ class EventsFromHtmlPatternsTests(unittest.TestCase):
 </div>
 </body></html>"""
         events = events_from_html_patterns(html, "https://example.org", [], "test")
-        self.assertTrue(len(events) >= 1)
+        self.assertTrue(events)
         self.assertEqual(events[0]["access"], "public")
 
 

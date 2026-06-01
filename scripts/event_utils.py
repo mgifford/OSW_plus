@@ -130,7 +130,7 @@ def build_event_from_submission(fields: dict[str, str], issue_number: int, exist
     timeframe = _reconcile_timeframe(timeframe, date_value.isoformat())
     start_time, end_time = TIME_RANGES[timeframe]
 
-    access = fields.get("access level", "public").strip().lower().replace(" ", "_")
+    access = (fields.get("access level") or "public").strip().lower().replace(" ", "_")
     if access not in {"public", "invite_only", "registration_required"}:
         access = "public"
 
