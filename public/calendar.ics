@@ -20,6 +20,22 @@ DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hac
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-013@osweekplus.nyc
+SUMMARY:Octane Side Event: Sustainable Open Source Funding Infrastructure ([RSVP + Details](https://luma.com/7se1q9sh)). <br /><br /> Location: Michael J Fox Foundation Offices, 111 W34th St.
+DTSTART;TZID=America/New_York:20260622T120000
+DTEND;TZID=America/New_York:20260622T170000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-014@osweekplus.nyc
+SUMMARY:{ "@context": "https://schema.org", "@type": "WebPage", "name": "Agenda - UN Open Source Week 2026", "description": "Participate in UN Open Source Week 2026 from June 22-26 at the UN Headquarters, exp
+DTSTART;TZID=America/New_York:20260622T173000
+DTEND;TZID=America/New_York:20260622T213000
+DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-003@osweekplus.nyc
 SUMMARY:Advancing Population-Scale Innovation with Safe & Inclusive DPI
 DTSTART;TZID=America/New_York:20260624T120000

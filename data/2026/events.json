@@ -36,6 +36,44 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-013",
+    "title": "Octane Side Event: Sustainable Open Source Funding Infrastructure ([RSVP + Details](https://luma.com/7se1q9sh)). <br /><br /> Location: Michael J Fox Foundation Offices, 111 W34th St.",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-22",
+    "start_time": "12:00",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-014",
+    "title": "{ \"@context\": \"https://schema.org\", \"@type\": \"WebPage\", \"name\": \"Agenda - UN Open Source Week 2026\", \"description\": \"Participate in UN Open Source Week 2026 from June 22-26 at the UN Headquarters, exp",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "17:30",
+    "end_time": "21:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-003",
     "title": "Advancing Population-Scale Innovation with Safe & Inclusive DPI",
     "organizer": "Digital Public Goods Alliance",
