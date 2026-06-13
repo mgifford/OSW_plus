@@ -954,14 +954,32 @@
         });
       }
 
+      function eventStartMinutes(event) {
+        const match = /^([0-9]{1,2}):([0-9]{2})$/.exec(event.start_time || "");
+        if (!match) return null;
+        return Number(match[1]) * 60 + Number(match[2]);
+      }
+
       function renderCoreWeek(events) {
         const root = document.getElementById("core-week");
         const weekdayByEventId = new Map(events.map((event) => [event.id, eventWeekday(event)]));
+        const daytimeCutoff = 17 * 60 + 30;
+        const eveningCutoff = 17 * 60;
+
         for (const day of DAYS) {
           const dayEvents = events.filter((event) => weekdayByEventId.get(event.id) === day);
+          const dayEventStartMinutes = new Map(dayEvents.map((event) => [event.id, eventStartMinutes(event)]));
+
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
-          const daytimes = dayEvents.filter((e) => e.timeframe === "weekday_daytime");
-          const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
+          const daytimes = dayEvents.filter((e) => {
+            if (e.timeframe === "weekday_daytime") return true;
+            const startMinutes = dayEventStartMinutes.get(e.id);
+            return startMinutes !== null && startMinutes < daytimeCutoff;
+          });
+          const evenings = dayEvents.filter((e) => {
+            const startMinutes = dayEventStartMinutes.get(e.id);
+            return startMinutes !== null && startMinutes >= eveningCutoff;
+          });
           const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
