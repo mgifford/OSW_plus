@@ -67,6 +67,19 @@ _STRPTIME_FORMATS = (
     "%B %d %Y", "%B %d, %Y",
     "%b %d %Y", "%b %d, %Y", "%b. %d %Y", "%b. %d, %Y",
 )
+_SCRIPT_BLOCKS = re.compile(r"<(?:script|style|noscript)\b[^>]*>.*?</(?:script|style|noscript)>", re.IGNORECASE | re.DOTALL)
+_MD_LINK_TRAILING = re.compile(r"\s*\(\[[^\]]+\]\(https?://[^)]+\)\)\.?$")
+_BRACKETED_LINK = re.compile(r"\[([^\]]+)\]\(https?://[^)]+\)")
+
+
+def _clean_event_title(raw_title: str) -> str:
+    text = _html.unescape(raw_title or "")
+    text = re.sub(r"<br\s*/?>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = _MD_LINK_TRAILING.sub("", text)
+    text = _BRACKETED_LINK.sub(r"\1", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip(" .-–—\t")
 
 
 def normalize_date(raw: str) -> str | None:
@@ -273,6 +286,7 @@ def events_from_html_patterns(
     """Scan HTML blocks for 2026-06 dates and extract minimal event stubs."""
     events: list[dict] = []
     # Split at any block-level element open tag
+    html = _SCRIPT_BLOCKS.sub(" ", html)
     blocks = re.split(r'<(?:div|li|article|section|tr|p|h[1-6])[^>]*>', html, flags=re.IGNORECASE)
     texts = [_WHITESPACE.sub(" ", _STRIP_TAGS.sub(" ", b)).strip() for b in blocks]
 
@@ -299,8 +313,11 @@ def events_from_html_patterns(
         sentences = [s.strip() for s in re.split(r'[|\n]', text) if len(s.strip()) > 8]
         title_candidate = ""
         for sent in sentences:
-            if not _DIGITS_AND_PUNCT.match(sent) and len(sent) > len(title_candidate):
-                title_candidate = sent
+            cleaned_sent = _clean_event_title(sent)
+            if not cleaned_sent:
+                continue
+            if not _DIGITS_AND_PUNCT.match(cleaned_sent) and len(cleaned_sent) > len(title_candidate):
+                title_candidate = cleaned_sent
         if not title_candidate:
             title_candidate = f"Event on {date_str}"
 

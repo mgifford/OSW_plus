@@ -108,6 +108,18 @@ _TABLE_ROW = re.compile(r"^\|(.+)\|$")
 
 # Characters stripped from the end of a title extracted from an inline text line.
 _TITLE_TRAILING_CHARS = "\u2013\u2014-|,\t "
+_MD_LINK_TRAILING = re.compile(r"\s*\(\[[^\]]+\]\(https?://[^)]+\)\)\.?$")
+_BRACKETED_LINK = re.compile(r"\[([^\]]+)\]\(https?://[^)]+\)")
+
+
+def _clean_event_title(raw_title: str) -> str:
+    text = _html.unescape(raw_title or "")
+    text = re.sub(r"<br\s*/?>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = _MD_LINK_TRAILING.sub("", text)
+    text = _BRACKETED_LINK.sub(r"\1", text)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip(" .-–—\t")
 
 
 def _is_table_separator_row(line: str) -> bool:
@@ -258,7 +270,7 @@ def parse_dpga_events(
                 # Still a header / separator row
                 continue
 
-            title = cells[0].strip()
+            title = _clean_event_title(cells[0])
             if not title or title.lower() in {"event", "title", "name", "session"}:
                 continue
 
@@ -315,7 +327,7 @@ def parse_dpga_events(
                 #   "Event Title\tTime"  or  "(Location)\tTime"
                 # HTML entities (e.g. &amp;) are decoded before processing.
                 parts = [_html.unescape(p.strip()) for p in stripped.split("\t")]
-                title_candidate = parts[0]
+                title_candidate = _clean_event_title(parts[0])
                 time_cells = parts[1:]
 
                 # Skip header rows like "Activity\tTime"
@@ -413,10 +425,10 @@ def parse_dpga_events(
                     # (handles multi-line events where the title appears on its
                     # own line before a "(location)\ttime" line).
                     if stripped and stripped.lower() not in {"activity", "time", "event"}:
-                        pending_title = _html.unescape(stripped)
+                        pending_title = _clean_event_title(stripped)
                     continue
                 # Try to extract a title from the same line (text before the time)
-                title = _html.unescape(
+                title = _clean_event_title(
                     stripped[: tm.start()].strip().rstrip(_TITLE_TRAILING_CHARS)
                 )
                 if not title:
@@ -495,7 +507,7 @@ def parse_events(raw_text: str, existing_events: list[dict], source_name: str) -
         start_time, end_time = TIME_RANGES[timeframe]
         candidate = {
             "id": next_event_id(existing_events + parsed, 2026),
-            "title": match.group("title").strip(),
+            "title": _clean_event_title(match.group("title")),
             "organizer": "External Community Listing",
             "timeframe": timeframe,
             "event_date": event_date,
