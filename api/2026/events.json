@@ -74,6 +74,25 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-015",
+    "title": "Open Source Community Drinks NYC",
+    "organizer": "Evolving Web, CivicActions, and Amazee.io",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "19:30",
+    "end_time": "22:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.",
+    "access": "registration_required",
+    "original_source_url": "https://register.evolvedigital.com/events/evolvedigitalsummits/2260883",
+    "submission_source": "manual:https://register.evolvedigital.com/events/evolvedigitalsummits/2260883"
+  },
+  {
     "id": "evt-2026-003",
     "title": "Advancing Population-Scale Innovation with Safe & Inclusive DPI",
     "organizer": "Digital Public Goods Alliance",
@@ -252,24 +271,5 @@
     "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.",
     "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June",
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
-  },
-  {
-    "id": "evt-2026-015",
-    "title": "Open Source Community Drinks NYC",
-    "organizer": "Evolving Web, CivicActions, and Amazee.io",
-    "timeframe": "weekday_evening",
-    "event_date": "2026-06-23",
-    "start_time": "19:30",
-    "end_time": "22:30",
-    "timezone": "America/New_York",
-    "location": {
-      "name": "TBD",
-      "neighborhood": "TBD",
-      "address": "New York, NY"
-    },
-    "summary": "Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.",
-    "access": "registration_required",
-    "original_source_url": "https://register.evolvedigital.com/events/evolvedigitalsummits/2260883",
-    "submission_source": "manual:https://register.evolvedigital.com/events/evolvedigitalsummits/2260883"
   }
 ]

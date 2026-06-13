@@ -36,6 +36,14 @@ DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original 
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-015@osweekplus.nyc
+SUMMARY:Open Source Community Drinks NYC
+DTSTART;TZID=America/New_York:20260623T193000
+DTEND;TZID=America/New_York:20260623T223000
+DESCRIPTION:Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.\nRSVP: https://register.evolvedigital.com/events/evolvedigitalsummits/2260883
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-003@osweekplus.nyc
 SUMMARY:Advancing Population-Scale Innovation with Safe & Inclusive DPI
 DTSTART;TZID=America/New_York:20260624T120000
@@ -113,14 +121,6 @@ SUMMARY:DPG Showcase & Networking – Community Event (More details TBA) <br /><
 DTSTART;TZID=America/New_York:20260626T142000
 DTEND;TZID=America/New_York:20260626T152000
 DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-015@osweekplus.nyc
-SUMMARY:Open Source Community Drinks NYC
-DTSTART;TZID=America/New_York:20260623T193000
-DTEND;TZID=America/New_York:20260623T223000
-DESCRIPTION:Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.\nRSVP: https://register.evolvedigital.com/events/evolvedigitalsummits/2260883
 LOCATION:New York, NY
 END:VEVENT
 END:VCALENDAR
