@@ -138,6 +138,40 @@
       color: #475569;
       font-size: 0.92rem;
     }
+    .directory-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .directory-control {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .directory-control label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+    }
+    .directory-control input,
+    .directory-control select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.55rem;
+      padding: 0.7rem 0.8rem;
+      font: inherit;
+      background: #fff;
+      color: #0f172a;
+    }
+    .directory-control input::placeholder {
+      color: #94a3b8;
+    }
+    .directory-control input:focus,
+    .directory-control select:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.18);
+      border-color: #2563eb;
+    }
     .directory-count {
       font-weight: 700;
       color: #0d1f3c;
@@ -216,6 +250,13 @@
     }
     .place-actions a:hover {
       filter: brightness(0.95);
+    }
+    .directory-empty {
+      margin: 0;
+      color: #475569;
+      font-style: italic;
+      font-size: 0.95rem;
+      grid-column: 1 / -1;
     }
 
     /* Category colours — keep in sync with JS categoryColors */
@@ -301,6 +342,25 @@
       </div>
       <div class="directory-count" id="places-count">Loading places…</div>
     </div>
+    <div class="directory-controls" aria-label="Filter places">
+      <div class="directory-control">
+        <label for="places-search">Search</label>
+        <input id="places-search" type="search" placeholder="Search by name, neighborhood, notes, or tips" />
+      </div>
+      <div class="directory-control">
+        <label for="places-category">Category</label>
+        <select id="places-category">
+          <option value="all">All categories</option>
+          <option value="Conference Venue">Conference Venue</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Food">Food</option>
+          <option value="Quick Bites">Quick Bites</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Bar">Bar</option>
+          <option value="Park">Park</option>
+        </select>
+      </div>
+    </div>
     <div class="directory-grid" id="places-list"></div>
   </section>
 
@@ -361,6 +421,10 @@
         .replace(/'/g, "&#39;");
     }
 
+    function normalizeText(value) {
+      return String(value ?? "").toLowerCase();
+    }
+
     function safeGoogleMapsUrl(raw) {
       try {
         const u = new URL(raw);
@@ -414,19 +478,51 @@
       `;
     }
 
+    function matchesDirectoryFilters(place, query, category) {
+      const normalizedQuery = normalizeText(query).trim();
+      const normalizedCategory = normalizeText(category);
+      const haystack = [
+        place.Name,
+        place.Category,
+        place.Neighborhood,
+        place.Address,
+        place["Why it is good"],
+        place["From UN HQ"],
+        place["Dietary notes"],
+        place.Tips,
+      ].map(normalizeText).join(" ");
+
+      if (normalizedCategory && normalizedCategory !== "all" && normalizeText(place.Category) !== normalizedCategory) {
+        return false;
+      }
+
+      if (!normalizedQuery) {
+        return true;
+      }
+
+      return haystack.includes(normalizedQuery);
+    }
+
     function renderDirectory(places) {
       const root = document.getElementById("places-list");
       const count = document.getElementById("places-count");
+      const searchInput = document.getElementById("places-search");
+      const categorySelect = document.getElementById("places-category");
       if (!root || !count) return;
 
-      const sortedPlaces = [...places].sort((left, right) => {
+      const query = searchInput ? searchInput.value : "";
+      const category = categorySelect ? categorySelect.value : "all";
+      const filteredPlaces = places.filter((place) => matchesDirectoryFilters(place, query, category));
+      const sortedPlaces = [...filteredPlaces].sort((left, right) => {
         const categoryCompare = String(left.Category || "").localeCompare(String(right.Category || ""));
         if (categoryCompare !== 0) return categoryCompare;
         return String(left.Name || "").localeCompare(String(right.Name || ""));
       });
 
       count.textContent = `${sortedPlaces.length} places listed`;
-      root.innerHTML = sortedPlaces.map(directoryHtml).join("");
+      root.innerHTML = sortedPlaces.length
+        ? sortedPlaces.map(directoryHtml).join("")
+        : '<p class="directory-empty">No places match this search. Try a different keyword or category.</p>';
     }
 
     // Initialise map centred on the UN
@@ -463,6 +559,15 @@
             });
 
             renderDirectory(visiblePlaces);
+
+            const searchInput = document.getElementById("places-search");
+            const categorySelect = document.getElementById("places-category");
+            if (searchInput) {
+              searchInput.addEventListener("input", () => renderDirectory(visiblePlaces));
+            }
+            if (categorySelect) {
+              categorySelect.addEventListener("change", () => renderDirectory(visiblePlaces));
+            }
           }
         });
       })
