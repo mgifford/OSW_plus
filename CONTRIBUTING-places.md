@@ -9,7 +9,7 @@ OSW+ NYC maintains a community-curated list of coffee spots, food options, parks
 ## What kinds of places belong here?
 
 | Category | Examples |
-|----------|---------|
+| --------- | -------- |
 | **Coffee** | Specialty cafés with WiFi & seating for informal chats |
 | **Food** | Affordable sit-down spots for a working lunch |
 | **Quick Bites** | Street food, food trucks, counter service |
@@ -25,15 +25,17 @@ Please keep suggestions within **~20 minutes walk or one subway stop** of the UN
 
 Open a new issue using the **[Suggest a Place](https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml)** template and fill in the form. A maintainer will add it to the map.
 
-After the issue is opened, GitHub Actions creates a pull request that adds the place to `data/places.csv` and regenerates `data/places_with_coords.csv` so the venue can appear on the map. A maintainer approves that pull request by reviewing it and merging it into `main`.
+After the issue is opened, a maintainer reviews it and adds the `approved` label when it is ready to ingest. GitHub Actions then creates a pull request that adds the place to `data/places.csv` and regenerates `data/places_with_coords.csv` so the venue can appear on the map. A maintainer approves that pull request by reviewing it and merging it into `main`.
+
+If the issue is still missing the `approved` label, it will stay in the suggestion backlog and will not be ingested yet.
 
 ---
 
 ## Option B — Submit a Pull Request
 
 1. **Fork** this repository.
-2. **Create a Markdown file** in `data/places/` using a short hyphenated name, e.g. `my-favorite-spot.md`.
-3. **Copy and fill in the template below:**
+1. **Create a Markdown file** in `data/places/` using a short hyphenated name, e.g. `my-favorite-spot.md`.
+1. **Copy and fill in the template below:**
 
 ```markdown
 Category: <Coffee | Food | Quick Bites | Restaurant | Bar | Park>
@@ -54,14 +56,15 @@ Tips:
 - Reservations? Best time? Good for groups? Anything else useful?
 ```
 
-4. **Add a row** to `data/places.csv` following the existing schema:
-   ```
+1. **Add a row** to `data/places.csv` following the existing schema:
+
+   ```markdown
    Name,Category,Neighborhood,Address,Link,Google Maps,From UN HQ,Why it is good,Dietary notes,Tips
    ```
 
-5. **(Optional)** If you know the coordinates, also add a row to `data/places_with_coords.csv` with `Latitude` and `Longitude` appended. If you skip this step, a maintainer or the `scripts/geocode_places.py` script will fill them in.
+1. **(Optional)** If you know the coordinates, also add a row to `data/places_with_coords.csv` with `Latitude` and `Longitude` appended. If you skip this step, a maintainer or the `scripts/geocode_places.py` script will fill them in.
 
-6. **Open a pull request** with a short description of the place.
+1. **Open a pull request** with a short description of the place.
 
 ---
 

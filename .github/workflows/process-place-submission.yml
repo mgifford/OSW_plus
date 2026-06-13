@@ -6,9 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       issue_number:
-        description: 'Issue number to reprocess'
-        required: true
-        type: number
+        description: 'Issue number to process'
+        required: false
+        type: string
+      process_all_open:
+        description: 'Process all open place suggestions'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -19,7 +24,7 @@ jobs:
   process-place:
     if: >
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.issue.labels.*.name, 'place-suggestion')
+      (contains(github.event.issue.labels.*.name, 'place-suggestion') && contains(github.event.issue.labels.*.name, 'approved'))
     runs-on: ubuntu-latest
 
     steps:
@@ -36,53 +41,82 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install requests
 
-      - name: Resolve issue number
+      - name: Resolve issue numbers
         id: resolve
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "issue_number=${{ github.event.inputs.issue_number }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "issue_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Fetch issue body (workflow_dispatch only)
-        if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api repos/${{ github.repository }}/issues/${{ steps.resolve.outputs.issue_number }} \
-            --jq '.body' > /tmp/issue_body.md
+          : > /tmp/issue_numbers.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.issue_number }}" ]; then
+            printf '%s\n' "${{ github.event.inputs.issue_number }}" > /tmp/issue_numbers.txt
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.process_all_open }}" = "true" ]; then
+            gh issue list \
+              --repo "${{ github.repository }}" \
+              --label "place-suggestion" \
+              --label "approved" \
+              --state open \
+              --limit 100 \
+              --json number \
+              --jq '.[].number' > /tmp/issue_numbers.txt
+          else
+            printf '%s\n' "${{ github.event.issue.number }}" > /tmp/issue_numbers.txt
+          fi
 
-      - name: Persist issue body (issues event)
-        if: github.event_name != 'workflow_dispatch'
+          if ! [ -s /tmp/issue_numbers.txt ]; then
+            echo "No issue numbers resolved for processing." >&2
+            exit 1
+          fi
+
+          {
+            echo 'pr_body<<EOF'
+            echo 'Automated place ingestion from issue submissions.'
+            echo
+            while IFS= read -r issue_number; do
+              [ -n "$issue_number" ] || continue
+              echo "Closes #$issue_number"
+            done < /tmp/issue_numbers.txt
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Process place suggestions
+        id: process
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
-          import os
-          from pathlib import Path
-          Path('/tmp/issue_body.md').write_text(os.environ['ISSUE_BODY'], encoding='utf-8')
-          PY
+          processed_count=0
+          while IFS= read -r issue_number; do
+            [ -n "$issue_number" ] || continue
 
-      - name: Process place submission
-        run: |
-          python scripts/process_place_submission.py \
-            --issue-body-file /tmp/issue_body.md \
-            --issue-number "${{ steps.resolve.outputs.issue_number }}" \
-            --places-file data/places.csv
+            issue_json=$(gh issue view "$issue_number" --repo "${{ github.repository }}" --json body,labels)
+            if ! printf '%s' "$issue_json" | jq -e '.labels[].name == "approved"' >/dev/null; then
+              echo "Skipping issue #$issue_number because it is not approved." >&2
+              continue
+            fi
+
+            printf '%s' "$issue_json" | jq -r '.body' > /tmp/issue_body.md
+
+            python scripts/process_place_submission.py \
+              --issue-body-file /tmp/issue_body.md \
+              --issue-number "$issue_number" \
+              --places-file data/places.csv
+            processed_count=$((processed_count + 1))
+          done < /tmp/issue_numbers.txt
+
+          {
+            echo "processed=${processed_count}"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Rebuild place coordinates
+        if: steps.process.outputs.processed != '0'
         run: |
           python scripts/geocode_places.py
 
       - name: Create pull request
+        if: steps.process.outputs.processed != '0'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ github.token }}
-          commit-message: "chore: ingest place suggestion #${{ steps.resolve.outputs.issue_number }}"
-          title: "chore: ingest place suggestion #${{ steps.resolve.outputs.issue_number }}"
-          body: |
-            Automated place ingestion from issue #${{ steps.resolve.outputs.issue_number }}.
-
-            Closes #${{ steps.resolve.outputs.issue_number }}
-          branch: "automation/place-suggestion-${{ steps.resolve.outputs.issue_number }}"
+          commit-message: "chore: ingest place suggestions"
+          title: "chore: ingest place suggestions"
+          body: ${{ steps.resolve.outputs.pr_body }}
+          branch: "automation/place-suggestions"

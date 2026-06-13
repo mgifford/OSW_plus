@@ -2,15 +2,29 @@ name: Process Side Event Submission
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to process'
+        required: false
+        type: string
+      process_all_open:
+        description: 'Process all open side-event submissions'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
   pull-requests: write
+  issues: read
 
 jobs:
   process-submission:
-    if: contains(github.event.issue.labels.*.name, 'side-event-submission')
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (contains(github.event.issue.labels.*.name, 'side-event-submission') && contains(github.event.issue.labels.*.name, 'approved'))
     runs-on: ubuntu-latest
 
     steps:
@@ -22,38 +36,85 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Persist issue body
+      - name: Resolve issue numbers
+        id: resolve
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
-          import os
-          from pathlib import Path
-          Path('/tmp/issue_body.md').write_text(os.environ['ISSUE_BODY'], encoding='utf-8')
-          PY
+          : > /tmp/issue_numbers.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.issue_number }}" ]; then
+            printf '%s\n' "${{ github.event.inputs.issue_number }}" > /tmp/issue_numbers.txt
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.process_all_open }}" = "true" ]; then
+            gh issue list \
+              --repo "${{ github.repository }}" \
+              --label "side-event-submission" \
+              --label "approved" \
+              --state open \
+              --limit 100 \
+              --json number \
+              --jq '.[].number' > /tmp/issue_numbers.txt
+          else
+            printf '%s\n' "${{ github.event.issue.number }}" > /tmp/issue_numbers.txt
+          fi
 
-      - name: Process submission
+          if ! [ -s /tmp/issue_numbers.txt ]; then
+            echo "No issue numbers resolved for processing." >&2
+            exit 1
+          fi
+
+          {
+            echo 'pr_body<<EOF'
+            echo 'Automated event ingestion from issue submissions.'
+            echo
+            while IFS= read -r issue_number; do
+              [ -n "$issue_number" ] || continue
+              echo "Closes #$issue_number"
+            done < /tmp/issue_numbers.txt
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Process submissions
+        id: process
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python scripts/process_issue_submission.py \
-            --issue-body-file /tmp/issue_body.md \
-            --issue-number "${{ github.event.issue.number }}" \
-            --events-file data/2026/events.json \
-            --api-file api/2026/events.json
+          processed_count=0
+          while IFS= read -r issue_number; do
+            [ -n "$issue_number" ] || continue
+
+            issue_json=$(gh issue view "$issue_number" --repo "${{ github.repository }}" --json body,labels)
+            if ! printf '%s' "$issue_json" | jq -e '.labels[].name == "approved"' >/dev/null; then
+              echo "Skipping issue #$issue_number because it is not approved." >&2
+              continue
+            fi
+
+            printf '%s' "$issue_json" | jq -r '.body' > /tmp/issue_body.md
+
+            python scripts/process_issue_submission.py \
+              --issue-body-file /tmp/issue_body.md \
+              --issue-number "$issue_number" \
+              --events-file data/2026/events.json \
+              --api-file api/2026/events.json
+            processed_count=$((processed_count + 1))
+          done < /tmp/issue_numbers.txt
+
+          {
+            echo "processed=${processed_count}"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Rebuild ICS
+        if: steps.process.outputs.processed != '0'
         run: |
           python scripts/generate_ics.py \
             --events-file data/2026/events.json \
             --output-file public/calendar.ics
 
       - name: Create pull request
+        if: steps.process.outputs.processed != '0'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: ingest side-event submission #${{ github.event.issue.number }}"
-          title: "chore: ingest side-event submission #${{ github.event.issue.number }}"
-          body: |
-            Automated event ingestion from issue submission.
-
-            Closes #${{ github.event.issue.number }}
-          branch: "automation/issue-submission-${{ github.event.issue.number }}"
+          commit-message: "chore: ingest side-event submissions"
+          title: "chore: ingest side-event submissions"
+          body: ${{ steps.resolve.outputs.pr_body }}
+          branch: "automation/issue-submissions"

@@ -7,6 +7,7 @@ OS Week Plus (OSW+) NYC is an open-source, community-driven fringe calendar and 
 - `.github/ISSUE_TEMPLATE/submit-event.yml` — browser-native event submission form.
 - `.github/ISSUE_TEMPLATE/submit-place.yml` — form to suggest a coffee/food/park venue near the UN.
 - `.github/workflows/process-submission.yml` — issue-to-JSON ingestion pipeline.
+- `.github/workflows/process-place-submission.yml` — place-suggestion ingestion pipeline.
 - `.github/workflows/scheduled-scraper.yml` — daily HackMD scraper pipeline.
 - `data/2026/events.json` — canonical event ledger.
 - `data/places.csv` — curated list of coffee, food, park, and bar spots near the UN.
@@ -31,6 +32,15 @@ Inspired by [Food-W3C-Kobe](https://github.com/mgifford/Food-W3C-Kobe), OSW+ NYC
 - **[Interactive map](public/places-map.html)** — color-coded Leaflet map of all venues.
 - **[Contributing guide](CONTRIBUTING-places.md)** — how to add or suggest a place.
 - **[Suggest a place](https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml)** — quick GitHub Issue form.
+
+### GitHub Actions intake
+
+Suggestions are incorporated in two phases: a maintainer reviews the issue, adds the `approved` label when it is ready to ingest, and then the matching GitHub Actions workflow turns it into site data.
+
+- `Process Side Event Submission` ingests one approved issue, a newly approved issue, or all open approved side-event submissions.
+- `Process Place Suggestion` does the same for place suggestions.
+
+For backlog processing, use the workflow dispatch form and either enter a specific issue number or choose the option to process all open issues with the suggestion and `approved` labels.
 
 ## Local commands
 
