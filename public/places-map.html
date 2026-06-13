@@ -115,6 +115,109 @@
       flex-shrink: 0;
     }
 
+    .directory {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 0;
+    }
+    .directory-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: end;
+      margin-bottom: 0.9rem;
+    }
+    .directory-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #0f172a;
+    }
+    .directory-header p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.92rem;
+    }
+    .directory-count {
+      font-weight: 700;
+      color: #0d1f3c;
+      background: #e2e8f0;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .place-card {
+      background: #fff;
+      border: 1px solid #dbe4ee;
+      border-radius: 0.85rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      padding: 1rem;
+    }
+    .place-card h3 {
+      margin: 0 0 0.35rem;
+      color: #0d1f3c;
+      font-size: 1rem;
+    }
+    .place-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.84rem;
+      color: #475569;
+    }
+    .place-chip {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f5f9;
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      font-weight: 600;
+    }
+    .place-card p {
+      margin: 0 0 0.65rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #334155;
+    }
+    .place-card .place-detail {
+      color: #475569;
+      font-size: 0.86rem;
+    }
+    .place-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .place-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      padding: 0.45rem 0.7rem;
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+    .place-link-primary {
+      background: #0d1f3c;
+      color: #fff;
+    }
+    .place-link-secondary {
+      background: #e2e8f0;
+      color: #0d1f3c;
+    }
+    .place-actions a:hover {
+      filter: brightness(0.95);
+    }
+
     /* Category colours — keep in sync with JS categoryColors */
     .dot-conference  { background: #dc2626; }
     .dot-coffee      { background: #7c3f1e; }
@@ -189,6 +292,17 @@
   </div>
 
   <div id="map" role="region" aria-label="Interactive map of places near the UN"></div>
+
+  <section class="directory" aria-labelledby="places-directory-heading">
+    <div class="directory-header">
+      <div>
+        <h2 id="places-directory-heading">Places Directory</h2>
+        <p>Browse the same venue list in text form. Useful if you want to scan by category or open a venue directly.</p>
+      </div>
+      <div class="directory-count" id="places-count">Loading places…</div>
+    </div>
+    <div class="directory-grid" id="places-list"></div>
+  </section>
 
   <footer>
     <p>
@@ -269,6 +383,52 @@
       `;
     }
 
+    function directoryHtml(place) {
+      const gmUrl = safeGoogleMapsUrl(place["Google Maps"] || "");
+      const siteUrl = safeGoogleMapsUrl(place.Link || "");
+      const locationParts = [place.Neighborhood, place.Address].filter(Boolean);
+      const details = [place["From UN HQ"], place["Dietary notes"]].filter(Boolean);
+      const tipText = place.Tips || "";
+      const websiteLink = siteUrl !== "#"
+        ? `<a class="place-link-secondary" href="${siteUrl}" target="_blank" rel="noopener noreferrer">Website</a>`
+        : "";
+      const mapsLink = gmUrl !== "#"
+        ? `<a class="place-link-primary" href="${gmUrl}" target="_blank" rel="noopener noreferrer">Google Maps</a>`
+        : "";
+
+      return `
+        <article class="place-card">
+          <h3>${escapeHtml(place.Name)}</h3>
+          <div class="place-card-meta">
+            <span class="place-chip">${escapeHtml(place.Category)}</span>
+            ${locationParts.length ? `<span>${escapeHtml(locationParts.join(" · "))}</span>` : ""}
+          </div>
+          <p>${escapeHtml(place["Why it is good"] || "")}</p>
+          ${details.length ? `<p class="place-detail">${escapeHtml(details.join(" · "))}</p>` : ""}
+          ${tipText ? `<p class="place-detail"><strong>Tips:</strong> ${escapeHtml(tipText)}</p>` : ""}
+          <div class="place-actions">
+            ${mapsLink}
+            ${websiteLink}
+          </div>
+        </article>
+      `;
+    }
+
+    function renderDirectory(places) {
+      const root = document.getElementById("places-list");
+      const count = document.getElementById("places-count");
+      if (!root || !count) return;
+
+      const sortedPlaces = [...places].sort((left, right) => {
+        const categoryCompare = String(left.Category || "").localeCompare(String(right.Category || ""));
+        if (categoryCompare !== 0) return categoryCompare;
+        return String(left.Name || "").localeCompare(String(right.Name || ""));
+      });
+
+      count.textContent = `${sortedPlaces.length} places listed`;
+      root.innerHTML = sortedPlaces.map(directoryHtml).join("");
+    }
+
     // Initialise map centred on the UN
     const map = L.map("map").setView([40.7489, -73.968], 15);
 
@@ -284,10 +444,13 @@
           header: true,
           skipEmptyLines: true,
           complete({ data }) {
+            const visiblePlaces = [];
             data.forEach(place => {
               const lat = parseFloat(place.Latitude);
               const lng = parseFloat(place.Longitude);
               if (isNaN(lat) || isNaN(lng)) return;
+
+              visiblePlaces.push(place);
 
               const isAnchor = place.Category === "Conference Venue";
               const color    = markerColor(place.Category);
@@ -298,6 +461,8 @@
 
               marker.bindPopup(popupHtml(place), { maxWidth: 300 });
             });
+
+            renderDirectory(visiblePlaces);
           }
         });
       })
@@ -316,6 +481,13 @@
           alt: "UN Headquarters"
         }).addTo(map)
           .bindPopup('<p class="popup-name">UN Headquarters</p><p class="popup-why">UN Open Source Week anchor venue</p>');
+
+        const root = document.getElementById("places-list");
+        const count = document.getElementById("places-count");
+        if (root && count) {
+          count.textContent = "Directory unavailable";
+          root.innerHTML = '<p class="popup-why">Could not load the venue list right now. Refresh the page or check back later.</p>';
+        }
       });
   </script>
   <script src="nav.js" defer></script>
