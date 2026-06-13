@@ -18,6 +18,63 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-018",
+    "title": "UN Tech Over Hack-A-Thon",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "10:00",
+    "end_time": "18:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This Hack-A-Thon will offer a space for a collaborative innovation sprint where participants use open source tools and artificial intelligence to rapidly build solutions addressing global challenges aligned with UN goals Challenge 1: Safety, Supervision, and Governance in the Agentic World Safety, Supervision and Governance in the Agentic World will be a challenge developed by AESIA (the Spanish Agency for the Supervision of Artificial Intelligence) and the Spanish Open Source AI Community, led ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-019",
+    "title": "Edit-A-Thon",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "10:00",
+    "end_time": "18:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This event aims to leverage participants\u2019 research, documentation and critical thinking abilities to enhance selected Wikipedia pages of relevance. Throughout the day, experts and mentors will assist participants in updating these pages so as to publish in-depth, accurate reports",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-020",
+    "title": "Maintain-A-Thon",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "10:00",
+    "end_time": "18:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This event, organized for open source maintainers, stewards, and policymakers, spotlights the maintenance of critical open source infrastructure. It consists of two tracks: one featuring open source maintainer-led sessions that share knowledge and best practices and surface the craft of open source software maintenance through real-world examples; and another dedicated to institutional capacity building and long-term stewardship",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-013",
     "title": "Octane Side Event: Sustainable Open Source Funding Infrastructure",
     "organizer": "Digital Public Goods Alliance",
@@ -56,6 +113,348 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-021",
+    "title": "Check-In",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "16:00",
+    "end_time": "16:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-022",
+    "title": "Welcome and Opening Remarks",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "16:45",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-023",
+    "title": "Fireside Chat: How is AI Changing the World of Work?",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "17:00",
+    "end_time": "17:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session will explore how AI is reshaping workplaces and corporate strategies: \u2022 AI in Engineering and Operations: How organizations are applying AI in product design, software development, and operational workflows. \u2022 Impact on Job Roles: Which positions are evolving, which tasks are being automated, and the new skills employees need. \u2022 Corporate Approaches: Strategies for upskilling, workforce planning, and integrating AI responsibly. \u2022 Practical Examples: Showcasing companies successfully",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-024",
+    "title": "Panel: Preparing Countries for an AI Future",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "17:45",
+    "end_time": "18:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-025",
+    "title": "Reception",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-22",
+    "start_time": "18:30",
+    "end_time": "20:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-026",
+    "title": "Opening Keynotes and Fireside Chat",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "10:00",
+    "end_time": "10:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "The opening ministerial panel will reflect on how openness can strengthen international digital cooperation and bridge divides across countries and regions. Ministers will discuss how shared standards, open technologies, and collaborative governance approaches can enable more inclusive global digital ecosystems. The session will identify opportunities for cross-border partnerships that leverage openness to advance collective digital progress",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-027",
+    "title": "Setting the Stage: Open Source and AI for Humanity",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "10:45",
+    "end_time": "11:15",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-028",
+    "title": "High-Level Discussion: Open Source for Digital Development",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "11:15",
+    "end_time": "12:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "The opening ministerial panel will reflect on how openness can strengthen international digital cooperation and bridge divides across countries and regions. Ministers will discuss how shared standards, open technologies, and collaborative governance approaches can enable more inclusive global digital ecosystems. The session will identify opportunities for cross-border partnerships that leverage openness to advance collective digital progress",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-029",
+    "title": "Open Robots",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session will examine the robotics value chain to identify where openness exists across design, hardware, software, data, and manufacturing, and how it contributes to the sector\u2019s growth. Speakers will discuss how open approaches at different stages of robot production can accelerate innovation, reduce costs, expand participation, and support local industrial development. The conversation will also explore how greater openness in the robotics ecosystem can strengthen collaboration, interoper",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-030",
+    "title": "Lunch Break",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "UN Cafes",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-031",
+    "title": "Building Digitally Friendly Cities: Open Source, AI and Human-Centered Data",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 9",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This event brings together distinguished Nobel and Turing laureates, senior UN officials, senior leadership from leading international technical organizations, global tech leaders, and young innovators. Together, they will explore how open source technologies and AI can empower inclusive urban development \u2013 placing people at the center of digital transformation. Key discussions will cover digital resilience, AI risk management, emerging governance challenges, and the role of open source in build",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-032",
+    "title": "Open Source, Digital Sovereignty, and Public AI Infrastructure in Africa",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 11",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This high-level session brings together the right ecosystem stakeholders for an African and inclusive conversation and agenda setting towards Africa's digital sovereignty, resilience, and transformation. It will provide a platform for building needed stakeholder support and commitment to accelerate an open, interoperable digital infrastructure. The session will co-create a short roadmap to address the critical infrastructure, resource and governance gaps",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-033",
+    "title": "Responsible GenAI at Scale: Open Source Commons and Governance",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As generative AI rapidly transitions from experimentation to enterprise-scale deployment, the need for responsible, transparent, and governable systems has never been more urgent. This session explores how open source communities can play a foundational role in operationalizing Responsible AI at scale.In the first half, the Generative AI Commons will introduce its Responsible AI workstream and the Responsible Generative AI Framework (RGAF), a community-driven framework designed to guide the deve",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-034",
+    "title": "What AI Changes for Open Source Risk and Resilience",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source platforms underpin critical work in disaster risk management, climate resilience, and humanitarian response. Tools like DELTA, MapX, the Risk Data Library, and the Resilient Planet Data Hub depend on sustained maintenance, community contribution, and interoperable standards to function as reliable infrastructure. AI is now reshaping this landscape in contradictory ways: improving code quality, reducing maintenance burden, and enabling new modelling and analytics capabilities on one h",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-035",
+    "title": "Youth-Led Open Source AI for Sustainable Futures: Bridging Developed and Developing Countries",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Online",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As artificial intelligence becomes a defining force in shaping economies, governance, and development pathways, disparities between developed and developing countries risk deepening. While advanced economies rapidly adopt and deploy AI systems, many regions face limited access to infrastructure, data, technical expertise, and inclusive innovation ecosystems. This growing divide threatens to reinforce existing inequalities, particularly in achieving the United Nations Sustainable Development Goal",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-036",
+    "title": "Open Agents",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "16:15",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session will explore the emerging ecosystem of open AI agents and how open models, frameworks, and standards can support transparency, accountability, and innovation. Participants will discuss how open agent architectures enable developers, researchers, and public institutions to build trustworthy and adaptable AI systems. The conversation will also address governance challenges and opportunities in building an open agent ecosystem",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-037",
+    "title": "Closing Discussion: Openness for Digital Cooperation",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "17:00",
+    "end_time": "18:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This closing panel will explore how open source and open AI ecosystems can accelerate inclusive digital development and innovation. Participants will discuss policy approaches that enable openness, strengthen digital public infrastructure, and support local innovation ecosystems. The conversation will highlight how open technologies can reduce barriers to access, promote transparency, and drive sustainable digital transformation",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-038",
+    "title": "UN Open Source Week Reception",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Delegates Dining Room",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-015",
     "title": "Open Source Community Drinks NYC",
     "organizer": "Evolving Web, CivicActions, and Amazee.io",
@@ -73,6 +472,44 @@
     "access": "registration_required",
     "original_source_url": "https://register.evolvedigital.com/events/evolvedigitalsummits/2260883",
     "submission_source": "manual:https://register.evolvedigital.com/events/evolvedigitalsummits/2260883"
+  },
+  {
+    "id": "evt-2026-039",
+    "title": "Opening Keynotes",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "10:00",
+    "end_time": "10:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-040",
+    "title": "Turning Global Commitments into Action",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "11:00",
+    "end_time": "11:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "The Global Digital Compact and the Fourth International Conference on Financing for Development established ambitious commitments on digital public infrastructure. This panel brings together ministers, multilateral development banks, and practitioners to take stock of how those commitments are being translated into concrete action at country and regional level. Speakers will share first-hand experiences and identify what it will take to sustain momentum through 2027 and beyond",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
     "id": "evt-2026-003",
@@ -111,6 +548,101 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-041",
+    "title": "A DPI Approach to Next Generation Trade and Transport",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session will explore how Digital Public Infrastructure (DPI) and open\u2011source Digital Public Goods are transforming international trade and transport. Organized by UNECE\u2019s Transport Division in partnership with UN OHRLLS, the Czech Republic Customs, and the International Road Transport Union (IRU), the panel will highlight practical, interoperable, and legally grounded digital solutions supporting cross\u2011border operations. The discussion will focus on ongoing efforts to digitalize key United ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-042",
+    "title": "Advancing Population-Scale Innovation with Safe & Inclusive DPI (1)",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Countries are rapidly adopting digital public infrastructure (digital ID, payments, data exchange) to deliver services at population scale. But as DPI scales, so do the risks: exclusion of marginalized populations, security vulnerabilities, privacy failures, and vendor lock-in, among others. Despite growing consensus that safeguards are essential, most implementers lack practical guidance on what safeguards look like in practice and how to operationalize them alongside design and rollout.The UN ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-043",
+    "title": "Building Inclusion: Identity, Payments, and the Real Cost of Digital Public Infrastructure",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 9",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "From Venezuelan migrants navigating Colombia\u2019s Bre-B payment system, to Ethiopia\u2019s rollout of Fayda ID, to the global push for digital public infrastructure, this session examines a critical question: when does digital public infrastructure actually expand inclusion, and when does it reinforce barriers? By connecting real-world frictions in remittances, the evolving role of digital identity and how it can leverage and build on open-source systems, and the financial and governance trade-offs of D",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-044",
+    "title": "DPI Sustainability for Health, Learning and Science",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 11",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As learning, health and scientific systems grow increasingly digital, the governance of digital commons and open infrastructure has become both an urgent public interest challenge and a strategic opportunity. This session explores these issues, including through a UNESCO Panel on Open Solutions and WHO/UNICC panel on Health DPI, which will highlight how Digital Public Infrastructure (DPI) and digital public goods\u2014including open repositories, Open Access, and Open Educational Resources\u2014can enable",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-045",
+    "title": "Lunch Break",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "UN Cafes",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-005",
     "title": "Government of the Dominican Republic & UNICEF \u2013 Making DPI Work for Children: From Country Experience to Implementer Tactics",
     "organizer": "Digital Public Goods Alliance",
@@ -127,6 +659,158 @@
     "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
     "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-046",
+    "title": "Advancing Population-Scale Innovation with Safe & Inclusive DPI (2)",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Countries are rapidly adopting digital public infrastructure (digital ID, payments, data exchange) to deliver services at population scale. But as DPI scales, so do the risks: exclusion of marginalized populations, security vulnerabilities, privacy failures, and vendor lock-in, among others. Despite growing consensus that safeguards are essential, most implementers lack practical guidance on what safeguards look like in practice and how to operationalize them alongside design and rollout.The UN ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-047",
+    "title": "Making DPI Work for Children: From Country Experience to Implementer Tactics",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Digital Public Infrastructure (DPI) is increasingly becoming the backbone of public service delivery, and the decisions made at the infrastructure level will define children's access to health, education, and social protection. Access to birth registration, health care, school enrolment, and social protection depends not on any single system, but on the ability of multiple government agencies to share data securely and reliably across administrative boundaries. Yet experience shows that children",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-048",
+    "title": "Women Building Digital: The GovStack Women in GovTech Challenge",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 11",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Over the past three cohorts, the GovStack Women in GovTech Challenge has evolved beyond a training programme into a growing global community of practitioners, mentors, policymakers, and ecosystem actors committed to advancing inclusive digital transformation. The initiative has demonstrated the importance of creating spaces where women working in GovTech and Digital Public Infrastructure (DPI) can build technical knowledge, exchange implementation experiences, strengthen peer networks, and engag",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-049",
+    "title": "DPI for Inclusive Growth",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "16:15",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "How does digital public infrastructure drive inclusive economic growth across vastly different contexts? This panel brings together ministers and practitioners from three regions at different stages of DPI maturity to share concrete use cases and transferable lessons on what makes cross-border DPI work, what financing and safeguards are needed, and what the global ecosystem must deliver for countries just getting started",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-050",
+    "title": "Closing Remarks",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "17:00",
+    "end_time": "17:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "ECOSOC Chamber",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-051",
+    "title": "Reception: The Global Case for Open in AI: How Open Source and Open Standards Build Trust Across Borders",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "18:30",
+    "end_time": "21:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "JFK 27 Amazon, 12 W 39th St, New York, NY 10018",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Vendor lock-in, lack of interoperability, and opaque AI systems are top barriers to AI adoption worldwide \u2014 particularly in markets where regulatory scrutiny is intensifying. A new wave of open tools and protocols \u2014 including MCP, ACP, and AG-UI \u2014 is reshaping how AI agents, models, and applications connect and communicate across a multi-vendor ecosystem. This panel explores how these developments and the broader open source AI community are building the foundation for transparent, globally inte",
+    "access": "invite_only",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-052",
+    "title": "Opening Keynotes",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "10:00",
+    "end_time": "10:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-053",
+    "title": "Open Source and Digital Sovereignty in a Connected World",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
     "id": "evt-2026-006",
@@ -183,6 +867,101 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-054",
+    "title": "Country Spotlight: Lessons from Open Source Implementation in Japan",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source software (OSS) is a foundational pillar of today's digital infrastructure. Yet the ways in which countries participate in and contribute to this ecosystem vary significantly based on their unique cultures, industrial structures, and historical backgrounds. This session systematically presents the \"Japan Model,\" detailing how Japan has engaged with open source and steadily accumulated contributions over four decades.The essence of the Japan Model lies not in centralized control, but i",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-055",
+    "title": "Data Governance for the Public Good: Equity, Openness and Community Stewardship",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This workshop explores how data governance can better serve the public good in an increasingly digital world. As governments, institutions and communities embrace digital transformation, the role of open ecosystems grounded in open source and open data has become essential to fostering innovation, transparency and inclusive development.The session focuses on a central question: how can data governance models become more equitable, participatory and responsive to the needs of the communities they",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-056",
+    "title": "Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 11",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source software is a critical enabler of digital public infrastructure and the Sustainable Development Goals, yet its adoption and contribution remain uneven across regions. This session introduces the Open Source Enablement Compass (OSEC), a UN-led initiative designed to provide an evidence-based framework for measuring and strengthening national open source ecosystems. Developed in collaboration with UNU, RISE, and GitHub, OSEC aims to help governments benchmark progress, identify good pr",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-057",
+    "title": "Financing Open Source and Digital Public Goods: A Multi-Stakeholder Approach",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 9",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As digital public goods (DPGs) and open-source solutions become central to sustainable development, the question of how to finance, sustain, and scale them remains a critical challenge. This session brings together a diverse coalition of multilateral development banks, philanthropic funds, governments, and global digital networks to explore innovative financing frameworks, new business models, and cross-institutional collaboration strategies for open-source ecosystems. Drawing on real-world expe",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-058",
+    "title": "Lunch Break",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "UN Cafes",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-009",
     "title": "ADB & UN ODET \u2014 AI as a Digital Public Good: Insights from ADB\u2019s Research",
     "organizer": "Digital Public Goods Alliance",
@@ -237,6 +1016,424 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-059",
+    "title": "AI as a Digital Public Good: Insights from ADB\u2019s Research",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Artificial Intelligence (AI) can be considered a type of Digital Public Good (DPG). However, alongside its significant potential, it introduces new challenges compared to traditional DPGs. The existing DPG standard does not fully accommodate AI, as safeguarding principles - such as \u201cprivacy by design\u201d and \u201cdo no harm\u201d- must be rigorously enforced and elevated. At the same time, the concept of \u201copen source\u201d, which is central to DPGs, was originally developed for code and does not fully capture th",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-060",
+    "title": "Building Open Source Capacity at Scale \u2014 University OSPOs as Engines for SDG Impact",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Training Room (Dag Hammarskj\u00f6ld Library)",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Over the past few years, the number of OSPOs and OSPO-like activities in universities and research institutions has grown significantly. Many of those activities are designed to help deliver the SDGs. This session is an opportunity to explore what has been done, share what is in progress, and think together about how academic open source can do more to drive real SDG impact. The session will begin with some lightning talks highlighting initiatives that show what this looks like in practice. The ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-061",
+    "title": "Cities, Democracy, and Open Source",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session will explore the relationship between democracy and open source, with a particular focus on the role of Cities. It will examine how promoting open-source technologies can help democratise cities by enhancing transparency, auditability, and digital autonomy, while enabling more participatory and inclusive digital policies. The discussion will also address why open source is a key element in building stronger democratic systems and how cities can better engage citizens in shaping publ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-062",
+    "title": "From Policy to Practice: Establishing Government OSPOs in Low- and Middle-Income Countries",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 9",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "While the Open-Source Programme Office (OSPO) model is established in the private sector and parts of public administration in North America and Europe, its adoption in low- and middle-income country governments is only just beginning. This session brings together practitioners from Trinidad and Tobago and Kenya - two governments pioneering the OSPO model in their regions - alongside UNDP and ITU, to share what it takes to move from open-source policy to institutional practice. We will examine g",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-063",
+    "title": "Industry Spotlight: Open Source in the Automotive Industry",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 11",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This Industry Spotlight session brings together leading players from the automotive industry to highlight the pivotal role of Open Source in shaping the future of global mobility. We will discuss how Open Source Program Offices (OSPOs) drive collaboration across the entire automotive supply chain, accelerating the development of software-defined vehicles. Join us to discover best practices and opportunities for leveraging Open Source to achieve sustainable development and digital transformation ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-064",
+    "title": "Open Source at the United Nations",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "16:15",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source is increasingly becoming an important enabler of innovation, collaboration, and transparency across the United Nations system. In recent years, a growing number of UN entities have begun adopting and contributing to open source solutions to support digital transformation, improve service delivery, and foster partnerships with global communities of developers and innovators. This session will bring together representatives from different UN agencies to share their experiences in advan",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-065",
+    "title": "Strategic Independence Across Layers of Governance",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "17:15",
+    "end_time": "18:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 1",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "From cities and municipalities to regional bodies and national governments, public institutions are increasingly navigating complex digital ecosystems while seeking to maintain strategic independence in the technologies they rely on. Open source can serve as an important lever to support this objective by enabling collaboration, adaptability, and shared innovation across different levels of governance. This session will explore how open source approaches can strengthen digital capacity and strat",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-066",
+    "title": "Reception",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "18:00",
+    "end_time": "20:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Microsoft Building, 122 Fifth Avenue, New York, NY 10011",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Vendor lock-in, lack of interoperability, and opaque AI systems are top barriers to AI adoption worldwide \u2014 particularly in markets where regulatory scrutiny is intensifying. A new wave of open tools and protocols \u2014 including MCP, ACP, and AG-UI \u2014 is reshaping how AI agents, models, and applications connect and communicate across a multi-vendor ecosystem. This panel explores how these developments and the broader open source AI community are building the foundation for transparent, globally inte",
+    "access": "invite_only",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-068",
+    "title": "Plenary Session",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "09:00",
+    "end_time": "09:40",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-069",
+    "title": "Open Source AI for the Public Good",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-077",
+    "title": "Public Investment for Open Source Infrastructure: The Sovereign Tech Agency Model in a Global Ecosystem",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-082",
+    "title": "Africa Accelerator for DPI",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-087",
+    "title": "UNICEF",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "10:00",
+    "end_time": "11:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-070",
+    "title": "Democratizing AI: Security, Sovereignty, and Inclusive Ecosystems featuring two expert panels",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "11:10",
+    "end_time": "12:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-078",
+    "title": "Nations and Sovereignty: cobuilding national and international capacity within and across borders",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "11:10",
+    "end_time": "12:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-083",
+    "title": "Shaping a DPI: From Concept to Operation",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "11:10",
+    "end_time": "12:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-088",
+    "title": "Open Source for Good Health and Well being",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "11:10",
+    "end_time": "12:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-071",
+    "title": "Lunch Break",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "12:10",
+    "end_time": "13:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-072",
+    "title": "Open Source and the Future of Verifiable AI",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "14:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-079",
+    "title": "Building the Next Generation: models and methods for growing capacity via the next generation of open source contributors and contributions",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "14:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-084",
+    "title": "Designing Sovereign and Interoperable DPI Ecosystems: Standards, Procurement, and Contribution in Practice",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "14:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-089",
+    "title": "Scaling accessibility and inclusivity through Open Source",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "14:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-012",
     "title": "DPG Showcase & Networking \u2013 Community Event",
     "organizer": "Digital Public Goods Alliance",
@@ -272,5 +1469,214 @@
     "access": "public",
     "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June",
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-073",
+    "title": "Deploying AI Responsibly: Hands-On Technical and Civic Strategy",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "14:20",
+    "end_time": "15:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-080",
+    "title": "Funding and Sustainability: Securing capacity in the literal cybersecurity sense, and securing investments, creating value, and sustaining impact",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "14:20",
+    "end_time": "15:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-085",
+    "title": "Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "14:20",
+    "end_time": "15:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-090",
+    "title": "Open Source for Climate, Energy, and Sustainability",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "14:20",
+    "end_time": "15:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-074",
+    "title": "Toward Sovereign and Resilient AI: Governance, Open Source, and What Comes Next",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "15:40",
+    "end_time": "16:40",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-081",
+    "title": "Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "15:40",
+    "end_time": "16:40",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-086",
+    "title": "Digital Commons in the era of AI: Open Data, Civic Infrastructure, and DPI in Practice",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "15:40",
+    "end_time": "16:40",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-091",
+    "title": "Inclusion, Localization, and Last-Mile Design",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "15:40",
+    "end_time": "16:40",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-075",
+    "title": "Closing Session",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "16:50",
+    "end_time": "17:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-076",
+    "title": "Reception",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "17:20",
+    "end_time": "18:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-067",
+    "title": "Community-Driven Sessions on Open Source and Digital Collaboration",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "9:00",
+    "end_time": "17:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "IBM Building, 1 Madison Avenue, New York (registration in the lobby)",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "The Friday side event, organised by Research Institutes of Sweden (RISE) OpenForum Europe (OFE), CURIOSS, and Red Hat will feature a full day of curated, community-driven sessions focused on the role of open source in advancing the UN\u2019s goals, including the Sustainable Development Goals (SDGs) and the Global Digital Compact",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
   }
 ]
