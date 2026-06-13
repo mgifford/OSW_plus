@@ -42,6 +42,13 @@ Suggestions are incorporated in two phases: a maintainer reviews the issue, adds
 
 For backlog processing, use the workflow dispatch form and either enter a specific issue number or choose the option to process all open issues with the suggestion and `approved` labels.
 
+Maintainer checklist:
+
+1. Review the issue for completeness and fit.
+1. Add the `approved` label when you want the suggestion ingested.
+1. Run the matching Actions workflow for the approved backlog, or let the labeled issue trigger it on the next run.
+1. Review the generated PR and merge it when the data looks correct.
+
 ## Local commands
 
 ```bash

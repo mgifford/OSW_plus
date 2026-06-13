@@ -29,6 +29,13 @@ After the issue is opened, a maintainer reviews it and adds the `approved` label
 
 If the issue is still missing the `approved` label, it will stay in the suggestion backlog and will not be ingested yet.
 
+Maintainer checklist:
+
+1. Confirm the place is near the UN and fits one of the supported categories.
+1. Add the `approved` label when the suggestion should be ingested.
+1. Run the place workflow for the approved backlog if needed.
+1. Review and merge the generated PR.
+
 ---
 
 ## Option B — Submit a Pull Request
