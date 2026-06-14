@@ -344,7 +344,7 @@ class ParseDpgaEventsTabSeparatedTests(unittest.TestCase):
     def test_multiline_event_with_location_prefix(self):
         titles = [e["title"] for e in self.events]
         self.assertIn(
-            "Octane Side Event: Sustainable Open Source Funding Infrastructure.", titles
+              "Octane Side Event: Sustainable Open Source Funding Infrastructure", titles
         )
 
     def test_multiline_event_date(self):

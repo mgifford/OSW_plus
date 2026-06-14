@@ -38,6 +38,8 @@ def _collect_links() -> list[tuple[str, str]]:
     for glob in MD_GLOBS:
         for md_file in sorted(REPO_ROOT.glob(glob)):
             text = md_file.read_text(encoding="utf-8")
+            if "node_modules" in md_file.parts:
+                continue
             for url in LINK_RE.findall(text):
                 # Strip trailing punctuation that isn't part of the URL.
                 # Only strip ')' when it has no matching '(' inside the URL
