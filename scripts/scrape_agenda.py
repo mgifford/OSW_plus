@@ -349,82 +349,115 @@ def _events_from_jsonld_item(
     source_url: str,
     existing: list[dict],
     source_name: str,
+    inherited_context: dict[str, Any] | None = None,
 ) -> list[dict]:
     """Recursively extract Event objects from a single JSON-LD item."""
     events: list[dict] = []
-    if not isinstance(item, dict):
-        return events
+    inherited_context = inherited_context or {}
 
-    # Recurse into @graph arrays
-    if "@graph" in item:
-        for sub in item["@graph"] if isinstance(item["@graph"], list) else [item["@graph"]]:
-            events.extend(_events_from_jsonld_item(sub, source_url, existing + events, source_name))
+    def _event_from_value(value: Any, fallback: str) -> str:
+        if isinstance(value, dict):
+            return (value.get("name") or fallback).strip() or fallback
+        if isinstance(value, list):
+            names = []
+            for entry in value:
+                if isinstance(entry, dict) and entry.get("name"):
+                    names.append(str(entry["name"]).strip())
+                elif isinstance(entry, str) and entry.strip():
+                    names.append(entry.strip())
+            return ", ".join(names) if names else fallback
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+        return fallback
+
+    def _location_from_value(value: Any) -> tuple[str, str]:
+        if isinstance(value, dict):
+            loc_name = (value.get("name") or "TBD").strip() or "TBD"
+            loc_address = value.get("address") or {}
+            if isinstance(loc_address, dict):
+                street = (loc_address.get("streetAddress") or "").strip()
+                city = (loc_address.get("addressLocality") or "New York, NY").strip() or "New York, NY"
+                address_str = f"{street}, {city}".lstrip(", ")
+            else:
+                address_str = str(loc_address).strip() or "New York, NY"
+            return loc_name, address_str
+        return "TBD", "New York, NY"
+
+    if isinstance(item, list):
+        for sub in item:
+            events.extend(_events_from_jsonld_item(sub, source_url, existing + events, source_name, inherited_context))
+        return events
+    if not isinstance(item, dict):
         return events
 
     schema_type = item.get("@type", "")
     types = schema_type if isinstance(schema_type, list) else [schema_type]
-    if not any("Event" in str(t) for t in types):
-        return events
+    is_event = any("Event" in str(t) for t in types)
 
-    # Date
-    raw_date = item.get("startDate") or item.get("startdate") or ""
-    event_date = raw_date[:10] if len(raw_date) >= 10 else None
-    if not event_date or not event_date.startswith("2026-06"):
-        return events
+    raw_start = str(item.get("startDate") or item.get("startdate") or "").strip()
+    raw_end = str(item.get("endDate") or item.get("enddate") or "").strip()
 
-    title = (item.get("name") or item.get("headline") or "").strip()
-    if not title:
-        return events
+    nested_values: list[Any] = []
+    for key in ("@graph", "about", "subEvent", "event", "mainEntity", "mainEntityOfPage", "hasPart", "subjectOf"):
+        value = item.get(key)
+        if value:
+            nested_values.append(value)
 
-    event_url = item.get("url") or item.get("sameAs") or source_url
-    if isinstance(event_url, list):
-        event_url = event_url[0] if event_url else source_url
+    if is_event:
+        event_date = raw_start[:10] if len(raw_start) >= 10 else None
+        title = (item.get("name") or item.get("headline") or "").strip()
+        is_container_event = bool(item.get("subEvent")) and raw_start[:10] and raw_end[:10] and raw_start[:10] != raw_end[:10]
+        if event_date and event_date.startswith("2026-06") and title and not is_container_event:
+            event_url = item.get("url") or item.get("sameAs") or source_url
+            if isinstance(event_url, list):
+                event_url = event_url[0] if event_url else source_url
 
-    description = (item.get("description") or "").strip()
+            description = (item.get("description") or "").strip()
+            loc_name, address_str = _location_from_value(item.get("location") or inherited_context.get("location"))
+            organizer_name = _event_from_value(item.get("organizer") or inherited_context.get("organizer"), "UN Open Source Week")
 
-    location_data = item.get("location") or {}
-    if isinstance(location_data, dict):
-        loc_name = location_data.get("name") or "TBD"
-        loc_address = location_data.get("address") or {}
-        if isinstance(loc_address, dict):
-            street = loc_address.get("streetAddress") or ""
-            city = loc_address.get("addressLocality") or "New York, NY"
-            address_str = f"{street}, {city}".lstrip(", ")
-        else:
-            address_str = str(loc_address) or "New York, NY"
-    else:
-        loc_name = "TBD"
-        address_str = "New York, NY"
+            if "T" in raw_start:
+                start_time = datetime.fromisoformat(raw_start.replace("Z", "+00:00")).strftime("%H:%M")
+                timeframe = "weekday_evening" if start_time >= TIME_RANGES["weekday_evening"][0] else "weekday_daytime"
+            else:
+                timeframe = "weekday_daytime"
+                start_time = TIME_RANGES[timeframe][0]
 
-    organizer = item.get("organizer") or {}
-    if isinstance(organizer, dict):
-        organizer_name = organizer.get("name") or "UN Open Source Week"
-    elif isinstance(organizer, list) and organizer and isinstance(organizer[0], dict):
-        organizer_name = organizer[0].get("name") or "UN Open Source Week"
-    else:
-        organizer_name = "UN Open Source Week"
+            if raw_end and "T" in raw_end:
+                end_time = datetime.fromisoformat(raw_end.replace("Z", "+00:00")).strftime("%H:%M")
+            else:
+                end_time = TIME_RANGES[timeframe][1]
 
-    candidate: dict = {
-        "id": next_event_id(existing + events, 2026),
-        "title": title[:200],
-        "organizer": organizer_name,
-        "timeframe": "weekday_evening",
-        "event_date": event_date,
-        "start_time": TIME_RANGES["weekday_evening"][0],
-        "end_time": TIME_RANGES["weekday_evening"][1],
-        "timezone": "America/New_York",
-        "location": {
-            "name": loc_name,
-            "neighborhood": "TBD",
-            "address": address_str,
-        },
-        "summary": (description[:500] if description else f"See {source_url} for full details."),
-        "access": detect_access_level(f"{title} {description}"),
-        "original_source_url": str(event_url),
-        "submission_source": source_name,
+            candidate: dict = {
+                "id": next_event_id(existing + events, 2026),
+                "title": title[:200],
+                "organizer": organizer_name,
+                "timeframe": timeframe,
+                "event_date": event_date,
+                "start_time": start_time,
+                "end_time": end_time,
+                "timezone": "America/New_York",
+                "location": {
+                    "name": loc_name,
+                    "neighborhood": "TBD",
+                    "address": address_str,
+                },
+                "summary": (description[:500] if description else f"See {source_url} for full details."),
+                "access": detect_access_level(f"{title} {description}"),
+                "original_source_url": str(event_url),
+                "submission_source": source_name,
+            }
+            if not event_exists(existing + events, candidate):
+                events.append(candidate)
+
+    next_context = {
+        "organizer": item.get("organizer") or inherited_context.get("organizer"),
+        "location": item.get("location") or inherited_context.get("location"),
     }
-    if not event_exists(existing + events, candidate):
-        events.append(candidate)
+    for nested in nested_values:
+        events.extend(
+            _events_from_jsonld_item(nested, source_url, existing + events, source_name, next_context)
+        )
     return events
 
 

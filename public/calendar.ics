@@ -4,6 +4,14 @@ PRODID:-//OSWeek Plus NYC//Community Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
+UID:evt-2026-016@osweekplus.nyc
+SUMMARY:UN Tech Over
+DTSTART;TZID=America/New_York:20260622T090000
+DTEND;TZID=America/New_York:20260622T173000
+DESCRIPTION:The UN Tech Over brings people together to work on real UN challenges and build practical solutions through Hack-A-Thon, Edit-A-Thon, and Maintain-A-Thon activities.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-001@osweekplus.nyc
 SUMMARY:UN Tech Over Hack-A-Thon, Edit-A-Thon, and Maintain-A-Thon
 DTSTART;TZID=America/New_York:20260622T100000
@@ -44,19 +52,27 @@ DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hac
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-016@osweekplus.nyc
-SUMMARY:Octane Side Event: Sustainable Open Source Funding Infrastructure (RSVP + Details). Location: Michael J Fox Foundation Offices, 111 W34th St
-DTSTART;TZID=America/New_York:20260622T120000
-DTEND;TZID=America/New_York:20260622T170000
-DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#UN-Tech-Over-%E2%80%94-Monday%2C-22-June
+UID:evt-2026-017@osweekplus.nyc
+SUMMARY:Open Source x AI
+DTSTART;TZID=America/New_York:20260623T090000
+DTEND;TZID=America/New_York:20260623T173000
+DESCRIPTION:Open Source for AI and Emerging Technologies assesses the potential of open source as a gateway to establishing a sustainable AI future.\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-021@osweekplus.nyc
-SUMMARY:Check-In
-DTSTART;TZID=America/New_York:20260622T160000
-DTEND;TZID=America/New_York:20260622T164500
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+UID:evt-2026-015@osweekplus.nyc
+SUMMARY:Open Source Community Drinks NYC
+DTSTART;TZID=America/New_York:20260623T193000
+DTEND;TZID=America/New_York:20260623T223000
+DESCRIPTION:Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.\nRSVP: https://register.evolvedigital.com/events/evolvedigitalsummits/2260883
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-018@osweekplus.nyc
+SUMMARY:DPI Day
+DTSTART;TZID=America/New_York:20260624T090000
+DTEND;TZID=America/New_York:20260624T173000
+DESCRIPTION:This event positions Digital Public Infrastructure (DPI) as a critical enabler of the digital economy and broader digital transformation.\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -284,67 +300,11 @@ DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hac
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-046@osweekplus.nyc
-SUMMARY:Advancing Population-Scale Innovation with Safe & Inclusive DPI (2)
-DTSTART;TZID=America/New_York:20260624T150000
-DTEND;TZID=America/New_York:20260624T160000
-DESCRIPTION:Countries are rapidly adopting digital public infrastructure (digital ID, payments, data exchange) to deliver services at population scale. But as DPI scales, so do the risks: exclusion of marginalized populations, security vulnerabilities, privacy failures, and vendor lock-in, among others. Despite growing consensus that safeguards are essential, most implementers lack practical guidance on what safeguards look like in practice and how to operationalize them alongside design and rollout.The UN \nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-047@osweekplus.nyc
-SUMMARY:Making DPI Work for Children: From Country Experience to Implementer Tactics
-DTSTART;TZID=America/New_York:20260624T150000
-DTEND;TZID=America/New_York:20260624T160000
-DESCRIPTION:Digital Public Infrastructure (DPI) is increasingly becoming the backbone of public service delivery, and the decisions made at the infrastructure level will define children's access to health, education, and social protection. Access to birth registration, health care, school enrolment, and social protection depends not on any single system, but on the ability of multiple government agencies to share data securely and reliably across administrative boundaries. Yet experience shows that children\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-048@osweekplus.nyc
-SUMMARY:Women Building Digital: The GovStack Women in GovTech Challenge
-DTSTART;TZID=America/New_York:20260624T150000
-DTEND;TZID=America/New_York:20260624T160000
-DESCRIPTION:Over the past three cohorts, the GovStack Women in GovTech Challenge has evolved beyond a training programme into a growing global community of practitioners, mentors, policymakers, and ecosystem actors committed to advancing inclusive digital transformation. The initiative has demonstrated the importance of creating spaces where women working in GovTech and Digital Public Infrastructure (DPI) can build technical knowledge, exchange implementation experiences, strengthen peer networks, and engag\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-049@osweekplus.nyc
-SUMMARY:DPI for Inclusive Growth
-DTSTART;TZID=America/New_York:20260624T161500
-DTEND;TZID=America/New_York:20260624T170000
-DESCRIPTION:How does digital public infrastructure drive inclusive economic growth across vastly different contexts? This panel brings together ministers and practitioners from three regions at different stages of DPI maturity to share concrete use cases and transferable lessons on what makes cross-border DPI work, what financing and safeguards are needed, and what the global ecosystem must deliver for countries just getting started\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-050@osweekplus.nyc
-SUMMARY:Closing Remarks
-DTSTART;TZID=America/New_York:20260624T170000
-DTEND;TZID=America/New_York:20260624T174500
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-051@osweekplus.nyc
-SUMMARY:Reception: The Global Case for Open in AI: How Open Source and Open Standards Build Trust Across Borders
-DTSTART;TZID=America/New_York:20260624T183000
-DTEND;TZID=America/New_York:20260624T210000
-DESCRIPTION:Vendor lock-in, lack of interoperability, and opaque AI systems are top barriers to AI adoption worldwide — particularly in markets where regulatory scrutiny is intensifying. A new wave of open tools and protocols — including MCP, ACP, and AG-UI — is reshaping how AI agents, models, and applications connect and communicate across a multi-vendor ecosystem. This panel explores how these developments and the broader open source AI community are building the foundation for transparent, globally inte\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-052@osweekplus.nyc
-SUMMARY:Opening Keynotes
-DTSTART;TZID=America/New_York:20260625T100000
-DTEND;TZID=America/New_York:20260625T104500
-DESCRIPTION:As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-053@osweekplus.nyc
-SUMMARY:Open Source and Digital Sovereignty in a Connected World
-DTSTART;TZID=America/New_York:20260625T104500
-DTEND;TZID=America/New_York:20260625T114500
-DESCRIPTION:As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he\nRSVP: https://www.unopensource.org/agenda
+UID:evt-2026-019@osweekplus.nyc
+SUMMARY:OSPOs for Good
+DTSTART;TZID=America/New_York:20260625T090000
+DTEND;TZID=America/New_York:20260625T173000
+DESCRIPTION:OSPOs for Good showcases the value of Open Source Program Offices (OSPOs) in advancing sustainable development and digital transformation.\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -436,179 +396,11 @@ DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hac
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-059@osweekplus.nyc
-SUMMARY:AI as a Digital Public Good: Insights from ADB’s Research
-DTSTART;TZID=America/New_York:20260625T150000
-DTEND;TZID=America/New_York:20260625T160000
-DESCRIPTION:Artificial Intelligence (AI) can be considered a type of Digital Public Good (DPG). However, alongside its significant potential, it introduces new challenges compared to traditional DPGs. The existing DPG standard does not fully accommodate AI, as safeguarding principles - such as “privacy by design” and “do no harm”- must be rigorously enforced and elevated. At the same time, the concept of “open source”, which is central to DPGs, was originally developed for code and does not fully capture th\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-060@osweekplus.nyc
-SUMMARY:Building Open Source Capacity at Scale — University OSPOs as Engines for SDG Impact
-DTSTART;TZID=America/New_York:20260625T150000
-DTEND;TZID=America/New_York:20260625T160000
-DESCRIPTION:Over the past few years, the number of OSPOs and OSPO-like activities in universities and research institutions has grown significantly. Many of those activities are designed to help deliver the SDGs. This session is an opportunity to explore what has been done, share what is in progress, and think together about how academic open source can do more to drive real SDG impact. The session will begin with some lightning talks highlighting initiatives that show what this looks like in practice. The \nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-061@osweekplus.nyc
-SUMMARY:Cities, Democracy, and Open Source
-DTSTART;TZID=America/New_York:20260625T150000
-DTEND;TZID=America/New_York:20260625T160000
-DESCRIPTION:This session will explore the relationship between democracy and open source, with a particular focus on the role of Cities. It will examine how promoting open-source technologies can help democratise cities by enhancing transparency, auditability, and digital autonomy, while enabling more participatory and inclusive digital policies. The discussion will also address why open source is a key element in building stronger democratic systems and how cities can better engage citizens in shaping publ\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-062@osweekplus.nyc
-SUMMARY:From Policy to Practice: Establishing Government OSPOs in Low- and Middle-Income Countries
-DTSTART;TZID=America/New_York:20260625T150000
-DTEND;TZID=America/New_York:20260625T160000
-DESCRIPTION:While the Open-Source Programme Office (OSPO) model is established in the private sector and parts of public administration in North America and Europe, its adoption in low- and middle-income country governments is only just beginning. This session brings together practitioners from Trinidad and Tobago and Kenya - two governments pioneering the OSPO model in their regions - alongside UNDP and ITU, to share what it takes to move from open-source policy to institutional practice. We will examine g\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-063@osweekplus.nyc
-SUMMARY:Industry Spotlight: Open Source in the Automotive Industry
-DTSTART;TZID=America/New_York:20260625T150000
-DTEND;TZID=America/New_York:20260625T160000
-DESCRIPTION:This Industry Spotlight session brings together leading players from the automotive industry to highlight the pivotal role of Open Source in shaping the future of global mobility. We will discuss how Open Source Program Offices (OSPOs) drive collaboration across the entire automotive supply chain, accelerating the development of software-defined vehicles. Join us to discover best practices and opportunities for leveraging Open Source to achieve sustainable development and digital transformation \nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-064@osweekplus.nyc
-SUMMARY:Open Source at the United Nations
-DTSTART;TZID=America/New_York:20260625T161500
-DTEND;TZID=America/New_York:20260625T170000
-DESCRIPTION:Open source is increasingly becoming an important enabler of innovation, collaboration, and transparency across the United Nations system. In recent years, a growing number of UN entities have begun adopting and contributing to open source solutions to support digital transformation, improve service delivery, and foster partnerships with global communities of developers and innovators. This session will bring together representatives from different UN agencies to share their experiences in advan\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-065@osweekplus.nyc
-SUMMARY:Strategic Independence Across Layers of Governance
-DTSTART;TZID=America/New_York:20260625T171500
-DTEND;TZID=America/New_York:20260625T180000
-DESCRIPTION:From cities and municipalities to regional bodies and national governments, public institutions are increasingly navigating complex digital ecosystems while seeking to maintain strategic independence in the technologies they rely on. Open source can serve as an important lever to support this objective by enabling collaboration, adaptability, and shared innovation across different levels of governance. This session will explore how open source approaches can strengthen digital capacity and strat\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-066@osweekplus.nyc
-SUMMARY:Reception
-DTSTART;TZID=America/New_York:20260625T180000
-DTEND;TZID=America/New_York:20260625T203000
-DESCRIPTION:Vendor lock-in, lack of interoperability, and opaque AI systems are top barriers to AI adoption worldwide — particularly in markets where regulatory scrutiny is intensifying. A new wave of open tools and protocols — including MCP, ACP, and AG-UI — is reshaping how AI agents, models, and applications connect and communicate across a multi-vendor ecosystem. This panel explores how these developments and the broader open source AI community are building the foundation for transparent, globally inte\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-068@osweekplus.nyc
-SUMMARY:Plenary Session
+UID:evt-2026-020@osweekplus.nyc
+SUMMARY:Community-Led Side Events
 DTSTART;TZID=America/New_York:20260626T090000
-DTEND;TZID=America/New_York:20260626T094000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-069@osweekplus.nyc
-SUMMARY:Open Source AI for the Public Good
-DTSTART;TZID=America/New_York:20260626T100000
-DTEND;TZID=America/New_York:20260626T110000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-077@osweekplus.nyc
-SUMMARY:Public Investment for Open Source Infrastructure: The Sovereign Tech Agency Model in a Global Ecosystem
-DTSTART;TZID=America/New_York:20260626T100000
-DTEND;TZID=America/New_York:20260626T110000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-082@osweekplus.nyc
-SUMMARY:Africa Accelerator for DPI
-DTSTART;TZID=America/New_York:20260626T100000
-DTEND;TZID=America/New_York:20260626T110000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-087@osweekplus.nyc
-SUMMARY:UNICEF
-DTSTART;TZID=America/New_York:20260626T100000
-DTEND;TZID=America/New_York:20260626T110000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-070@osweekplus.nyc
-SUMMARY:Democratizing AI: Security, Sovereignty, and Inclusive Ecosystems featuring two expert panels
-DTSTART;TZID=America/New_York:20260626T111000
-DTEND;TZID=America/New_York:20260626T121000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-078@osweekplus.nyc
-SUMMARY:Nations and Sovereignty: cobuilding national and international capacity within and across borders
-DTSTART;TZID=America/New_York:20260626T111000
-DTEND;TZID=America/New_York:20260626T121000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-083@osweekplus.nyc
-SUMMARY:Shaping a DPI: From Concept to Operation
-DTSTART;TZID=America/New_York:20260626T111000
-DTEND;TZID=America/New_York:20260626T121000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-088@osweekplus.nyc
-SUMMARY:Open Source for Good Health and Well being
-DTSTART;TZID=America/New_York:20260626T111000
-DTEND;TZID=America/New_York:20260626T121000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-071@osweekplus.nyc
-SUMMARY:Lunch Break
-DTSTART;TZID=America/New_York:20260626T121000
-DTEND;TZID=America/New_York:20260626T131000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-072@osweekplus.nyc
-SUMMARY:Open Source and the Future of Verifiable AI
-DTSTART;TZID=America/New_York:20260626T131000
-DTEND;TZID=America/New_York:20260626T141000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-079@osweekplus.nyc
-SUMMARY:Building the Next Generation: models and methods for growing capacity via the next generation of open source contributors and contributions
-DTSTART;TZID=America/New_York:20260626T131000
-DTEND;TZID=America/New_York:20260626T141000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-084@osweekplus.nyc
-SUMMARY:Designing Sovereign and Interoperable DPI Ecosystems: Standards, Procurement, and Contribution in Practice
-DTSTART;TZID=America/New_York:20260626T131000
-DTEND;TZID=America/New_York:20260626T141000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-089@osweekplus.nyc
-SUMMARY:Scaling accessibility and inclusivity through Open Source
-DTSTART;TZID=America/New_York:20260626T131000
-DTEND;TZID=America/New_York:20260626T141000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+DTEND;TZID=America/New_York:20260626T173000
+DESCRIPTION:Community-driven sessions focused on the role of open source in advancing the UN's goals, including the Sustainable Development Goals (SDGs) and the Global Digital Compact.\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -617,102 +409,6 @@ SUMMARY:DPG Showcase & Networking – Community Event
 DTSTART;TZID=America/New_York:20260626T142000
 DTEND;TZID=America/New_York:20260626T152000
 DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-017@osweekplus.nyc
-SUMMARY:DPG Showcase & Networking – Community Event (More details TBA) Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice
-DTSTART;TZID=America/New_York:20260626T142000
-DTEND;TZID=America/New_York:20260626T152000
-DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-073@osweekplus.nyc
-SUMMARY:Deploying AI Responsibly: Hands-On Technical and Civic Strategy
-DTSTART;TZID=America/New_York:20260626T142000
-DTEND;TZID=America/New_York:20260626T152000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-080@osweekplus.nyc
-SUMMARY:Funding and Sustainability: Securing capacity in the literal cybersecurity sense, and securing investments, creating value, and sustaining impact
-DTSTART;TZID=America/New_York:20260626T142000
-DTEND;TZID=America/New_York:20260626T152000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-085@osweekplus.nyc
-SUMMARY:Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice
-DTSTART;TZID=America/New_York:20260626T142000
-DTEND;TZID=America/New_York:20260626T152000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-090@osweekplus.nyc
-SUMMARY:Open Source for Climate, Energy, and Sustainability
-DTSTART;TZID=America/New_York:20260626T142000
-DTEND;TZID=America/New_York:20260626T152000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-074@osweekplus.nyc
-SUMMARY:Toward Sovereign and Resilient AI: Governance, Open Source, and What Comes Next
-DTSTART;TZID=America/New_York:20260626T154000
-DTEND;TZID=America/New_York:20260626T164000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-081@osweekplus.nyc
-SUMMARY:Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)
-DTSTART;TZID=America/New_York:20260626T154000
-DTEND;TZID=America/New_York:20260626T164000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-086@osweekplus.nyc
-SUMMARY:Digital Commons in the era of AI: Open Data, Civic Infrastructure, and DPI in Practice
-DTSTART;TZID=America/New_York:20260626T154000
-DTEND;TZID=America/New_York:20260626T164000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-091@osweekplus.nyc
-SUMMARY:Inclusion, Localization, and Last-Mile Design
-DTSTART;TZID=America/New_York:20260626T154000
-DTEND;TZID=America/New_York:20260626T164000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-075@osweekplus.nyc
-SUMMARY:Closing Session
-DTSTART;TZID=America/New_York:20260626T165000
-DTEND;TZID=America/New_York:20260626T172000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-076@osweekplus.nyc
-SUMMARY:Reception
-DTSTART;TZID=America/New_York:20260626T172000
-DTEND;TZID=America/New_York:20260626T182000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-067@osweekplus.nyc
-SUMMARY:Community-Driven Sessions on Open Source and Digital Collaboration
-DTSTART;TZID=America/New_York:20260626T090000
-DTEND;TZID=America/New_York:20260626T173000
-DESCRIPTION:The Friday side event, organised by Research Institutes of Sweden (RISE) OpenForum Europe (OFE), CURIOSS, and Red Hat will feature a full day of curated, community-driven sessions focused on the role of open source in advancing the UN’s goals, including the Sustainable Development Goals (SDGs) and the Global Digital Compact\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 END:VCALENDAR

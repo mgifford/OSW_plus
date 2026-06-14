@@ -268,6 +268,162 @@
     .dot-bar         { background: #7c3aed; }
     .dot-park        { background: #16a34a; }
 
+    .directory {
+      padding: 1.25rem;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .directory-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .directory h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    .directory-intro {
+      margin: 0 0 1rem;
+      color: #475569;
+      line-height: 1.6;
+      max-width: 72ch;
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+      align-items: end;
+      margin-bottom: 0.75rem;
+    }
+    .filter-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+    .filter-group label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .filter-group input[type="search"],
+    .filter-group select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.55rem;
+      background: #fff;
+      color: #0f172a;
+      padding: 0.6rem 0.75rem;
+      font: inherit;
+    }
+    .filter-check {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 44px;
+      padding-top: 1.1rem;
+    }
+    .filter-check input {
+      width: 1rem;
+      height: 1rem;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .filter-check label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .directory-status {
+      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .venue-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.9rem;
+    }
+    .venue-card {
+      display: grid;
+      gap: 0.7rem;
+      padding: 1rem;
+      border: 1px solid #dbe4ee;
+      border-radius: 0.9rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .venue-card--anchor {
+      border-color: #fca5a5;
+      background: linear-gradient(180deg, #fff8f8 0%, #fff 100%);
+    }
+    .venue-heading {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .venue-title {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #0f172a;
+    }
+    .venue-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .venue-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.18rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .venue-meta {
+      margin: 0;
+      color: #475569;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .venue-summary {
+      margin: 0;
+      color: #0f172a;
+      line-height: 1.55;
+    }
+    .venue-tip {
+      margin: 0;
+      color: #475569;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+    .venue-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .venue-links a {
+      color: #1d4ed8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .venue-links a:hover {
+      text-decoration: underline;
+    }
+    .venue-empty {
+      padding: 1rem;
+      border: 1px dashed #cbd5e1;
+      border-radius: 0.85rem;
+      color: #475569;
+      background: #f8fafc;
+    }
+
     footer {
       border-top: 1px solid #e2e8f0;
       padding: 1rem 1.25rem;
@@ -330,6 +486,42 @@
         <div class="legend-item" role="listitem"><div class="legend-dot dot-park" aria-hidden="true"></div> Park / Outdoor</div>
       </div>
     </div>
+
+    <section class="directory" aria-labelledby="places-directory-heading">
+      <div class="directory-inner">
+        <h2 id="places-directory-heading">Places Directory</h2>
+        <p class="directory-intro" id="places-directory-help">
+          Browse the same venue list in text form. Filter by name, category, or how close a place is to the UN.
+        </p>
+
+        <form class="filters" aria-label="Filter places">
+          <div class="filter-group">
+            <label for="place-search">Search</label>
+            <input type="search" id="place-search" name="place-search" autocomplete="off" placeholder="Try pub, coffee, or park" aria-describedby="places-directory-help" />
+          </div>
+          <div class="filter-group">
+            <label for="place-category">Category</label>
+            <select id="place-category" name="place-category">
+              <option value="all">All categories</option>
+              <option value="Conference Venue">Conference Venue</option>
+              <option value="Coffee">Coffee</option>
+              <option value="Food">Food</option>
+              <option value="Quick Bites">Quick Bites</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Bar">Bar</option>
+              <option value="Park">Park / Outdoor</option>
+            </select>
+          </div>
+          <div class="filter-group filter-check">
+            <input type="checkbox" id="close-only" name="close-only" />
+            <label for="close-only">Only show places within about 15 minutes of the UN</label>
+          </div>
+        </form>
+
+        <p id="directory-status" class="directory-status" role="status" aria-live="polite" aria-atomic="true">Loading places…</p>
+        <ul id="places-list" class="venue-list" aria-label="Filtered places list"></ul>
+      </div>
+    </section>
   </div>
 
   <div id="map" role="region" aria-label="Interactive map of places near the UN"></div>
@@ -389,9 +581,132 @@
       "Park":             "#16a34a"
     };
     const DEFAULT_COLOR = "#475569";
+    const CLOSE_WALK_THRESHOLD = 15;
+
+    const directoryStatus = document.getElementById("directory-status");
+    const placesList = document.getElementById("places-list");
+    const placeSearch = document.getElementById("place-search");
+    const placeCategory = document.getElementById("place-category");
+    const closeOnly = document.getElementById("close-only");
+
+    let allPlaces = [];
 
     function markerColor(category) {
       return CATEGORY_COLORS[category] || DEFAULT_COLOR;
+    }
+
+    function displayCategory(category) {
+      return category === "Park" ? "Park / Outdoor" : category;
+    }
+
+    function parseWalkMinutes(place) {
+      const raw = String(place["From UN HQ"] || "").toLowerCase();
+      if (raw.includes("starting point")) return 0;
+      const match = raw.match(/(\d+)\s*min/);
+      return match ? Number.parseInt(match[1], 10) : Number.POSITIVE_INFINITY;
+    }
+
+    function matchesSearch(place, query) {
+      if (!query) return true;
+      const haystack = [
+        place.Name,
+        place.Category,
+        place.Neighborhood,
+        place.Address,
+        place["From UN HQ"],
+        place["Why it is good"],
+        place["Dietary notes"],
+        place["Tips"]
+      ].join(" ").toLowerCase();
+      return haystack.includes(query);
+    }
+
+    function filterPlaces() {
+      const query = placeSearch.value.trim().toLowerCase();
+      const category = placeCategory.value;
+      const closeOnlyChecked = closeOnly.checked;
+
+      return allPlaces
+        .filter((place) => {
+          if (category !== "all" && place.Category !== category) return false;
+          if (closeOnlyChecked && parseWalkMinutes(place) > CLOSE_WALK_THRESHOLD) return false;
+          return matchesSearch(place, query);
+        })
+        .sort((a, b) => {
+          const distanceDelta = parseWalkMinutes(a) - parseWalkMinutes(b);
+          if (distanceDelta !== 0) return distanceDelta;
+          return String(a.Name).localeCompare(String(b.Name));
+        });
+    }
+
+    function safeExternalUrl(raw) {
+      try {
+        const u = new URL(raw);
+        return ["http:", "https:"].includes(u.protocol) ? u.toString() : "#";
+      } catch {
+        return "#";
+      }
+    }
+
+    function safeGoogleMapsUrl(raw) {
+      return safeExternalUrl(raw);
+    }
+
+    function linkHtml(url, label) {
+      const safe = safeExternalUrl(url || "");
+      return safe !== "#"
+        ? `<a href="${safe}" target="_blank" rel="noopener noreferrer">${label}<span class="visually-hidden"> (opens in new tab)</span></a>`
+        : "";
+    }
+
+    function renderVenueCard(place) {
+      const category = displayCategory(place.Category);
+      const walkMinutes = parseWalkMinutes(place);
+      const closeLabel = Number.isFinite(walkMinutes)
+        ? `${walkMinutes} min walk`
+        : String(place["From UN HQ"] || "Distance not listed");
+      const mapLink = linkHtml(place["Google Maps"] || "", "Google Maps");
+      const websiteLink = linkHtml(place.Link || "", "Website");
+      const anchorClass = place.Category === "Conference Venue" ? " venue-card--anchor" : "";
+
+      return `
+        <li>
+          <article class="venue-card${anchorClass}">
+            <div class="venue-heading">
+              <h3 class="venue-title">${escapeHtml(place.Name)}</h3>
+              <div class="venue-badges">
+                <span class="venue-badge">${escapeHtml(category)}</span>
+              </div>
+            </div>
+            <p class="venue-meta">${escapeHtml(place.Neighborhood)} · ${escapeHtml(place.Address)}</p>
+            <p class="venue-meta"><strong>${escapeHtml(closeLabel)}</strong> · ${escapeHtml(place["Dietary notes"] || "Check menu for details")}</p>
+            <p class="venue-summary">${escapeHtml(place["Why it is good"] || "")}</p>
+            <p class="venue-tip"><strong>Tips:</strong> ${escapeHtml(place["Tips"] || "")}</p>
+            <div class="venue-links">
+              ${mapLink}
+              ${websiteLink}
+            </div>
+          </article>
+        </li>
+      `;
+    }
+
+    function renderDirectory() {
+      const visiblePlaces = filterPlaces();
+      const count = visiblePlaces.length;
+      const total = allPlaces.length;
+
+      if (!count) {
+        placesList.innerHTML = '<li class="venue-empty">No places match your filters. Try clearing one of the filters.</li>';
+      } else {
+        placesList.innerHTML = visiblePlaces.map(renderVenueCard).join("");
+      }
+
+      const parts = [`${count} place${count === 1 ? "" : "s"} shown`];
+      if (count !== total) {
+        parts.push(`out of ${total}`);
+      }
+      directoryStatus.textContent = parts.join(" ");
     }
 
     function createIcon(color, isAnchor) {
@@ -419,17 +734,6 @@
         .replace(/&/g, "&amp;").replace(/</g, "&lt;")
         .replace(/>/g, "&gt;").replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
-    }
-
-    function normalizeText(value) {
-      return String(value ?? "").toLowerCase();
-    }
-
-    function safeGoogleMapsUrl(raw) {
-      try {
-        const u = new URL(raw);
-        return ["http:", "https:"].includes(u.protocol) ? u.toString() : "#";
-      } catch { return "#"; }
     }
 
     function popupHtml(place) {
@@ -540,7 +844,9 @@
           header: true,
           skipEmptyLines: true,
           complete({ data }) {
-            const visiblePlaces = [];
+            allPlaces = data.filter(place => place.Name);
+            renderDirectory();
+
             data.forEach(place => {
               const lat = parseFloat(place.Latitude);
               const lng = parseFloat(place.Longitude);
@@ -573,6 +879,9 @@
       })
       .catch((err) => {
         console.error("Failed to load places data:", err);
+        allPlaces = [];
+        placesList.innerHTML = '<li class="venue-empty">Could not load venue data. Please refresh the page and try again.</li>';
+        directoryStatus.textContent = "Could not load venue data.";
         const footer = document.querySelector("footer");
         if (footer) {
           const note = document.createElement("p");
@@ -594,6 +903,11 @@
           root.innerHTML = '<p class="popup-why">Could not load the venue list right now. Refresh the page or check back later.</p>';
         }
       });
+
+    [placeSearch, placeCategory, closeOnly].forEach((control) => {
+      control.addEventListener("input", renderDirectory);
+      control.addEventListener("change", renderDirectory);
+    });
   </script>
   <script src="nav.js" defer></script>
 </body>

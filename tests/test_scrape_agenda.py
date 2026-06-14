@@ -106,6 +106,63 @@ class EventsFromJsonLdTests(unittest.TestCase):
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["title"], "Array Event")
 
+        def test_nested_webpage_about_subevents(self):
+                page = """<!doctype html><html><head>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Agenda - UN Open Source Week 2026",
+    "about": {
+        "@type": "Event",
+        "name": "UN Open Source Week 2026",
+        "startDate": "2026-06-22",
+        "endDate": "2026-06-26",
+        "location": {
+            "@type": "Place",
+            "name": "UN Headquarters",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "New York",
+                "addressRegion": "NY"
+            }
+        },
+        "organizer": [
+            { "@type": "Organization", "name": "United Nations Office for Digital and Emerging Technologies (ODET)" },
+            { "@type": "Organization", "name": "United Nations Office of Information and Communications Technology (OICT)" }
+        ],
+        "subEvent": [
+            {
+                "@type": "Event",
+                "name": "UN Tech Over",
+                "description": "The UN Tech Over brings people together to work on real UN challenges and build practical solutions.",
+                "startDate": "2026-06-22",
+                "endDate": "2026-06-22",
+                "location": { "@type": "Place", "name": "UN Headquarters - ECOSOC Chamber" }
+            },
+            {
+                "@type": "Event",
+                "name": "Open Source x AI",
+                "description": "Open Source for AI and Emerging Technologies assesses the potential of open source as a gateway to establishing a sustainable AI future.",
+                "startDate": "2026-06-23",
+                "endDate": "2026-06-23",
+                "location": { "@type": "Place", "name": "UN Headquarters" }
+            }
+        ]
+    }
+}
+</script>
+</head><body></body></html>"""
+                events = events_from_jsonld(page, "https://www.unopensource.org/agenda", [], "test")
+                self.assertEqual(len(events), 2)
+                titles = {event["title"] for event in events}
+                self.assertIn("UN Tech Over", titles)
+                self.assertIn("Open Source x AI", titles)
+                self.assertNotIn("UN Open Source Week 2026", titles)
+                self.assertTrue(all(event["organizer"] == "United Nations Office for Digital and Emerging Technologies (ODET), United Nations Office of Information and Communications Technology (OICT)" for event in events))
+                tech_over = next(event for event in events if event["title"] == "UN Tech Over")
+                self.assertEqual(tech_over["location"]["name"], "UN Headquarters - ECOSOC Chamber")
+
 
 class EventsFromHtmlPatternsTests(unittest.TestCase):
     def test_extracts_iso_date_block(self):
