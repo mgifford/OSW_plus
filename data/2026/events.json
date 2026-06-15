@@ -531,6 +531,25 @@
     "submission_source": "manual:https://register.evolvedigital.com/events/evolvedigitalsummits/2260883"
   },
   {
+    "id": "evt-2026-103",
+    "title": "DPGA Breakfast",
+    "organizer": "DPGA",
+    "timeframe": "weekday_breakfast",
+    "event_date": "2026-06-24",
+    "start_time": "07:30",
+    "end_time": "09:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "TBD"
+    },
+    "summary": "Registration is required with the DPGA.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me",
+    "submission_source": "github_issue_40"
+  },
+  {
     "id": "evt-2026-018",
     "title": "DPI Day",
     "organizer": "United Nations Office for Digital and Emerging Technologies (ODET), United Nations Office of Information and Communications Technology (OICT)",

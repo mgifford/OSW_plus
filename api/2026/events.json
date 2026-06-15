@@ -495,15 +495,15 @@
   {
     "id": "evt-2026-015",
     "title": "Open Source Community Drinks NYC",
-    "organizer": "Evolving Web, CivicActions, and Amazee.io",
+    "organizer": "Evolving Web, CivicActions & Amazee.io",
     "timeframe": "weekday_evening",
     "event_date": "2026-06-23",
     "start_time": "19:30",
     "end_time": "22:30",
     "timezone": "America/New_York",
     "location": {
-      "name": "TBD",
-      "neighborhood": "TBD",
+      "name": "Clinton Hall",
+      "neighborhood": "",
       "address": "New York, NY"
     },
     "summary": "Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.",
@@ -529,6 +529,25 @@
     "access": "registration_required",
     "original_source_url": "https://register.evolvedigital.com/events/evolvedigitalsummits/2260883",
     "submission_source": "manual:https://register.evolvedigital.com/events/evolvedigitalsummits/2260883"
+  },
+  {
+    "id": "evt-2026-103",
+    "title": "DPGA Breakfast",
+    "organizer": "DPGA",
+    "timeframe": "weekday_breakfast",
+    "event_date": "2026-06-24",
+    "start_time": "07:30",
+    "end_time": "09:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "TBD"
+    },
+    "summary": "Registration is required with the DPGA.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me",
+    "submission_source": "github_issue_40"
   },
   {
     "id": "evt-2026-018",

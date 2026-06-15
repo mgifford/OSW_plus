@@ -228,6 +228,14 @@ DESCRIPTION:Community drinks and networking during UN Open Source Week. Register
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-103@osweekplus.nyc
+SUMMARY:DPGA Breakfast
+DTSTART;TZID=America/New_York:20260624T073000
+DTEND;TZID=America/New_York:20260624T090000
+DESCRIPTION:Registration is required with the DPGA.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me
+LOCATION:TBD
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-018@osweekplus.nyc
 SUMMARY:DPI Day
 DTSTART;TZID=America/New_York:20260624T090000
