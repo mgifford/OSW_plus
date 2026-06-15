@@ -570,24 +570,16 @@
           crossorigin=""></script>
 
   <script>
-    // Category → marker colour (keep in sync with CSS .dot-* classes)
     const CATEGORY_COLORS = {
       "Conference Venue": "#dc2626",
-      "Coffee":           "#7c3f1e",
-      "Food":             "#ea580c",
-      "Quick Bites":      "#d97706",
-      "Restaurant":       "#b45309",
-      "Bar":              "#7c3aed",
-      "Park":             "#16a34a"
+      "Coffee": "#7c3f1e",
+      "Food": "#ea580c",
+      "Quick Bites": "#d97706",
+      "Restaurant": "#b45309",
+      "Bar": "#7c3aed",
+      "Park": "#16a34a",
     };
     const DEFAULT_COLOR = "#475569";
-    const CLOSE_WALK_THRESHOLD = 15;
-
-    const directoryStatus = document.getElementById("directory-status");
-    const placesList = document.getElementById("places-list");
-    const placeSearch = document.getElementById("place-search");
-    const placeCategory = document.getElementById("place-category");
-    const closeOnly = document.getElementById("close-only");
 
     let allPlaces = [];
 
@@ -606,43 +598,10 @@
       return match ? Number.parseInt(match[1], 10) : Number.POSITIVE_INFINITY;
     }
 
-    function matchesSearch(place, query) {
-      if (!query) return true;
-      const haystack = [
-        place.Name,
-        place.Category,
-        place.Neighborhood,
-        place.Address,
-        place["From UN HQ"],
-        place["Why it is good"],
-        place["Dietary notes"],
-        place["Tips"]
-      ].join(" ").toLowerCase();
-      return haystack.includes(query);
-    }
-
-    function filterPlaces() {
-      const query = placeSearch.value.trim().toLowerCase();
-      const category = placeCategory.value;
-      const closeOnlyChecked = closeOnly.checked;
-
-      return allPlaces
-        .filter((place) => {
-          if (category !== "all" && place.Category !== category) return false;
-          if (closeOnlyChecked && parseWalkMinutes(place) > CLOSE_WALK_THRESHOLD) return false;
-          return matchesSearch(place, query);
-        })
-        .sort((a, b) => {
-          const distanceDelta = parseWalkMinutes(a) - parseWalkMinutes(b);
-          if (distanceDelta !== 0) return distanceDelta;
-          return String(a.Name).localeCompare(String(b.Name));
-        });
-    }
-
     function safeExternalUrl(raw) {
       try {
-        const u = new URL(raw);
-        return ["http:", "https:"].includes(u.protocol) ? u.toString() : "#";
+        const url = new URL(raw);
+        return ["http:", "https:"].includes(url.protocol) ? url.toString() : "#";
       } catch {
         return "#";
       }
@@ -659,96 +618,38 @@
         : "";
     }
 
-    function renderVenueCard(place) {
-      const category = displayCategory(place.Category);
-      const walkMinutes = parseWalkMinutes(place);
-      const closeLabel = Number.isFinite(walkMinutes)
-        ? `${walkMinutes} min walk`
-        : String(place["From UN HQ"] || "Distance not listed");
-      const mapLink = linkHtml(place["Google Maps"] || "", "Google Maps");
-      const websiteLink = linkHtml(place.Link || "", "Website");
-      const anchorClass = place.Category === "Conference Venue" ? " venue-card--anchor" : "";
-
-      return `
-        <li>
-          <article class="venue-card${anchorClass}">
-            <div class="venue-heading">
-              <h3 class="venue-title">${escapeHtml(place.Name)}</h3>
-              <div class="venue-badges">
-                <span class="venue-badge">${escapeHtml(category)}</span>
-              </div>
-            </div>
-            <p class="venue-meta">${escapeHtml(place.Neighborhood)} · ${escapeHtml(place.Address)}</p>
-            <p class="venue-meta"><strong>${escapeHtml(closeLabel)}</strong> · ${escapeHtml(place["Dietary notes"] || "Check menu for details")}</p>
-            <p class="venue-summary">${escapeHtml(place["Why it is good"] || "")}</p>
-            <p class="venue-tip"><strong>Tips:</strong> ${escapeHtml(place["Tips"] || "")}</p>
-            <div class="venue-links">
-              ${mapLink}
-              ${websiteLink}
-            </div>
-          </article>
-        </li>
-      `;
-    }
-
-    function renderDirectory() {
-      const visiblePlaces = filterPlaces();
-      const count = visiblePlaces.length;
-      const total = allPlaces.length;
-
-      if (!count) {
-        placesList.innerHTML = '<li class="venue-empty">No places match your filters. Try clearing one of the filters.</li>';
-      } else {
-        placesList.innerHTML = visiblePlaces.map(renderVenueCard).join("");
-      }
-
-      const parts = [`${count} place${count === 1 ? "" : "s"} shown`];
-      if (count !== total) {
-        parts.push(`out of ${total}`);
-      }
-      directoryStatus.textContent = parts.join(" ");
-    }
-
-    function createIcon(color, isAnchor) {
-      const size = isAnchor ? 18 : 11;
-      return L.divIcon({
-        html: `<div style="
-          background:${color};
-          width:${size * 2}px;
-          height:${size * 2}px;
-          border-radius:50%;
-          border:3px solid #fff;
-          box-shadow:0 2px 6px rgba(0,0,0,.35);
-          display:flex;align-items:center;justify-content:center;
-          font-size:${size}px;color:#fff;font-weight:700;
-        ">${isAnchor ? "🏢" : ""}</div>`,
-        className: "custom-marker",
-        iconSize:   [size * 2, size * 2],
-        iconAnchor: [size, size],
-        popupAnchor:[0, -size - 2]
-      });
-    }
-
     function escapeHtml(str) {
       return String(str ?? "")
-        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
     }
 
-    function popupHtml(place) {
-      const gmUrl = safeGoogleMapsUrl(place["Google Maps"] || "");
-      const mapLink = gmUrl !== "#"
-        ? `<a class="popup-map-link" href="${gmUrl}" target="_blank" rel="noopener noreferrer">🗺 View on Google Maps</a>`
-        : "";
-      return `
-        <p class="popup-name">${escapeHtml(place.Name)}</p>
-        <span class="popup-category">${escapeHtml(place.Category)}</span>
-        <p class="popup-distance">📍 ${escapeHtml(place["From UN HQ"])}</p>
-        <p class="popup-why">${escapeHtml(place["Why it is good"])}</p>
-        <p class="popup-diet"><strong>Dietary:</strong> ${escapeHtml(place["Dietary notes"])}</p>
-        ${mapLink}
-      `;
+    function matchesDirectoryFilters(place, query, category) {
+      const normalizedQuery = query.trim().toLowerCase();
+      const normalizedCategory = category.toLowerCase();
+      const haystack = [
+        place.Name,
+        place.Category,
+        place.Neighborhood,
+        place.Address,
+        place["Why it is good"],
+        place["From UN HQ"],
+        place["Dietary notes"],
+        place.Tips,
+      ].join(" ").toLowerCase();
+
+      if (normalizedCategory !== "all" && String(place.Category || "").toLowerCase() !== normalizedCategory) {
+        return false;
+      }
+
+      if (!normalizedQuery) {
+        return true;
+      }
+
+      return haystack.includes(normalizedQuery);
     }
 
     function directoryHtml(place) {
@@ -765,7 +666,8 @@
         : "";
 
       return `
-        <article class="place-card">
+        <li>
+          <article class="place-card">
           <h3>${escapeHtml(place.Name)}</h3>
           <div class="place-card-meta">
             <span class="place-chip">${escapeHtml(place.Category)}</span>
@@ -778,33 +680,9 @@
             ${mapsLink}
             ${websiteLink}
           </div>
-        </article>
+          </article>
+        </li>
       `;
-    }
-
-    function matchesDirectoryFilters(place, query, category) {
-      const normalizedQuery = normalizeText(query).trim();
-      const normalizedCategory = normalizeText(category);
-      const haystack = [
-        place.Name,
-        place.Category,
-        place.Neighborhood,
-        place.Address,
-        place["Why it is good"],
-        place["From UN HQ"],
-        place["Dietary notes"],
-        place.Tips,
-      ].map(normalizeText).join(" ");
-
-      if (normalizedCategory && normalizedCategory !== "all" && normalizeText(place.Category) !== normalizedCategory) {
-        return false;
-      }
-
-      if (!normalizedQuery) {
-        return true;
-      }
-
-      return haystack.includes(normalizedQuery);
     }
 
     function renderDirectory(places) {
@@ -829,50 +707,87 @@
         : '<p class="directory-empty">No places match this search. Try a different keyword or category.</p>';
     }
 
-    // Initialise map centred on the UN
+    function createIcon(color, isAnchor) {
+      const size = isAnchor ? 24 : 24;
+      return L.divIcon({
+        html: `<div style="
+          background:${color};
+          width:${size * 2}px;
+          height:${size * 2}px;
+          border-radius:50%;
+          border:3px solid #fff;
+          box-shadow:0 2px 6px rgba(0,0,0,.35);
+          display:flex;align-items:center;justify-content:center;
+          font-size:${size}px;color:#fff;font-weight:700;
+        ">${isAnchor ? "🏢" : ""}</div>`,
+        className: "custom-marker",
+        iconSize: [size * 2, size * 2],
+        iconAnchor: [size, size],
+        popupAnchor: [0, -size - 2],
+      });
+    }
+
+    function popupHtml(place) {
+      const gmUrl = safeGoogleMapsUrl(place["Google Maps"] || "");
+      const mapLink = gmUrl !== "#"
+        ? `<a class="popup-map-link" href="${gmUrl}" target="_blank" rel="noopener noreferrer">🗺 View on Google Maps</a>`
+        : "";
+
+      return `
+        <p class="popup-name">${escapeHtml(place.Name)}</p>
+        <span class="popup-category">${escapeHtml(place.Category)}</span>
+        <p class="popup-distance">📍 ${escapeHtml(place["From UN HQ"] || "Distance not listed")}</p>
+        <p class="popup-why">${escapeHtml(place["Why it is good"] || "")}</p>
+        <p class="popup-diet"><strong>Dietary:</strong> ${escapeHtml(place["Dietary notes"] || "")}</p>
+        ${mapLink}
+      `;
+    }
+
     const map = L.map("map").setView([40.7489, -73.968], 15);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19
+      maxZoom: 19,
     }).addTo(map);
 
     fetch("../data/places_with_coords.csv")
-      .then(r => r.text())
-      .then(csv => {
+      .then((response) => response.text())
+      .then((csv) => {
         Papa.parse(csv, {
           header: true,
           skipEmptyLines: true,
           complete({ data }) {
-            allPlaces = data.filter(place => place.Name);
-            renderDirectory();
+            allPlaces = data.filter((place) => place.Name);
+            renderDirectory(allPlaces);
 
-            data.forEach(place => {
-              const lat = parseFloat(place.Latitude);
-              const lng = parseFloat(place.Longitude);
-              if (isNaN(lat) || isNaN(lng)) return;
-
-              visiblePlaces.push(place);
+            data.forEach((place) => {
+              const lat = Number.parseFloat(place.Latitude);
+              const lng = Number.parseFloat(place.Longitude);
+              if (Number.isNaN(lat) || Number.isNaN(lng)) return;
 
               const isAnchor = place.Category === "Conference Venue";
-              const color    = markerColor(place.Category);
-              const marker   = L.marker([lat, lng], {
-                icon: createIcon(color, isAnchor),
-                alt:  place.Name
+              const marker = L.marker([lat, lng], {
+                icon: createIcon(markerColor(place.Category), isAnchor),
+                title: place.Name,
+                interactive: false,
               }).addTo(map);
+
+              const markerElement = marker.getElement();
+              if (markerElement) {
+                markerElement.setAttribute("aria-label", place.Name);
+                markerElement.setAttribute("title", place.Name);
+              }
 
               marker.bindPopup(popupHtml(place), { maxWidth: 300 });
             });
 
-            renderDirectory(visiblePlaces);
-
             const searchInput = document.getElementById("places-search");
             const categorySelect = document.getElementById("places-category");
             if (searchInput) {
-              searchInput.addEventListener("input", () => renderDirectory(visiblePlaces));
+              searchInput.addEventListener("input", () => renderDirectory(allPlaces));
             }
             if (categorySelect) {
-              categorySelect.addEventListener("change", () => renderDirectory(visiblePlaces));
+              categorySelect.addEventListener("change", () => renderDirectory(allPlaces));
             }
           }
         });
@@ -880,8 +795,16 @@
       .catch((err) => {
         console.error("Failed to load places data:", err);
         allPlaces = [];
-        placesList.innerHTML = '<li class="venue-empty">Could not load venue data. Please refresh the page and try again.</li>';
-        directoryStatus.textContent = "Could not load venue data.";
+
+        const root = document.getElementById("places-list");
+        const count = document.getElementById("places-count");
+        if (root) {
+          root.innerHTML = '<p class="directory-empty">Could not load the venue list right now. Refresh the page or check back later.</p>';
+        }
+        if (count) {
+          count.textContent = "Directory unavailable";
+        }
+
         const footer = document.querySelector("footer");
         if (footer) {
           const note = document.createElement("p");
@@ -889,25 +812,13 @@
           note.textContent = "⚠ Could not load venue data. Please refresh or check back later.";
           footer.insertAdjacentElement("afterbegin", note);
         }
-        // Fallback: just show the UN pin
+
         L.marker([40.7489, -73.968], {
           icon: createIcon("#dc2626", true),
-          alt: "UN Headquarters"
+          alt: "UN Headquarters",
         }).addTo(map)
           .bindPopup('<p class="popup-name">UN Headquarters</p><p class="popup-why">UN Open Source Week anchor venue</p>');
-
-        const root = document.getElementById("places-list");
-        const count = document.getElementById("places-count");
-        if (root && count) {
-          count.textContent = "Directory unavailable";
-          root.innerHTML = '<p class="popup-why">Could not load the venue list right now. Refresh the page or check back later.</p>';
-        }
       });
-
-    [placeSearch, placeCategory, closeOnly].forEach((control) => {
-      control.addEventListener("input", renderDirectory);
-      control.addEventListener("change", renderDirectory);
-    });
   </script>
   <script src="nav.js" defer></script>
 </body>
