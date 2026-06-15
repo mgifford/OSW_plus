@@ -550,6 +550,25 @@
     "submission_source": "github_issue_40"
   },
   {
+    "id": "evt-2026-104",
+    "title": "CHAOSS Breakfast",
+    "organizer": "CHAOSS Community",
+    "timeframe": "weekday_breakfast",
+    "event_date": "2026-06-24",
+    "start_time": "07:30",
+    "end_time": "09:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "UNHQ Coffee Shop",
+      "neighborhood": "TBD",
+      "address": "TBD"
+    },
+    "summary": "This is a CHAOSS event that will be happening in the UNHQ. Join the CHAOSS Slack for more details.",
+    "access": "public",
+    "original_source_url": "N/A",
+    "submission_source": "github_issue_38"
+  },
+  {
     "id": "evt-2026-018",
     "title": "DPI Day",
     "organizer": "United Nations Office for Digital and Emerging Technologies (ODET), United Nations Office of Information and Communications Technology (OICT)",

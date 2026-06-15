@@ -236,6 +236,14 @@ DESCRIPTION:Registration is required with the DPGA.\nRSVP: https://hackmd.io/@dp
 LOCATION:TBD
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-104@osweekplus.nyc
+SUMMARY:CHAOSS Breakfast
+DTSTART;TZID=America/New_York:20260624T073000
+DTEND;TZID=America/New_York:20260624T090000
+DESCRIPTION:This is a CHAOSS event that will be happening in the UNHQ. Join the CHAOSS Slack for more details.\nRSVP: N/A
+LOCATION:TBD
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-018@osweekplus.nyc
 SUMMARY:DPI Day
 DTSTART;TZID=America/New_York:20260624T090000
