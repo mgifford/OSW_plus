@@ -548,6 +548,14 @@ DESCRIPTION:From cities and municipalities to regional bodies and national gover
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-105@osweekplus.nyc
+SUMMARY:GitHub's Strengthening Global Open Source Collaboration Amid Rising Nationalism
+DTSTART;TZID=America/New_York:20260625T173000
+DTEND;TZID=America/New_York:20260625T213000
+DESCRIPTION:Join GitHub for an evening of food, drinks, and conversation at the Microsoft office in New York during UN Open Source Week. This reception will bring together leaders from the United Nations, open source foundations, civil society, and the private sector to explore the theme “Strengthening Global Open Source Collaboration Amid Rising Nationalism.” The evening will feature short remarks at 7:00 PM, followed by networking with a diverse community working at the intersection of technology, policy, and global cooperation.\nRSVP: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzyYkZ_d_cBMhq6xn2Bdf3tURVVYM1I3VkxXNzdMNk42M0pPRTVZODBYQy4u#
+LOCATION:122 Fifth Avenue
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-075@osweekplus.nyc
 SUMMARY:Reception
 DTSTART;TZID=America/New_York:20260625T180000

@@ -1282,6 +1282,25 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-105",
+    "title": "GitHub's Strengthening Global Open Source Collaboration Amid Rising Nationalism",
+    "organizer": "GitHub",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "17:30",
+    "end_time": "21:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Microsoft Office",
+      "neighborhood": "TBD",
+      "address": "122 Fifth Avenue"
+    },
+    "summary": "Join GitHub for an evening of food, drinks, and conversation at the Microsoft office in New York during UN Open Source Week. This reception will bring together leaders from the United Nations, open source foundations, civil society, and the private sector to explore the theme \u201cStrengthening Global Open Source Collaboration Amid Rising Nationalism.\u201d The evening will feature short remarks at 7:00 PM, followed by networking with a diverse community working at the intersection of technology, policy, and global cooperation.",
+    "access": "invite_only",
+    "original_source_url": "https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzyYkZ_d_cBMhq6xn2Bdf3tURVVYM1I3VkxXNzdMNk42M0pPRTVZODBYQy4u#",
+    "submission_source": "github_issue_43"
+  },
+  {
     "id": "evt-2026-075",
     "title": "Reception",
     "organizer": "UN Open Source Week",
