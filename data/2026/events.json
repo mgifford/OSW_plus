@@ -738,6 +738,25 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-106",
+    "title": "The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind,\" to explore how governments and partners can scale digital public infrastructure (DPI) while ensuring safety and inclusion. As DPI implementation accelerates, decision-makers face critical choices regarding data sharing, grievance redress, and sustainability. This 60-minute session moves beyond theory to examine these choices as practical safeguards that foster public trust and long-term confidence.1 Through moderated discuss",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-045",
     "title": "Lunch Break",
     "organizer": "UN Open Source Week",
@@ -827,6 +846,44 @@
       "address": "New York, NY"
     },
     "summary": "Over the past three cohorts, the GovStack Women in GovTech Challenge has evolved beyond a training programme into a growing global community of practitioners, mentors, policymakers, and ecosystem actors committed to advancing inclusive digital transformation. The initiative has demonstrated the importance of creating spaces where women working in GovTech and Digital Public Infrastructure (DPI) can build technical knowledge, exchange implementation experiences, strengthen peer networks, and engag",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-107",
+    "title": "DPI That Delivers: From Failure Points to Multistakeholder Actions",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "As Digital Public Infrastructure (DPI) scales globally, risks\u2014such as privacy failures, exclusion, and security vulnerabilities\u2014often emerge too late, treated as afterthoughts rather than first-mile priorities.1 Join us for \"DPI That Delivers,\" an interactive workshop designed to shift safeguards from a final check to a core design principle. Drawing on the Universal DPI Safeguards Framework, this session uses real-world scenarios to help participants identify DPI failure points and map them to ",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-108",
+    "title": "Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room 9",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source software is increasingly recognized as a strategic asset for digital sovereignty, digital public infrastructure, scientific collaboration, and inclusive knowledge societies. These priorities are reflected in major international frameworks, including the UN Global Digital Compact, the Pact for the Future, the UNESCO 2021 Recommendation on Open Science, and the UNESCO 2019 Recommendation on Open Educational Resources. Advancing these objectives requires a better understanding of how go",
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
@@ -1071,6 +1128,25 @@
       "address": "New York, NY"
     },
     "summary": "As digital public goods (DPGs) and open-source solutions become central to sustainable development, the question of how to finance, sustain, and scale them remains a critical challenge. This session brings together a diverse coalition of multilateral development banks, philanthropic funds, governments, and global digital networks to explore innovative financing frameworks, new business models, and cross-institutional collaboration strategies for open-source ecosystems. Drawing on real-world expe",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-109",
+    "title": "Unlocking Financial Intelligence with Open Source",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Online",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "This session showcases how open source technologies can enhance financial intelligence and strengthen the fight against financial crime. Through a live demonstration within the goAML environment, participants will explore the use of graph databases to map complex financial networks and uncover hidden relationships, alongside named entity recognition (NER) tools that extract key information from unstructured reports. The session highlights practical, scalable, and interoperable solutions that sup",
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
@@ -1510,6 +1586,25 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-110",
+    "title": "Nations and Sovereignty: Cobuilding national and international capacity within and across borders",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "11:10",
+    "end_time": "12:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-080",
     "title": "Lunch Break",
     "organizer": "UN Open Source Week",
@@ -1600,6 +1695,44 @@
       "address": "New York, NY"
     },
     "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-111",
+    "title": "Building the Next Generation: Models and methods for growing capacity via the next generation of open source contributors and contributions",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "14:10",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from https://www.unopensource.org/agenda. See the original page for full details.",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-112",
+    "title": "Who Builds, Who Leads, Who Benefits: Structural Levers for Inclusive Open Source",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-26",
+    "start_time": "13:10",
+    "end_time": "15:30",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "IBM Building, 1 Madison Avenue, New York (registration in the lobby)",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Open source underpins the world's digital infrastructure, yet the communities building it remain far smaller than the public that depends on it. Especially as open source becomes the default substrate for AI development, the governance decisions being made now about who contributes, who leads, and how projects are sustained will shape digital cooperation for decades. This panel brings together leaders from across open source\u2014corporate programs, foundations, and engineering\u2014to examine the structu",
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"

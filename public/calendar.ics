@@ -316,6 +316,14 @@ DESCRIPTION:As learning, health and scientific systems grow increasingly digital
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-106@osweekplus.nyc
+SUMMARY:The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind," to explore how governments and partners can scale digital public infrastructure (DPI) while ensuring safety and inclusion. As DPI implementation accelerates, decision-makers face critical choices regarding data sharing, grievance redress, and sustainability. This 60-minute session moves beyond theory to examine these choices as practical safeguards that foster public trust and long-term confidence.1 Through moderated discuss\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-045@osweekplus.nyc
 SUMMARY:Lunch Break
 DTSTART;TZID=America/New_York:20260624T130000
@@ -353,6 +361,22 @@ SUMMARY:Women Building Digital: The GovStack Women in GovTech Challenge
 DTSTART;TZID=America/New_York:20260624T150000
 DTEND;TZID=America/New_York:20260624T160000
 DESCRIPTION:Over the past three cohorts, the GovStack Women in GovTech Challenge has evolved beyond a training programme into a growing global community of practitioners, mentors, policymakers, and ecosystem actors committed to advancing inclusive digital transformation. The initiative has demonstrated the importance of creating spaces where women working in GovTech and Digital Public Infrastructure (DPI) can build technical knowledge, exchange implementation experiences, strengthen peer networks, and engag\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-107@osweekplus.nyc
+SUMMARY:DPI That Delivers: From Failure Points to Multistakeholder Actions
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:As Digital Public Infrastructure (DPI) scales globally, risks—such as privacy failures, exclusion, and security vulnerabilities—often emerge too late, treated as afterthoughts rather than first-mile priorities.1 Join us for "DPI That Delivers," an interactive workshop designed to shift safeguards from a final check to a core design principle. Drawing on the Universal DPI Safeguards Framework, this session uses real-world scenarios to help participants identify DPI failure points and map them to \nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-108@osweekplus.nyc
+SUMMARY:Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Open source software is increasingly recognized as a strategic asset for digital sovereignty, digital public infrastructure, scientific collaboration, and inclusive knowledge societies. These priorities are reflected in major international frameworks, including the UN Global Digital Compact, the Pact for the Future, the UNESCO 2021 Recommendation on Open Science, and the UNESCO 2019 Recommendation on Open Educational Resources. Advancing these objectives requires a better understanding of how go\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -457,6 +481,14 @@ SUMMARY:Financing Open Source and Digital Public Goods: A Multi-Stakeholder Appr
 DTSTART;TZID=America/New_York:20260625T120000
 DTEND;TZID=America/New_York:20260625T130000
 DESCRIPTION:As digital public goods (DPGs) and open-source solutions become central to sustainable development, the question of how to finance, sustain, and scale them remains a critical challenge. This session brings together a diverse coalition of multilateral development banks, philanthropic funds, governments, and global digital networks to explore innovative financing frameworks, new business models, and cross-institutional collaboration strategies for open-source ecosystems. Drawing on real-world expe\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-109@osweekplus.nyc
+SUMMARY:Unlocking Financial Intelligence with Open Source
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:This session showcases how open source technologies can enhance financial intelligence and strengthen the fight against financial crime. Through a live demonstration within the goAML environment, participants will explore the use of graph databases to map complex financial networks and uncover hidden relationships, alongside named entity recognition (NER) tools that extract key information from unstructured reports. The session highlights practical, scalable, and interoperable solutions that sup\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -644,6 +676,14 @@ DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original 
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-110@osweekplus.nyc
+SUMMARY:Nations and Sovereignty: Cobuilding national and international capacity within and across borders
+DTSTART;TZID=America/New_York:20260626T111000
+DTEND;TZID=America/New_York:20260626T121000
+DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-080@osweekplus.nyc
 SUMMARY:Lunch Break
 DTSTART;TZID=America/New_York:20260626T121000
@@ -681,6 +721,22 @@ SUMMARY:Scaling accessibility and inclusivity through Open Source
 DTSTART;TZID=America/New_York:20260626T131000
 DTEND;TZID=America/New_York:20260626T141000
 DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-111@osweekplus.nyc
+SUMMARY:Building the Next Generation: Models and methods for growing capacity via the next generation of open source contributors and contributions
+DTSTART;TZID=America/New_York:20260626T131000
+DTEND;TZID=America/New_York:20260626T141000
+DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-112@osweekplus.nyc
+SUMMARY:Who Builds, Who Leads, Who Benefits: Structural Levers for Inclusive Open Source
+DTSTART;TZID=America/New_York:20260626T131000
+DTEND;TZID=America/New_York:20260626T153000
+DESCRIPTION:Open source underpins the world's digital infrastructure, yet the communities building it remain far smaller than the public that depends on it. Especially as open source becomes the default substrate for AI development, the governance decisions being made now about who contributes, who leads, and how projects are sustained will shape digital cooperation for decades. This panel brings together leaders from across open source—corporate programs, foundations, and engineering—to examine the structu\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
