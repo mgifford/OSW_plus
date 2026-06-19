@@ -1,9 +1,11 @@
 import subprocess
 import tempfile
 import unittest
+import json
+import sys
 from pathlib import Path
 
-from scripts.event_utils import build_event_from_submission, detect_access_level, parse_issue_form_markdown
+from scripts.event_utils import build_event_from_submission, detect_access_level, event_exists, parse_issue_form_markdown, save_events
 
 
 class DetectAccessLevelTests(unittest.TestCase):
@@ -163,7 +165,7 @@ class EventUtilsTests(unittest.TestCase):
             )
 
             command = [
-                "python",
+                sys.executable,
                 "scripts/process_issue_submission.py",
                 "--issue-body-file",
                 str(issue_path),
@@ -180,6 +182,93 @@ class EventUtilsTests(unittest.TestCase):
             self.assertTrue(api_path.exists())
             events = events_path.read_text(encoding="utf-8")
             self.assertEqual(events.count("Test Event"), 1)
+
+    def test_event_exists_ignores_source_url_for_same_logical_event(self):
+        existing = [
+            {
+                "title": "Open Source Summit",
+                "event_date": "2026-06-24",
+                "start_time": "18:00",
+                "end_time": "21:30",
+                "timeframe": "weekday_evening",
+                "original_source_url": "https://www.unopensource.org/agenda",
+            }
+        ]
+        candidate = {
+            "title": "Open Source Summit",
+            "event_date": "2026-06-24",
+            "start_time": "18:00",
+            "end_time": "21:30",
+            "timeframe": "weekday_evening",
+            "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-Summit",
+        }
+        self.assertTrue(event_exists(existing, candidate))
+
+    def test_save_events_prefers_un_agenda_version(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            events_path = Path(temp_dir) / "events.json"
+            events = [
+                {
+                    "id": "evt-2026-002",
+                    "title": "Open Source Summit",
+                    "event_date": "2026-06-24",
+                    "start_time": "18:00",
+                    "end_time": "21:30",
+                    "timeframe": "weekday_evening",
+                    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-Summit",
+                    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download",
+                },
+                {
+                    "id": "evt-2026-001",
+                    "title": "Open Source Summit",
+                    "event_date": "2026-06-24",
+                    "start_time": "18:00",
+                    "end_time": "21:30",
+                    "timeframe": "weekday_evening",
+                    "original_source_url": "https://www.unopensource.org/agenda",
+                    "submission_source": "scrape:https://www.unopensource.org/agenda",
+                },
+            ]
+
+            save_events(events_path, events)
+            saved = json.loads(events_path.read_text(encoding="utf-8"))
+
+            self.assertEqual(len(saved), 1)
+            self.assertEqual(saved[0]["original_source_url"], "https://www.unopensource.org/agenda")
+            self.assertEqual(saved[0]["submission_source"], "scrape:https://www.unopensource.org/agenda")
+
+    def test_save_events_keeps_same_title_different_location(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            events_path = Path(temp_dir) / "events.json"
+            events = [
+                {
+                    "id": "evt-2026-001",
+                    "title": "Open Source Summit",
+                    "event_date": "2026-06-24",
+                    "start_time": "18:00",
+                    "end_time": "21:30",
+                    "timeframe": "weekday_evening",
+                    "location": {"name": "Room A", "address": "1 Main St"},
+                    "original_source_url": "https://www.unopensource.org/agenda",
+                    "submission_source": "scrape:https://www.unopensource.org/agenda",
+                },
+                {
+                    "id": "evt-2026-002",
+                    "title": "Open Source Summit",
+                    "event_date": "2026-06-24",
+                    "start_time": "18:00",
+                    "end_time": "21:30",
+                    "timeframe": "weekday_evening",
+                    "location": {"name": "Room B", "address": "1 Main St"},
+                    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-Summit",
+                    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download",
+                },
+            ]
+
+            save_events(events_path, events)
+            saved = json.loads(events_path.read_text(encoding="utf-8"))
+
+            self.assertEqual(len(saved), 2)
 
 
 if __name__ == "__main__":

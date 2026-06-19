@@ -45,6 +45,7 @@ def load_events(path: str | Path) -> list[dict[str, Any]]:
 def save_events(path: str | Path, events: list[dict[str, Any]]) -> None:
     file_path = Path(path)
     file_path.parent.mkdir(parents=True, exist_ok=True)
+    events = dedupe_events(events)
     with file_path.open("w", encoding="utf-8") as file:
         json.dump(sorted(events, key=lambda item: (item.get("event_date", ""), item.get("start_time", ""))), file, indent=2)
         file.write("\n")
@@ -78,6 +79,48 @@ def next_event_id(events: list[dict[str, Any]], year: int) -> str:
             except ValueError:
                 continue
     return f"{prefix}{last_number + 1:03d}"
+
+
+def _event_identity(event: dict[str, Any]) -> tuple[str, str, str, str, str, str, str]:
+    title = str(event.get("title", "")).strip().casefold()
+    event_date = str(event.get("event_date", "")).strip()
+    start_time = str(event.get("start_time", "")).strip()
+    end_time = str(event.get("end_time", "")).strip()
+    timeframe = str(event.get("timeframe", "")).strip()
+    location = event.get("location") if isinstance(event.get("location"), dict) else {}
+    location_name = str(location.get("name", "")).strip().casefold()
+    location_address = str(location.get("address", "")).strip().casefold()
+    return title, event_date, start_time, end_time, timeframe, location_name, location_address
+
+
+def _event_priority(event: dict[str, Any]) -> int:
+    original_source_url = str(event.get("original_source_url", "")).lower()
+    submission_source = str(event.get("submission_source", "")).lower()
+    if "unopensource.org/agenda" in original_source_url or submission_source.startswith("scrape:https://www.unopensource.org/agenda"):
+        return 0
+    return 1
+
+
+def dedupe_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    deduped: dict[tuple[str, str, str, str, str, str, str], dict[str, Any]] = {}
+    order: list[tuple[str, str, str, str, str, str, str]] = []
+
+    for event in events:
+        key = _event_identity(event)
+        existing = deduped.get(key)
+        if existing is None:
+            deduped[key] = event
+            order.append(key)
+            continue
+
+        if _event_priority(event) < _event_priority(existing):
+            deduped[key] = event
+
+    return [deduped[key] for key in order]
+
+
+def _events_match(existing: dict[str, Any], candidate: dict[str, Any]) -> bool:
+    return _event_identity(existing) == _event_identity(candidate)
 
 
 def _reconcile_timeframe(timeframe: str, date_str: str) -> str:
@@ -157,10 +200,6 @@ def build_event_from_submission(fields: dict[str, str], issue_number: int, exist
 
 def event_exists(events: list[dict[str, Any]], candidate: dict[str, Any]) -> bool:
     for event in events:
-        if (
-            event.get("title") == candidate.get("title")
-            and event.get("event_date") == candidate.get("event_date")
-            and event.get("original_source_url") == candidate.get("original_source_url")
-        ):
+        if _events_match(event, candidate):
             return True
     return False
