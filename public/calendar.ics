@@ -220,14 +220,6 @@ DESCRIPTION:Community drinks and networking during UN Open Source Week. Register
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-015@osweekplus.nyc
-SUMMARY:Open Source Community Drinks NYC
-DTSTART;TZID=America/New_York:20260623T193000
-DTEND;TZID=America/New_York:20260623T223000
-DESCRIPTION:Community drinks and networking during UN Open Source Week. Register via the event page; location to be announced.\nRSVP: https://register.evolvedigital.com/events/evolvedigitalsummits/2260883
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
 UID:evt-2026-103@osweekplus.nyc
 SUMMARY:DPGA Breakfast
 DTSTART;TZID=America/New_York:20260624T073000
