@@ -196,9 +196,25 @@ DESCRIPTION:This session will explore the emerging ecosystem of open AI agents a
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-113@osweekplus.nyc
+SUMMARY:Open Agents
+DTSTART;TZID=America/New_York:20260623T161500
+DTEND;TZID=America/New_York:20260623T171500
+DESCRIPTION:This session will explore the emerging ecosystem of open AI agents and how open models, frameworks, and standards can support transparency, accountability, and innovation. Participants will discuss how open agent architectures enable developers, researchers, and public institutions to build trustworthy and adaptable AI systems. The conversation will also address governance challenges and opportunities in building an open agent ecosystem\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-037@osweekplus.nyc
 SUMMARY:Closing Discussion: Openness for Digital Cooperation
 DTSTART;TZID=America/New_York:20260623T170000
+DTEND;TZID=America/New_York:20260623T180000
+DESCRIPTION:This closing panel will explore how open source and open AI ecosystems can accelerate inclusive digital development and innovation. Participants will discuss policy approaches that enable openness, strengthen digital public infrastructure, and support local innovation ecosystems. The conversation will highlight how open technologies can reduce barriers to access, promote transparency, and drive sustainable digital transformation\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-114@osweekplus.nyc
+SUMMARY:Closing Discussion: Openness for Digital Cooperation
+DTSTART;TZID=America/New_York:20260623T171500
 DTEND;TZID=America/New_York:20260623T180000
 DESCRIPTION:This closing panel will explore how open source and open AI ecosystems can accelerate inclusive digital development and innovation. Participants will discuss policy approaches that enable openness, strengthen digital public infrastructure, and support local innovation ecosystems. The conversation will highlight how open technologies can reduce barriers to access, promote transparency, and drive sustainable digital transformation\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
@@ -246,6 +262,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:evt-2026-039@osweekplus.nyc
 SUMMARY:Opening Keynotes
+DTSTART;TZID=America/New_York:20260624T100000
+DTEND;TZID=America/New_York:20260624T104500
+DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-115@osweekplus.nyc
+SUMMARY:Opening Fireside Chat
 DTSTART;TZID=America/New_York:20260624T100000
 DTEND;TZID=America/New_York:20260624T104500
 DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
@@ -388,6 +412,14 @@ DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original 
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-116@osweekplus.nyc
+SUMMARY:Closing Session
+DTSTART;TZID=America/New_York:20260624T170000
+DTEND;TZID=America/New_York:20260624T174500
+DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-065@osweekplus.nyc
 SUMMARY:Reception: The Global Case for Open in AI: How Open Source and Open Standards Build Trust Across Borders
 DTSTART;TZID=America/New_York:20260624T183000
@@ -412,7 +444,23 @@ DESCRIPTION:As digital technologies become increasingly central to public servic
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-117@osweekplus.nyc
+SUMMARY:Opening Keynotes
+DTSTART;TZID=America/New_York:20260625T100000
+DTEND;TZID=America/New_York:20260625T104500
+DESCRIPTION:As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-067@osweekplus.nyc
+SUMMARY:Open Source and Digital Sovereignty in a Connected World
+DTSTART;TZID=America/New_York:20260625T104500
+DTEND;TZID=America/New_York:20260625T114500
+DESCRIPTION:As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-118@osweekplus.nyc
 SUMMARY:Open Source and Digital Sovereignty in a Connected World
 DTSTART;TZID=America/New_York:20260625T104500
 DTEND;TZID=America/New_York:20260625T114500
@@ -481,6 +529,14 @@ SUMMARY:Unlocking Financial Intelligence with Open Source
 DTSTART;TZID=America/New_York:20260625T120000
 DTEND;TZID=America/New_York:20260625T130000
 DESCRIPTION:This session showcases how open source technologies can enhance financial intelligence and strengthen the fight against financial crime. Through a live demonstration within the goAML environment, participants will explore the use of graph databases to map complex financial networks and uncover hidden relationships, alongside named entity recognition (NER) tools that extract key information from unstructured reports. The session highlights practical, scalable, and interoperable solutions that sup\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-119@osweekplus.nyc
+SUMMARY:Country Spotlight: Lessons from Open Source Implementation in Japan
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Open source software (OSS) is a foundational pillar of today's digital infrastructure. Yet the ways in which countries participate in and contribute to this ecosystem vary significantly based on their unique cultures, industrial structures, and historical backgrounds. This session systematically presents the "Japan Model," detailing how Japan has engaged with open source and steadily accumulated contributions over four decades.The essence of the Japan Model lies not in centralized control, but i\nRSVP: https://www.unopensource.org/agenda
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -556,6 +612,14 @@ DESCRIPTION:This Industry Spotlight session brings together leading players from
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-120@osweekplus.nyc
+SUMMARY:AI as a Digital Public Good: Insights from ADB’s Research
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Artificial Intelligence (AI) can be considered a type of Digital Public Good (DPG). However, alongside its significant potential, it introduces new challenges compared to traditional DPGs. The existing DPG standard does not fully accommodate AI, as safeguarding principles - such as “privacy by design” and “do no harm”- must be rigorously enforced and elevated. At the same time, the concept of “open source”, which is central to DPGs, was originally developed for code and does not fully capture th\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-073@osweekplus.nyc
 SUMMARY:Open Source at the United Nations
 DTSTART;TZID=America/New_York:20260625T161500
@@ -564,7 +628,23 @@ DESCRIPTION:Open source is increasingly becoming an important enabler of innovat
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-121@osweekplus.nyc
+SUMMARY:Open Source at the United Nations
+DTSTART;TZID=America/New_York:20260625T161500
+DTEND;TZID=America/New_York:20260625T170000
+DESCRIPTION:Open source is increasingly becoming an important enabler of innovation, collaboration, and transparency across the United Nations system. In recent years, a growing number of UN entities have begun adopting and contributing to open source solutions to support digital transformation, improve service delivery, and foster partnerships with global communities of developers and innovators. This session will bring together representatives from different UN agencies to share their experiences in advan\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-074@osweekplus.nyc
+SUMMARY:Strategic Independence Across Layers of Governance
+DTSTART;TZID=America/New_York:20260625T171500
+DTEND;TZID=America/New_York:20260625T180000
+DESCRIPTION:From cities and municipalities to regional bodies and national governments, public institutions are increasingly navigating complex digital ecosystems while seeking to maintain strategic independence in the technologies they rely on. Open source can serve as an important lever to support this objective by enabling collaboration, adaptability, and shared innovation across different levels of governance. This session will explore how open source approaches can strengthen digital capacity and strat\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-122@osweekplus.nyc
 SUMMARY:Strategic Independence Across Layers of Governance
 DTSTART;TZID=America/New_York:20260625T171500
 DTEND;TZID=America/New_York:20260625T180000
@@ -668,14 +748,6 @@ DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original 
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
-UID:evt-2026-110@osweekplus.nyc
-SUMMARY:Nations and Sovereignty: Cobuilding national and international capacity within and across borders
-DTSTART;TZID=America/New_York:20260626T111000
-DTEND;TZID=America/New_York:20260626T121000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
 UID:evt-2026-080@osweekplus.nyc
 SUMMARY:Lunch Break
 DTSTART;TZID=America/New_York:20260626T121000
@@ -710,14 +782,6 @@ END:VEVENT
 BEGIN:VEVENT
 UID:evt-2026-098@osweekplus.nyc
 SUMMARY:Scaling accessibility and inclusivity through Open Source
-DTSTART;TZID=America/New_York:20260626T131000
-DTEND;TZID=America/New_York:20260626T141000
-DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
-LOCATION:New York, NY
-END:VEVENT
-BEGIN:VEVENT
-UID:evt-2026-111@osweekplus.nyc
-SUMMARY:Building the Next Generation: Models and methods for growing capacity via the next generation of open source contributors and contributions
 DTSTART;TZID=America/New_York:20260626T131000
 DTEND;TZID=America/New_York:20260626T141000
 DESCRIPTION:Imported from https://www.unopensource.org/agenda. See the original page for full details.\nRSVP: https://www.unopensource.org/agenda
