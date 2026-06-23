@@ -188,6 +188,14 @@ DESCRIPTION:As artificial intelligence becomes a defining force in shaping econo
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-123@osweekplus.nyc
+SUMMARY:**DPGA & UNICEF** — What AI Changes for Open Source Risk and Resilience
+DTSTART;TZID=America/New_York:20260623T150000
+DTEND;TZID=America/New_York:20260623T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-036@osweekplus.nyc
 SUMMARY:Open Agents
 DTSTART;TZID=America/New_York:20260623T161500
@@ -201,6 +209,14 @@ SUMMARY:Open Agents
 DTSTART;TZID=America/New_York:20260623T161500
 DTEND;TZID=America/New_York:20260623T171500
 DESCRIPTION:This session will explore the emerging ecosystem of open AI agents and how open models, frameworks, and standards can support transparency, accountability, and innovation. Participants will discuss how open agent architectures enable developers, researchers, and public institutions to build trustworthy and adaptable AI systems. The conversation will also address governance challenges and opportunities in building an open agent ecosystem\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-124@osweekplus.nyc
+SUMMARY:**UN-ODET & UNICC** — Open Agents
+DTSTART;TZID=America/New_York:20260623T161500
+DTEND;TZID=America/New_York:20260623T171500
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -250,6 +266,14 @@ DTSTART;TZID=America/New_York:20260624T073000
 DTEND;TZID=America/New_York:20260624T090000
 DESCRIPTION:This is a CHAOSS event that will be happening in the UNHQ. Join the CHAOSS Slack for more details.\nRSVP: N/A
 LOCATION:TBD
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-125@osweekplus.nyc
+SUMMARY:DPGA Members’ Breakfast (by invitation only)
+DTSTART;TZID=America/New_York:20260624T083000
+DTEND;TZID=America/New_York:20260624T100000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
 UID:evt-2026-018@osweekplus.nyc
@@ -340,6 +364,38 @@ DESCRIPTION:The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behin
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-126@osweekplus.nyc
+SUMMARY:**DPGA, UNDP, & UN-ODET** — The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-127@osweekplus.nyc
+SUMMARY:**UNICEF** — A DPI Approach to Next Generation Trade and Transport
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-128@osweekplus.nyc
+SUMMARY:**Government Of Dominican Republic, UNICC, UNESCO, & DHIS2** — DPI Sustainability for Health, Learning and Science
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-129@osweekplus.nyc
+SUMMARY:**DPGA, UN-ODET, & UNDP** — DPI That Delivers: From Failure Points to Multistakeholder Actions
+DTSTART;TZID=America/New_York:20260624T120000
+DTEND;TZID=America/New_York:20260624T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-045@osweekplus.nyc
 SUMMARY:Lunch Break
 DTSTART;TZID=America/New_York:20260624T130000
@@ -396,11 +452,43 @@ DESCRIPTION:Open source software is increasingly recognized as a strategic asset
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-130@osweekplus.nyc
+SUMMARY:**Government of the Dominican Republic & UNICEF** – Making DPI Work for Children: From Country Experience to Implementer Tactics
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-131@osweekplus.nyc
+SUMMARY:**Open Cities Lab** – Women Building Digital: The GovStack Women in GovTech Challenge
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-132@osweekplus.nyc
+SUMMARY:**UN-ODET & UNESCO** – Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-063@osweekplus.nyc
 SUMMARY:DPI for Inclusive Growth
 DTSTART;TZID=America/New_York:20260624T161500
 DTEND;TZID=America/New_York:20260624T170000
 DESCRIPTION:How does digital public infrastructure drive inclusive economic growth across vastly different contexts? This panel brings together ministers and practitioners from three regions at different stages of DPI maturity to share concrete use cases and transferable lessons on what makes cross-border DPI work, what financing and safeguards are needed, and what the global ecosystem must deliver for countries just getting started\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-133@osweekplus.nyc
+SUMMARY:**UN ODET & Government of Nigeria** — DPI for Inclusive Growth
+DTSTART;TZID=America/New_York:20260624T161500
+DTEND;TZID=America/New_York:20260624T170000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -465,6 +553,14 @@ SUMMARY:Open Source and Digital Sovereignty in a Connected World
 DTSTART;TZID=America/New_York:20260625T104500
 DTEND;TZID=America/New_York:20260625T114500
 DESCRIPTION:As digital technologies become increasingly central to public services, governance, and international cooperation, organizations from both public and private sectors are looking for ways to strengthen their strategic autonomy while maintaining flexibility in their technology choices. Open source offers an important approach that can complement existing technology ecosystems by promoting transparency, interoperability, and collaborative innovation. This session will explore how open source can he\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-134@osweekplus.nyc
+SUMMARY:**Nextcloud Server & SUSE Linux Enterprise Server** — Open Source and Digital Sovereignty in a Connected World
+DTSTART;TZID=America/New_York:20260625T104500
+DTEND;TZID=America/New_York:20260625T114500
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -537,6 +633,30 @@ SUMMARY:Country Spotlight: Lessons from Open Source Implementation in Japan
 DTSTART;TZID=America/New_York:20260625T120000
 DTEND;TZID=America/New_York:20260625T130000
 DESCRIPTION:Open source software (OSS) is a foundational pillar of today's digital infrastructure. Yet the ways in which countries participate in and contribute to this ecosystem vary significantly based on their unique cultures, industrial structures, and historical backgrounds. This session systematically presents the "Japan Model," detailing how Japan has engaged with open source and steadily accumulated contributions over four decades.The essence of the Japan Model lies not in centralized control, but i\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-135@osweekplus.nyc
+SUMMARY:**UN ODET** — Data Governance for the Public Good: Equity, Openness and Community Stewardship
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-136@osweekplus.nyc
+SUMMARY:**UN ODET & GitHub** — Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-137@osweekplus.nyc
+SUMMARY:**IDB** — Financing Open Source and Digital Public Goods: A Multi-Stakeholder Approach
+DTSTART;TZID=America/New_York:20260625T120000
+DTEND;TZID=America/New_York:20260625T130000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -620,6 +740,30 @@ DESCRIPTION:Artificial Intelligence (AI) can be considered a type of Digital Pub
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-138@osweekplus.nyc
+SUMMARY:**ADB & UN ODET** — AI as a Digital Public Good: Insights from ADB’s Research
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-139@osweekplus.nyc
+SUMMARY:**UN ODET & Decidim** — Cities, Democracy, and Open Source
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-140@osweekplus.nyc
+SUMMARY:**UN ODET & ITU** — From Policy to Practice: Establishing Government OSPOs in Low- and Middle-Income Countries
+DTSTART;TZID=America/New_York:20260625T150000
+DTEND;TZID=America/New_York:20260625T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-073@osweekplus.nyc
 SUMMARY:Open Source at the United Nations
 DTSTART;TZID=America/New_York:20260625T161500
@@ -633,6 +777,14 @@ SUMMARY:Open Source at the United Nations
 DTSTART;TZID=America/New_York:20260625T161500
 DTEND;TZID=America/New_York:20260625T170000
 DESCRIPTION:Open source is increasingly becoming an important enabler of innovation, collaboration, and transparency across the United Nations system. In recent years, a growing number of UN entities have begun adopting and contributing to open source solutions to support digital transformation, improve service delivery, and foster partnerships with global communities of developers and innovators. This session will bring together representatives from different UN agencies to share their experiences in advan\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-141@osweekplus.nyc
+SUMMARY:**UNESCO & FAO** — Open Source at the United Nations
+DTSTART;TZID=America/New_York:20260625T161500
+DTEND;TZID=America/New_York:20260625T170000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
@@ -841,6 +993,14 @@ SUMMARY:DPG Showcase & Networking – Community Event (More details TBA) Growing
 DTSTART;TZID=America/New_York:20260626T142000
 DTEND;TZID=America/New_York:20260626T152000
 DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-142@osweekplus.nyc
+SUMMARY:DPG Showcase & Networking – Community Event Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice
+DTSTART;TZID=America/New_York:20260626T142000
+DTEND;TZID=America/New_York:20260626T152000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Led-Side-Events-%E2%80%94-Friday%2C-26-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#Community-Led-Side-Events-%E2%80%94-Friday%2C-26-June
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT

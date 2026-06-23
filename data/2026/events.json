@@ -436,6 +436,25 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-123",
+    "title": "**DPGA & UNICEF** \u2014 What AI Changes for Open Source Risk and Resilience",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
     "id": "evt-2026-036",
     "title": "Open Agents",
     "organizer": "UN Open Source Week",
@@ -472,6 +491,25 @@
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-124",
+    "title": "**UN-ODET & UNICC** \u2014 Open Agents",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-23",
+    "start_time": "16:15",
+    "end_time": "17:15",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Open-Source-x-AI-%E2%80%94-Tuesday%2C-23-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-037",
@@ -586,6 +624,25 @@
     "access": "public",
     "original_source_url": "N/A",
     "submission_source": "github_issue_38"
+  },
+  {
+    "id": "evt-2026-125",
+    "title": "DPGA Members\u2019 Breakfast (by invitation only)",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_breakfast",
+    "event_date": "2026-06-24",
+    "start_time": "08:30",
+    "end_time": "10:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "invite_only",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-018",
@@ -795,6 +852,82 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-126",
+    "title": "**DPGA, UNDP, & UN-ODET** \u2014 The DPI Scale-Up Dilemma: Move Fast, Build Trust, Leave No One Behind",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-127",
+    "title": "**UNICEF** \u2014 A DPI Approach to Next Generation Trade and Transport",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-128",
+    "title": "**Government Of Dominican Republic, UNICC, UNESCO, & DHIS2** \u2014 DPI Sustainability for Health, Learning and Science",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-129",
+    "title": "**DPGA, UN-ODET, & UNDP** \u2014 DPI That Delivers: From Failure Points to Multistakeholder Actions",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
     "id": "evt-2026-045",
     "title": "Lunch Break",
     "organizer": "UN Open Source Week",
@@ -927,6 +1060,63 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-130",
+    "title": "**Government of the Dominican Republic & UNICEF** \u2013 Making DPI Work for Children: From Country Experience to Implementer Tactics",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-131",
+    "title": "**Open Cities Lab** \u2013 Women Building Digital: The GovStack Women in GovTech Challenge",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-132",
+    "title": "**UN-ODET & UNESCO** \u2013 Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
     "id": "evt-2026-063",
     "title": "DPI for Inclusive Growth",
     "organizer": "UN Open Source Week",
@@ -944,6 +1134,25 @@
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-133",
+    "title": "**UN ODET & Government of Nigeria** \u2014 DPI for Inclusive Growth",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "16:15",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-064",
@@ -1096,6 +1305,25 @@
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-134",
+    "title": "**Nextcloud Server & SUSE Linux Enterprise Server** \u2014 Open Source and Digital Sovereignty in a Connected World",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-006",
@@ -1264,6 +1492,63 @@
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-135",
+    "title": "**UN ODET** \u2014 Data Governance for the Public Good: Equity, Openness and Community Stewardship",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-136",
+    "title": "**UN ODET & GitHub** \u2014 Unlocking the Power of Open Source for Sustainable Digital Public Infrastructure: Introducing the Open Source Enablement Compass (OSEC)",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-137",
+    "title": "**IDB** \u2014 Financing Open Source and Digital Public Goods: A Multi-Stakeholder Approach",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-058",
@@ -1453,6 +1738,63 @@
     "submission_source": "scrape:https://www.unopensource.org/agenda"
   },
   {
+    "id": "evt-2026-138",
+    "title": "**ADB & UN ODET** \u2014 AI as a Digital Public Good: Insights from ADB\u2019s Research",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-139",
+    "title": "**UN ODET & Decidim** \u2014 Cities, Democracy, and Open Source",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-140",
+    "title": "**UN ODET & ITU** \u2014 From Policy to Practice: Establishing Government OSPOs in Low- and Middle-Income Countries",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
     "id": "evt-2026-073",
     "title": "Open Source at the United Nations",
     "organizer": "UN Open Source Week",
@@ -1489,6 +1831,25 @@
     "access": "public",
     "original_source_url": "https://www.unopensource.org/agenda",
     "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
+    "id": "evt-2026-141",
+    "title": "**UNESCO & FAO** \u2014 Open Source at the United Nations",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-25",
+    "start_time": "16:15",
+    "end_time": "17:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#OSPOs-for-Good-%E2%80%94-Thursday%2C-25-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
     "id": "evt-2026-074",
@@ -1981,6 +2342,25 @@
     "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June for details.",
     "access": "public",
     "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Community-Day-%E2%80%94-Friday%2C-26-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-142",
+    "title": "DPG Showcase & Networking \u2013 Community Event Growing Inclusive Digital Commons: Open Solutions, Communities, and AI in Practice",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-26",
+    "start_time": "14:20",
+    "end_time": "15:20",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#Community-Led-Side-Events-%E2%80%94-Friday%2C-26-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#Community-Led-Side-Events-%E2%80%94-Friday%2C-26-June",
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
