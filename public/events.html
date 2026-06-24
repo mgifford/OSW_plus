@@ -29,6 +29,11 @@
         line-height: 1.6;
       }
       :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .visually-hidden {
+        position: absolute; width: 1px; height: 1px;
+        padding: 0; margin: -1px; overflow: hidden;
+        clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+      }
 
       .skip-link {
         position: absolute; top: -100%; left: 0;
@@ -183,6 +188,45 @@
       .empty-state p { margin: 0.5rem 0; font-size: 0.95rem; }
       .empty-state a { color: var(--un-blue); font-weight: 600; }
 
+      /* ─── Search input ─── */
+      .search-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .search-row input[type="search"] {
+        flex: 1;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.95rem;
+        font-family: inherit;
+        border: 2px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text);
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+      }
+      .search-row input[type="search"]:focus {
+        border-color: var(--un-blue);
+        box-shadow: 0 0 0 3px rgba(0,158,219,0.18);
+      }
+      .search-row input[type="search"]::-webkit-search-cancel-button { display: none; }
+      .search-row button {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.85rem;
+        font-family: inherit;
+        font-weight: 700;
+        border: 2px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text-muted);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .search-row button:hover { border-color: var(--un-blue); color: var(--navy); }
+      .search-row button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
       /* ─── Footer ─── */
       footer {
         border-top: 1px solid var(--border);
@@ -206,6 +250,12 @@
     </header>
 
     <main id="main-content">
+
+      <div class="search-row" role="search">
+        <label for="event-search" class="visually-hidden">Search events</label>
+        <input type="search" id="event-search" placeholder="Search events…" autocomplete="off" spellcheck="false" />
+        <button id="event-search-clear" aria-label="Clear search" hidden>Clear</button>
+      </div>
 
       <div class="filter-bar" role="group" aria-label="Filter events by timeframe">
         <span class="filter-bar-label" id="filter-label">Filter:</span>
@@ -394,11 +444,22 @@
 
       let allEvents  = [];
       let activeFilter = "all";
+      let searchQuery = "";
+
+      function matchesQuery(ev, q) {
+        if (!q) return true;
+        const lq = q.toLowerCase();
+        return [
+          ev.title, ev.organizer, ev.summary,
+          ev.location?.name, ev.location?.address, ev.location?.neighborhood
+        ].some(f => String(f ?? "").toLowerCase().includes(lq));
+      }
 
       function renderEvents() {
-        const filtered = activeFilter === "all"
-          ? sortEvents(allEvents)
-          : sortEvents(allEvents.filter(e => e.timeframe === activeFilter));
+        const byFilter = activeFilter === "all"
+          ? allEvents
+          : allEvents.filter(e => e.timeframe === activeFilter);
+        const filtered = sortEvents(byFilter.filter(e => matchesQuery(e, searchQuery)));
 
         const list  = document.getElementById("events-list");
         const count = document.getElementById("event-count");
@@ -423,6 +484,24 @@
         list.innerHTML = filtered.map(cardMarkup).join("");
         count.textContent = filtered.length + " event" + (filtered.length !== 1 ? "s" : "");
       }
+
+      // Search input
+      const searchInput = document.getElementById("event-search");
+      const clearBtn    = document.getElementById("event-search-clear");
+      let debounceTimer;
+      searchInput.addEventListener("input", () => {
+        searchQuery = searchInput.value;
+        clearBtn.hidden = !searchQuery.trim();
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(renderEvents, 200);
+      });
+      clearBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        searchQuery = "";
+        clearBtn.hidden = true;
+        searchInput.focus();
+        renderEvents();
+      });
 
       // Filter chip interactions
       document.querySelectorAll(".chip").forEach(btn => {
