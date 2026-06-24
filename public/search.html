@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search · OSW+ NYC</title>
+    <meta name="description" content="Search events and meetup places for UN Open Source Week NYC, June 20–28 2026." />
+    <link rel="stylesheet" href="shared.css" />
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"
+        integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs"
+        crossorigin="anonymous"></script>
+    <style>
+      :root {
+        --un-blue:      #009EDB;
+        --un-blue-dark: #007db3;
+        --navy:         #0d1f3c;
+        --navy-mid:     #1a3558;
+        --accent:       #f59e0b;
+        --bg:           #f0f4f8;
+        --surface:      #ffffff;
+        --border:       #d1dce8;
+        --text:         #0d1f3c;
+        --text-muted:   #4a6080;
+        color-scheme: light;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+      .skip-link {
+        position: absolute; top: -100%; left: 0;
+        background: var(--navy); color: #fff;
+        padding: 0.5rem 1rem; text-decoration: none;
+        font-weight: 700; z-index: 9999;
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus { top: 0; }
+
+      .visually-hidden {
+        position: absolute; width: 1px; height: 1px;
+        padding: 0; margin: -1px; overflow: hidden;
+        clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+      }
+
+      /* ─── Page header ─── */
+      .page-header {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+        color: #fff;
+        padding: 2rem 1.5rem;
+      }
+      .page-header-inner { max-width: 1080px; margin: 0 auto; }
+      .page-header h1 { margin: 0 0 0.35rem; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; }
+      .page-header p { margin: 0; color: #b8d4e8; font-size: 0.95rem; }
+
+      /* ─── Main ─── */
+      main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+
+      /* ─── Search bar ─── */
+      .search-bar {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .search-bar input[type="search"] {
+        flex: 1;
+        padding: 0.65rem 1rem;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 2px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text);
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+      }
+      .search-bar input[type="search"]:focus {
+        border-color: var(--un-blue);
+        box-shadow: 0 0 0 3px rgba(0,158,219,0.2);
+      }
+      .search-bar input[type="search"]::-webkit-search-cancel-button { display: none; }
+      .search-bar button {
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        border: 2px solid var(--border);
+        border-radius: 0.6rem;
+        background: var(--surface);
+        color: var(--text-muted);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .search-bar button:hover { border-color: var(--un-blue); color: var(--navy); }
+
+      /* ─── Results layout ─── */
+      .results-hint {
+        text-align: center;
+        color: var(--text-muted);
+        padding: 3rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .results-section { margin-bottom: 2rem; }
+      .results-section-header {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .results-section-header h2 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--navy);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .results-count {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+      .results-grid { display: grid; gap: 1rem; }
+
+      /* ─── Cards ─── */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      }
+      .card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; color: var(--navy); }
+      .card-meta {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        margin: 0 0 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .card-meta strong { color: var(--text); }
+      .era-chip {
+        display: inline-flex;
+        align-items: center;
+        background: var(--un-blue);
+        color: var(--navy);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .place-chip {
+        display: inline-flex;
+        align-items: center;
+        background: #d1fae5;
+        color: #065f46;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .card-summary { margin: 0 0 0.5rem; font-size: 0.93rem; }
+      .card-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        text-decoration: none;
+        padding: 0.45rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        background: var(--surface);
+        color: var(--navy);
+        white-space: nowrap;
+        font-family: inherit;
+      }
+      .btn:hover { background: var(--bg); border-color: var(--un-blue); }
+      .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+      .btn-primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+      .btn-primary:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+      /* ─── Empty / no-results ─── */
+      .empty-state {
+        text-align: center;
+        padding: 2rem 1.5rem;
+        background: var(--surface);
+        border: 1px dashed var(--border);
+        border-radius: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* ─── Footer ─── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        background: var(--surface);
+      }
+      footer a { color: #2563eb; }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="page-header">
+      <div class="page-header-inner">
+        <h1>Search</h1>
+        <p>Find events and meetup spots for UN Open Source Week · June 20–28, 2026 · New York City</p>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+      <div class="search-bar" role="search">
+        <label for="search-input" class="visually-hidden">Search events and places</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search events and places…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="clear-btn" aria-label="Clear search" hidden>Clear</button>
+      </div>
+
+      <div id="results" aria-live="polite" aria-atomic="false">
+        <p class="results-hint">Start typing to search events and places.</p>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>OSW+ NYC · Community-driven side events around <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
+    </footer>
+
+    <script src="nav.js" defer></script>
+    <script>
+      (function () {
+        'use strict';
+
+        let allEvents = [];
+        let allPlaces = [];
+        let dataReady = false;
+        let pendingQuery = null;
+
+        // ── Helpers ──────────────────────────────────────────────────────────
+
+        function escapeHtml(value) {
+          return String(value ?? '')
+            .replaceAll('&', '&amp;').replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;').replaceAll('"', '&quot;')
+            .replaceAll("'", '&#39;');
+        }
+
+        function safeUrl(value) {
+          try {
+            const url = new URL(value);
+            return ['http:', 'https:'].includes(url.protocol) ? url.toString() : '#';
+          } catch { return '#'; }
+        }
+
+        function eraLabel(timeframe) {
+          const map = {
+            runway:              'Pre-Week',
+            weekday_breakfast:   'Core Week · Morning',
+            weekday_daytime:     'Core Week · Daytime',
+            weekday_evening:     'Core Week · Evening',
+            aftermath:           'Post-Week',
+          };
+          return map[timeframe] || timeframe;
+        }
+
+        function matches(query, ...fields) {
+          const q = query.toLowerCase();
+          return fields.some(f => String(f ?? '').toLowerCase().includes(q));
+        }
+
+        // ── Rendering ─────────────────────────────────────────────────────────
+
+        function renderEventCard(ev) {
+          const locationName = ev.location?.name || 'NYC';
+          const locationAddr = ev.location?.address || '';
+          const locationText = locationAddr && locationAddr !== 'TBD'
+            ? locationName + ' · ' + locationAddr
+            : locationName;
+          const safeHref = ev.original_source_url ? safeUrl(ev.original_source_url) : '#';
+          const rsvpBtn = safeHref !== '#'
+            ? `<a class="btn btn-primary" href="${escapeHtml(safeHref)}" target="_blank" rel="noopener noreferrer"
+                 aria-label="View event and RSVP for ${escapeHtml(ev.title)} (opens in new tab)">
+                 View Event &amp; RSVP
+               </a>`
+            : '';
+          return `
+            <article class="card">
+              <span class="era-chip">${escapeHtml(eraLabel(ev.timeframe))}</span>
+              <h3>${escapeHtml(ev.title)}</h3>
+              <div class="card-meta">
+                <span>📅 <strong>${escapeHtml(ev.event_date)}</strong></span>
+                <span>🕐 ${escapeHtml(ev.start_time)}–${escapeHtml(ev.end_time)}</span>
+                <span>📍 ${escapeHtml(locationText)}</span>
+                ${ev.organizer ? `<span>🏢 ${escapeHtml(ev.organizer)}</span>` : ''}
+              </div>
+              ${ev.summary ? `<p class="card-summary">${escapeHtml(ev.summary)}</p>` : ''}
+              ${rsvpBtn ? `<div class="card-actions">${rsvpBtn}</div>` : ''}
+            </article>`;
+        }
+
+        function renderPlaceCard(place) {
+          const gmUrl  = safeUrl(place['Google Maps'] || '');
+          const webUrl = safeUrl(place['Link'] || '');
+          const mapBtn = gmUrl !== '#'
+            ? `<a class="btn" href="${escapeHtml(gmUrl)}" target="_blank" rel="noopener noreferrer"
+                 aria-label="View ${escapeHtml(place.Name)} on Google Maps (opens in new tab)">
+                 Map
+               </a>`
+            : '';
+          const webBtn = webUrl !== '#'
+            ? `<a class="btn" href="${escapeHtml(webUrl)}" target="_blank" rel="noopener noreferrer"
+                 aria-label="Visit website for ${escapeHtml(place.Name)} (opens in new tab)">
+                 Website
+               </a>`
+            : '';
+          return `
+            <article class="card">
+              <span class="place-chip">${escapeHtml(place.Category || 'Place')}</span>
+              <h3>${escapeHtml(place.Name)}</h3>
+              <div class="card-meta">
+                ${place.Neighborhood ? `<span>🏙️ ${escapeHtml(place.Neighborhood)}</span>` : ''}
+                ${place.Address      ? `<span>📍 ${escapeHtml(place.Address)}</span>`      : ''}
+                ${place['From UN HQ'] ? `<span>🚶 ${escapeHtml(place['From UN HQ'])}</span>` : ''}
+              </div>
+              ${place['Why it is good'] ? `<p class="card-summary">${escapeHtml(place['Why it is good'])}</p>` : ''}
+              ${(mapBtn || webBtn) ? `<div class="card-actions">${webBtn}${mapBtn}</div>` : ''}
+            </article>`;
+        }
+
+        function renderSection(title, cards) {
+          if (!cards.length) return '';
+          return `
+            <section class="results-section" aria-label="${escapeHtml(title)}">
+              <div class="results-section-header">
+                <h2>${escapeHtml(title)}</h2>
+                <span class="results-count">${cards.length} result${cards.length !== 1 ? 's' : ''}</span>
+              </div>
+              <div class="results-grid">${cards.join('')}</div>
+            </section>`;
+        }
+
+        function renderResults(query) {
+          const root = document.getElementById('results');
+          const q = query.trim();
+
+          if (!q) {
+            root.innerHTML = '<p class="results-hint">Start typing to search events and places.</p>';
+            return;
+          }
+
+          const matchedEvents = allEvents.filter(ev =>
+            matches(q, ev.title, ev.organizer, ev.summary,
+              ev.location?.name, ev.location?.address, ev.location?.neighborhood)
+          );
+
+          const matchedPlaces = allPlaces.filter(place =>
+            matches(q, place.Name, place.Category, place.Neighborhood,
+              place.Address, place['Why it is good'], place.Tips)
+          );
+
+          if (!matchedEvents.length && !matchedPlaces.length) {
+            root.innerHTML = `
+              <div class="empty-state">
+                <p>No results found for &ldquo;<strong>${escapeHtml(q)}</strong>&rdquo;.</p>
+                <p>Try a different keyword — event titles, organizers, venues, or neighborhoods.</p>
+              </div>`;
+            return;
+          }
+
+          const eventCards = matchedEvents
+            .sort((a, b) => {
+              const ka = a.event_date + 'T' + (a.start_time || '00:00');
+              const kb = b.event_date + 'T' + (b.start_time || '00:00');
+              return ka < kb ? -1 : ka > kb ? 1 : 0;
+            })
+            .map(renderEventCard);
+
+          const placeCards = matchedPlaces.map(renderPlaceCard);
+
+          root.innerHTML =
+            renderSection('Events', eventCards) +
+            renderSection('Places', placeCards);
+        }
+
+        // ── Search input ──────────────────────────────────────────────────────
+
+        const input    = document.getElementById('search-input');
+        const clearBtn = document.getElementById('clear-btn');
+        let debounceTimer;
+
+        function onInput() {
+          const q = input.value;
+          clearBtn.hidden = !q.trim();
+          clearTimeout(debounceTimer);
+          if (!dataReady) { pendingQuery = q; return; }
+          debounceTimer = setTimeout(() => renderResults(q), 200);
+        }
+
+        input.addEventListener('input', onInput);
+
+        clearBtn.addEventListener('click', () => {
+          input.value = '';
+          clearBtn.hidden = true;
+          document.getElementById('results').innerHTML =
+            '<p class="results-hint">Start typing to search events and places.</p>';
+          input.focus();
+        });
+
+        // Support ?q= in URL
+        const urlQuery = new URLSearchParams(window.location.search).get('q') || '';
+        if (urlQuery) {
+          input.value = urlQuery;
+          clearBtn.hidden = false;
+          pendingQuery = urlQuery;
+        }
+
+        // ── Data loading ──────────────────────────────────────────────────────
+
+        const eventsPromise = fetch('api/2026/events.json')
+          .then(r => r.json())
+          .then(data => { allEvents = Array.isArray(data) ? data : []; })
+          .catch(() => { allEvents = []; });
+
+        const placesPromise = fetch('data/places_with_coords.csv')
+          .then(r => r.text())
+          .then(csv => {
+            allPlaces = Papa.parse(csv, { header: true, skipEmptyLines: true })
+              .data.filter(p => p.Name);
+          })
+          .catch(() => { allPlaces = []; });
+
+        Promise.all([eventsPromise, placesPromise]).then(() => {
+          dataReady = true;
+          if (pendingQuery !== null) {
+            renderResults(pendingQuery);
+          }
+        });
+
+      }());
+    </script>
+  </body>
+</html>

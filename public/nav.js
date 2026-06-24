@@ -8,6 +8,7 @@
     { href: 'events.html',          label: '📋 Events' },
     { href: 'calendar-view.html',   label: '📅 Calendar' },
     { href: 'places-map.html',      label: '☕ Meet Up / Food / Coffee' },
+    { href: 'search.html',          label: '🔍 Search' },
     { href: '2025-resources.html',  label: '🗓️ 2025 Resources' }
   ];
 
