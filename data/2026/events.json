@@ -455,6 +455,25 @@
     "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
   },
   {
+    "id": "evt-2026-144",
+    "title": "AI's Impact on Open Source",
+    "organizer": "UN Open Source Week",
+    "timeframe": "weekday_evening",
+    "event_date": "2026-06-23",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "Conference Room A",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "AI is reshaping the open source ecosystem in contradictory ways: improving security, accelerating contribution, and lowering barriers on one hand, while introducing structural threats to the sustainability compact that open source depends on, on the other. This session examines both sides of that tension. On the risk side, the conversation will cover licensing and compliance ambiguity that threatens copyleft protections, alongside data security and privacy vulnerabilities that AI introduces into",
+    "access": "public",
+    "original_source_url": "https://www.unopensource.org/agenda",
+    "submission_source": "scrape:https://www.unopensource.org/agenda"
+  },
+  {
     "id": "evt-2026-036",
     "title": "Open Agents",
     "organizer": "UN Open Source Week",
@@ -1100,6 +1119,25 @@
   {
     "id": "evt-2026-132",
     "title": "**UN-ODET & UNESCO** \u2013 Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide",
+    "organizer": "Digital Public Goods Alliance",
+    "timeframe": "weekday_daytime",
+    "event_date": "2026-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "timezone": "America/New_York",
+    "location": {
+      "name": "TBD",
+      "neighborhood": "TBD",
+      "address": "New York, NY"
+    },
+    "summary": "Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.",
+    "access": "public",
+    "original_source_url": "https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June",
+    "submission_source": "hackmd-dpga:https://hackmd.io/@dpga/Sk05Nc21Me/download"
+  },
+  {
+    "id": "evt-2026-143",
+    "title": "**UN-ODET, UNESCO, & Software Heritage** \u2013 Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide",
     "organizer": "Digital Public Goods Alliance",
     "timeframe": "weekday_daytime",
     "event_date": "2026-06-24",

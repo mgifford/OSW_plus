@@ -196,6 +196,14 @@ DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hac
 LOCATION:New York, NY
 END:VEVENT
 BEGIN:VEVENT
+UID:evt-2026-144@osweekplus.nyc
+SUMMARY:AI's Impact on Open Source
+DTSTART;TZID=America/New_York:20260623T150000
+DTEND;TZID=America/New_York:20260623T160000
+DESCRIPTION:AI is reshaping the open source ecosystem in contradictory ways: improving security, accelerating contribution, and lowering barriers on one hand, while introducing structural threats to the sustainability compact that open source depends on, on the other. This session examines both sides of that tension. On the risk side, the conversation will cover licensing and compliance ambiguity that threatens copyleft protections, alongside data security and privacy vulnerabilities that AI introduces into\nRSVP: https://www.unopensource.org/agenda
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
 UID:evt-2026-036@osweekplus.nyc
 SUMMARY:Open Agents
 DTSTART;TZID=America/New_York:20260623T161500
@@ -470,6 +478,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:evt-2026-132@osweekplus.nyc
 SUMMARY:**UN-ODET & UNESCO** – Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T160000
+DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
+LOCATION:New York, NY
+END:VEVENT
+BEGIN:VEVENT
+UID:evt-2026-143@osweekplus.nyc
+SUMMARY:**UN-ODET, UNESCO, & Software Heritage** – Public Code Observatory: Mapping Public Sector Contributions to Open Source Worldwide
 DTSTART;TZID=America/New_York:20260624T150000
 DTEND;TZID=America/New_York:20260624T160000
 DESCRIPTION:Imported from the DPGA UN Open Source Week schedule. See https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June for details.\nRSVP: https://hackmd.io/@dpga/Sk05Nc21Me#DPI-Day-%E2%80%94-Wednesday%2C-24-June
