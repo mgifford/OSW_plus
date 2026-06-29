@@ -71,6 +71,10 @@ python scripts/generate_ics.py --events-file data/2026/events.json --output-file
 python -m unittest discover -s tests -v
 
 # Knowledge platform
-pip install -r requirements-dev.txt                          # test-only deps (jsonschema)
-python scripts/generate_knowledge_site.py --out _site        # build profile pages + datasets
+pip install -r requirements-dev.txt                              # test-only deps (jsonschema)
+python scripts/import_agenda.py --year 2026                      # (re)build data/unosw/2026 from the agenda
+python scripts/generate_knowledge_site.py --year 2025 --out _site   # build 2025 pages + datasets
+python scripts/generate_knowledge_site.py --year 2026 --out _site   # build 2026 (coexists under /unosw/<year>/)
 ```
+
+Generated pages live under `/unosw/<year>/` with a cross-year hub at `/explore.html`.

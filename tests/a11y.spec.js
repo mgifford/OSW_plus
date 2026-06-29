@@ -13,6 +13,8 @@ const PAGES = [
   { name: "speaker profile", path: "/unosw/2025/speakers/sachiko-muto.html" },
   { name: "session page", path: "/unosw/2025/sessions/sess-opening-plenary.html" },
   { name: "organization profile", path: "/unosw/2025/organizations/un-odet.html" },
+  { name: "2026 year hub", path: "/unosw/2026/explore.html" },
+  { name: "2026 session page", path: "/unosw/2026/sessions/sess-2026-016.html" },
 ];
 
 async function scanPage(page, path) {

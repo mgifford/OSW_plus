@@ -16,6 +16,10 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 
 - Conference-config-driven namespace: `conferences/unosw.json`, JSON Schemas in
   `schema/`, curated datasets in `data/unosw/2025/`.
+- A second data-year, **2026**, imported programmatically from the agenda via
+  `scripts/import_agenda.py` into `data/unosw/2026/` (sessions tagged official vs
+  side-event). Generated output is namespaced by conference/year
+  (`/unosw/2025/…`, `/unosw/2026/…`) with a cross-year hub at `/explore.html`.
 - Python generator (`scripts/generate_knowledge_site.py`,
   `scripts/knowledge_utils.py`) → profile + index pages, AI-ready `api/` datasets,
   a derived knowledge graph, and a regenerated sitemap, built into `_site` by the
@@ -27,8 +31,8 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 
 | # | Phase | Status | Notes |
 |---|-------|--------|-------|
-| 1 | Improve the existing site | 🟡 | Canonical/OpenGraph/Twitter meta + homepage JSON-LD added; sitemap/robots realigned to the canonical host; "Explore 2025" nav. Session pages now carry agenda/speakers/orgs/summary/topics/references; recording + transcript links land with Phase 13. |
-| 2 | Ingestion pipeline | ⬜ | Framework to collect public info (UN Web TV, transcripts.un.org, speaker pages, PDFs, GitHub). Must be throttled and idempotent (see "Ingestion guidance"). Today's data is manually curated from the report. |
+| 1 | Improve the existing site | 🟡 | Canonical/OpenGraph/Twitter meta + homepage JSON-LD; sitemap/robots realigned to the canonical host; cross-year "Knowledge" nav. Session pages carry agenda/speakers/orgs/summary/topics/references and a recording/links section; the 2025 resources page links the four authoritative UN Web TV day recordings. Transcripts land with Phase 13. |
+| 2 | Ingestion pipeline | 🟡 | `scripts/import_agenda.py` ingests the 2026 agenda (`data/2026/events.json`) into normalized, provenanced datasets — a first, deterministic importer. A full throttled/idempotent pipeline for UN Web TV, transcripts.un.org, speaker pages, PDFs, and GitHub is still to come (see "Ingestion guidance"). |
 | 3 | Normalize everything | ✅ | Consistent schemas for sessions/speakers/organizations/projects (plus topics/quotes/references) in `schema/`; 2025 data normalized in `data/unosw/2025/`. |
 | 4 | Knowledge graph | ✅ | `knowledge_utils.build_graph()` emits `api/knowledge-graph.json` (people/orgs/projects/topics/sessions/countries + relationships). Importable into a graph DB later. |
 | 5 | AI enrichment | 🟡 | Provenance structure supports `llm-generation` with citations; this pass uses facts-from-the-report only (`manual-extraction`). Wiring a throttled LLM step in CI is deferred. |

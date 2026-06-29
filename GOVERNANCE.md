@@ -71,6 +71,12 @@ full copyrighted text. When in doubt, store a reference and a link, not a copy.
   sources under a redistributable licence (CC BY, CC BY-SA, CC0, or public
   domain) may have their text/quotations stored; otherwise store metadata and a
   link only.
+- **Factual event metadata** (a session's title, date, time, organizer, room —
+  who/what/when/where, as in the 2026 agenda import) records facts, which are not
+  copyrightable. Such records are marked `license: public-domain` with
+  `method: automated-ingestion` and always link to the authoritative agenda/event
+  URL. Do **not** use this basis to store substantial copyrighted prose; for that,
+  store metadata and a link only, per the rule above.
 - **Code** (scripts, schemas, generator) is covered by the repository
   [LICENSE](LICENSE).
 - Contributors license their contributions under those same terms and confirm
