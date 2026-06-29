@@ -43,6 +43,9 @@ jobs:
           mkdir -p _site/data
           cp data/places_with_coords.csv _site/data/
 
+      - name: Generate knowledge platform pages
+        run: python3 scripts/generate_knowledge_site.py --out _site
+
       - name: Run accessibility tests (axe + Playwright)
         run: npx playwright test
 
