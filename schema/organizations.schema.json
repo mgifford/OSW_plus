@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/organizations.schema.json",
+  "title": "Organizations",
+  "description": "Organizations referenced at the conference (UN agencies, governments, foundations, companies, communities). Sessions, projects and speakers are computed by the generator.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["slug", "name", "provenance"],
+    "properties": {
+      "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "name": { "type": "string", "minLength": 1 },
+      "type": {
+        "type": "string",
+        "enum": ["un-agency", "government", "foundation", "company", "community", "academia", "ngo", "multilateral", "other"]
+      },
+      "country": { "type": "string" },
+      "website": { "type": "string", "format": "uri" },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}

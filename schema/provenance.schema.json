@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/provenance.schema.json",
+  "title": "Provenance",
+  "description": "Provenance metadata attached to every record and AI-generated field. Records where a fact came from, under what license, and how it was extracted.",
+  "type": "object",
+  "required": ["source_url", "source_title", "license", "method"],
+  "properties": {
+    "source_url": { "type": "string", "format": "uri" },
+    "source_title": { "type": "string", "minLength": 1 },
+    "license": {
+      "type": "string",
+      "enum": ["CC-BY-4.0", "CC-BY-SA-4.0", "CC0-1.0", "public-domain"]
+    },
+    "attribution": { "type": "string" },
+    "retrieved": { "type": "string", "format": "date" },
+    "method": {
+      "type": "string",
+      "enum": ["manual-extraction", "automated-ingestion", "llm-generation"]
+    },
+    "locator": { "type": "string" }
+  }
+}

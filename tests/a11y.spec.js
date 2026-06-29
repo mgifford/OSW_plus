@@ -7,6 +7,11 @@ const PAGES = [
   { name: "calendar view", path: "/calendar-view.html" },
   { name: "places map", path: "/places-map.html" },
   { name: "2025 resources", path: "/2025-resources.html" },
+  // Generated knowledge-platform pages (produced by generate_knowledge_site.py)
+  { name: "explore hub", path: "/explore.html" },
+  { name: "speaker profile", path: "/speakers/sachiko-muto.html" },
+  { name: "session page", path: "/sessions/sess-opening-plenary.html" },
+  { name: "organization profile", path: "/organizations/un-odet.html" },
 ];
 
 async function scanPage(page, path) {

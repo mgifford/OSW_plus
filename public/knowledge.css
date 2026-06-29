@@ -1,0 +1,128 @@
+/* knowledge.css — base page + knowledge-platform styles for generated pages.
+   Pairs with shared.css (site nav/footer). Mirrors the palette used across
+   the site: UN blue #009EDB, navy #0d1f3c, accent #f59e0b. */
+
+:root {
+  --un-blue: #009edb;
+  --un-blue-dark: #007db3;
+  /* Link colour chosen for >=4.5:1 contrast on white and the light
+     breadcrumb/tag/provenance backgrounds (WCAG 2.2 AA). */
+  --link: #015d86;
+  --navy: #0d1f3c;
+  --navy-mid: #1a3558;
+  --accent: #f59e0b;
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --border: #d1dce8;
+  --text: #0d1f3c;
+  --text-muted: #4a6080;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--link); }
+a:hover { color: var(--navy); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 9999;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus { top: 0; }
+
+/* Page header */
+.kp-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  padding: 2rem 1.5rem;
+}
+.kp-header-inner { max-width: 1080px; margin: 0 auto; }
+.kp-header h1 { margin: 0 0 0.35rem; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; }
+.kp-eyebrow { margin: 0 0 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #93c5fd; font-weight: 700; }
+.kp-header p { margin: 0.25rem 0 0; color: #cbd5e1; max-width: 60ch; }
+.kp-header .kp-role { color: #e2e8f0; font-weight: 600; }
+
+/* Breadcrumbs */
+.kp-breadcrumb { background: #e8f0f8; border-bottom: 1px solid var(--border); }
+.kp-breadcrumb ol {
+  max-width: 1080px; margin: 0 auto; padding: 0.5rem 1.5rem;
+  list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem;
+  font-size: 0.85rem;
+}
+.kp-breadcrumb li::after { content: "›"; margin-left: 0.4rem; color: var(--text-muted); }
+.kp-breadcrumb li:last-child::after { content: ""; }
+.kp-breadcrumb [aria-current="page"] { color: var(--text-muted); }
+
+/* Layout */
+main.kp-main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+.kp-section { margin: 1.5rem 0; }
+.kp-section h2 { font-size: 1.15rem; border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+.kp-meta { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Cards / grid */
+.kp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; padding: 0; list-style: none; margin: 1rem 0; }
+.kp-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 0.6rem; padding: 1rem; box-shadow: 0 1px 2px rgba(13,31,60,0.05);
+}
+.kp-card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+.kp-card h3 a { text-decoration: none; }
+.kp-card h3 a:hover { text-decoration: underline; }
+.kp-card p { margin: 0.25rem 0; font-size: 0.9rem; color: var(--text-muted); }
+
+/* Tag / badge pills */
+.kp-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0; list-style: none; margin: 0.5rem 0; }
+.kp-tag {
+  display: inline-block; background: #e8f4fb; color: var(--link);
+  border: 1px solid #b6e0f5; border-radius: 999px;
+  padding: 0.1rem 0.6rem; font-size: 0.78rem; font-weight: 600; text-decoration: none;
+}
+.kp-tag:hover { background: #d4ecf8; }
+.kp-badge {
+  display: inline-block; background: var(--navy); color: #fff;
+  border-radius: 0.3rem; padding: 0.05rem 0.5rem; font-size: 0.72rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* Definition-style detail lists */
+.kp-detail { margin: 0.75rem 0; }
+.kp-detail dt { font-weight: 700; color: var(--navy); }
+.kp-detail dd { margin: 0 0 0.6rem; }
+
+/* Quote blocks */
+.kp-quote { border-left: 4px solid var(--un-blue); background: var(--surface); margin: 0.75rem 0; padding: 0.75rem 1rem; border-radius: 0 0.4rem 0.4rem 0; }
+.kp-quote blockquote { margin: 0; font-style: italic; }
+.kp-quote cite { display: block; margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted); font-style: normal; }
+
+/* Provenance / source note */
+.kp-provenance {
+  margin-top: 2rem; padding: 1rem; background: #eef3f8;
+  border: 1px solid var(--border); border-radius: 0.5rem; font-size: 0.85rem; color: var(--text-muted);
+}
+.kp-provenance a { color: var(--link); }
+
+/* Stats row on the hub */
+.kp-stats { display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; list-style: none; margin: 1rem 0; }
+.kp-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.85rem 1.1rem; min-width: 120px; }
+.kp-stat .kp-stat-num { display: block; font-size: 1.6rem; font-weight: 800; color: var(--un-blue-dark); }
+.kp-stat .kp-stat-label { font-size: 0.82rem; color: var(--text-muted); }
+
+footer.kp-footer { max-width: 1080px; margin: 2rem auto 3rem; padding: 1rem 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }

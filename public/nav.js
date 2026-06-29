@@ -3,13 +3,16 @@
 (function () {
   'use strict';
 
+  // Root-absolute hrefs so the nav works from nested knowledge pages
+  // (e.g. /speakers/<slug>.html) as well as the top-level pages.
   var PAGES = [
-    { href: 'index.html',           label: '🏠 Home' },
-    { href: 'events.html',          label: '📋 Events' },
-    { href: 'calendar-view.html',   label: '📅 Calendar' },
-    { href: 'places-map.html',      label: '☕ Meet Up / Food / Coffee' },
-    { href: 'search.html',          label: '🔍 Search' },
-    { href: '2025-resources.html',  label: '🗓️ 2025 Resources' }
+    { href: '/index.html',           label: '🏠 Home' },
+    { href: '/events.html',          label: '📋 Events' },
+    { href: '/calendar-view.html',   label: '📅 Calendar' },
+    { href: '/explore.html',         label: '🧭 Explore 2025' },
+    { href: '/places-map.html',      label: '☕ Meet Up / Food / Coffee' },
+    { href: '/search.html',          label: '🔍 Search' },
+    { href: '/2025-resources.html',  label: '🗓️ 2025 Resources' }
   ];
 
   var SUBMIT_EVENT_URL = 'https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml';
@@ -19,14 +22,15 @@
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';
 
   var linksHtml = PAGES.map(function (p) {
-    var current = (p.href === currentFile) ? ' aria-current="page"' : '';
+    var hrefFile = p.href.split('/').pop();
+    var current = (hrefFile === currentFile) ? ' aria-current="page"' : '';
     return '<li><a href="' + p.href + '"' + current + '>' + p.label + '</a></li>';
   }).join('');
 
   var navHtml =
     '<nav class="site-nav" aria-label="Site navigation">' +
       '<div class="site-nav-inner">' +
-        '<a class="site-nav-brand" href="index.html" aria-label="OSW+ NYC \u2014 Home">OSW+\u00a0NYC</a>' +
+        '<a class="site-nav-brand" href="/" aria-label="OSW+ NYC \u2014 Home">OSW+\u00a0NYC</a>' +
         '<button class="site-nav-toggle" aria-controls="site-nav-menu" aria-expanded="false" aria-label="Toggle navigation menu">' +
           '<span></span><span></span><span></span>' +
         '</button>' +

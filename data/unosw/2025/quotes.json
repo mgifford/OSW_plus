@@ -1,0 +1,82 @@
+[
+  {
+    "id": "quote-massari-building-blocks",
+    "text": "Open source technologies are not just tools; they are building blocks for inclusive development, transparent governance, and shared innovation.",
+    "speaker": "maurizio-massari",
+    "speaker_name": "Maurizio Massari",
+    "session": "sess-opening-plenary",
+    "topics": ["open-source", "government"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Introduction; Opening Plenary keynote" }
+  },
+  {
+    "id": "quote-editathon-volunteer-live-edits",
+    "text": "It was powerful to see live edits happening at the UN and to know that the UN cares about the future of the digital world, an evolving topic we should all be paying attention to.",
+    "speaker_name": "Edit-A-Thon volunteer",
+    "session": "sess-edit-a-thon",
+    "topics": ["community", "education"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Edit-A-Thon – Knowledge as a Commons" }
+  },
+  {
+    "id": "quote-steinberg-job-changing",
+    "text": "even if you're not changing jobs, your job is changing on you",
+    "speaker": "sarah-steinberg",
+    "speaker_name": "Sarah Steinberg",
+    "session": "sess-linkedin-side-event",
+    "topics": ["ai", "education"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "LinkedIn Side Event" }
+  },
+  {
+    "id": "quote-vipul-sustainability-not-optional",
+    "text": "In humanitarian work, sustainability is not optional. Open source allows solutions to live beyond individual projects and funding cycles.",
+    "speaker": "vipul-siddharth",
+    "speaker_name": "Vipul Siddharth",
+    "session": "sess-d3-breakout-humanitarian",
+    "topics": ["sustainability", "health", "open-source"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3 Breakout; Open Source for Humanitarian Impact" }
+  },
+  {
+    "id": "quote-mariyasin-governance-model",
+    "text": "it's a governance model, one that fits the complexity of our time",
+    "speaker": "dmitry-mariyasin",
+    "speaker_name": "Dmitry Mariyasin",
+    "session": "sess-d3-panel-breaking-silos",
+    "topics": ["open-source", "interoperability", "government"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – Breaking Silos (keynote)" }
+  },
+  {
+    "id": "quote-marwala-unique-role",
+    "text": "This is where open source has a unique and powerful role to play.",
+    "speaker": "tshilidzi-marwala",
+    "speaker_name": "Tshilidzi Marwala",
+    "session": "sess-d3-panel-os-in-dpi",
+    "topics": ["digital-public-infrastructure", "open-source"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – The Role of Open Source in DPI (keynote)" }
+  },
+  {
+    "id": "quote-mazur-reinvent-the-wheel",
+    "text": "Don't make us reinvent the wheel—help us drive further.",
+    "speaker": "daniel-mazur",
+    "speaker_name": "Daniel Mazur",
+    "session": "sess-d3-panel-digital-cooperation",
+    "topics": ["government", "interoperability"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – Navigating Digital Cooperation" }
+  },
+  {
+    "id": "quote-gill-safeguards-by-design",
+    "text": "Safeguards should therefore not be an afterthought: they should be integrated into DPIs by design.",
+    "speaker": "amandeep-singh-gill",
+    "speaker_name": "Amandeep Singh Gill",
+    "session": "sess-d4-keynote-session",
+    "topics": ["digital-public-infrastructure", "security"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Keynote Session (Amandeep Singh Gill)" }
+  },
+  {
+    "id": "quote-mariano-open-to-everyone",
+    "text": "open source should be open to everyone and everyone should benefit",
+    "speaker": "bernardo-mariano-junior",
+    "speaker_name": "Bernardo Mariano Junior",
+    "session": "sess-d4-closing-ceremony",
+    "topics": ["open-source", "community"],
+    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Closing Ceremony (Bernardo Mariano Junior)" }
+  }
+]

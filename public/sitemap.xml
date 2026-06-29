@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://osweekplus.nyc/</loc>
+    <loc>https://unosw.plus/</loc>
   </url>
   <url>
-    <loc>https://osweekplus.nyc/events.html</loc>
+    <loc>https://unosw.plus/events.html</loc>
   </url>
   <url>
-    <loc>https://osweekplus.nyc/calendar-view.html</loc>
+    <loc>https://unosw.plus/calendar-view.html</loc>
   </url>
   <url>
-    <loc>https://osweekplus.nyc/places-map.html</loc>
+    <loc>https://unosw.plus/explore.html</loc>
   </url>
   <url>
-    <loc>https://osweekplus.nyc/api/2026/events.json</loc>
+    <loc>https://unosw.plus/places-map.html</loc>
   </url>
   <url>
-    <loc>https://osweekplus.nyc/calendar.ics</loc>
+    <loc>https://unosw.plus/search.html</loc>
+  </url>
+  <url>
+    <loc>https://unosw.plus/2025-resources.html</loc>
+  </url>
+  <url>
+    <loc>https://unosw.plus/api/2026/events.json</loc>
+  </url>
+  <url>
+    <loc>https://unosw.plus/calendar.ics</loc>
   </url>
 </urlset>

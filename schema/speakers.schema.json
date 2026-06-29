@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/speakers.schema.json",
+  "title": "Speakers",
+  "description": "People who spoke at the conference. Sessions a speaker appeared in are computed by the generator from sessions.json.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["slug", "name", "provenance"],
+    "properties": {
+      "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "name": { "type": "string", "minLength": 1 },
+      "role": { "type": "string" },
+      "organization": { "type": "string" },
+      "organization_slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "country": { "type": "string" },
+      "biography": { "type": "string" },
+      "topics": { "type": "array", "items": { "type": "string" } },
+      "github": { "type": "string" },
+      "mastodon": { "type": "string" },
+      "bluesky": { "type": "string" },
+      "linkedin": { "type": "string" },
+      "website": { "type": "string" },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}

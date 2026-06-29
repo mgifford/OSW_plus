@@ -19,9 +19,24 @@ OS Week Plus (OSW+) NYC is an open-source, community-driven fringe calendar and 
 - `scripts/generate_ics.py` — generates `public/calendar.ics`.
 - `scripts/geocode_places.py` — auto-fills coordinates in `places_with_coords.csv` via Nominatim.
 
+### Knowledge platform
+
+Alongside the side-event calendar, the repository hosts the **Open UN Open Source
+Week Knowledge Platform** — an open, AI-ready index of public information about UN
+Open Source Week that links back to authoritative sources (never an archive of
+copyrighted media). See [ROADMAP.md](ROADMAP.md) for the full vision and status.
+
+- `conferences/unosw.json` — conference config (canonical URL, official sources, topic vocabulary).
+- `schema/*.schema.json` — JSON Schema for each dataset plus a shared provenance object.
+- `data/unosw/2025/*.json` — curated, fully provenanced datasets (sessions, speakers, organizations, projects, topics, quotes, references) extracted from the CC BY 4.0 UN Open Source Week 2025 Conference Report.
+- `scripts/knowledge_utils.py` — slugify, schema validation, derived indexes, knowledge-graph builder.
+- `scripts/generate_knowledge_site.py` — conference-agnostic generator that emits profile/index pages, `api/<conf>/<year>/*.json`, `api/knowledge-graph.json`, and the sitemap into `_site` at build time.
+
 ## Project policies
 
 - [AGENTS.md](AGENTS.md) — instructions for AI agents working in this repository.
+- [GOVERNANCE.md](GOVERNANCE.md) — contribution, editorial, attribution, licensing, and AI-provenance rules for the knowledge platform.
+- [ROADMAP.md](ROADMAP.md) — the 17-phase knowledge-platform vision and current status.
 - [ACCESSIBILITY.md](ACCESSIBILITY.md) — accessibility target, guardrails, and test expectations.
 - [SUSTAINABILITY.md](SUSTAINABILITY.md) — sustainability commitments and review cadence.
 
@@ -54,4 +69,8 @@ Maintainer checklist:
 ```bash
 python scripts/generate_ics.py --events-file data/2026/events.json --output-file public/calendar.ics
 python -m unittest discover -s tests -v
+
+# Knowledge platform
+pip install -r requirements-dev.txt                          # test-only deps (jsonschema)
+python scripts/generate_knowledge_site.py --out _site        # build profile pages + datasets
 ```

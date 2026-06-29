@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/quotes.schema.json",
+  "title": "Quotes",
+  "description": "Verbatim quotations attributed to a speaker and session. Redistributable under the source license (the 2025 report is CC BY 4.0).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "text", "provenance"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^quote-[a-z0-9-]+$" },
+      "text": { "type": "string", "minLength": 1 },
+      "speaker": { "type": "string" },
+      "speaker_name": { "type": "string" },
+      "session": { "type": "string" },
+      "topics": { "type": "array", "items": { "type": "string" } },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}

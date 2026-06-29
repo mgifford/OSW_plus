@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/sessions.schema.json",
+  "title": "Sessions",
+  "description": "Conference sessions. The primary records of the knowledge platform: they carry forward-links to speakers, organizations, projects and topics. Back-references are computed by the generator.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "year", "provenance"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^sess-[a-z0-9-]+$" },
+      "title": { "type": "string", "minLength": 1 },
+      "year": { "type": "integer", "minimum": 2020, "maximum": 2100 },
+      "date": { "type": "string" },
+      "day": { "type": "string" },
+      "track": { "type": "string" },
+      "type": {
+        "type": "string",
+        "enum": ["plenary", "keynote", "panel", "breakout", "hackathon", "edit-a-thon", "maintain-a-thon", "side-event", "ceremony", "workshop"]
+      },
+      "room": { "type": "string" },
+      "summary": { "type": "string" },
+      "agenda": { "type": "array", "items": { "type": "string" } },
+      "official_url": { "type": "string", "format": "uri" },
+      "video_url": { "type": "string", "format": "uri" },
+      "transcript_url": { "type": "string", "format": "uri" },
+      "wayback_url": { "type": "string", "format": "uri" },
+      "speakers": { "type": "array", "items": { "type": "string" } },
+      "organizations": { "type": "array", "items": { "type": "string" } },
+      "projects": { "type": "array", "items": { "type": "string" } },
+      "topics": { "type": "array", "items": { "type": "string" } },
+      "references": { "type": "array", "items": { "type": "string" } },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}
