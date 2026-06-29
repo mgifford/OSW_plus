@@ -1,0 +1,142 @@
+[
+  {
+    "id": "ref-global-digital-compact",
+    "title": "Global Digital Compact (GDC)",
+    "type": "framework",
+    "url": "https://www.un.org/digital-emerging-technologies/global-digital-compact",
+    "description": "UN framework for international cooperation on digital and emerging technologies, adopted by Member States in September 2024. Explicitly recognises open source, open AI models, and open access to training data and compute.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Introduction; Day 3 and DPI Day keynotes (Amandeep Singh Gill)"
+    }
+  },
+  {
+    "id": "ref-osaid",
+    "title": "Open Source AI Definition (OSAID) v1.0",
+    "type": "definition",
+    "url": "https://opensource.org/ai",
+    "description": "Version 1.0 of the Open Source Initiative's definition of open source AI, introduced by Stefano Maffulli, extending openness beyond code to training data, documentation, governance, and safety.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 2: Advancing Open Source AI for the Public Good"
+    }
+  },
+  {
+    "id": "ref-mind-the-ai-divide",
+    "title": "Mind the AI Divide",
+    "type": "report",
+    "url": "https://www.ilo.org/publications/mind-ai-divide",
+    "description": "Joint UN-ODET and International Labour Organization (ILO) report introducing a framework for assessing AI's impact on the workforce, with early findings on the ICT sector.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; LinkedIn Side Event"
+    }
+  },
+  {
+    "id": "ref-dpg-standard",
+    "title": "Digital Public Goods (DPG) Standard",
+    "type": "standard",
+    "url": "https://digitalpublicgoods.net/standard/",
+    "description": "The Digital Public Goods Alliance standard setting requirements for classifying software, data, AI systems, and content as digital public goods.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 2 (Amreen Taneja, DPG Standard Lead, DPGA)"
+    }
+  },
+  {
+    "id": "ref-universal-safeguards-framework",
+    "title": "Universal DPI Safeguards Framework",
+    "type": "framework",
+    "description": "A dynamic framework built by UN-ODET with UNDP to address risk while unlocking the benefits of Digital Public Infrastructure, integrating safeguards by design.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day keynote (Amandeep Singh Gill)"
+    }
+  },
+  {
+    "id": "ref-un-open-source-principles",
+    "title": "UN Open Source Principles",
+    "type": "policy",
+    "description": "Principles launched by UN-OICT to guide open source adoption, endorsed by 80 organizations including the Government of France.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Closing Ceremony (Bernardo Mariano Junior, UN-OICT)"
+    }
+  },
+  {
+    "id": "ref-un-open-source-policy-framework",
+    "title": "UN Open Source Policy Framework",
+    "type": "policy",
+    "description": "Framework launched to guide UN agencies in effectively adopting open source software.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Closing Ceremony (Bernardo Mariano Junior, UN-OICT)"
+    }
+  },
+  {
+    "id": "ref-un-open-source-catalogue",
+    "title": "UN Open Source Catalogue",
+    "type": "catalogue",
+    "description": "A collection of open source tools developed internally within the United Nations.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Closing Ceremony (Bernardo Mariano Junior, UN-OICT)"
+    }
+  },
+  {
+    "id": "ref-sdgs",
+    "title": "Sustainable Development Goals (SDGs)",
+    "type": "framework",
+    "url": "https://sdgs.un.org/goals",
+    "description": "The UN's 17 Sustainable Development Goals, repeatedly cited as the impact frame for open source, digital public goods, and DPI throughout the week.",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Introduction and multiple sessions"
+    }
+  }
+]
