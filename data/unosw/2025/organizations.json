@@ -1,0 +1,911 @@
+[
+  {
+    "slug": "un-odet",
+    "name": "UN Office for Digital and Emerging Technologies (ODET)",
+    "type": "un-agency",
+    "website": "https://www.un.org/digital-emerging-technologies/content/about",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Introduction; host office"
+    }
+  },
+  {
+    "slug": "un-oict",
+    "name": "UN Office of Information and Communications Technology (OICT)",
+    "type": "un-agency",
+    "website": "https://oict.un.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Introduction; host office"
+    }
+  },
+  {
+    "slug": "unicef",
+    "name": "UNICEF",
+    "type": "un-agency",
+    "website": "https://www.unicef.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Hackathon"
+    }
+  },
+  {
+    "slug": "apache-software-foundation",
+    "name": "The Apache Software Foundation",
+    "type": "foundation",
+    "website": "https://www.apache.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Hackathon co-organizer"
+    }
+  },
+  {
+    "slug": "lpi",
+    "name": "Linux Professional Institute (LPI)",
+    "type": "foundation",
+    "website": "https://www.lpi.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Hackathon co-organizer"
+    }
+  },
+  {
+    "slug": "cncf",
+    "name": "Cloud Native Computing Foundation (CNCF)",
+    "type": "foundation",
+    "website": "https://www.cncf.io/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Hackathon co-organizer"
+    }
+  },
+  {
+    "slug": "wikimedia-foundation",
+    "name": "Wikimedia Foundation",
+    "type": "foundation",
+    "website": "https://wikimediafoundation.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Edit-A-Thon"
+    }
+  },
+  {
+    "slug": "sovereign-tech-agency",
+    "name": "Sovereign Tech Agency",
+    "type": "government",
+    "country": "Germany",
+    "website": "https://www.sovereigntechfund.de/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Maintain-A-Thon"
+    }
+  },
+  {
+    "slug": "alpha-omega",
+    "name": "Alpha-Omega",
+    "type": "foundation",
+    "website": "https://alpha-omega.dev/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Maintain-A-Thon"
+    }
+  },
+  {
+    "slug": "linkedin",
+    "name": "LinkedIn",
+    "type": "company",
+    "website": "https://www.linkedin.com/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; LinkedIn Side Event"
+    }
+  },
+  {
+    "slug": "ilo",
+    "name": "International Labour Organization (ILO)",
+    "type": "un-agency",
+    "website": "https://www.ilo.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; LinkedIn Side Event (Mind the AI Divide report)"
+    }
+  },
+  {
+    "slug": "openforum-europe",
+    "name": "OpenForum Europe (OFE)",
+    "type": "ngo",
+    "website": "https://openforumeurope.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Report authorship; multiple sessions"
+    }
+  },
+  {
+    "slug": "rise",
+    "name": "RISE Research Institutes of Sweden",
+    "type": "academia",
+    "country": "Sweden",
+    "website": "https://www.ri.se/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Report authorship; Community Day co-organizer"
+    }
+  },
+  {
+    "slug": "itu",
+    "name": "International Telecommunication Union (ITU)",
+    "type": "un-agency",
+    "website": "https://www.itu.int/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Multiple sessions"
+    }
+  },
+  {
+    "slug": "element",
+    "name": "Element",
+    "type": "company",
+    "website": "https://element.io/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 1"
+    }
+  },
+  {
+    "slug": "matrix-foundation",
+    "name": "Matrix.org Foundation",
+    "type": "foundation",
+    "website": "https://matrix.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 1"
+    }
+  },
+  {
+    "slug": "osi",
+    "name": "Open Source Initiative (OSI)",
+    "type": "foundation",
+    "website": "https://opensource.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 2 (OSAID)"
+    }
+  },
+  {
+    "slug": "dpga",
+    "name": "Digital Public Goods Alliance (DPGA)",
+    "type": "multilateral",
+    "website": "https://digitalpublicgoods.net/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Multiple sessions"
+    }
+  },
+  {
+    "slug": "aws",
+    "name": "Amazon Web Services (AWS)",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 OSPO panel; reception sponsor"
+    }
+  },
+  {
+    "slug": "carnegie-mellon-university",
+    "name": "Carnegie Mellon University",
+    "type": "academia",
+    "country": "United States",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 OSPO panel; DPI Africa panel"
+    }
+  },
+  {
+    "slug": "dinum",
+    "name": "French Interministerial Digital Directorate (DINUM)",
+    "type": "government",
+    "country": "France",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 OSPO panel"
+    }
+  },
+  {
+    "slug": "github",
+    "name": "GitHub",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 OSPO panel"
+    }
+  },
+  {
+    "slug": "south-africa-presidency",
+    "name": "Presidency of the Republic of South Africa",
+    "type": "government",
+    "country": "South Africa",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 OSPO panel"
+    }
+  },
+  {
+    "slug": "innersource-commons",
+    "name": "InnerSource Commons Foundation",
+    "type": "foundation",
+    "website": "https://innersourcecommons.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breakout (InnerSource)"
+    }
+  },
+  {
+    "slug": "undp",
+    "name": "United Nations Development Programme (UNDP)",
+    "type": "un-agency",
+    "website": "https://www.undp.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 and DPI Day breakouts"
+    }
+  },
+  {
+    "slug": "tii",
+    "name": "Technology Innovation Institute (TII)",
+    "type": "academia",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel"
+    }
+  },
+  {
+    "slug": "gitlab",
+    "name": "GitLab",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel"
+    }
+  },
+  {
+    "slug": "pwc",
+    "name": "PwC Deutschland",
+    "type": "company",
+    "country": "Germany",
+    "website": "https://www.pwc.de/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel; Community Day host"
+    }
+  },
+  {
+    "slug": "unesco",
+    "name": "UNESCO",
+    "type": "un-agency",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel"
+    }
+  },
+  {
+    "slug": "meta",
+    "name": "Meta",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel keynote (Yann LeCun)"
+    }
+  },
+  {
+    "slug": "adb",
+    "name": "Asian Development Bank (ADB)",
+    "type": "multilateral",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel keynote (Stephanie Hung)"
+    }
+  },
+  {
+    "slug": "unece",
+    "name": "UN Economic Commission for Europe (UNECE)",
+    "type": "un-agency",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breaking Silos panel"
+    }
+  },
+  {
+    "slug": "japan-digital-agency",
+    "name": "Digital Agency, Government of Japan",
+    "type": "government",
+    "country": "Japan",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breaking Silos panel"
+    }
+  },
+  {
+    "slug": "afdb",
+    "name": "African Development Bank",
+    "type": "multilateral",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breaking Silos panel"
+    }
+  },
+  {
+    "slug": "mozilla-foundation",
+    "name": "Mozilla Foundation",
+    "type": "foundation",
+    "website": "https://foundation.mozilla.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breaking Silos panel"
+    }
+  },
+  {
+    "slug": "ospo-now",
+    "name": "OSPO Now",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel (moderator)"
+    }
+  },
+  {
+    "slug": "linux-foundation-europe",
+    "name": "Linux Foundation Europe",
+    "type": "foundation",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel"
+    }
+  },
+  {
+    "slug": "mercedes-benz-tech-innovation",
+    "name": "Mercedes-Benz Tech Innovation",
+    "type": "company",
+    "country": "Germany",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel"
+    }
+  },
+  {
+    "slug": "bmgf",
+    "name": "Bill & Melinda Gates Foundation (BMGF)",
+    "type": "foundation",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel"
+    }
+  },
+  {
+    "slug": "capgemini",
+    "name": "Capgemini",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel"
+    }
+  },
+  {
+    "slug": "un-university",
+    "name": "United Nations University (UNU)",
+    "type": "un-agency",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 DPI panel keynote (Tshilidzi Marwala)"
+    }
+  },
+  {
+    "slug": "software-heritage",
+    "name": "Software Heritage",
+    "type": "foundation",
+    "website": "https://www.softwareheritage.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Digital Cooperation panel"
+    }
+  },
+  {
+    "slug": "un-cefact",
+    "name": "UNECE-UN/CEFACT",
+    "type": "multilateral",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Digital Cooperation panel"
+    }
+  },
+  {
+    "slug": "cloudera",
+    "name": "Cloudera",
+    "type": "company",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Digital Cooperation panel; reception sponsor"
+    }
+  },
+  {
+    "slug": "mcgovern-foundation",
+    "name": "The Patrick J. McGovern Foundation",
+    "type": "foundation",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day keynote session (Vilas Dhar)"
+    }
+  },
+  {
+    "slug": "nigeria-government",
+    "name": "Federal Ministry of Communications, Innovation and Digital Economy, Nigeria",
+    "type": "government",
+    "country": "Nigeria",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day co-host; cross-border panel keynote"
+    }
+  },
+  {
+    "slug": "dominican-republic-government",
+    "name": "Government of the Dominican Republic",
+    "type": "government",
+    "country": "Dominican Republic",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day co-host"
+    }
+  },
+  {
+    "slug": "palantir-net",
+    "name": "Drupal / Palantir.Net",
+    "type": "company",
+    "country": "United States",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day cross-border panel (Tiffany Farriss)"
+    }
+  },
+  {
+    "slug": "project-liberty-institute",
+    "name": "Project Liberty Institute",
+    "type": "ngo",
+    "website": "https://www.projectliberty.io/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day cross-border panel"
+    }
+  },
+  {
+    "slug": "east-african-community",
+    "name": "East African Community",
+    "type": "multilateral",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day cross-border panel"
+    }
+  },
+  {
+    "slug": "world-bank",
+    "name": "World Bank",
+    "type": "multilateral",
+    "website": "https://www.worldbank.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day breakouts and Africa panel"
+    }
+  },
+  {
+    "slug": "unu-egov",
+    "name": "United Nations University Operating Unit on Policy-Driven Electronic Governance (UNU-EGOV)",
+    "type": "un-agency",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day data protection breakout"
+    }
+  },
+  {
+    "slug": "govstack",
+    "name": "GovStack",
+    "type": "multilateral",
+    "website": "https://govstack.global/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day digital sovereignty breakout; Africa panel"
+    }
+  },
+  {
+    "slug": "mastodon",
+    "name": "Mastodon",
+    "type": "community",
+    "website": "https://joinmastodon.org/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 AI panel; DPI Day digital sovereignty breakout"
+    }
+  },
+  {
+    "slug": "accion",
+    "name": "Accion",
+    "type": "ngo",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day evidence-for-safety breakout; DPI Insights community"
+    }
+  },
+  {
+    "slug": "co-develop",
+    "name": "Co-Develop",
+    "type": "foundation",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day breaking-barriers breakout; DPI Summit co-host"
+    }
+  },
+  {
+    "slug": "carnegie-endowment",
+    "name": "Carnegie Endowment for International Peace",
+    "type": "ngo",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Africa panel"
+    }
+  },
+  {
+    "slug": "chaoss",
+    "name": "CHAOSS",
+    "type": "community",
+    "website": "https://chaoss.community/",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Community Day co-organizer"
+    }
+  },
+  {
+    "slug": "curioss",
+    "name": "CURIOSS",
+    "type": "community",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Community Day co-organizer; Program Committee"
+    }
+  },
+  {
+    "slug": "eosa",
+    "name": "European Open Source Academy (EOSA)",
+    "type": "academia",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout 1; Community Day co-organizer"
+    }
+  },
+  {
+    "slug": "italy-permanent-mission",
+    "name": "Permanent Mission of Italy to the United Nations",
+    "type": "government",
+    "country": "Italy",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Opening Plenary; Edit-A-Thon co-host"
+    }
+  },
+  {
+    "slug": "sri-lanka-permanent-mission",
+    "name": "Permanent Mission of Sri Lanka to the United Nations",
+    "type": "government",
+    "country": "Sri Lanka",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Opening Plenary; Edit-A-Thon co-host"
+    }
+  }
+]

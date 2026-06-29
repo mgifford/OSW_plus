@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/projects.schema.json",
+  "title": "Projects",
+  "description": "Open source projects and platforms referenced at the conference. Sessions are computed by the generator.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["slug", "name", "provenance"],
+    "properties": {
+      "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "name": { "type": "string", "minLength": 1 },
+      "description": { "type": "string" },
+      "website": { "type": "string", "format": "uri" },
+      "license": { "type": "string" },
+      "organizations": { "type": "array", "items": { "type": "string" } },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}

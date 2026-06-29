@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/references.schema.json",
+  "title": "References",
+  "description": "External reports, standards, frameworks and policies referenced at the conference, with links back to the authoritative source.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "provenance"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^ref-[a-z0-9-]+$" },
+      "title": { "type": "string", "minLength": 1 },
+      "type": {
+        "type": "string",
+        "enum": ["report", "standard", "framework", "policy", "definition", "catalogue", "dataset", "other"]
+      },
+      "url": { "type": "string", "format": "uri" },
+      "description": { "type": "string" },
+      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+    }
+  }
+}

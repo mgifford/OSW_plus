@@ -1,0 +1,4 @@
+# Development / test-only dependencies.
+# Runtime site generation uses the Python standard library only.
+# jsonschema validates the curated knowledge datasets against schema/*.schema.json.
+jsonschema>=4.0

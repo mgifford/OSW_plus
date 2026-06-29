@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unosw.plus/schema/knowledge-graph.schema.json",
+  "title": "Knowledge Graph",
+  "description": "Generated graph of nodes (people, organizations, projects, topics, sessions, countries) and edges (relationships). Derived from the datasets; importable into a graph database later.",
+  "type": "object",
+  "required": ["nodes", "edges"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "conference": { "type": "string" },
+    "year": { "type": "integer" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["person", "organization", "project", "topic", "session", "country"]
+          },
+          "label": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "type"],
+        "properties": {
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["spoke_at", "affiliated_with", "discussed_topic", "mentioned_project", "from_country", "organized"]
+          }
+        }
+      }
+    }
+  }
+}
