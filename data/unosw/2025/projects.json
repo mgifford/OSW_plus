@@ -3,7 +3,9 @@
     "slug": "geosight",
     "name": "GeoSight",
     "description": "UNICEF's open source geospatial data platform, enhanced during the \"Ahead of the Storm\" hackathon to support disaster preparedness and child-centric climate risk analysis.",
-    "organizations": ["unicef"],
+    "organizations": [
+      "unicef"
+    ],
     "provenance": {
       "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
       "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
@@ -19,7 +21,9 @@
     "name": "Wikipedia",
     "description": "The free, collaboratively edited encyclopedia. The Edit-A-Thon expanded Wikipedia's coverage of global digital policy, adding more than 1,000 edits and 16,500 words across key articles.",
     "website": "https://www.wikipedia.org/",
-    "organizations": ["wikimedia-foundation"],
+    "organizations": [
+      "wikimedia-foundation"
+    ],
     "provenance": {
       "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
       "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
@@ -35,7 +39,9 @@
     "name": "Matrix",
     "description": "An open standard and open source project for secure, decentralised real-time communication, stewarded by the Matrix.org Foundation and commercially supported by Element.",
     "website": "https://matrix.org/",
-    "organizations": ["matrix-foundation"],
+    "organizations": [
+      "matrix-foundation"
+    ],
     "provenance": {
       "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
       "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
@@ -66,7 +72,10 @@
     "name": "Drupal",
     "description": "Open source content management framework, referenced through Drupal/Palantir.Net and the Drupal Association across the DPI cross-border panel and Community Day.",
     "website": "https://www.drupal.org/",
-    "organizations": ["palantir-net"],
+    "organizations": [
+      "palantir-net",
+      "drupal-association"
+    ],
     "provenance": {
       "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
       "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
@@ -82,7 +91,9 @@
     "name": "Software Heritage Archive",
     "description": "An archive preserving the source code of more than 180 million open source projects, cited as essential shared infrastructure for digital cooperation.",
     "website": "https://www.softwareheritage.org/",
-    "organizations": ["software-heritage"],
+    "organizations": [
+      "software-heritage"
+    ],
     "provenance": {
       "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
       "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",

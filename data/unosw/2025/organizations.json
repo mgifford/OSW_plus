@@ -907,5 +907,20 @@
       "method": "manual-extraction",
       "locator": "Opening Plenary; Edit-A-Thon co-host"
     }
+  },
+  {
+    "slug": "drupal-association",
+    "name": "Drupal Association",
+    "type": "foundation",
+    "website": "https://www.drupal.org/association",
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Community Day; Advancing Inclusive and Sustainable Solutions with Open Source AI (Tiffany Farriss, Drupal Association)"
+    }
   }
 ]

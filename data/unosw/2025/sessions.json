@@ -9,12 +9,39 @@
     "type": "plenary",
     "room": "UN Headquarters, New York",
     "summary": "The opening of UN Open Source Week 2025 framed open source as a building block for inclusive development and transparent governance. Keynote remarks by Ambassador Maurizio Massari (Italy) and Ambassador Jayantha Jayasuriya (Sri Lanka) celebrated the 70th anniversary of both countries joining the UN and the role of open knowledge platforms such as Wikipedia in countering disinformation.",
-    "speakers": ["maurizio-massari", "jayantha-jayasuriya"],
-    "organizations": ["italy-permanent-mission", "sri-lanka-permanent-mission", "wikimedia-foundation", "un-odet", "un-oict"],
-    "projects": ["wikipedia"],
-    "topics": ["open-source", "government", "community", "education"],
-    "references": ["ref-global-digital-compact"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 1 and 2; Opening Plenary" }
+    "speakers": [
+      "maurizio-massari",
+      "jayantha-jayasuriya"
+    ],
+    "organizations": [
+      "italy-permanent-mission",
+      "sri-lanka-permanent-mission",
+      "wikimedia-foundation",
+      "un-odet",
+      "un-oict"
+    ],
+    "projects": [
+      "wikipedia"
+    ],
+    "topics": [
+      "open-source",
+      "government",
+      "community",
+      "education"
+    ],
+    "references": [
+      "ref-global-digital-compact"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Opening Plenary"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1s/k1sdg8oy7y"
   },
   {
     "id": "sess-hackathon-ahead-of-the-storm",
@@ -27,11 +54,35 @@
     "room": "UN Headquarters, New York",
     "summary": "81 participants in 21 teams worked over two days to co-create open source solutions protecting vulnerable children from extreme weather. Three challenges focused on child-centric weather intelligence, harmonizing multi-hazard data, and enhancing UNICEF's open-source GeoSight platform. Winning teams: Brytans, SEESALT, and T4SG.",
     "speakers": [],
-    "organizations": ["unicef", "apache-software-foundation", "lpi", "cncf"],
-    "projects": ["geosight"],
-    "topics": ["climate", "ai", "open-source", "health", "digital-public-goods"],
-    "references": ["ref-sdgs", "ref-global-digital-compact"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 1 and 2; Hackathon – Building for UNICEF" }
+    "organizations": [
+      "unicef",
+      "apache-software-foundation",
+      "lpi",
+      "cncf"
+    ],
+    "projects": [
+      "geosight"
+    ],
+    "topics": [
+      "climate",
+      "ai",
+      "open-source",
+      "health",
+      "digital-public-goods"
+    ],
+    "references": [
+      "ref-sdgs",
+      "ref-global-digital-compact"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Hackathon – Building for UNICEF"
+    }
   },
   {
     "id": "sess-edit-a-thon",
@@ -44,11 +95,33 @@
     "room": "UN Headquarters, New York",
     "summary": "Contributors expanded Wikipedia's coverage of global digital policy — digital public goods, AI regulation, and the Global Digital Compact. The event produced 6 new articles, edits to 234 existing ones, and more than 30,000 edits by over 37 editors, reaching nearly 2 million views within a month.",
     "speakers": [],
-    "organizations": ["un-odet", "italy-permanent-mission", "sri-lanka-permanent-mission", "wikimedia-foundation"],
-    "projects": ["wikipedia"],
-    "topics": ["community", "education", "open-source", "digital-public-goods"],
-    "references": ["ref-global-digital-compact"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 1 and 2; Edit-A-Thon – Knowledge as a Commons" }
+    "organizations": [
+      "un-odet",
+      "italy-permanent-mission",
+      "sri-lanka-permanent-mission",
+      "wikimedia-foundation"
+    ],
+    "projects": [
+      "wikipedia"
+    ],
+    "topics": [
+      "community",
+      "education",
+      "open-source",
+      "digital-public-goods"
+    ],
+    "references": [
+      "ref-global-digital-compact"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Edit-A-Thon – Knowledge as a Commons"
+    }
   },
   {
     "id": "sess-maintain-a-thon",
@@ -61,11 +134,28 @@
     "room": "UN Headquarters, New York",
     "summary": "Structured as an unconference, over 40 participants ran 15+ breakout sessions on the full open source lifecycle — supply chain security, long-term funding, contributor recognition, and community health — reinforcing that maintenance is essential infrastructure.",
     "speakers": [],
-    "organizations": ["alpha-omega", "sovereign-tech-agency"],
+    "organizations": [
+      "alpha-omega",
+      "sovereign-tech-agency"
+    ],
     "projects": [],
-    "topics": ["sustainability", "security", "funding", "community", "licensing"],
+    "topics": [
+      "sustainability",
+      "security",
+      "funding",
+      "community",
+      "licensing"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 1 and 2; Maintain-A-Thon – Sustaining What We Build" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; Maintain-A-Thon – Sustaining What We Build"
+    }
   },
   {
     "id": "sess-linkedin-side-event",
@@ -76,12 +166,36 @@
     "track": "UN Tech Over",
     "type": "side-event",
     "summary": "More than 200 participants attended LinkedIn's side event with UN-ODET, introducing a framework — building on the UN-ODET/ILO report Mind the AI Divide — for assessing AI's impact on the workforce, with early findings on the ICT sector. Speakers emphasized that AI is reshaping rather than simply displacing jobs.",
-    "speakers": ["mehdi-snene", "sarah-steinberg", "craig-ramlal", "armando-manzueta", "lucia-velasco"],
-    "organizations": ["linkedin", "un-odet", "ilo"],
+    "speakers": [
+      "mehdi-snene",
+      "sarah-steinberg",
+      "craig-ramlal",
+      "armando-manzueta",
+      "lucia-velasco"
+    ],
+    "organizations": [
+      "linkedin",
+      "un-odet",
+      "ilo"
+    ],
     "projects": [],
-    "topics": ["ai", "education", "government"],
-    "references": ["ref-mind-the-ai-divide"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 1 and 2; LinkedIn Side Event" }
+    "topics": [
+      "ai",
+      "education",
+      "government"
+    ],
+    "references": [
+      "ref-mind-the-ai-divide"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 1 and 2; LinkedIn Side Event"
+    }
   },
   {
     "id": "sess-d2-breakout-os-skills-ai",
@@ -92,12 +206,40 @@
     "track": "UN Tech Over",
     "type": "breakout",
     "summary": "Panelists examined the skills needed to sustain open source innovation in an AI-driven economy, stressing collaboration between industry, academia, and policymakers and the role of open source as a \"great democratizer.\"",
-    "speakers": ["nicholas-gates", "amandine-le-pape", "david-cuartielles", "sachiko-muto", "walid-mathlouthi"],
-    "organizations": ["openforum-europe", "eosa", "element", "matrix-foundation", "itu"],
-    "projects": ["matrix", "arduino"],
-    "topics": ["ai", "education", "community", "open-source"],
+    "speakers": [
+      "nicholas-gates",
+      "amandine-le-pape",
+      "david-cuartielles",
+      "sachiko-muto",
+      "walid-mathlouthi"
+    ],
+    "organizations": [
+      "openforum-europe",
+      "eosa",
+      "element",
+      "matrix-foundation",
+      "itu"
+    ],
+    "projects": [
+      "matrix",
+      "arduino"
+    ],
+    "topics": [
+      "ai",
+      "education",
+      "community",
+      "open-source"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 2 Breakout Session 1" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout Session 1"
+    }
   },
   {
     "id": "sess-d2-breakout-os-ai-public-good",
@@ -108,12 +250,34 @@
     "track": "UN Tech Over",
     "type": "breakout",
     "summary": "Stefano Maffulli introduced version 1.0 of the Open Source AI Definition (OSAID) while Amreen Taneja outlined requirements for classifying AI systems as Digital Public Goods, both emphasizing that openness must extend beyond code to training data, documentation, governance, and safety.",
-    "speakers": ["stefano-maffulli", "amreen-taneja"],
-    "organizations": ["osi", "dpga"],
+    "speakers": [
+      "stefano-maffulli",
+      "amreen-taneja"
+    ],
+    "organizations": [
+      "osi",
+      "dpga"
+    ],
     "projects": [],
-    "topics": ["ai", "digital-public-goods", "open-standards", "licensing"],
-    "references": ["ref-osaid", "ref-dpg-standard"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 2 Breakout Session 2" }
+    "topics": [
+      "ai",
+      "digital-public-goods",
+      "open-standards",
+      "licensing"
+    ],
+    "references": [
+      "ref-osaid",
+      "ref-dpg-standard"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 2 Breakout Session 2"
+    }
   },
   {
     "id": "sess-d3-opening-keynote",
@@ -125,12 +289,34 @@
     "type": "keynote",
     "room": "Trusteeship Council Chamber",
     "summary": "Amandeep Singh Gill opened the third annual OSPOs for Good track, reflecting on the adoption of the Global Digital Compact and open source's recognition as a foundation of inclusive digital transformation.",
-    "speakers": ["omar-mohsine", "mithusa-kajendran", "amandeep-singh-gill"],
-    "organizations": ["un-odet", "un-oict"],
+    "speakers": [
+      "omar-mohsine",
+      "mithusa-kajendran",
+      "amandeep-singh-gill"
+    ],
+    "organizations": [
+      "un-odet",
+      "un-oict"
+    ],
     "projects": [],
-    "topics": ["ospo", "open-source", "government"],
-    "references": ["ref-global-digital-compact"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Opening Keynote and Annex agenda" }
+    "topics": [
+      "ospo",
+      "open-source",
+      "government"
+    ],
+    "references": [
+      "ref-global-digital-compact"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Opening Keynote and Annex agenda"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d3-panel-newly-launched-ospos",
@@ -142,12 +328,40 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "Leaders from a company, a university, and governments traced their OSPO journeys, arguing that moving beyond high-level endorsement requires institutions and culture, and that an OSPO holds the tension between resistant systems and open practices.",
-    "speakers": ["sachiko-muto", "nithya-ruff", "sayeed-choudhury", "bastien-guerry", "avni-khatri", "richard-gevers"],
-    "organizations": ["openforum-europe", "rise", "aws", "carnegie-mellon-university", "dinum", "github", "south-africa-presidency"],
+    "speakers": [
+      "sachiko-muto",
+      "nithya-ruff",
+      "sayeed-choudhury",
+      "bastien-guerry",
+      "avni-khatri",
+      "richard-gevers"
+    ],
+    "organizations": [
+      "openforum-europe",
+      "rise",
+      "aws",
+      "carnegie-mellon-university",
+      "dinum",
+      "github",
+      "south-africa-presidency"
+    ],
     "projects": [],
-    "topics": ["ospo", "government", "community"],
+    "topics": [
+      "ospo",
+      "government",
+      "community"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – How They Did It" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Panel – How They Did It"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d3-breakout-humanitarian",
@@ -158,12 +372,29 @@
     "track": "OSPOs for Good",
     "type": "breakout",
     "summary": "Vipul Siddharth of UNICEF showed how open source underpins scalable, adaptable solutions in humanitarian contexts, avoiding vendor lock-in and ensuring continuity in fragile settings, and called for governments to treat open source as core infrastructure for humanitarian response.",
-    "speakers": ["vipul-siddharth"],
-    "organizations": ["unicef"],
+    "speakers": [
+      "vipul-siddharth"
+    ],
+    "organizations": [
+      "unicef"
+    ],
     "projects": [],
-    "topics": ["digital-public-goods", "health", "sustainability", "open-source"],
+    "topics": [
+      "digital-public-goods",
+      "health",
+      "sustainability",
+      "open-source"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3 Breakout; Open Source for Humanitarian Impact" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breakout; Open Source for Humanitarian Impact"
+    }
   },
   {
     "id": "sess-d3-breakout-innersource",
@@ -174,12 +405,28 @@
     "track": "OSPOs for Good",
     "type": "breakout",
     "summary": "Daniel Izquierdo Cortázar framed InnerSource as applying open source ways of working within organisations, drawing on Mercedes-Benz, the Netherlands Tax Authority, and the BBC, and identified culture and middle management as the primary challenges — requiring both \"air cover and ground cover.\"",
-    "speakers": ["daniel-izquierdo"],
-    "organizations": ["innersource-commons"],
+    "speakers": [
+      "daniel-izquierdo"
+    ],
+    "organizations": [
+      "innersource-commons"
+    ],
     "projects": [],
-    "topics": ["community", "ospo", "open-source"],
+    "topics": [
+      "community",
+      "ospo",
+      "open-source"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3 Breakout; The InnerSource Journey" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breakout; The InnerSource Journey"
+    }
   },
   {
     "id": "sess-d3-breakout-public-interest",
@@ -190,12 +437,28 @@
     "track": "OSPOs for Good",
     "type": "breakout",
     "summary": "Astor Nummelin Carlberg led an interactive exchange on how open source advances the public interest — strengthening digital sovereignty, transparency, and trust — and the need for policy frameworks that recognize open source as a strategic public good.",
-    "speakers": ["astor-nummelin-carlberg"],
-    "organizations": ["openforum-europe"],
+    "speakers": [
+      "astor-nummelin-carlberg"
+    ],
+    "organizations": [
+      "openforum-europe"
+    ],
     "projects": [],
-    "topics": ["digital-sovereignty", "government", "open-source"],
+    "topics": [
+      "digital-sovereignty",
+      "government",
+      "open-source"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3 Breakout; Open Source and Public Interest" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breakout; Open Source and Public Interest"
+    }
   },
   {
     "id": "sess-d3-breakout-government-ospos",
@@ -206,12 +469,33 @@
     "track": "OSPOs for Good",
     "type": "breakout",
     "summary": "Michael Downey (UNDP) and David Manset (ITU) described how Kenya and Trinidad and Tobago are establishing governmental OSPOs as coordination bodies to reduce duplication and align open source with national strategies, stressing mandate, authority, and cross-government engagement over technical tooling.",
-    "speakers": ["michael-downey", "david-manset"],
-    "organizations": ["itu", "undp", "un-odet"],
+    "speakers": [
+      "michael-downey",
+      "david-manset"
+    ],
+    "organizations": [
+      "itu",
+      "undp",
+      "un-odet"
+    ],
     "projects": [],
-    "topics": ["ospo", "government", "procurement", "interoperability", "digital-sovereignty"],
+    "topics": [
+      "ospo",
+      "government",
+      "procurement",
+      "interoperability",
+      "digital-sovereignty"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3 Breakout; From Policy to Practice" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3 Breakout; From Policy to Practice"
+    }
   },
   {
     "id": "sess-d3-panel-ai-ethical",
@@ -223,12 +507,41 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "Researchers, technologists, and policymakers discussed ethical AI in practice. In a pre-recorded keynote, Meta's Yann LeCun stressed open source as a democratizing force in AI; panelists warned against \"shiny-object syndrome\" and argued that ethical AI depends on open ecosystems, strong standards, and collective oversight.",
-    "speakers": ["hannah-aubry", "hakim-hacid", "sabrina-farmer", "frederik-blachetta", "guilherme-canela-de-souza-godoi", "yann-lecun", "stephanie-hung"],
-    "organizations": ["mastodon", "tii", "gitlab", "pwc", "unesco", "meta", "adb"],
+    "speakers": [
+      "hannah-aubry",
+      "hakim-hacid",
+      "sabrina-farmer",
+      "frederik-blachetta",
+      "guilherme-canela-de-souza-godoi",
+      "yann-lecun",
+      "stephanie-hung"
+    ],
+    "organizations": [
+      "mastodon",
+      "tii",
+      "gitlab",
+      "pwc",
+      "unesco",
+      "meta",
+      "adb"
+    ],
     "projects": [],
-    "topics": ["ai", "open-standards", "security"],
+    "topics": [
+      "ai",
+      "open-standards",
+      "security"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – AI and Open Source" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Panel – AI and Open Source"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d3-panel-breaking-silos",
@@ -240,12 +553,40 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "Dmitry Mariyasin (UNECE) keynoted on the barriers to interoperable data in the UN — legacy systems, siloed mandates, and \"193 shareholders\" — making the case for open source as a governance model. Panelists argued interoperability is a political and social commitment, not just a technical fix.",
-    "speakers": ["mehdi-snene", "dmitry-mariyasin", "rebecca-mackinnon", "masayuki-yamada", "momar-kouta", "nabiha-syed"],
-    "organizations": ["un-odet", "unece", "wikimedia-foundation", "japan-digital-agency", "afdb", "mozilla-foundation"],
+    "speakers": [
+      "mehdi-snene",
+      "dmitry-mariyasin",
+      "rebecca-mackinnon",
+      "masayuki-yamada",
+      "momar-kouta",
+      "nabiha-syed"
+    ],
+    "organizations": [
+      "un-odet",
+      "unece",
+      "wikimedia-foundation",
+      "japan-digital-agency",
+      "afdb",
+      "mozilla-foundation"
+    ],
     "projects": [],
-    "topics": ["interoperability", "open-standards", "government", "open-source"],
+    "topics": [
+      "interoperability",
+      "open-standards",
+      "government",
+      "open-source"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – Breaking Silos" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Panel – Breaking Silos"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d3-panel-os-in-dpi",
@@ -257,12 +598,42 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "A keynote by Tshilidzi Marwala (UN University) framed DPI as sovereign terrain where transparency is a form of governance. The panel positioned open source as the foundation of modern digital infrastructure, touching on procurement, enterprise uptake, and supporting private open source ecosystems.",
-    "speakers": ["ruth-ikegah", "gabriele-columbro", "wolfgang-gehring", "adriana-groh", "miller-abel", "franck-greverie", "tshilidzi-marwala"],
-    "organizations": ["ospo-now", "linux-foundation-europe", "mercedes-benz-tech-innovation", "sovereign-tech-agency", "bmgf", "capgemini", "un-university"],
+    "speakers": [
+      "ruth-ikegah",
+      "gabriele-columbro",
+      "wolfgang-gehring",
+      "adriana-groh",
+      "miller-abel",
+      "franck-greverie",
+      "tshilidzi-marwala"
+    ],
+    "organizations": [
+      "ospo-now",
+      "linux-foundation-europe",
+      "mercedes-benz-tech-innovation",
+      "sovereign-tech-agency",
+      "bmgf",
+      "capgemini",
+      "un-university"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "procurement", "open-source", "interoperability"],
+    "topics": [
+      "digital-public-infrastructure",
+      "procurement",
+      "open-source",
+      "interoperability"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – The Role of Open Source in DPI" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Panel – The Role of Open Source in DPI"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d3-panel-digital-cooperation",
@@ -274,12 +645,40 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "Roberto Di Cosmo opened with data from Software Heritage's archive of 180 million open source projects. Nancy Norris argued open standards are the \"lingua franca\" of interoperability; Belfor García Henao described Colombia reviving open source legislation; Daniel Mazur offered a city-level perspective.",
-    "speakers": ["lucy-harris", "roberto-di-cosmo", "nancy-norris", "sergio-gago-de-huerta", "belfor-fabio-garcia-henao", "daniel-mazur"],
-    "organizations": ["dpga", "software-heritage", "un-cefact", "cloudera"],
-    "projects": ["software-heritage-archive"],
-    "topics": ["open-standards", "interoperability", "digital-sovereignty", "government"],
+    "speakers": [
+      "lucy-harris",
+      "roberto-di-cosmo",
+      "nancy-norris",
+      "sergio-gago-de-huerta",
+      "belfor-fabio-garcia-henao",
+      "daniel-mazur"
+    ],
+    "organizations": [
+      "dpga",
+      "software-heritage",
+      "un-cefact",
+      "cloudera"
+    ],
+    "projects": [
+      "software-heritage-archive"
+    ],
+    "topics": [
+      "open-standards",
+      "interoperability",
+      "digital-sovereignty",
+      "government"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Day 3; Panel – Navigating Digital Cooperation" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Day 3; Panel – Navigating Digital Cooperation"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
   },
   {
     "id": "sess-d4-keynote-session",
@@ -291,12 +690,41 @@
     "type": "keynote",
     "room": "Trusteeship Council Chamber",
     "summary": "The inaugural DPI Day framed digital public infrastructure — identity, payments, data exchange — as a shared public good. Amandeep Singh Gill walked through DPI stack examples (India, Estonia, Brazil, Kazakhstan) and stressed that safeguards must be integrated by design. Keynotes also came from Sigmund Freund and Vilas Dhar.",
-    "speakers": ["moritz-fromageot", "sigmund-freund", "amandeep-singh-gill", "vilas-dhar"],
-    "organizations": ["dominican-republic-government", "nigeria-government", "un-odet", "un-oict", "mcgovern-foundation"],
+    "speakers": [
+      "moritz-fromageot",
+      "sigmund-freund",
+      "amandeep-singh-gill",
+      "vilas-dhar"
+    ],
+    "organizations": [
+      "dominican-republic-government",
+      "nigeria-government",
+      "un-odet",
+      "un-oict",
+      "mcgovern-foundation"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "government", "digital-public-goods", "security"],
-    "references": ["ref-global-digital-compact", "ref-universal-safeguards-framework", "ref-sdgs"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Keynote Session" }
+    "topics": [
+      "digital-public-infrastructure",
+      "government",
+      "digital-public-goods",
+      "security"
+    ],
+    "references": [
+      "ref-global-digital-compact",
+      "ref-universal-safeguards-framework",
+      "ref-sdgs"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day; Keynote Session"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
   },
   {
     "id": "sess-d4-panel-global-cooperation-dpi",
@@ -308,12 +736,44 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "Keynoted by Nigeria's Minister 'Bosun Tijani, the panel mapped what it takes to make DPI portable across borders — open interfaces, procurement models that favour reuse, and capacity-building for public sector teams.",
-    "speakers": ["moritz-fromageot", "bosun-tijani", "yolanda-martinez", "tiffany-farriss", "marc-lepage", "sheila-warren", "daniel-murenzi", "tomas-lamanauskas"],
-    "organizations": ["un-odet", "nigeria-government", "palantir-net", "project-liberty-institute", "east-african-community", "itu"],
-    "projects": ["drupal"],
-    "topics": ["digital-public-infrastructure", "interoperability", "procurement", "government"],
+    "speakers": [
+      "moritz-fromageot",
+      "bosun-tijani",
+      "yolanda-martinez",
+      "tiffany-farriss",
+      "marc-lepage",
+      "sheila-warren",
+      "daniel-murenzi",
+      "tomas-lamanauskas"
+    ],
+    "organizations": [
+      "un-odet",
+      "nigeria-government",
+      "palantir-net",
+      "project-liberty-institute",
+      "east-african-community",
+      "itu"
+    ],
+    "projects": [
+      "drupal"
+    ],
+    "topics": [
+      "digital-public-infrastructure",
+      "interoperability",
+      "procurement",
+      "government"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Panel – Global Cooperation for DPI" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day; Panel – Global Cooperation for DPI"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
   },
   {
     "id": "sess-d4-breakout-dpi-safeguards",
@@ -325,12 +785,32 @@
     "type": "breakout",
     "room": "Conference Room 7",
     "summary": "Led by UN-ODET and UNDP, this breakout focused on risk frameworks, inclusion by design, and policy pathways for adopting DPI safeguards.",
-    "speakers": ["tobi-kasali", "naveen-varshan"],
-    "organizations": ["un-odet", "undp"],
+    "speakers": [
+      "tobi-kasali",
+      "naveen-varshan"
+    ],
+    "organizations": [
+      "un-odet",
+      "undp"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "security", "government"],
-    "references": ["ref-universal-safeguards-framework"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; DPI Safeguards (CR-7)" }
+    "topics": [
+      "digital-public-infrastructure",
+      "security",
+      "government"
+    ],
+    "references": [
+      "ref-universal-safeguards-framework"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; DPI Safeguards (CR-7)"
+    }
   },
   {
     "id": "sess-d4-breakout-data-protection",
@@ -342,12 +822,33 @@
     "type": "breakout",
     "room": "Trusteeship Council Chamber",
     "summary": "Led by the World Bank and UNU-EGOV, this breakout focused on implementation patterns for privacy and governance in DPI.",
-    "speakers": ["zoran-jordanoski", "nay-constantine", "ambrose-wong", "prakhar-bhardwaj", "ines-ofarrell"],
-    "organizations": ["world-bank", "unu-egov"],
+    "speakers": [
+      "zoran-jordanoski",
+      "nay-constantine",
+      "ambrose-wong",
+      "prakhar-bhardwaj",
+      "ines-ofarrell"
+    ],
+    "organizations": [
+      "world-bank",
+      "unu-egov"
+    ],
     "projects": [],
-    "topics": ["security", "digital-public-infrastructure", "government"],
+    "topics": [
+      "security",
+      "digital-public-infrastructure",
+      "government"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; Operationalising Data Protection" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; Operationalising Data Protection"
+    }
   },
   {
     "id": "sess-d4-breakout-digital-sovereignty",
@@ -359,12 +860,31 @@
     "type": "breakout",
     "room": "Conference Room E",
     "summary": "Led by GovStack and Mastodon, this breakout focused on modular building blocks and open protocols to avoid lock-in.",
-    "speakers": ["nora-hauptmann", "hannah-aubry"],
-    "organizations": ["govstack", "mastodon"],
+    "speakers": [
+      "nora-hauptmann",
+      "hannah-aubry"
+    ],
+    "organizations": [
+      "govstack",
+      "mastodon"
+    ],
     "projects": [],
-    "topics": ["digital-sovereignty", "interoperability", "open-standards", "digital-public-infrastructure"],
+    "topics": [
+      "digital-sovereignty",
+      "interoperability",
+      "open-standards",
+      "digital-public-infrastructure"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; Digital Sovereignty in Practice (CR-E)" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; Digital Sovereignty in Practice (CR-E)"
+    }
   },
   {
     "id": "sess-d4-breakout-evidence-safety",
@@ -376,12 +896,29 @@
     "type": "breakout",
     "room": "Conference Room D",
     "summary": "Led by Accion, this breakout focused on risk identification, measurement, and mitigation cycles for DPI.",
-    "speakers": ["jayshree-venkatesan", "david-porteous", "edoardo-totolo"],
-    "organizations": ["accion"],
+    "speakers": [
+      "jayshree-venkatesan",
+      "david-porteous",
+      "edoardo-totolo"
+    ],
+    "organizations": [
+      "accion"
+    ],
     "projects": [],
-    "topics": ["security", "digital-public-infrastructure"],
+    "topics": [
+      "security",
+      "digital-public-infrastructure"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; Evidence for Safety (CR-D)" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; Evidence for Safety (CR-D)"
+    }
   },
   {
     "id": "sess-d4-breakout-breaking-barriers",
@@ -393,12 +930,30 @@
     "type": "breakout",
     "room": "Conference Room D",
     "summary": "Led by Co-Develop and the DPGA 50-in-5 initiative, this breakout focused on open rails for financial inclusion.",
-    "speakers": ["jon-lloyd", "aura-cifuentes"],
-    "organizations": ["co-develop", "dpga"],
+    "speakers": [
+      "jon-lloyd",
+      "aura-cifuentes"
+    ],
+    "organizations": [
+      "co-develop",
+      "dpga"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "digital-public-goods", "government"],
+    "topics": [
+      "digital-public-infrastructure",
+      "digital-public-goods",
+      "government"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; Breaking Barriers (CR-D)" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; Breaking Barriers (CR-D)"
+    }
   },
   {
     "id": "sess-d4-breakout-smaller-states",
@@ -410,12 +965,30 @@
     "type": "breakout",
     "room": "Conference Room 9",
     "summary": "Led by UNDP and the Dominican Republic, this breakout focused on templated approaches and communities of practice for small administrations.",
-    "speakers": ["armando-manzueta", "michael-downey"],
-    "organizations": ["undp", "dominican-republic-government"],
+    "speakers": [
+      "armando-manzueta",
+      "michael-downey"
+    ],
+    "organizations": [
+      "undp",
+      "dominican-republic-government"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "government", "community"],
+    "topics": [
+      "digital-public-infrastructure",
+      "government",
+      "community"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day Breakout; DPI for Smaller States (CR-9)" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day Breakout; DPI for Smaller States (CR-9)"
+    }
   },
   {
     "id": "sess-d4-panel-african-continent",
@@ -427,12 +1000,38 @@
     "type": "panel",
     "room": "Trusteeship Council Chamber",
     "summary": "The session highlighted continental initiatives, regional standards alignment, and the role of open source components for sustainability and security across Africa.",
-    "speakers": ["tobi-kasali", "ozzeir-khan", "jane-munga", "nora-hauptmann", "assane-gueye"],
-    "organizations": ["un-odet", "world-bank", "carnegie-endowment", "govstack", "carnegie-mellon-university"],
+    "speakers": [
+      "tobi-kasali",
+      "ozzeir-khan",
+      "jane-munga",
+      "nora-hauptmann",
+      "assane-gueye"
+    ],
+    "organizations": [
+      "un-odet",
+      "world-bank",
+      "carnegie-endowment",
+      "govstack",
+      "carnegie-mellon-university"
+    ],
     "projects": [],
-    "topics": ["digital-public-infrastructure", "government", "security", "sustainability"],
+    "topics": [
+      "digital-public-infrastructure",
+      "government",
+      "security",
+      "sustainability"
+    ],
     "references": [],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Panel – Empowering DPI Across Africa" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day; Panel – Empowering DPI Across Africa"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
   },
   {
     "id": "sess-d4-closing-ceremony",
@@ -444,12 +1043,35 @@
     "type": "ceremony",
     "room": "Trusteeship Council Chamber",
     "summary": "Amandeep Singh Gill and Bernardo Mariano Junior closed with a call to build cooperative digital infrastructure that advances the SDGs. Mariano highlighted the UN Open Source Principles (endorsed by 80 organizations), the UN Open Source Policy Framework, and the UN Open Source Catalogue.",
-    "speakers": ["amandeep-singh-gill", "bernardo-mariano-junior"],
-    "organizations": ["un-odet", "un-oict"],
+    "speakers": [
+      "amandeep-singh-gill",
+      "bernardo-mariano-junior"
+    ],
+    "organizations": [
+      "un-odet",
+      "un-oict"
+    ],
     "projects": [],
-    "topics": ["open-source", "government", "sustainability"],
-    "references": ["ref-un-open-source-principles", "ref-un-open-source-policy-framework", "ref-un-open-source-catalogue"],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "DPI Day; Closing Ceremony" }
+    "topics": [
+      "open-source",
+      "government",
+      "sustainability"
+    ],
+    "references": [
+      "ref-un-open-source-principles",
+      "ref-un-open-source-policy-framework",
+      "ref-un-open-source-catalogue"
+    ],
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "DPI Day; Closing Ceremony"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
   },
   {
     "id": "sess-community-day",
@@ -462,10 +1084,32 @@
     "room": "PwC office, New York",
     "summary": "A highly participatory closing day with 20 sessions across five tracks — Digital Public Infrastructure, Digital Sovereignty and Resiliency, AI, Capacity Building, and Global Priorities and SDGs — for practitioners, maintainers, civic technologists, policymakers, and funders. Hosted by PwC and co-organized by RISE, OpenForum Europe, CURIOSS, CHAOSS, and EOSA. (Individual community-session speakers are a documented follow-up; see the roadmap.)",
     "speakers": [],
-    "organizations": ["pwc", "rise", "openforum-europe", "curioss", "chaoss", "eosa"],
-    "projects": ["decidim", "fiware", "mojaloop"],
-    "topics": ["digital-public-infrastructure", "digital-sovereignty", "ai", "education", "open-source", "sustainability", "health"],
-    "references": ["ref-sdgs"],
+    "organizations": [
+      "pwc",
+      "rise",
+      "openforum-europe",
+      "curioss",
+      "chaoss",
+      "eosa",
+      "drupal-association"
+    ],
+    "projects": [
+      "decidim",
+      "fiware",
+      "mojaloop"
+    ],
+    "topics": [
+      "digital-public-infrastructure",
+      "digital-sovereignty",
+      "ai",
+      "education",
+      "open-source",
+      "sustainability",
+      "health"
+    ],
+    "references": [
+      "ref-sdgs"
+    ],
     "agenda": [
       "Digital Public Infrastructure (DPI)",
       "Digital Sovereignty and Resiliency",
@@ -473,6 +1117,15 @@
       "Capacity Building",
       "Global Priorities and Sustainable Development Goals (SDGs)"
     ],
-    "provenance": { "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf", "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)", "license": "CC-BY-4.0", "attribution": "Sachiko Muto, RISE / OpenForum Europe", "retrieved": "2026-06-29", "method": "manual-extraction", "locator": "Community Day; Community Side Event Agenda" }
+    "provenance": {
+      "source_url": "https://www.un.org/digital-emerging-technologies/sites/www.un.org.techenvoy/files/UN_Open_Source_Week_Conference_Report_2025.pdf",
+      "source_title": "UN Open Source Week 2025 Conference Report (RISE 2026:04)",
+      "license": "CC-BY-4.0",
+      "attribution": "Sachiko Muto, RISE / OpenForum Europe",
+      "retrieved": "2026-06-29",
+      "method": "manual-extraction",
+      "locator": "Community Day; Community Side Event Agenda"
+    },
+    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu"
   }
 ]

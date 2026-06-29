@@ -243,6 +243,16 @@ class SiteGenerator:
         if session.get("agenda"):
             agenda = "".join(f"<li>{esc(a)}</li>" for a in session["agenda"])
             parts.append(f'<section class="kp-section"><h2>Agenda</h2><ul>{agenda}</ul></section>')
+        media = []
+        if session.get("video_url"):
+            media.append(f'<a href="{esc(session["video_url"])}" rel="noopener noreferrer">▶ Official recording (UN Web TV)</a>')
+        if session.get("transcript_url"):
+            media.append(f'<a href="{esc(session["transcript_url"])}" rel="noopener noreferrer">📄 Transcript</a>')
+        if session.get("official_url"):
+            media.append(f'<a href="{esc(session["official_url"])}" rel="noopener noreferrer">🌐 Official page</a>')
+        if media:
+            items = "".join(f"<li>{m}</li>" for m in media)
+            parts.append(f'<section class="kp-section"><h2>Recording &amp; links</h2><ul>{items}</ul></section>')
         if session.get("speakers"):
             people = "".join(
                 f'<li class="kp-card"><h3>{self.speaker_link(sp)}</h3>'
