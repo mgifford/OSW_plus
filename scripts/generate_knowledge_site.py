@@ -139,8 +139,12 @@ class SiteGenerator:
         )
         jsonld_html = ""
         if jsonld is not None:
-            jsonld_html = ('<script type="application/ld+json">'
-                           + json.dumps(jsonld, ensure_ascii=False) + "</script>")
+            # Neutralize <, >, & so a field value can never break out of the
+            # <script> element (e.g. a "</script>" or "<!--" in scraped data).
+            # These are valid JSON string escapes, so the block still parses.
+            payload = (json.dumps(jsonld, ensure_ascii=False)
+                       .replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026"))
+            jsonld_html = f'<script type="application/ld+json">{payload}</script>'
         return f"""<!doctype html>
 <html lang="en">
   <head>
