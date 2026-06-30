@@ -126,3 +126,13 @@ main.kp-main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
 .kp-stat .kp-stat-label { font-size: 0.82rem; color: var(--text-muted); }
 
 footer.kp-footer { max-width: 1080px; margin: 2rem auto 3rem; padding: 1rem 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+
+/* Cross-year timeline table */
+.kp-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; overflow: hidden; font-size: 0.9rem; }
+.kp-table caption { text-align: left; }
+.kp-table th, .kp-table td { padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); }
+.kp-table thead th { background: var(--navy); color: #fff; font-weight: 700; }
+.kp-table tbody th[scope="row"] { font-weight: 600; }
+.kp-table tbody tr:nth-child(even) { background: #f4f8fc; }
+.kp-table td { text-align: center; }
+.kp-table td:first-child, .kp-table th[scope="row"] { text-align: left; }

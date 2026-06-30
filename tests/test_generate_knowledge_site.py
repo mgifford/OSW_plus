@@ -80,6 +80,13 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         self.assertTrue(llms.exists(), "missing /llms.txt")
         self.assertIn("/api/index.json", llms.read_text())
 
+    def test_timeline_page(self):
+        timeline = self.out / "timeline.html"
+        self.assertTrue(timeline.exists(), "missing /timeline.html")
+        html = timeline.read_text()
+        self.assertIn("Themes across years", html)
+        self.assertIn(f"/{PREFIX}/topics/", html)  # links to a topic page for a present year
+
     def test_sitemap_uses_canonical_host(self):
         sitemap = (self.out / "sitemap.xml").read_text()
         self.assertIn(BASE_HOST, sitemap)

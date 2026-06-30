@@ -776,6 +776,9 @@ def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
       <section class="kp-section"><h2>Conference years</h2>
         <ul class="kp-grid">{cards}</ul>
       </section>
+      <section class="kp-section"><h2>Across years</h2>
+        <p><a href="/timeline.html">Timeline — themes across years</a></p>
+      </section>
       <section class="kp-section"><h2>For AI &amp; developers</h2>
         <p>Machine-readable discovery: <a href="/api/index.json"><code>/api/index.json</code></a>
            and <a href="/llms.txt"><code>/llms.txt</code></a> — every dataset and knowledge graph,
@@ -805,6 +808,97 @@ def _write_sitemap(out: Path, base: str) -> None:
     (out / "sitemap.xml").write_text(sitemap, encoding="utf-8")
 
 
+def write_timeline(out_dir: Path, conference: dict[str, Any], base_url: str) -> None:
+    """Write a cross-year timeline at /timeline.html (Phase 7).
+
+    Themes are the reliable cross-year axis — they share one vocabulary, so a
+    topic's slug matches across years (organization slugs do not). Reads the
+    generated per-year api/sessions.json for whichever years are present in the
+    output, so it is consistent with what was built. Idempotent.
+    """
+    out = Path(out_dir)
+    cid = conference["id"]
+    years = sorted(y for y in conference.get("data_years", [])
+                   if (out / cid / str(y) / "explore.html").exists())
+    if not years:
+        return
+
+    sessions_by_year: dict[int, list] = {}
+    for y in years:
+        try:
+            sessions_by_year[y] = json.loads((out / cid / str(y) / "api" / "sessions.json").read_text())
+        except (json.JSONDecodeError, OSError):
+            sessions_by_year[y] = []
+
+    rows = []
+    for topic in conference.get("topic_vocabulary", []):
+        slug, name = topic["slug"], topic["name"]
+        counts = {y: sum(1 for s in sessions_by_year[y] if slug in s.get("topics", [])) for y in years}
+        if not any(counts.values()):
+            continue
+        first = min(y for y in years if counts[y] > 0)
+        latest = max(y for y in years if counts[y] > 0)
+        rows.append((name, slug, counts, first, latest))
+    rows.sort(key=lambda r: (r[3], -sum(r[2].values())))
+
+    head_cells = "".join(f'<th scope="col">{y}</th>' for y in years)
+    body_rows = ""
+    for name, slug, counts, first, latest in rows:
+        cells = "".join(f"<td>{counts[y] or '·'}</td>" for y in years)
+        body_rows += (f'<tr><th scope="row">'
+                      f'<a href="/{cid}/{latest}/topics/{esc(slug)}.html">{esc(name)}</a></th>'
+                      f"{cells}<td>{first}</td></tr>")
+    table = (f'<table class="kp-table"><caption class="visually-hidden">'
+             f'Sessions per theme by year</caption><thead><tr>'
+             f'<th scope="col">Theme</th>{head_cells}<th scope="col">First seen</th>'
+             f"</tr></thead><tbody>{body_rows}</tbody></table>")
+
+    year_cards = ""
+    for y in sorted(years, reverse=True):
+        n = len(sessions_by_year[y])
+        year_cards += (f'<li class="kp-card"><h3><a href="/{cid}/{y}/explore.html">'
+                       f'{esc(conference["name"])} {y}</a></h3>'
+                       f'<p class="kp-meta">{n} sessions</p></li>')
+
+    body = (f'<section class="kp-section">'
+            f'<p>How themes recur across UN Open Source Week, by year. Counts are sessions '
+            f'tagged with each theme; the table is derived from the published datasets.</p>'
+            f'<ul class="kp-grid">{year_cards}</ul></section>'
+            f'<section class="kp-section"><h2>Themes across years</h2>{table}</section>')
+
+    html = f"""<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline · {esc(conference['name'])} Knowledge Platform</title>
+    <meta name="description" content="Cross-year timeline of themes across UN Open Source Week, derived from the knowledge-platform datasets." />
+    <link rel="canonical" href="{esc(base_url.rstrip('/'))}/timeline.html" />
+    <link rel="stylesheet" href="/shared.css" />
+    <link rel="stylesheet" href="/knowledge.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="kp-header"><div class="kp-header-inner">
+      <p class="kp-eyebrow">Knowledge Platform</p>
+      <h1>Timeline — themes across years</h1>
+      <p>Which topics recur across UN Open Source Week, and when each first appears.</p>
+    </div></header>
+    <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>
+      <li><a href="/">Home</a></li><li><a href="/explore.html">Knowledge</a></li>
+      <li aria-current="page">Timeline</li>
+    </ol></nav>
+    <main id="main-content" class="kp-main">
+{body}
+    </main>
+    <footer class="kp-footer"><p>Generated from the knowledge-platform datasets · provenance on every record.</p></footer>
+    <script src="/nav.js" defer></script>
+  </body>
+</html>
+"""
+    (out / "timeline.html").write_text(html, encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate the conference knowledge-platform site.")
     parser.add_argument("--conference", default="unosw", help="Conference id (matches conferences/<id>.json).")
@@ -823,6 +917,7 @@ def main() -> None:
     counts = generator.generate()
     # Rebuild the cross-year hub + merged sitemap (covers every year present).
     manifests = rebuild_top_level(out_dir, conference["site_base_url"])
+    write_timeline(out_dir, conference, conference["site_base_url"])
     total_pages = (counts["sessions"] + counts["speakers"] + counts["organizations"]
                    + counts["projects"] + counts["topics"] + 6)
     print(f"Generated {total_pages} pages under {out_dir}/{generator.base_path} "
