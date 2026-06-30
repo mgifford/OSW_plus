@@ -67,6 +67,19 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         dangling = [e for e in graph["edges"] if e["source"] not in node_ids or e["target"] not in node_ids]
         self.assertEqual(dangling, [], "knowledge graph has dangling edges")
 
+    def test_discovery_endpoints(self):
+        manifest_path = self.out / "api" / "index.json"
+        self.assertTrue(manifest_path.exists(), "missing /api/index.json discovery manifest")
+        manifest = json.loads(manifest_path.read_text())
+        years = {e["year"] for e in manifest["conference_years"]}
+        self.assertIn(2025, years)
+        for entry in manifest["conference_years"]:
+            self.assertIn("sessions", entry["datasets"])
+            self.assertTrue(entry["knowledge_graph"].endswith("knowledge-graph.json"))
+        llms = self.out / "llms.txt"
+        self.assertTrue(llms.exists(), "missing /llms.txt")
+        self.assertIn("/api/index.json", llms.read_text())
+
     def test_sitemap_uses_canonical_host(self):
         sitemap = (self.out / "sitemap.xml").read_text()
         self.assertIn(BASE_HOST, sitemap)

@@ -680,7 +680,66 @@ def rebuild_top_level(out_dir: Path, base_url: str) -> list[dict[str, Any]]:
 
     _write_top_hub(out, manifests)
     _write_sitemap(out, base)
+    _write_platform_manifest(out, base, manifests)
+    _write_llms_txt(out, base, manifests)
     return manifests
+
+
+def _write_platform_manifest(out: Path, base: str, manifests: list[dict[str, Any]]) -> None:
+    """Machine-readable discovery entrypoint at /api/index.json (WebMCP, Phase 16).
+
+    A single JSON document an AI system can fetch to discover every
+    conference-year and its datasets without crawling any HTML.
+    """
+    entries = []
+    for m in sorted(manifests, key=lambda m: (m.get("conference", ""), -int(m.get("year", 0)))):
+        api_base = f"/{m['base_path']}/api"
+        entries.append({
+            "conference": m.get("conference"),
+            "name": m.get("name"),
+            "year": m.get("year"),
+            "explore_url": m.get("explore_url"),
+            "api_base": api_base,
+            "datasets": {n: f"{api_base}/{n}.json" for n in ku.DATASETS},
+            "knowledge_graph": f"{api_base}/knowledge-graph.json",
+            "counts": m.get("datasets", {}),
+            "license": m.get("license", ""),
+            "source": m.get("source", ""),
+        })
+    manifest = {
+        "name": "UN Open Source Week Knowledge Platform",
+        "description": "Open, AI-ready index of public information about UN Open Source Week, "
+                       "with provenance and links back to authoritative sources.",
+        "base_url": base,
+        "conference_years": entries,
+    }
+    (out / "api").mkdir(parents=True, exist_ok=True)
+    (out / "api" / "index.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _write_llms_txt(out: Path, base: str, manifests: list[dict[str, Any]]) -> None:
+    """Write /llms.txt (the llms.txt convention) pointing AI agents at the data."""
+    lines = [
+        "# UN Open Source Week — Knowledge Platform",
+        "",
+        "> Open, AI-ready index of public information about UN Open Source Week. Every record "
+        "carries provenance and links back to an authoritative source; no copyrighted media is hosted.",
+        "",
+        f"Machine-readable discovery entrypoint: {base}/api/index.json",
+        "",
+        "## Conference years",
+    ]
+    for m in sorted(manifests, key=lambda m: (m.get("conference", ""), -int(m.get("year", 0)))):
+        api_base = f"{base}/{m['base_path']}/api"
+        d = m.get("datasets", {})
+        counts = ", ".join(f"{d.get(k, 0)} {k}" for k in ku.DATASETS if d.get(k))
+        lines.append(f"- {m.get('name')} {m.get('year')} ({counts}) — "
+                     f"explore: {base}{m.get('explore_url')}")
+        for n in ku.DATASETS:
+            lines.append(f"  - [{n}]({api_base}/{n}.json)")
+        lines.append(f"  - [knowledge-graph]({api_base}/knowledge-graph.json)")
+    (out / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
@@ -716,6 +775,11 @@ def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
     <main id="main-content" class="kp-main">
       <section class="kp-section"><h2>Conference years</h2>
         <ul class="kp-grid">{cards}</ul>
+      </section>
+      <section class="kp-section"><h2>For AI &amp; developers</h2>
+        <p>Machine-readable discovery: <a href="/api/index.json"><code>/api/index.json</code></a>
+           and <a href="/llms.txt"><code>/llms.txt</code></a> — every dataset and knowledge graph,
+           linked back to authoritative sources.</p>
       </section>
     </main>
     <footer class="kp-footer"><p>Generated knowledge platform · provenance on every record.</p></footer>
