@@ -1,0 +1,50 @@
+Caption cleanup warnings
+
+- Possible OSPO casing issue: day of OSPO for good conference. Today we're starting at 10. I hope you had the extra 30
+- Possible OSPO casing issue: we are the German OSPO, we could say. And as Leslie was also announced from Markus Lichtel.
+- Possible OSPO casing issue: to make sure that the work that we're doing, Andreas explained Zendes as the OSPO of the
+- Possible missing space or camelCase term: repositories. That's not as much as GitHub. I already know. But it's very important for
+- Possible missing space or camelCase term: on the platform open code. So OpenDesk is our take on the several workday solutions. Together
+- Possible missing space or camelCase term: it maybe after that little deeper. So unlike other work space solutions, OpenDesk is a little
+- Possible missing space or camelCase term: bit flexible. So you can deploy OpenDesk in every infrastructure. You can deploy it in
+- Possible missing space or camelCase term: need and that's what we are doing there. And at the moment, OpenDesk is free to download
+- Possible missing space or camelCase term: on OpenCode. And we will launch the enterprise version in the end of the year and also a software
+- Possible missing space or camelCase term: And OpenDesk is not just the topic of interest in Germany. So yesterday you heard about that
+- Possible missing space or camelCase term: European states and countries to roll out OpenDesk. And through all of it, so doing it
+- Possible missing space or camelCase term: was France to collaborate in the next steps for using OpenDesk. So I know it's right
+- Possible missing space or camelCase term: I'm currently the chief of staff to the CEO at GitHub. I see many of my friends in the
+- Possible missing space or camelCase term: audience today, so you may be familiar with me in my former role at GitHub where I led
+- Possessive acronym may need review: My name is David Nally. I'm the president of the Apache Software Foundation. The ASF's
+- Possible missing space or camelCase term: while a GitHub call all in. And it was founded to encourage the next generation of people
+- Possible missing space or camelCase term: got great tools like GitHub, GitLab and others that facilitate that collaboration. But at
+- Possible OSPO casing issue: that we saw that is actually creating an OSPO is probably a first step towards educating
+- Possible missing space or camelCase term: becomes much larger. And that's where the DPJ Alliance, the GovStacks of the world actually
+- Possessive acronym may need review: and everybody else WHO's participating in an institutional way needs to recognize and
+- Possible OSPO casing issue: of the things I think maybe to think about on the OSPO side of things is get your organization
+- Possible OSPO casing issue: legacy you can leave behind when you move on especially in the context of an OSPO because
+- Possessive acronym may need review: the theme of this discussion of OSPO's for good and make sure that open source program
+- Possible OSPO casing issue: the theme of this discussion of OSPO's for good and make sure that open source program
+- Possessive acronym may need review: my first speaker would be Phuimang from UNICEF's Digital Center of Excellence.
+- Possessive acronym may need review: Asia and Latin America. The list doesn't stop there considering UNICEF's mandate is across
+- Possible missing space or camelCase term: platform called RapidPro whereby it integrates with the rest, the range of messaging tools
+- Possible missing space or camelCase term: such as WhatsApp that we use to communicate and engage with end users including medical
+- Possible OSPO casing issue: attacks and what have you and my message here would be at CERN or OSPO believes of course
+- Possible OSPO casing issue: to open source but also I think the OSPO plays a role to accommodate for creating partnerships
+- Possible OSPO casing issue: I believe that if you want to do OSPO for good we have to roll up the sleeves and create
+- Possessive acronym may need review: As a next speaker we have with us Mr. Frederick Blachetta WHO's the chief data officer at
+- Possessive acronym may need review: president WHO's had this code is here with us so say yet should we from Carnegie Mellon University
+- Possible OSPO casing issue: the software foundations but we also need to adapt existing OSPO frameworks for the academic
+- Possible OSPO casing issue: university fundamentally the CMU OSPO acts as a community convener a center of competency and
+- Possessive acronym may need review: OSPO's it includes 20 university or research institution OSPO's within the u-s and europe
+- Possible OSPO casing issue: OSPO's it includes 20 university or research institution OSPO's within the u-s and europe
+- Possessive acronym may need review: with CMU working with three other OSPO's from the curious network and also partnerships include
+- Possible OSPO casing issue: with CMU working with three other OSPO's from the curious network and also partnerships include
+- Possessive acronym may need review: university OSPO's can come together to build capacity and to have influence through OSPO's
+- Possible OSPO casing issue: university OSPO's can come together to build capacity and to have influence through OSPO's
+- Possible OSPO casing issue: for good many of the other university curious university OSPO leaders are in the room i would
+- Possessive acronym may need review: as well thank you thank you very much say it for reminding us the importance of OSPO's we hear
+- Possible OSPO casing issue: as well thank you thank you very much say it for reminding us the importance of OSPO's we hear
+- Possessive acronym may need review: all for the for these two days to celebrate the OSPO's the concept of OSPO's so thank you for
+- Possible OSPO casing issue: all for the for these two days to celebrate the OSPO's the concept of OSPO's so thank you for
+- Possessive acronym may need review: Wolfgang WHO's the head of OSPO for Mercedes-Benz it's a very interesting case study that OSPO
+- Possible OSPO casing issue: Wolfgang WHO's the head of OSPO for Mercedes-Benz it's a very interesting case study that OSPO
