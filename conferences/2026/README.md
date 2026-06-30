@@ -17,9 +17,8 @@ Topics:
 * High-Level Discussion: Open Source for Digital Development
 * Open Source and Emerging Technologies  
 
-⸻
 
-Open Source for AI and Emerging Technologies (Part 2)
+## Open Source for AI and Emerging Technologies (Part 2)
 
 https://webtv.un.org/en/asset/k1b/k1b443e64t
 
@@ -32,9 +31,8 @@ Topics:
 * Open Agents
 * Closing Discussion: Openness for Digital Cooperation  
 
-⸻
 
-Wednesday, 24 June 2026
+## Wednesday, 24 June 2026
 
 DPI Day (Part 1)
 
@@ -52,9 +50,7 @@ Theme:
 * Interoperability
 * Inclusive digital transformation  
 
-⸻
-
-DPI Day (Part 2)
+## DPI Day (Part 2)
 
 https://webtv.un.org/en/asset/k13/k136ks9z9x
 
@@ -69,9 +65,7 @@ Theme:
 * Implementation experiences
 * International collaboration  
 
-⸻
-
-Thursday, 25 June 2026
+## Thursday, 25 June 2026
 
 OSPOs for Good (Part 1)
 
@@ -89,9 +83,7 @@ Theme:
 * Enterprise adoption
 * Capacity building  
 
-⸻
-
-OSPOs for Good (Part 2)
+## OSPOs for Good (Part 2)
 
 https://webtv.un.org/en/asset/k1i/k1i4m11zkv
 
