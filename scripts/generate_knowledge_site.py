@@ -828,18 +828,22 @@ def _write_search_index(out: Path, manifests: list[dict[str, Any]], repo_root: P
                  "Recording & draft transcript", "video transcript webtv",
                  transcript_url=info["transcript"])
 
-    # History — documents (reports, concept notes, agendas) from the corpus.
+    # History — documents and archived page snapshots from the corpus:
+    # PDF reports/concept notes, and saved official event pages (.mhtml/.html).
     if repo_root is not None:
         conf_dir = Path(repo_root) / "conferences"
+        doc_kinds = [("*.pdf", "document", "Document (PDF)"),
+                     ("*.mhtml", "page", "Archived page snapshot"),
+                     ("*.html", "page", "Archived page snapshot")]
         for year_dir in sorted(conf_dir.glob("*")):
             if not year_dir.is_dir() or not year_dir.name.isdigit():
                 continue
             doc_year = int(year_dir.name)
-            for pdf in sorted(year_dir.glob("*.pdf")):
-                title = _humanize_doc(pdf.stem)
-                url = ("https://github.com/mgifford/unosw.plus/blob/main/conferences/"
-                       f"{year_dir.name}/{quote(pdf.name)}")
-                push("history", "document", title, url, doc_year, "Document (PDF)")
+            for pattern, type_, label in doc_kinds:
+                for f in sorted(year_dir.glob(pattern)):
+                    url = ("https://github.com/mgifford/unosw.plus/blob/main/conferences/"
+                           f"{year_dir.name}/{quote(f.name)}")
+                    push("history", type_, _humanize_doc(f.stem), url, doc_year, label)
 
     cat_order = {"events": 0, "history": 1}
     records.sort(key=lambda r: (cat_order.get(r["category"], 9), r["type"],
@@ -918,7 +922,8 @@ def _write_search_page(out: Path, base: str) -> None:
     <script>
       (function () {
         var LABELS = {session:"Session", speaker:"Speaker", organization:"Organization",
-                      project:"Project", topic:"Theme", recording:"Recording", document:"Document"};
+                      project:"Project", topic:"Theme", recording:"Recording",
+                      document:"Document", page:"Page"};
         var input = document.getElementById("kp-q");
         var catSel = document.getElementById("kp-category");
         var yearSel = document.getElementById("kp-year");
