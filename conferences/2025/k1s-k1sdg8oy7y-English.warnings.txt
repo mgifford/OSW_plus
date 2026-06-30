@@ -1,0 +1,16 @@
+Caption cleanup warnings
+
+- Possible OSPO casing issue: Kenya recently launched its national OSPO,
+- Possible missing space or camelCase term: such as OpenUK.
+- Possessive acronym may need review: As part of ITU's own digital monetization efforts too,
+- Possessive acronym may need review: Open-source platforms support ITU's latest radio regulations navigation tool
+- Possessive acronym may need review: And I'd also like to invite Julia, WHO's our reporter.
+- Possessive acronym may need review: And for a handover to David, WHO's our reporter, I just quickly want to say in which direction the discussion moved,
+- Possible OSPO casing issue: One of the examples we heard from was the OSPO that was set up recently in Trinidad and Tobago,
+- Possessive acronym may need review: WHO's implementing a range of open source tools, and they've translated the technical documentation to Spanish for their own use,
+- Possessive acronym may need review: We have the pleasure to welcome Travin Rabinat, WHO's Director of Digital Government in Lesotho to offer some keynote remarks in advance to the panel.
+- Possible missing space or camelCase term: on FinTech, on payment infrastructure.
+- Possessive acronym may need review: So we have DPI now. We're implementing ID's foundation, data exchange, right?
+- Possible missing space or camelCase term: Who's going to the side events tomorrow at PwC?
+- Possible OSPO casing issue: So it's been an amazing week, and thank you all for making it amazing, for coming here again this year, making it the biggest OSPO event so far.
+- Possible missing space or camelCase term: and the president of the Patrick J. McGovern Foundation brought an essential element of people-centric, human-centric ethical approaches to our work,
