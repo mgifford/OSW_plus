@@ -97,9 +97,16 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         self.assertGreater(len(records), 0)
         types = {r["type"] for r in records}
         self.assertTrue({"session", "speaker", "organization", "topic"} <= types)
-        for r in records:  # every record links into a generated page that exists
-            self.assertTrue(r["url"].startswith("/"))
-            self.assertTrue((self.out / r["url"].lstrip("/")).exists(), f"dangling search url {r['url']}")
+        categories = {r["category"] for r in records}
+        self.assertIn("events", categories)
+        self.assertIn("history", categories)  # recordings/transcripts + documents
+        for r in records:
+            self.assertIn(r["category"], ("events", "history"))
+            if r["category"] == "events":  # internal page that must exist
+                self.assertTrue(r["url"].startswith("/"))
+                self.assertTrue((self.out / r["url"].lstrip("/")).exists(), f"dangling search url {r['url']}")
+            else:  # history links out to GitHub / UN Web TV
+                self.assertTrue(r["url"].startswith("http"), f"history url not absolute: {r['url']}")
         manifest = json.loads((self.out / "api" / "index.json").read_text())
         self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
 

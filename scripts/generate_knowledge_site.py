@@ -24,6 +24,7 @@ import shutil
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 import knowledge_utils as ku
 from knowledge_utils import html_escape as esc
@@ -662,7 +663,7 @@ class SiteGenerator:
         }
 
 
-def rebuild_top_level(out_dir: Path, base_url: str) -> list[dict[str, Any]]:
+def rebuild_top_level(out_dir: Path, base_url: str, repo_root: Path | None = None) -> list[dict[str, Any]]:
     """(Re)build the cross-year hub (/explore.html) and the merged sitemap.
 
     Scans the output for every conference-year manifest (``<conf>/<year>/api/
@@ -678,7 +679,7 @@ def rebuild_top_level(out_dir: Path, base_url: str) -> list[dict[str, Any]]:
         except (json.JSONDecodeError, OSError):
             continue
 
-    _write_search_index(out, manifests)
+    _write_search_index(out, manifests, repo_root)
     _write_search_page(out, base)
     _write_top_hub(out, manifests)
     _write_sitemap(out, base)
@@ -746,16 +747,30 @@ def _write_llms_txt(out: Path, base: str, manifests: list[dict[str, Any]]) -> No
     (out / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _write_search_index(out: Path, manifests: list[dict[str, Any]]) -> None:
-    """Build /api/search-index.json across every generated conference-year (Phase 11).
+def _write_search_index(out: Path, manifests: list[dict[str, Any]], repo_root: Path | None = None) -> None:
+    """Build /api/search-index.json across every conference-year (Phase 11).
 
-    A single flat list of lightweight records (type, title, url, year, a
-    human-readable meta line, and a lowercased searchable blob) that the static
-    search page loads once and filters client-side — no server, no runtime deps.
-    Reads the per-year api datasets already written, so it stays consistent with
-    what was generated. Idempotent.
+    A single flat list of lightweight records — each tagged ``category``
+    ("events" for the program: sessions/speakers/orgs/projects/themes; "history"
+    for the archive: recordings, transcripts, reports/documents) and ``year`` so
+    the static search page can facet by category and year and filter the text
+    client-side. No server, no runtime deps. Idempotent.
+
+    Event records are read from the per-year api datasets already written.
+    History records are derived from those datasets' recordings/transcripts
+    (correct year) and from the ``conferences/<year>/`` document corpus.
     """
     records: list[dict[str, Any]] = []
+
+    def push(category: str, type_: str, title: str, url: str, year: int | None,
+             meta: str, *extra: str, transcript_url: str = "") -> None:
+        blob = " ".join(p for p in (title, meta, type_, *extra) if p).lower()
+        rec = {"category": category, "type": type_, "title": title, "url": url,
+               "year": year, "meta": meta, "text": blob}
+        if transcript_url:
+            rec["transcript_url"] = transcript_url
+        records.append(rec)
+
     for m in manifests:
         base_path = m.get("base_path")
         year = m.get("year")
@@ -770,50 +785,93 @@ def _write_search_index(out: Path, manifests: list[dict[str, Any]]) -> None:
                 return []
 
         topic_name = {t["slug"]: t["name"] for t in load("topics")}
+        sessions = load("sessions")
 
-        def add(type_: str, title: str, url: str, meta: str, *extra: str) -> None:
-            blob = " ".join(p for p in (title, meta, *extra) if p).lower()
-            records.append({"type": type_, "title": title, "url": url,
-                            "year": year, "meta": meta, "text": blob})
-
-        for s in load("sessions"):
+        for s in sessions:
             topics = " ".join(topic_name.get(t, t) for t in s.get("topics", []))
             meta = " · ".join(p for p in (s.get("day", ""), TYPE_LABELS.get(s.get("type", ""), "")) if p)
-            add("session", s.get("title", ""), f"/{base_path}/sessions/{s['id']}.html",
-                meta, s.get("summary", ""), topics)
+            push("events", "session", s.get("title", ""), f"/{base_path}/sessions/{s['id']}.html",
+                 year, meta, s.get("summary", ""), topics)
         for sp in load("speakers"):
             meta = " · ".join(p for p in (sp.get("role", ""), sp.get("organization", "")) if p)
-            add("speaker", sp.get("name", ""), f"/{base_path}/speakers/{sp['slug']}.html",
-                meta, sp.get("country", ""))
+            push("events", "speaker", sp.get("name", ""), f"/{base_path}/speakers/{sp['slug']}.html",
+                 year, meta, sp.get("country", ""))
         for o in load("organizations"):
-            add("organization", o.get("name", ""), f"/{base_path}/organizations/{o['slug']}.html",
-                ORG_TYPE_LABELS.get(o.get("type", ""), "Organization"))
+            push("events", "organization", o.get("name", ""), f"/{base_path}/organizations/{o['slug']}.html",
+                 year, ORG_TYPE_LABELS.get(o.get("type", ""), "Organization"))
         for p in load("projects"):
-            add("project", p.get("name", ""), f"/{base_path}/projects/{p['slug']}.html",
-                "Project", p.get("description", ""))
+            push("events", "project", p.get("name", ""), f"/{base_path}/projects/{p['slug']}.html",
+                 year, "Project", p.get("description", ""))
         for t in load("topics"):
-            add("topic", t.get("name", ""), f"/{base_path}/topics/{t['slug']}.html",
-                "Theme", t.get("description", ""))
+            push("events", "topic", t.get("name", ""), f"/{base_path}/topics/{t['slug']}.html",
+                 year, "Theme", t.get("description", ""))
 
-    records.sort(key=lambda r: (r["type"], -(r.get("year") or 0), r["title"].lower()))
+        # History — recordings/transcripts, one per distinct recording, derived
+        # from the (correctly year-mapped) session data so it never mis-attributes.
+        seen: dict[str, dict[str, Any]] = {}
+        for s in sessions:
+            vid = s.get("video_url") or s.get("transcript_url")
+            if not vid or vid in seen:
+                if vid:
+                    seen[vid]["times"].append(s.get("start_time", ""))
+                continue
+            seen[vid] = {"day": s.get("day", ""), "video": s.get("video_url", ""),
+                         "transcript": s.get("transcript_url", ""), "times": [s.get("start_time", "")]}
+        for info in seen.values():
+            times = [t for t in info["times"] if t]
+            part = ""
+            if times:
+                part = "Part 1 (morning)" if min(times) < "13:00" else "Part 2 (afternoon)"
+            title = " · ".join(p for p in (info["day"], part) if p) or f"Recording {year}"
+            url = info["video"] or info["transcript"]
+            push("history", "recording", title, url, year,
+                 "Recording & draft transcript", "video transcript webtv",
+                 transcript_url=info["transcript"])
+
+    # History — documents (reports, concept notes, agendas) from the corpus.
+    if repo_root is not None:
+        conf_dir = Path(repo_root) / "conferences"
+        for year_dir in sorted(conf_dir.glob("*")):
+            if not year_dir.is_dir() or not year_dir.name.isdigit():
+                continue
+            doc_year = int(year_dir.name)
+            for pdf in sorted(year_dir.glob("*.pdf")):
+                title = _humanize_doc(pdf.stem)
+                url = ("https://github.com/mgifford/unosw.plus/blob/main/conferences/"
+                       f"{year_dir.name}/{quote(pdf.name)}")
+                push("history", "document", title, url, doc_year, "Document (PDF)")
+
+    cat_order = {"events": 0, "history": 1}
+    records.sort(key=lambda r: (cat_order.get(r["category"], 9), r["type"],
+                                -(r.get("year") or 0), r["title"].lower()))
     (out / "api").mkdir(parents=True, exist_ok=True)
     (out / "api" / "search-index.json").write_text(
         json.dumps({"records": records}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _humanize_doc(stem: str) -> str:
+    """Turn a document filename stem into a readable title."""
+    text = stem.replace("_", " ").replace("-", " ").strip()
+    return " ".join(text.split())
 
 
 def _write_search_page(out: Path, base: str) -> None:
     """Write /knowledge-search.html — accessible client-side search (Phase 11).
 
     Distinct from the legacy /search.html (side-event calendar). Loads
-    /api/search-index.json and filters in the browser; supports a ?q= deep link.
+    /api/search-index.json and filters in the browser by free text plus two
+    facets — category (events vs history) and year — with ?q=/?category=/?year=
+    deep links. No server, no runtime deps.
     """
+    select_style = ("padding:0.5rem 0.7rem;border:1px solid var(--border);"
+                    "border-radius:0.4rem;font-size:1rem;")
     html = """<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search · UN Open Source Week Knowledge Platform</title>
-    <meta name="description" content="Search sessions, speakers, organizations, projects, and themes across the UN Open Source Week knowledge platform." />
+    <meta name="description" content="Search the UN Open Source Week knowledge platform — events (sessions, speakers, organizations, projects, themes) and history (recordings, draft transcripts, reports) across every year." />
     <link rel="canonical" href="__BASE__/knowledge-search.html" />
     <link rel="stylesheet" href="/shared.css" />
     <link rel="stylesheet" href="/knowledge.css" />
@@ -823,7 +881,9 @@ def _write_search_page(out: Path, base: str) -> None:
     <header class="kp-header"><div class="kp-header-inner">
       <p class="kp-eyebrow">Knowledge Platform</p>
       <h1>Search the knowledge platform</h1>
-      <p>Find sessions, speakers, organizations, projects, and themes across every year.</p>
+      <p>One search across the whole platform — the <strong>events</strong> (sessions, speakers,
+         organizations, projects, themes) and the <strong>history</strong> (recordings, draft
+         transcripts, and reports). Filter by category and year.</p>
     </div></header>
     <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>
       <li><a href="/">Home</a></li><li><a href="/explore.html">Knowledge</a></li>
@@ -835,17 +895,17 @@ def _write_search_page(out: Path, base: str) -> None:
           <label for="kp-q"><strong>Search</strong></label>
           <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.4rem 0;">
             <input id="kp-q" name="q" type="search" autocomplete="off"
-                   placeholder="e.g. accessibility, MOSIP, procurement"
+                   placeholder="e.g. accessibility, MOSIP, DPI Day recording"
                    style="flex:1 1 16rem;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:0.4rem;font-size:1rem;" />
-            <label for="kp-type" class="visually-hidden">Filter by type</label>
-            <select id="kp-type" name="type"
-                    style="padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:0.4rem;font-size:1rem;">
-              <option value="">All types</option>
-              <option value="session">Sessions</option>
-              <option value="speaker">Speakers</option>
-              <option value="organization">Organizations</option>
-              <option value="project">Projects</option>
-              <option value="topic">Themes</option>
+            <label for="kp-category" class="visually-hidden">Filter by category</label>
+            <select id="kp-category" name="category" style="__SEL__">
+              <option value="">All categories</option>
+              <option value="events">Events</option>
+              <option value="history">History</option>
+            </select>
+            <label for="kp-year" class="visually-hidden">Filter by year</label>
+            <select id="kp-year" name="year" style="__SEL__">
+              <option value="">All years</option>
             </select>
           </div>
         </form>
@@ -857,9 +917,11 @@ def _write_search_page(out: Path, base: str) -> None:
     <script src="/nav.js" defer></script>
     <script>
       (function () {
-        var LABELS = {session:"Session", speaker:"Speaker", organization:"Organization", project:"Project", topic:"Theme"};
+        var LABELS = {session:"Session", speaker:"Speaker", organization:"Organization",
+                      project:"Project", topic:"Theme", recording:"Recording", document:"Document"};
         var input = document.getElementById("kp-q");
-        var typeSel = document.getElementById("kp-type");
+        var catSel = document.getElementById("kp-category");
+        var yearSel = document.getElementById("kp-year");
         var status = document.getElementById("kp-status");
         var list = document.getElementById("kp-results");
         var form = document.getElementById("kp-search-form");
@@ -873,34 +935,50 @@ def _write_search_page(out: Path, base: str) -> None:
         }
         function params() {
           var p = new URLSearchParams(window.location.search);
-          return {q: p.get("q") || "", type: p.get("type") || ""};
+          return {q: p.get("q") || "", category: p.get("category") || "", year: p.get("year") || ""};
         }
         function render() {
           var q = input.value.trim().toLowerCase();
-          var type = typeSel.value;
+          var cat = catSel.value, year = yearSel.value;
           var terms = q.split(/\\s+/).filter(Boolean);
           var url = new URL(window.location.href);
-          if (input.value.trim()) { url.searchParams.set("q", input.value.trim()); } else { url.searchParams.delete("q"); }
-          if (type) { url.searchParams.set("type", type); } else { url.searchParams.delete("type"); }
+          ["q", "category", "year"].forEach(function (k) { url.searchParams.delete(k); });
+          if (input.value.trim()) url.searchParams.set("q", input.value.trim());
+          if (cat) url.searchParams.set("category", cat);
+          if (year) url.searchParams.set("year", year);
           window.history.replaceState(null, "", url);
           var matches = records.filter(function (r) {
-            if (type && r.type !== type) return false;
+            if (cat && r.category !== cat) return false;
+            if (year && String(r.year) !== year) return false;
             return terms.every(function (t) { return r.text.indexOf(t) !== -1; });
           });
           list.innerHTML = "";
-          if (!q && !type) {
-            status.textContent = records.length + " records indexed. Type to search.";
+          if (!q && !cat && !year) {
+            status.textContent = records.length + " records indexed (events + history). Search or filter to begin.";
             return;
           }
           status.textContent = matches.length + (matches.length === 1 ? " result" : " results");
-          matches.slice(0, 200).forEach(function (r) {
+          matches.slice(0, 300).forEach(function (r) {
             var li = document.createElement("li");
             li.className = "kp-card";
+            var extra = "";
+            if (r.transcript_url) {
+              extra = ' · <a href="' + esc(r.transcript_url) + '" rel="noopener noreferrer">draft transcript</a>';
+            }
             li.innerHTML =
-              '<h3><a href="' + esc(r.url) + '">' + esc(r.title) + '</a></h3>' +
+              '<h3><a href="' + esc(r.url) + '" rel="noopener noreferrer">' + esc(r.title) + '</a></h3>' +
               '<p class="kp-meta"><span class="kp-badge">' + esc(LABELS[r.type] || r.type) + '</span> ' +
-              esc(r.year || "") + (r.meta ? ' · ' + esc(r.meta) : '') + '</p>';
+              esc(r.year || "") + (r.meta ? ' · ' + esc(r.meta) : '') + extra + '</p>';
             list.appendChild(li);
+          });
+        }
+        function fillYears() {
+          var years = {};
+          records.forEach(function (r) { if (r.year) years[r.year] = true; });
+          Object.keys(years).map(Number).sort(function (a, b) { return b - a; }).forEach(function (y) {
+            var opt = document.createElement("option");
+            opt.value = String(y); opt.textContent = String(y);
+            yearSel.appendChild(opt);
           });
         }
         fetch("/api/search-index.json").then(function (res) {
@@ -908,11 +986,14 @@ def _write_search_page(out: Path, base: str) -> None:
           return res.json();
         }).then(function (data) {
           records = (data && data.records) || [];
+          fillYears();
           var init = params();
           if (init.q) input.value = init.q;
-          if (init.type) typeSel.value = init.type;
+          if (init.category) catSel.value = init.category;
+          if (init.year) yearSel.value = init.year;
           input.addEventListener("input", render);
-          typeSel.addEventListener("change", render);
+          catSel.addEventListener("change", render);
+          yearSel.addEventListener("change", render);
           render();
           input.focus();
         }).catch(function () {
@@ -923,7 +1004,8 @@ def _write_search_page(out: Path, base: str) -> None:
   </body>
 </html>
 """
-    (out / "knowledge-search.html").write_text(html.replace("__BASE__", esc(base)), encoding="utf-8")
+    html = html.replace("__SEL__", select_style).replace("__BASE__", esc(base))
+    (out / "knowledge-search.html").write_text(html, encoding="utf-8")
 
 
 def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
@@ -1102,7 +1184,7 @@ def main() -> None:
     generator = SiteGenerator(conference, args.year, datasets, out_dir)
     counts = generator.generate()
     # Rebuild the cross-year hub + merged sitemap (covers every year present).
-    manifests = rebuild_top_level(out_dir, conference["site_base_url"])
+    manifests = rebuild_top_level(out_dir, conference["site_base_url"], root)
     write_timeline(out_dir, conference, conference["site_base_url"])
     total_pages = (counts["sessions"] + counts["speakers"] + counts["organizations"]
                    + counts["projects"] + counts["topics"] + 6)
