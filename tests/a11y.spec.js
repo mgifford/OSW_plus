@@ -9,6 +9,8 @@ const PAGES = [
   { name: "2025 resources", path: "/2025-resources.html" },
   // Generated knowledge-platform pages (produced by generate_knowledge_site.py)
   { name: "knowledge hub", path: "/explore.html" },
+  { name: "knowledge search", path: "/knowledge-search.html" },
+  { name: "timeline", path: "/timeline.html" },
   { name: "year hub", path: "/unosw/2025/explore.html" },
   { name: "speaker profile", path: "/unosw/2025/speakers/sachiko-muto.html" },
   { name: "session page", path: "/unosw/2025/sessions/sess-opening-plenary.html" },

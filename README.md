@@ -77,4 +77,6 @@ python scripts/generate_knowledge_site.py --year 2025 --out _site   # build 2025
 python scripts/generate_knowledge_site.py --year 2026 --out _site   # build 2026 (coexists under /unosw/<year>/)
 ```
 
-Generated pages live under `/unosw/<year>/` with a cross-year hub at `/explore.html`.
+Generated pages live under `/unosw/<year>/` with a cross-year hub at `/explore.html`, a
+client-side knowledge search at `/knowledge-search.html` (over `/api/search-index.json`),
+and a cross-year themes timeline at `/timeline.html`.

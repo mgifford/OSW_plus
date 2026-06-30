@@ -678,6 +678,8 @@ def rebuild_top_level(out_dir: Path, base_url: str) -> list[dict[str, Any]]:
         except (json.JSONDecodeError, OSError):
             continue
 
+    _write_search_index(out, manifests)
+    _write_search_page(out, base)
     _write_top_hub(out, manifests)
     _write_sitemap(out, base)
     _write_platform_manifest(out, base, manifests)
@@ -711,6 +713,7 @@ def _write_platform_manifest(out: Path, base: str, manifests: list[dict[str, Any
         "description": "Open, AI-ready index of public information about UN Open Source Week, "
                        "with provenance and links back to authoritative sources.",
         "base_url": base,
+        "search_index": "/api/search-index.json",
         "conference_years": entries,
     }
     (out / "api").mkdir(parents=True, exist_ok=True)
@@ -727,6 +730,7 @@ def _write_llms_txt(out: Path, base: str, manifests: list[dict[str, Any]]) -> No
         "carries provenance and links back to an authoritative source; no copyrighted media is hosted.",
         "",
         f"Machine-readable discovery entrypoint: {base}/api/index.json",
+        f"Combined search index (all years): {base}/api/search-index.json",
         "",
         "## Conference years",
     ]
@@ -740,6 +744,186 @@ def _write_llms_txt(out: Path, base: str, manifests: list[dict[str, Any]]) -> No
             lines.append(f"  - [{n}]({api_base}/{n}.json)")
         lines.append(f"  - [knowledge-graph]({api_base}/knowledge-graph.json)")
     (out / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _write_search_index(out: Path, manifests: list[dict[str, Any]]) -> None:
+    """Build /api/search-index.json across every generated conference-year (Phase 11).
+
+    A single flat list of lightweight records (type, title, url, year, a
+    human-readable meta line, and a lowercased searchable blob) that the static
+    search page loads once and filters client-side — no server, no runtime deps.
+    Reads the per-year api datasets already written, so it stays consistent with
+    what was generated. Idempotent.
+    """
+    records: list[dict[str, Any]] = []
+    for m in manifests:
+        base_path = m.get("base_path")
+        year = m.get("year")
+        if not base_path:
+            continue
+        api_dir = out / base_path / "api"
+
+        def load(name: str) -> list:
+            try:
+                return json.loads((api_dir / f"{name}.json").read_text())
+            except (json.JSONDecodeError, OSError):
+                return []
+
+        topic_name = {t["slug"]: t["name"] for t in load("topics")}
+
+        def add(type_: str, title: str, url: str, meta: str, *extra: str) -> None:
+            blob = " ".join(p for p in (title, meta, *extra) if p).lower()
+            records.append({"type": type_, "title": title, "url": url,
+                            "year": year, "meta": meta, "text": blob})
+
+        for s in load("sessions"):
+            topics = " ".join(topic_name.get(t, t) for t in s.get("topics", []))
+            meta = " · ".join(p for p in (s.get("day", ""), TYPE_LABELS.get(s.get("type", ""), "")) if p)
+            add("session", s.get("title", ""), f"/{base_path}/sessions/{s['id']}.html",
+                meta, s.get("summary", ""), topics)
+        for sp in load("speakers"):
+            meta = " · ".join(p for p in (sp.get("role", ""), sp.get("organization", "")) if p)
+            add("speaker", sp.get("name", ""), f"/{base_path}/speakers/{sp['slug']}.html",
+                meta, sp.get("country", ""))
+        for o in load("organizations"):
+            add("organization", o.get("name", ""), f"/{base_path}/organizations/{o['slug']}.html",
+                ORG_TYPE_LABELS.get(o.get("type", ""), "Organization"))
+        for p in load("projects"):
+            add("project", p.get("name", ""), f"/{base_path}/projects/{p['slug']}.html",
+                "Project", p.get("description", ""))
+        for t in load("topics"):
+            add("topic", t.get("name", ""), f"/{base_path}/topics/{t['slug']}.html",
+                "Theme", t.get("description", ""))
+
+    records.sort(key=lambda r: (r["type"], -(r.get("year") or 0), r["title"].lower()))
+    (out / "api").mkdir(parents=True, exist_ok=True)
+    (out / "api" / "search-index.json").write_text(
+        json.dumps({"records": records}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _write_search_page(out: Path, base: str) -> None:
+    """Write /knowledge-search.html — accessible client-side search (Phase 11).
+
+    Distinct from the legacy /search.html (side-event calendar). Loads
+    /api/search-index.json and filters in the browser; supports a ?q= deep link.
+    """
+    html = """<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search · UN Open Source Week Knowledge Platform</title>
+    <meta name="description" content="Search sessions, speakers, organizations, projects, and themes across the UN Open Source Week knowledge platform." />
+    <link rel="canonical" href="__BASE__/knowledge-search.html" />
+    <link rel="stylesheet" href="/shared.css" />
+    <link rel="stylesheet" href="/knowledge.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="kp-header"><div class="kp-header-inner">
+      <p class="kp-eyebrow">Knowledge Platform</p>
+      <h1>Search the knowledge platform</h1>
+      <p>Find sessions, speakers, organizations, projects, and themes across every year.</p>
+    </div></header>
+    <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>
+      <li><a href="/">Home</a></li><li><a href="/explore.html">Knowledge</a></li>
+      <li aria-current="page">Search</li>
+    </ol></nav>
+    <main id="main-content" class="kp-main">
+      <section class="kp-section">
+        <form id="kp-search-form" role="search" action="/knowledge-search.html" method="get">
+          <label for="kp-q"><strong>Search</strong></label>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.4rem 0;">
+            <input id="kp-q" name="q" type="search" autocomplete="off"
+                   placeholder="e.g. accessibility, MOSIP, procurement"
+                   style="flex:1 1 16rem;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:0.4rem;font-size:1rem;" />
+            <label for="kp-type" class="visually-hidden">Filter by type</label>
+            <select id="kp-type" name="type"
+                    style="padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:0.4rem;font-size:1rem;">
+              <option value="">All types</option>
+              <option value="session">Sessions</option>
+              <option value="speaker">Speakers</option>
+              <option value="organization">Organizations</option>
+              <option value="project">Projects</option>
+              <option value="topic">Themes</option>
+            </select>
+          </div>
+        </form>
+        <p id="kp-status" class="kp-meta" role="status" aria-live="polite">Loading the search index…</p>
+        <ul id="kp-results" class="kp-grid"></ul>
+      </section>
+    </main>
+    <footer class="kp-footer"><p>Search runs in your browser over the published datasets · provenance on every record.</p></footer>
+    <script src="/nav.js" defer></script>
+    <script>
+      (function () {
+        var LABELS = {session:"Session", speaker:"Speaker", organization:"Organization", project:"Project", topic:"Theme"};
+        var input = document.getElementById("kp-q");
+        var typeSel = document.getElementById("kp-type");
+        var status = document.getElementById("kp-status");
+        var list = document.getElementById("kp-results");
+        var form = document.getElementById("kp-search-form");
+        var records = [];
+        form.addEventListener("submit", function (e) { e.preventDefault(); render(); });
+
+        function esc(s) {
+          return String(s).replace(/[&<>"']/g, function (c) {
+            return {"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#39;"}[c];
+          });
+        }
+        function params() {
+          var p = new URLSearchParams(window.location.search);
+          return {q: p.get("q") || "", type: p.get("type") || ""};
+        }
+        function render() {
+          var q = input.value.trim().toLowerCase();
+          var type = typeSel.value;
+          var terms = q.split(/\\s+/).filter(Boolean);
+          var url = new URL(window.location.href);
+          if (input.value.trim()) { url.searchParams.set("q", input.value.trim()); } else { url.searchParams.delete("q"); }
+          if (type) { url.searchParams.set("type", type); } else { url.searchParams.delete("type"); }
+          window.history.replaceState(null, "", url);
+          var matches = records.filter(function (r) {
+            if (type && r.type !== type) return false;
+            return terms.every(function (t) { return r.text.indexOf(t) !== -1; });
+          });
+          list.innerHTML = "";
+          if (!q && !type) {
+            status.textContent = records.length + " records indexed. Type to search.";
+            return;
+          }
+          status.textContent = matches.length + (matches.length === 1 ? " result" : " results");
+          matches.slice(0, 200).forEach(function (r) {
+            var li = document.createElement("li");
+            li.className = "kp-card";
+            li.innerHTML =
+              '<h3><a href="' + esc(r.url) + '">' + esc(r.title) + '</a></h3>' +
+              '<p class="kp-meta"><span class="kp-badge">' + esc(LABELS[r.type] || r.type) + '</span> ' +
+              esc(r.year || "") + (r.meta ? ' · ' + esc(r.meta) : '') + '</p>';
+            list.appendChild(li);
+          });
+        }
+        fetch("/api/search-index.json").then(function (res) {
+          if (!res.ok) throw new Error("index unavailable");
+          return res.json();
+        }).then(function (data) {
+          records = (data && data.records) || [];
+          var init = params();
+          if (init.q) input.value = init.q;
+          if (init.type) typeSel.value = init.type;
+          input.addEventListener("input", render);
+          typeSel.addEventListener("change", render);
+          render();
+          input.focus();
+        }).catch(function () {
+          status.textContent = "Sorry — the search index could not be loaded.";
+        });
+      })();
+    </script>
+  </body>
+</html>
+"""
+    (out / "knowledge-search.html").write_text(html.replace("__BASE__", esc(base)), encoding="utf-8")
 
 
 def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
@@ -777,6 +961,8 @@ def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
         <ul class="kp-grid">{cards}</ul>
       </section>
       <section class="kp-section"><h2>Across years</h2>
+        <p><a href="/knowledge-search.html">Search the knowledge platform</a> — sessions,
+           speakers, organizations, projects, and themes across every year.</p>
         <p><a href="/timeline.html">Timeline — themes across years</a></p>
       </section>
       <section class="kp-section"><h2>For AI &amp; developers</h2>

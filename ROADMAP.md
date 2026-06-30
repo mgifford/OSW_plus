@@ -37,11 +37,11 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 | 4 | Knowledge graph | ✅ | `knowledge_utils.build_graph()` emits `api/knowledge-graph.json` (people/orgs/projects/topics/sessions/countries + relationships). Importable into a graph DB later. |
 | 5 | AI enrichment | 🟡 | Provenance structure supports `llm-generation` with citations; this pass uses facts-from-the-report only (`manual-extraction`). Wiring a throttled LLM step in CI is deferred. |
 | 6 | Theme extraction | 🟡 | 19-theme vocabulary in config + `topics.json`; sessions/quotes classified by hand. Automatic per-paragraph multi-label classification is deferred. |
-| 7 | Timeline | ⬜ | Yearly and cross-year timelines (first appearance, key quotes, announcements). Needs a second year of data. |
+| 7 | Timeline | 🟡 | Cross-year timeline at `/timeline.html` — a "themes across years" table (sessions per theme per year, first-seen) plus per-year cards, derived from the generated datasets. Yearly per-day timelines and key-announcement annotations are still to come. |
 | 8 | Speaker profiles | ✅ | Permanent page per speaker with role, org, sessions, quotes, derived topics, and (when present) social links. |
 | 9 | Organization profiles | ✅ | Page per organization with type, country, website, sessions, people, projects, topics. |
 | 10 | Project pages | ✅ | Page per project with description, website, license, organizations, sessions. |
-| 11 | Search | 🟡 | Existing client-side search covers events/places; extending it across the static datasets (people/orgs/topics/standards/years) is planned. |
+| 11 | Search | 🟡 | Client-side knowledge search at `/knowledge-search.html` over a combined `/api/search-index.json` (sessions, speakers, organizations, projects, themes across every year), with type filtering and `?q=` deep links. Runs entirely in the browser; no server. Ranking/typo-tolerance and the legacy events/places search remain separate. |
 | 12 | Social layer | ⬜ | Collect only public posts (Mastodon, Bluesky, public LinkedIn, blogs, GitHub) with URL/author/date/mentions. Throttled; no private content. |
 | 13 | Preservation | ⬜ | Store canonical + transcript + Wayback URLs and Archive.org status; submit to Save Page Now when missing. No video stored. Throttled. |
 | 14 | Static datasets | ✅ | `api/<conf>/<year>/{sessions,speakers,organizations,projects,topics,quotes,references}.json` + `index.json` manifest + `knowledge-graph.json`, usable directly by LLMs. |

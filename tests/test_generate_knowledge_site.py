@@ -87,6 +87,22 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         self.assertIn("Themes across years", html)
         self.assertIn(f"/{PREFIX}/topics/", html)  # links to a topic page for a present year
 
+    def test_search_index_and_page(self):
+        page = self.out / "knowledge-search.html"
+        self.assertTrue(page.exists(), "missing /knowledge-search.html")
+        self.assertIn("/api/search-index.json", page.read_text())
+        index_path = self.out / "api" / "search-index.json"
+        self.assertTrue(index_path.exists(), "missing /api/search-index.json")
+        records = json.loads(index_path.read_text())["records"]
+        self.assertGreater(len(records), 0)
+        types = {r["type"] for r in records}
+        self.assertTrue({"session", "speaker", "organization", "topic"} <= types)
+        for r in records:  # every record links into a generated page that exists
+            self.assertTrue(r["url"].startswith("/"))
+            self.assertTrue((self.out / r["url"].lstrip("/")).exists(), f"dangling search url {r['url']}")
+        manifest = json.loads((self.out / "api" / "index.json").read_text())
+        self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
+
     def test_sitemap_uses_canonical_host(self):
         sitemap = (self.out / "sitemap.xml").read_text()
         self.assertIn(BASE_HOST, sitemap)
