@@ -1,6 +1,6 @@
-# OSW_plus
+# unosw.plus
 
-OS Week Plus (OSW+) NYC is an open-source, community-driven fringe calendar and directory for events around UN Open Source Week.
+OS Week Plus (OSW+) NYC — at [unosw.plus](https://unosw.plus) — is an open-source, community-driven fringe calendar, directory, and knowledge platform for UN Open Source Week. (Repository formerly named `OSW_plus`.)
 
 ## Project layout
 
@@ -46,7 +46,7 @@ Inspired by [Food-W3C-Kobe](https://github.com/mgifford/Food-W3C-Kobe), OSW+ NYC
 
 - **[Interactive map](public/places-map.html)** — color-coded Leaflet map of all venues.
 - **[Contributing guide](CONTRIBUTING-places.md)** — how to add or suggest a place.
-- **[Suggest a place](https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml)** — quick GitHub Issue form.
+- **[Suggest a place](https://github.com/mgifford/unosw.plus/issues/new?template=submit-place.yml)** — quick GitHub Issue form.
 
 ### GitHub Actions intake
 

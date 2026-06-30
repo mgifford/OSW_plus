@@ -25,7 +25,7 @@ INPUT_CSV   = os.path.join(REPO_ROOT, "data", "places.csv")
 OUTPUT_CSV  = os.path.join(REPO_ROOT, "data", "places_with_coords.csv")
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
-USER_AGENT    = "OSW_plus-places-geocoder/1.0 (https://github.com/mgifford/OSW_plus)"
+USER_AGENT    = "OSW_plus-places-geocoder/1.0 (https://github.com/mgifford/unosw.plus)"
 RATE_LIMIT_S  = 1.1  # seconds between requests (Nominatim policy: max 1 req/s)
 
 
