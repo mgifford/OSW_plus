@@ -31,7 +31,7 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 
 | # | Phase | Status | Notes |
 |---|-------|--------|-------|
-| 1 | Improve the existing site | 🟡 | Canonical/OpenGraph/Twitter meta + homepage JSON-LD; sitemap/robots realigned to the canonical host; cross-year "Knowledge" nav. Session pages carry agenda/speakers/orgs/summary/topics/references and a recording/links section; the 2025 resources page links the four authoritative UN Web TV day recordings. Transcripts land with Phase 13. |
+| 1 | Improve the existing site | 🟡 | Canonical/OpenGraph/Twitter meta + homepage JSON-LD; sitemap/robots realigned to the canonical host; cross-year "Knowledge" nav. Session pages carry agenda/speakers/orgs/summary/topics/references and a recording/links section linking the authoritative UN Web TV recording and the community draft transcript; the 2025 resources page maps the two plenary days (OSPOs for Good, DPI Day) to their morning/afternoon recordings and draft transcripts. |
 | 2 | Ingestion pipeline | 🟡 | `scripts/import_agenda.py` ingests the 2026 agenda (`data/2026/events.json`) into normalized, provenanced datasets — a first, deterministic importer. A full throttled/idempotent pipeline for UN Web TV, transcripts.un.org, speaker pages, PDFs, and GitHub is still to come (see "Ingestion guidance"). |
 | 3 | Normalize everything | ✅ | Consistent schemas for sessions/speakers/organizations/projects (plus topics/quotes/references) in `schema/`; 2025 data normalized in `data/unosw/2025/`. |
 | 4 | Knowledge graph | ✅ | `knowledge_utils.build_graph()` emits `api/knowledge-graph.json` (people/orgs/projects/topics/sessions/countries + relationships). Importable into a graph DB later. |
@@ -43,7 +43,7 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 | 10 | Project pages | ✅ | Page per project with description, website, license, organizations, sessions. |
 | 11 | Search | 🟡 | Client-side knowledge search at `/knowledge-search.html` over a combined `/api/search-index.json` (sessions, speakers, organizations, projects, themes across every year), with type filtering and `?q=` deep links. Runs entirely in the browser; no server. Ranking/typo-tolerance and the legacy events/places search remain separate. |
 | 12 | Social layer | ⬜ | Collect only public posts (Mastodon, Bluesky, public LinkedIn, blogs, GitHub) with URL/author/date/mentions. Throttled; no private content. |
-| 13 | Preservation | ⬜ | Store canonical + transcript + Wayback URLs and Archive.org status; submit to Save Page Now when missing. No video stored. Throttled. |
+| 13 | Preservation | 🟡 | Community draft transcripts (cleaned auto-captions, no inferred speaker attribution) for the recorded plenary sessions are stored under `conferences/<year>/` and linked from the matching session pages, each beside its authoritative UN Web TV recording. Wayback/Archive.org status and a Save-Page-Now submitter are still to come. No video stored. Throttled. |
 | 14 | Static datasets | ✅ | `api/<conf>/<year>/{sessions,speakers,organizations,projects,topics,quotes,references}.json` + `index.json` manifest + `knowledge-graph.json`, usable directly by LLMs. |
 | 15 | Research outputs | ⬜ | Generated annual/daily/session/topic/org/speaker reports, reading lists, repository and standards indexes. |
 | 16 | WebMCP | ⬜ | Expose structured resources so AI systems retrieve sessions/topics/quotes/people/orgs/repos without reading every transcript. |

@@ -40,8 +40,7 @@
       "retrieved": "2026-06-29",
       "method": "manual-extraction",
       "locator": "Day 1 and 2; Opening Plenary"
-    },
-    "video_url": "https://webtv.un.org/en/asset/k1s/k1sdg8oy7y"
+    }
   },
   {
     "id": "sess-hackathon-ahead-of-the-storm",
@@ -316,7 +315,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Opening Keynote and Annex agenda"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1i-k1i8jasxz4-English.transcript.md"
   },
   {
     "id": "sess-d3-panel-newly-launched-ospos",
@@ -361,7 +361,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Panel – How They Did It"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1i-k1i8jasxz4-English.transcript.md"
   },
   {
     "id": "sess-d3-breakout-humanitarian",
@@ -541,7 +542,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Panel – AI and Open Source"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k10-k10wm2b8nu-English.transcript.md"
   },
   {
     "id": "sess-d3-panel-breaking-silos",
@@ -586,7 +588,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Panel – Breaking Silos"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k10-k10wm2b8nu-English.transcript.md"
   },
   {
     "id": "sess-d3-panel-os-in-dpi",
@@ -633,7 +636,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Panel – The Role of Open Source in DPI"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k10-k10wm2b8nu-English.transcript.md"
   },
   {
     "id": "sess-d3-panel-digital-cooperation",
@@ -678,7 +682,8 @@
       "method": "manual-extraction",
       "locator": "Day 3; Panel – Navigating Digital Cooperation"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6"
+    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k10-k10wm2b8nu-English.transcript.md"
   },
   {
     "id": "sess-d4-keynote-session",
@@ -724,7 +729,8 @@
       "method": "manual-extraction",
       "locator": "DPI Day; Keynote Session"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1v-k1vq934jz6-English.transcript.md"
   },
   {
     "id": "sess-d4-panel-global-cooperation-dpi",
@@ -773,7 +779,8 @@
       "method": "manual-extraction",
       "locator": "DPI Day; Panel – Global Cooperation for DPI"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
+    "video_url": "https://webtv.un.org/en/asset/k1v/k1vq934jz6",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1v-k1vq934jz6-English.transcript.md"
   },
   {
     "id": "sess-d4-breakout-dpi-safeguards",
@@ -1031,7 +1038,8 @@
       "method": "manual-extraction",
       "locator": "DPI Day; Panel – Empowering DPI Across Africa"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
+    "video_url": "https://webtv.un.org/en/asset/k1s/k1sdg8oy7y",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1s-k1sdg8oy7y-English.transcript.md"
   },
   {
     "id": "sess-d4-closing-ceremony",
@@ -1071,7 +1079,8 @@
       "method": "manual-extraction",
       "locator": "DPI Day; Closing Ceremony"
     },
-    "video_url": "https://webtv.un.org/en/asset/k1i/k1i8jasxz4"
+    "video_url": "https://webtv.un.org/en/asset/k1s/k1sdg8oy7y",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2025/k1s-k1sdg8oy7y-English.transcript.md"
   },
   {
     "id": "sess-community-day",
@@ -1125,7 +1134,6 @@
       "retrieved": "2026-06-29",
       "method": "manual-extraction",
       "locator": "Community Day; Community Side Event Agenda"
-    },
-    "video_url": "https://webtv.un.org/en/asset/k10/k10wm2b8nu"
+    }
   }
 ]

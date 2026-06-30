@@ -247,7 +247,7 @@ class SiteGenerator:
         if session.get("video_url"):
             media.append(f'<a href="{esc(session["video_url"])}" rel="noopener noreferrer">▶ Official recording (UN Web TV)</a>')
         if session.get("transcript_url"):
-            media.append(f'<a href="{esc(session["transcript_url"])}" rel="noopener noreferrer">📄 Transcript</a>')
+            media.append(f'<a href="{esc(session["transcript_url"])}" rel="noopener noreferrer">📄 Draft transcript</a>')
         if session.get("official_url"):
             media.append(f'<a href="{esc(session["official_url"])}" rel="noopener noreferrer">🌐 Official page</a>')
         if media:
