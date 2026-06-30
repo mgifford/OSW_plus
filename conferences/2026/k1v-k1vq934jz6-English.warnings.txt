@@ -1,0 +1,17 @@
+Caption cleanup warnings
+
+- Possessive acronym may need review: of government services, including by using the UN's multi-dimensional poverty analysis,
+- Possible missing space or camelCase term: Mr. Villas, President and Trustee of the Patrick McGovern Foundation, Minister of Government
+- Possible missing space or camelCase term: As the president of the Patrick J. McGovern Foundation and a member of the UN Secretary
+- Possessive acronym may need review: And we're starting with Yolanda Martinez, WHO's the practice manager for digital development
+- Possessive acronym may need review: And we're also welcoming Daniel Morenzi, WHO's the principal engineer at the East African
+- Possessive acronym may need review: Next, please welcome Sheila Warren, WHO's the CEO of Project Liberty Institute.
+- Possible missing space or camelCase term: And interestingly, so she will play an active role in the people's bid to acquire TikTok.
+- Possessive acronym may need review: So Daniel, the ESC's mission is to deepen the economic and political and cultural integration
+- Possible missing space or camelCase term: our SMEs and the FinTechs that we need to move within this ecosystem.
+- Possible missing space or camelCase term: EmPesa with Kenya really teach the world what cash transfer programs and digital payments
+- Possible missing space or camelCase term: And during spring meetings, we launch a consortium together with the colleagues of IDV, CoDeVello,
+- Possible missing space or camelCase term: a SaaS solution, but those decisions that we made really shaped the outcomes and reflected
+- Possessive acronym may need review: So their concerns about what's happening with my information, WHO's using it, what
+- Possessive acronym may need review: WHO's not gone to Kenya recently, they're leading now.
+- Possible missing space or camelCase term: So I spent 14 years at TechSoup, eight as an executive and six on the board, and then

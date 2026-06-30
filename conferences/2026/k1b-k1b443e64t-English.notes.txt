@@ -1,0 +1,151 @@
+Caption cleanup notes
+
+Source file: k1b-k1b443e64t-English.txt
+Output file: k1b-k1b443e64t-English.accessible.vtt
+Input cue count: 1075
+Output cue count: 1768
+
+What changed:
+- Converted Whisper TXT or rough VTT into valid WebVTT.
+- Added cue numbers.
+- Merged very short adjacent cues where safe.
+- Split long cues into shorter cues.
+- Wrapped captions for readability.
+- Applied conservative dictionary-based corrections.
+- Applied explicit replacement rules where provided.
+- Added validation and warning notes.
+
+What was not changed:
+- No audio re-transcription was performed.
+- Event agenda support was not used.
+- No uncertain speaker names were invented.
+- No substantive rewriting was performed.
+
+Dictionary groups loaded:
+- accessibility_and_inclusion: 11 entries
+- acronyms: 49 entries
+- ai_terms: 24 entries
+- countries: 38 entries
+- countries_and_places: 27 entries
+- event_names: 9 entries
+- open_source_terms: 28 entries
+- organizations: 111 entries
+- people: 34 entries
+- people_titles: 10 entries
+- projects_and_platforms: 27 entries
+- regions: 21 entries
+- standards_and_policy: 13 entries
+- terms: 77 entries
+- un_digital_terms: 27 entries
+- un_entities: 26 entries
+- replacements: 5 entries
+
+Applied replacements:
+- WHO: 20
+- RISE: 2
+
+Validation:
+- Cue 37: text exceeds 84 characters
+- Cue 50: text exceeds 84 characters
+- Cue 53: text exceeds 84 characters
+- Cue 63: text exceeds 84 characters
+- Cue 71: text exceeds 84 characters
+- Cue 72: text exceeds 84 characters
+- Cue 87: text exceeds 84 characters
+- Cue 96: text exceeds 84 characters
+- Cue 117: text exceeds 84 characters
+- Cue 126: text exceeds 84 characters
+- Cue 136: text exceeds 84 characters
+- Cue 159: text exceeds 84 characters
+- Cue 166: text exceeds 84 characters
+- Cue 167: text exceeds 84 characters
+- Cue 200: text exceeds 84 characters
+- Cue 207: text exceeds 84 characters
+- Cue 217: text exceeds 84 characters
+- Cue 237: text exceeds 84 characters
+- Cue 240: text exceeds 84 characters
+- Cue 249: text exceeds 84 characters
+- Cue 251: text exceeds 84 characters
+- Cue 259: text exceeds 84 characters
+- Cue 261: text exceeds 84 characters
+- Cue 269: text exceeds 84 characters
+- Cue 274: text exceeds 84 characters
+- Cue 276: text exceeds 84 characters
+- Cue 287: text exceeds 84 characters
+- Cue 297: text exceeds 84 characters
+- Cue 304: text exceeds 84 characters
+- Cue 305: text exceeds 84 characters
+- Cue 314: text exceeds 84 characters
+- Cue 334: text exceeds 84 characters
+- Cue 336: text exceeds 84 characters
+- Cue 339: text exceeds 84 characters
+- Cue 344: text exceeds 84 characters
+- Cue 349: text exceeds 84 characters
+- Cue 350: text exceeds 84 characters
+- Cue 360: text exceeds 84 characters
+- Cue 377: text exceeds 84 characters
+- Cue 395: text exceeds 84 characters
+- Cue 415: text exceeds 84 characters
+- Cue 419: text exceeds 84 characters
+- Cue 422: text exceeds 84 characters
+- Cue 432: text exceeds 84 characters
+- Cue 462: text exceeds 84 characters
+- Cue 475: text exceeds 84 characters
+- Cue 482: text exceeds 84 characters
+- Cue 492: text exceeds 84 characters
+- Cue 505: text exceeds 84 characters
+- Cue 511: text exceeds 84 characters
+- Cue 513: text exceeds 84 characters
+- Cue 516: text exceeds 84 characters
+- Cue 523: text exceeds 84 characters
+- Cue 531: text exceeds 84 characters
+- Cue 561: text exceeds 84 characters
+- Cue 570: text exceeds 84 characters
+- Cue 609: text exceeds 84 characters
+- Cue 620: text exceeds 84 characters
+- Cue 624: text exceeds 84 characters
+- Cue 625: text exceeds 84 characters
+- Cue 659: text exceeds 84 characters
+- Cue 668: text exceeds 84 characters
+- Cue 671: text exceeds 84 characters
+- Cue 680: text exceeds 84 characters
+- Cue 703: text exceeds 84 characters
+- Cue 726: text exceeds 84 characters
+- Cue 753: text exceeds 84 characters
+- Cue 796: text exceeds 84 characters
+- Cue 809: text exceeds 84 characters
+- Cue 810: text exceeds 84 characters
+- Cue 815: text exceeds 84 characters
+- Cue 816: text exceeds 84 characters
+- Cue 823: text exceeds 84 characters
+- Cue 830: text exceeds 84 characters
+- Cue 835: text exceeds 84 characters
+- Cue 844: text exceeds 84 characters
+- Cue 845: text exceeds 84 characters
+- Cue 866: text exceeds 84 characters
+- Cue 879: text exceeds 84 characters
+- Cue 891: text exceeds 84 characters
+- Cue 907: text exceeds 84 characters
+- Cue 911: text exceeds 84 characters
+- Cue 940: text exceeds 84 characters
+- Cue 941: text exceeds 84 characters
+- Cue 944: text exceeds 84 characters
+- Cue 953: text exceeds 84 characters
+- Cue 959: text exceeds 84 characters
+- Cue 962: text exceeds 84 characters
+- Cue 971: text exceeds 84 characters
+- Cue 975: text exceeds 84 characters
+- Cue 992: text exceeds 84 characters
+- Cue 995: text exceeds 84 characters
+- Cue 1005: text exceeds 84 characters
+- Cue 1006: text exceeds 84 characters
+- Cue 1015: text exceeds 84 characters
+- Cue 1021: text exceeds 84 characters
+- Cue 1024: text exceeds 84 characters
+- Cue 1027: text exceeds 84 characters
+- Cue 1050: text exceeds 84 characters
+- Cue 1069: text exceeds 84 characters
+- ... 13 more
+
+Warnings:
+- 5 warning(s) written to the warnings file.

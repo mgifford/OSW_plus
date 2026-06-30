@@ -1,0 +1,5 @@
+Caption cleanup warnings
+
+- Possible missing space or camelCase term: of EvidenceOS.
+- Possessive acronym may need review: day. I want to acknowledge the presence of the minister from Tanzania WHO's come straight
+- Possessive acronym may need review: which co-leads this initiative with Oded, and then CIVI Madhukar from co-develop, WHO's

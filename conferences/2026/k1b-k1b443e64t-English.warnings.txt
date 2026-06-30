@@ -1,0 +1,7 @@
+Caption cleanup warnings
+
+- Possessive acronym may need review: me give the floor to the opening keynote, Ted Style of Professor David Schreer, WHO's
+- Possible missing space or camelCase term: So this iPad, as soon as I took it out of the box, it started losing value, it began
+- Possible missing space or camelCase term: I was at DeepMind and then I led the research arm at Cohere.
+- Possessive acronym may need review: know governance for policymakers for anyone WHO's trying to figure out how do you figure
+- Possible missing space or camelCase term: with the open source community like the Linux Foundation PyTorch Foundation Eclipse Foundation

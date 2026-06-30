@@ -1,0 +1,35 @@
+Caption cleanup warnings
+
+- Possible OSPO casing issue: effective governmental OSPO so give the floor to Michael Downey from UNDP WHO
+- Possessive acronym may need review: the two OSPO's under development both in the Republic of Kenya and the Republic
+- Possible OSPO casing issue: the two OSPO's under development both in the Republic of Kenya and the Republic
+- Possible OSPO casing issue: from the OSPO in France. Bastian thank you for chiming in as well as from my
+- Possessive acronym may need review: this development of these pilots and hopefully a replicable network of OSPO's
+- Possible OSPO casing issue: this development of these pilots and hopefully a replicable network of OSPO's
+- Possessive acronym may need review: OSPO's as well. We also highlighted the need for sustainability of these efforts
+- Possible OSPO casing issue: OSPO's as well. We also highlighted the need for sustainability of these efforts
+- Possible OSPO casing issue: this down we announced something called the public sector OSPO network which is
+- Possessive acronym may need review: a facility for us to reach out to each other connect OSPO's that are serving
+- Possible OSPO casing issue: a facility for us to reach out to each other connect OSPO's that are serving
+- Possessive acronym may need review: online the URL is FLOSS F-L-O-S-S-P-S-O as in public sector OSPO's dot network so
+- Possible OSPO casing issue: online the URL is FLOSS F-L-O-S-S-P-S-O as in public sector OSPO's dot network so
+- Possessive acronym may need review: panel mr. Jan Lucun WHO's the chief scientist from Meta WHO's gonna address
+- Possible missing space or camelCase term: AI leader PwC Germany please welcome Sabrina Farmer chief technology
+- Possible missing space or camelCase term: officer of GitLab and please welcome Hakim Hasid chief researcher
+- Possible missing space or camelCase term: society Sabrina thank you at GitLab we build a DevSecOps platform and we
+- Possible missing space or camelCase term: change and reflection Frederick please well first of all PwC is of course
+- Possible missing space or camelCase term: and there's two ways we we do this at GitLab we're vendor agnostic and so we
+- Possessive acronym may need review: and last but not the least our investment in startup through ADB's
+- Possible missing space or camelCase term: thank you to Stephanie and the ADB Sabrina GitLab is a major contributor to
+- Possessive acronym may need review: of regulation but and this is my first message to you because UN's fundamental
+- Possible missing space or camelCase term: low-code and UN ediFACT you may not have heard about them but any Amazon package
+- Possessive acronym may need review: institutes at UNU merit our collaboration with UNICEF's office of
+- Possessive acronym may need review: loan in the UN's DPI safeguards initiative it contributed to the
+- Possible missing space or camelCase term: protection in DPI. UNU eGAF also leads two regional initiatives in Africa one
+- Possessive acronym may need review: security these efforts reflect UNU's commitment to ensuring DPI serves
+- Possible missing space or camelCase term: yourself here we saw one sitting next to you and posted on LinkedIn master done
+- Possible missing space or camelCase term: Kubernetes no JS PyTorch in the space of AI so from an horizontal perspective
+- Possible missing space or camelCase term: deeply FOS is already embedded in our products our latest eClass model has up
+- Possessive acronym may need review: open source but the procurement hasn't corrupt yet so where do I sign like WHO's
+- Possessive acronym may need review: limited now if I give it to my good friend WHO's chief economic economy
+- Possible missing space or camelCase term: portal city open data portal and they are all available on GitHub and some have
