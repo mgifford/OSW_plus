@@ -92,7 +92,7 @@
           <li><a href="https://www.unopensource.org/agenda" target="_blank" rel="noopener noreferrer">🇺🇳 UN Open Source Week — Official Agenda<span class="visually-hidden"> (opens in new tab)</span></a></li>
           <li><a href="https://www.digitalpublicgoods.net" target="_blank" rel="noopener noreferrer">🌐 Digital Public Goods Alliance (DPGA)<span class="visually-hidden"> (opens in new tab)</span></a></li>
           <li><a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">📋 DPGA Events List (HackMD)<span class="visually-hidden"> (opens in new tab)</span></a> — DPGA-maintained list of events; this calendar syncs from it daily</li>
-          <li><a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">➕ Submit a Community Event<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">➕ Submit a Community Event<span class="visually-hidden"> (opens in new tab)</span></a></li>
         </ul>
       </section>
 
@@ -205,9 +205,9 @@
           const breakfasts = dayEvents.filter((e) => e.timeframe === "weekday_breakfast");
           const daytimes = dayEvents.filter((e) => e.timeframe === "weekday_daytime");
           const evenings = dayEvents.filter((e) => e.timeframe === "weekday_evening");
-          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
-          const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
-          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
             <section class="day-block" aria-labelledby="${dayId}">
@@ -236,7 +236,7 @@
       function renderSection(id, events) {
         const root = document.getElementById(id);
         if (!events.length) {
-          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           return;
         }
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");

@@ -23,7 +23,7 @@ Please keep suggestions within **~20 minutes walk or one subway stop** of the UN
 
 ## Option A — Submit via GitHub Issue (easiest)
 
-Open a new issue using the **[Suggest a Place](https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml)** template and fill in the form. A maintainer will add it to the map.
+Open a new issue using the **[Suggest a Place](https://github.com/mgifford/unosw.plus/issues/new?template=submit-place.yml)** template and fill in the form. A maintainer will add it to the map.
 
 After the issue is opened, a maintainer reviews it and adds the `approved` label when it is ready to ingest. GitHub Actions then creates a pull request that adds the place to `data/places.csv` and regenerates `data/places_with_coords.csv` so the venue can appear on the map. A maintainer approves that pull request by reviewing it and merging it into `main`.
 
@@ -90,4 +90,4 @@ This reads `data/places.csv`, looks up missing coordinates via the [Nominatim OS
 
 ## Questions?
 
-Open a [GitHub Issue](https://github.com/mgifford/OSW_plus/issues) to ask a question or ping the maintainers.
+Open a [GitHub Issue](https://github.com/mgifford/unosw.plus/issues) to ask a question or ping the maintainers.

@@ -616,7 +616,7 @@
             <strong>Find Places to Meet</strong>
             <span>Coffee, food &amp; spots near the UN</span>
           </a>
-          <a class="qa-card" href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">
+          <a class="qa-card" href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">
             <span class="qa-icon">➕</span>
             <strong>Submit an Event</strong>
             <span>Add your event via GitHub Issues<span class="visually-hidden"> (opens in new tab)</span></span>
@@ -627,7 +627,7 @@
       <div class="un-stripe" role="note">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
         Events below are organized by the community, independent of the official <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a> programme.
-        Want to add an event? <a href="https://github.com/mgifford/OSW_plus/issues/new" target="_blank" rel="noopener noreferrer">Submit via GitHub<span class="visually-hidden"> (opens in new tab)</span></a>.
+        Want to add an event? <a href="https://github.com/mgifford/unosw.plus/issues/new" target="_blank" rel="noopener noreferrer">Submit via GitHub<span class="visually-hidden"> (opens in new tab)</span></a>.
       </div>
 
       <aside class="official-links-note" aria-label="Official event sources">
@@ -748,7 +748,7 @@
 
     <footer>
       <p>OSW+ NYC · Community-driven side events around <a href="https://www.unopensource.org/" target="_blank" rel="noopener noreferrer">UN Open Source Week<span class="visually-hidden"> (opens in new tab)</span></a>. Not an official UN event.</p>
-      <p style="margin-top:0.4rem;"><a href="https://github.com/mgifford/OSW_plus" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="visually-hidden"> (opens in new tab)</span></a></p>
+      <p style="margin-top:0.4rem;"><a href="https://github.com/mgifford/unosw.plus" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="visually-hidden"> (opens in new tab)</span></a></p>
     </footer>
 
     <script>
@@ -990,9 +990,9 @@
             const startMinutes = dayEventStartMinutes.get(e.id);
             return startMinutes !== null && startMinutes >= eveningCutoff;
           });
-          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
-          const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
-          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const breakfastHtml = breakfasts.length ? breakfasts.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No breakfast listings yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const daytimeHtml = daytimes.length ? daytimes.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No daytime side events listed yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
+          const eveningHtml = evenings.length ? evenings.map((e) => cardMarkup(e, 5)).join("") : '<p class="empty">No evening listings yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a>.</p>';
           const dayId = `day-${day.toLowerCase()}`;
           root.insertAdjacentHTML("beforeend", `
             <section class="day-block" aria-labelledby="${dayId}">
@@ -1021,7 +1021,7 @@
       function renderSection(id, events) {
         const root = document.getElementById(id);
         if (!events.length) {
-          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a> or check the <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">community pad</a>.</p>';
+          root.innerHTML = '<p class="empty">No community events listed yet — <a href="https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml" target="_blank" rel="noopener noreferrer">submit one</a> or check the <a href="https://hackmd.io/@dpga/Sk05Nc21Me" target="_blank" rel="noopener noreferrer">community pad</a>.</p>';
           return;
         }
         root.innerHTML = events.map((e) => cardMarkup(e, 3)).join("");

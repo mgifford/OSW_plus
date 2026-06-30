@@ -327,7 +327,7 @@ def fetch_html(url: str) -> str:
     headers = {
         "User-Agent": (
             "OSW+ Event Monitor/1.0 "
-            "(https://github.com/mgifford/OSW_plus; community event sync bot)"
+            "(https://github.com/mgifford/unosw.plus; community event sync bot)"
         ),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",

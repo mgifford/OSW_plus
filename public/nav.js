@@ -15,8 +15,8 @@
     { href: '/2025-resources.html',  label: '🗓️ 2025 Resources' }
   ];
 
-  var SUBMIT_EVENT_URL = 'https://github.com/mgifford/OSW_plus/issues/new?template=submit-event.yml';
-  var SUBMIT_PLACE_URL = 'https://github.com/mgifford/OSW_plus/issues/new?template=submit-place.yml';
+  var SUBMIT_EVENT_URL = 'https://github.com/mgifford/unosw.plus/issues/new?template=submit-event.yml';
+  var SUBMIT_PLACE_URL = 'https://github.com/mgifford/unosw.plus/issues/new?template=submit-place.yml';
 
   // Detect current page by matching the filename portion of the URL
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';

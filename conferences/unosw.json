@@ -11,27 +11,91 @@
     "https://www.un.org/digital-emerging-technologies/content/about",
     "https://oict.un.org/"
   ],
-  "years": [2025, 2026],
-  "data_years": [2025, 2026],
+  "years": [
+    2025,
+    2026
+  ],
+  "data_years": [
+    2024,
+    2025,
+    2026
+  ],
   "topic_vocabulary": [
-    { "slug": "accessibility", "name": "Accessibility" },
-    { "slug": "ai", "name": "AI" },
-    { "slug": "digital-public-infrastructure", "name": "Digital Public Infrastructure" },
-    { "slug": "digital-public-goods", "name": "Digital Public Goods" },
-    { "slug": "open-standards", "name": "Open Standards" },
-    { "slug": "open-source", "name": "Open Source" },
-    { "slug": "procurement", "name": "Procurement" },
-    { "slug": "climate", "name": "Climate" },
-    { "slug": "sustainability", "name": "Sustainability" },
-    { "slug": "government", "name": "Government" },
-    { "slug": "health", "name": "Health" },
-    { "slug": "education", "name": "Education" },
-    { "slug": "security", "name": "Security" },
-    { "slug": "licensing", "name": "Licensing" },
-    { "slug": "community", "name": "Community" },
-    { "slug": "funding", "name": "Funding" },
-    { "slug": "ospo", "name": "OSPO" },
-    { "slug": "interoperability", "name": "Interoperability" },
-    { "slug": "digital-sovereignty", "name": "Digital Sovereignty" }
+    {
+      "slug": "accessibility",
+      "name": "Accessibility"
+    },
+    {
+      "slug": "ai",
+      "name": "AI"
+    },
+    {
+      "slug": "digital-public-infrastructure",
+      "name": "Digital Public Infrastructure"
+    },
+    {
+      "slug": "digital-public-goods",
+      "name": "Digital Public Goods"
+    },
+    {
+      "slug": "open-standards",
+      "name": "Open Standards"
+    },
+    {
+      "slug": "open-source",
+      "name": "Open Source"
+    },
+    {
+      "slug": "procurement",
+      "name": "Procurement"
+    },
+    {
+      "slug": "climate",
+      "name": "Climate"
+    },
+    {
+      "slug": "sustainability",
+      "name": "Sustainability"
+    },
+    {
+      "slug": "government",
+      "name": "Government"
+    },
+    {
+      "slug": "health",
+      "name": "Health"
+    },
+    {
+      "slug": "education",
+      "name": "Education"
+    },
+    {
+      "slug": "security",
+      "name": "Security"
+    },
+    {
+      "slug": "licensing",
+      "name": "Licensing"
+    },
+    {
+      "slug": "community",
+      "name": "Community"
+    },
+    {
+      "slug": "funding",
+      "name": "Funding"
+    },
+    {
+      "slug": "ospo",
+      "name": "OSPO"
+    },
+    {
+      "slug": "interoperability",
+      "name": "Interoperability"
+    },
+    {
+      "slug": "digital-sovereignty",
+      "name": "Digital Sovereignty"
+    }
   ]
 }

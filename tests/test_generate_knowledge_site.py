@@ -67,6 +67,77 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         dangling = [e for e in graph["edges"] if e["source"] not in node_ids or e["target"] not in node_ids]
         self.assertEqual(dangling, [], "knowledge graph has dangling edges")
 
+    def test_discovery_endpoints(self):
+        manifest_path = self.out / "api" / "index.json"
+        self.assertTrue(manifest_path.exists(), "missing /api/index.json discovery manifest")
+        manifest = json.loads(manifest_path.read_text())
+        years = {e["year"] for e in manifest["conference_years"]}
+        self.assertIn(2025, years)
+        for entry in manifest["conference_years"]:
+            self.assertIn("sessions", entry["datasets"])
+            self.assertTrue(entry["knowledge_graph"].endswith("knowledge-graph.json"))
+        llms = self.out / "llms.txt"
+        self.assertTrue(llms.exists(), "missing /llms.txt")
+        self.assertIn("/api/index.json", llms.read_text())
+
+    def test_timeline_page(self):
+        timeline = self.out / "timeline.html"
+        self.assertTrue(timeline.exists(), "missing /timeline.html")
+        html = timeline.read_text()
+        self.assertIn("Themes across years", html)
+        self.assertIn(f"/{PREFIX}/topics/", html)  # links to a topic page for a present year
+
+    def test_search_index_and_page(self):
+        page = self.out / "knowledge-search.html"
+        self.assertTrue(page.exists(), "missing /knowledge-search.html")
+        self.assertIn("/api/search-index.json", page.read_text())
+        index_path = self.out / "api" / "search-index.json"
+        self.assertTrue(index_path.exists(), "missing /api/search-index.json")
+        records = json.loads(index_path.read_text())["records"]
+        self.assertGreater(len(records), 0)
+        types = {r["type"] for r in records}
+        self.assertTrue({"session", "speaker", "organization", "topic"} <= types)
+        categories = {r["category"] for r in records}
+        self.assertIn("events", categories)
+        self.assertIn("history", categories)  # recordings/transcripts + documents
+        for r in records:
+            self.assertIn(r["category"], ("events", "history"))
+            if r["category"] == "events":  # internal page that must exist
+                self.assertTrue(r["url"].startswith("/"))
+                self.assertTrue((self.out / r["url"].lstrip("/")).exists(), f"dangling search url {r['url']}")
+            else:  # history links out to GitHub / UN Web TV
+                self.assertTrue(r["url"].startswith("http"), f"history url not absolute: {r['url']}")
+        manifest = json.loads((self.out / "api" / "index.json").read_text())
+        self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
+
+    def test_relationship_graph(self):
+        page = self.out / "graph.html"
+        self.assertTrue(page.exists(), "missing /graph.html relationship map")
+        graph = json.loads((self.out / "api" / "graph.json").read_text())
+        self.assertGreater(len(graph["nodes"]), 0)
+        self.assertGreater(len(graph["edges"]), 0)
+        node_ids = {n["id"] for n in graph["nodes"]}
+        for n in graph["nodes"]:  # every node carries a computed position
+            self.assertIn("x", n)
+            self.assertIn("y", n)
+        dangling = [e for e in graph["edges"] if e["source"] not in node_ids or e["target"] not in node_ids]
+        self.assertEqual(dangling, [], "graph has dangling edges")
+        # the SVG is decorative; the accessible index links real pages
+        html = page.read_text()
+        self.assertIn('aria-hidden="true"', html)
+        self.assertIn("Relationship index", html)
+
+    def test_topic_page_links_people_and_organizations(self):
+        # Connection blocks: a topic page navigates to the people and orgs active on it.
+        topic = (self.out / f"{PREFIX}/topics/ai.html").read_text()
+        self.assertIn("People who spoke on this theme", topic)
+        self.assertIn("Organizations active on this theme", topic)
+        self.assertRegex(topic, rf'href="/{PREFIX}/speakers/[a-z0-9-]+\.html"')
+        self.assertRegex(topic, rf'href="/{PREFIX}/organizations/[a-z0-9-]+\.html"')
+        self.assertIn("/timeline.html#theme-ai", topic)  # cross-year link
+        speaker = (self.out / f"{PREFIX}/speakers/sachiko-muto.html").read_text()
+        self.assertIn("Connected speakers", speaker)
+
     def test_sitemap_uses_canonical_host(self):
         sitemap = (self.out / "sitemap.xml").read_text()
         self.assertIn(BASE_HOST, sitemap)

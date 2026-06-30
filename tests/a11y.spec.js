@@ -9,12 +9,17 @@ const PAGES = [
   { name: "2025 resources", path: "/2025-resources.html" },
   // Generated knowledge-platform pages (produced by generate_knowledge_site.py)
   { name: "knowledge hub", path: "/explore.html" },
+  { name: "knowledge search", path: "/knowledge-search.html" },
+  { name: "relationship map", path: "/graph.html" },
+  { name: "timeline", path: "/timeline.html" },
   { name: "year hub", path: "/unosw/2025/explore.html" },
   { name: "speaker profile", path: "/unosw/2025/speakers/sachiko-muto.html" },
   { name: "session page", path: "/unosw/2025/sessions/sess-opening-plenary.html" },
   { name: "organization profile", path: "/unosw/2025/organizations/un-odet.html" },
   { name: "2026 year hub", path: "/unosw/2026/explore.html" },
   { name: "2026 session page", path: "/unosw/2026/sessions/sess-2026-016.html" },
+  { name: "2024 year hub", path: "/unosw/2024/explore.html" },
+  { name: "2024 session page", path: "/unosw/2024/sessions/sess-2024-d1-opening-plenary.html" },
 ];
 
 async function scanPage(page, path) {

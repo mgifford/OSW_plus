@@ -77,6 +77,12 @@ full copyrighted text. When in doubt, store a reference and a link, not a copy.
   `method: automated-ingestion` and always link to the authoritative agenda/event
   URL. Do **not** use this basis to store substantial copyrighted prose; for that,
   store metadata and a link only, per the rule above.
+- **Draft transcripts** of recorded plenary sessions (under `conferences/<year>/`)
+  are community-generated from UN Web TV's cleaned auto-captions. They carry no
+  inferred speaker attribution, are labelled "Draft transcript" wherever linked,
+  and always sit beside a link to the authoritative UN Web TV recording. They are
+  aids to discovery, not an authoritative record; the official transcript
+  (transcripts.un.org), once published, takes precedence. No video is stored.
 - **Code** (scripts, schemas, generator) is covered by the repository
   [LICENSE](LICENSE).
 - Contributors license their contributions under those same terms and confirm

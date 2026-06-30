@@ -1,0 +1,427 @@
+[
+  {
+    "id": "sess-2024-d1-opening-plenary",
+    "title": "Opening Plenary: Embracing Open Source Technology to Achieve the SDGs",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "government",
+      "digital-public-goods"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "type": "plenary",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d1-track-ai-and-open-source",
+    "title": "Thematic Track #1: AI and Open Source",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "ai",
+      "open-source"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "type": "panel",
+    "start_time": "09:30",
+    "end_time": "11:00",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d1-spotlight-global-south",
+    "title": "Spotlight Panel: Open Source in the Global South",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "government",
+      "digital-public-goods"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "type": "panel",
+    "start_time": "11:30",
+    "end_time": "12:30",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d1-track-open-source-at-the-un",
+    "title": "Thematic Track #2: Open Source at the UN",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "government",
+      "ospo"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "type": "panel",
+    "start_time": "13:30",
+    "end_time": "15:00",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d1-reboot-the-earth",
+    "title": "Presentation: Reboot the Earth",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "climate",
+      "open-source"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "start_time": "15:00",
+    "end_time": "15:30",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d1-track-open-source-and-governments",
+    "title": "Thematic Track #3: Open Source and Governments",
+    "year": 2024,
+    "date": "2024-07-09",
+    "day": "Day 1 — 9 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "government",
+      "open-source",
+      "ospo",
+      "procurement"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 1 Events"
+    },
+    "type": "panel",
+    "start_time": "16:00",
+    "end_time": "17:30",
+    "video_url": "https://webtv.un.org/en/asset/k1q/k1qmxhno3c",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k1q-k1qmxhno3c-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d2-track-open-source-at-work",
+    "title": "Thematic Track #4: Open Source at Work in the World",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "community"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "panel",
+    "start_time": "09:00",
+    "end_time": "10:30",
+    "video_url": "https://webtv.un.org/en/asset/k15/k1517v486n",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k15-k1517v486n-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d2-devrooms-open-source-at-work",
+    "title": "Devrooms: Open Source at Work in the World",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "community"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "breakout",
+    "start_time": "11:00",
+    "end_time": "12:00"
+  },
+  {
+    "id": "sess-2024-d2-spotlight-youth",
+    "title": "Spotlight Panel: Youth and Open Source",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "community",
+      "education",
+      "open-source"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "panel",
+    "start_time": "13:00",
+    "end_time": "14:00",
+    "video_url": "https://webtv.un.org/en/asset/k15/k1517v486n",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k15-k1517v486n-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d2-track-networked-cities",
+    "title": "Thematic Track #5: Open Source Networked Cities",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "government",
+      "interoperability"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "panel",
+    "start_time": "14:00",
+    "end_time": "15:30",
+    "video_url": "https://webtv.un.org/en/asset/k15/k1517v486n",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k15-k1517v486n-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d2-spotlight-civil-society",
+    "title": "Spotlight Panel: Open Source and Civil Society",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "community",
+      "open-source",
+      "government"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "panel",
+    "start_time": "16:00",
+    "end_time": "17:00",
+    "video_url": "https://webtv.un.org/en/asset/k15/k1517v486n",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k15-k1517v486n-English.transcript.md"
+  },
+  {
+    "id": "sess-2024-d2-closing-plenary",
+    "title": "Closing Plenary — The Next Decade: Envisioning the Future of Open Source",
+    "year": 2024,
+    "date": "2024-07-10",
+    "day": "Day 2 — 10 July 2024",
+    "track": "OSPOs for Good 2024",
+    "room": "UN Headquarters, New York",
+    "organizations": [
+      "un-oset",
+      "un-oict",
+      "ospo-plus-plus",
+      "openforum-europe"
+    ],
+    "topics": [
+      "open-source",
+      "sustainability"
+    ],
+    "speakers": [],
+    "projects": [],
+    "references": [],
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Proposed Agenda, Day 2 Events"
+    },
+    "type": "plenary",
+    "start_time": "17:00",
+    "end_time": "17:30",
+    "video_url": "https://webtv.un.org/en/asset/k15/k1517v486n",
+    "transcript_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/k15-k1517v486n-English.transcript.md"
+  }
+]
