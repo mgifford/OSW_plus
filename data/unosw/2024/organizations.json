@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "un-oset",
+    "name": "UN Office of the Secretary-General's Envoy on Technology",
+    "type": "un-agency",
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Concept Note header — co-organizers"
+    }
+  },
+  {
+    "slug": "un-oict",
+    "name": "UN Office of Information and Communications Technology (OICT)",
+    "type": "un-agency",
+    "website": "https://oict.un.org/",
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Concept Note header — co-organizers"
+    }
+  },
+  {
+    "slug": "ospo-plus-plus",
+    "name": "OSPO++",
+    "type": "community",
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Concept Note header — co-organizers"
+    }
+  },
+  {
+    "slug": "openforum-europe",
+    "name": "OpenForum Europe (OFE)",
+    "type": "ngo",
+    "website": "https://openforumeurope.org/",
+    "provenance": {
+      "source_url": "https://github.com/mgifford/unosw.plus/blob/main/conferences/2024/OSPOs_for_Good_2024_-_Concept_Note.pdf",
+      "source_title": "OSPOs for Good 2024 Conference — Concept Note",
+      "license": "public-domain",
+      "method": "manual-extraction",
+      "retrieved": "2026-06-30",
+      "locator": "Concept Note header — co-organizers"
+    }
+  }
+]

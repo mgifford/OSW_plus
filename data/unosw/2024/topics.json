@@ -1,0 +1,97 @@
+[
+  {
+    "slug": "accessibility",
+    "name": "Accessibility",
+    "description": "Designing digital systems, content, and standards so they are usable by people with disabilities and across diverse contexts."
+  },
+  {
+    "slug": "ai",
+    "name": "AI",
+    "description": "Artificial intelligence, including open source AI, ethical and transparent systems, and AI's impact on work and the public good."
+  },
+  {
+    "slug": "digital-public-infrastructure",
+    "name": "Digital Public Infrastructure",
+    "description": "Shared, interoperable building blocks such as identity, payments, and data exchange that underpin inclusive digital societies."
+  },
+  {
+    "slug": "digital-public-goods",
+    "name": "Digital Public Goods",
+    "description": "Open source software, data, AI models, standards, and content that advance the Sustainable Development Goals."
+  },
+  {
+    "slug": "open-standards",
+    "name": "Open Standards",
+    "description": "Openly developed specifications that enable interoperability and portability across systems and borders."
+  },
+  {
+    "slug": "open-source",
+    "name": "Open Source",
+    "description": "Software, hardware, and practices developed and shared under open licenses with collaborative governance."
+  },
+  {
+    "slug": "procurement",
+    "name": "Procurement",
+    "description": "Public-sector purchasing models and policies that favour reuse, openness, and avoidance of vendor lock-in."
+  },
+  {
+    "slug": "climate",
+    "name": "Climate",
+    "description": "Open technologies and data addressing climate resilience, disaster preparedness, and environmental risk."
+  },
+  {
+    "slug": "sustainability",
+    "name": "Sustainability",
+    "description": "Long-term maintenance, funding, and stewardship of open source software and digital infrastructure."
+  },
+  {
+    "slug": "government",
+    "name": "Government",
+    "description": "Public-sector adoption of open source, including national strategies, OSPOs, and digital transformation."
+  },
+  {
+    "slug": "health",
+    "name": "Health",
+    "description": "Open source and digital public goods supporting health information systems and humanitarian response."
+  },
+  {
+    "slug": "education",
+    "name": "Education",
+    "description": "Open knowledge, skills development, capacity building, and academic engagement with open source."
+  },
+  {
+    "slug": "security",
+    "name": "Security",
+    "description": "Software supply-chain security, safeguards, data protection, and trust in digital systems."
+  },
+  {
+    "slug": "licensing",
+    "name": "Licensing",
+    "description": "Open source licenses, definitions, and the legal frameworks governing reuse and contribution."
+  },
+  {
+    "slug": "community",
+    "name": "Community",
+    "description": "Contributor health, recognition, onboarding, and the human practices that sustain open collaboration."
+  },
+  {
+    "slug": "funding",
+    "name": "Funding",
+    "description": "Financing models for open source maintenance, including public funds and philanthropic support."
+  },
+  {
+    "slug": "ospo",
+    "name": "OSPO",
+    "description": "Open Source Program Offices that coordinate open source strategy, compliance, and culture in institutions."
+  },
+  {
+    "slug": "interoperability",
+    "name": "Interoperability",
+    "description": "The ability of systems, data, and services to work together across organisational and national boundaries."
+  },
+  {
+    "slug": "digital-sovereignty",
+    "name": "Digital Sovereignty",
+    "description": "Reducing dependency and retaining control over critical digital infrastructure, data, and technology choices."
+  }
+]

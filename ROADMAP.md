@@ -37,7 +37,7 @@ A working end-to-end slice proves the architecture, using the CC BY 4.0
 | 4 | Knowledge graph | ✅ | `knowledge_utils.build_graph()` emits `api/knowledge-graph.json` (people/orgs/projects/topics/sessions/countries + relationships). Importable into a graph DB later. |
 | 5 | AI enrichment | 🟡 | Provenance structure supports `llm-generation` with citations; this pass uses facts-from-the-report only (`manual-extraction`). Wiring a throttled LLM step in CI is deferred. |
 | 6 | Theme extraction | 🟡 | 19-theme vocabulary in config + `topics.json`; sessions/quotes classified by hand. Automatic per-paragraph multi-label classification is deferred. |
-| 7 | Timeline | 🟡 | Cross-year timeline at `/timeline.html` — a "themes across years" table (sessions per theme per year, first-seen) plus per-year cards, derived from the generated datasets. Yearly per-day timelines and key-announcement annotations are still to come. |
+| 7 | Timeline | 🟡 | Cross-year timeline at `/timeline.html` — a "themes across years" table (sessions per theme per year, first-seen) plus per-year cards, derived from the generated datasets across 2024–2026. Yearly per-day timelines and key-announcement annotations are still to come. |
 | 8 | Speaker profiles | ✅ | Permanent page per speaker with role, org, sessions, quotes, derived topics, and (when present) social links. |
 | 9 | Organization profiles | ✅ | Page per organization with type, country, website, sessions, people, projects, topics. |
 | 10 | Project pages | ✅ | Page per project with description, website, license, organizations, sessions. |

@@ -45,6 +45,7 @@ jobs:
 
       - name: Generate knowledge platform pages
         run: |
+          python3 scripts/generate_knowledge_site.py --year 2024 --out _site
           python3 scripts/generate_knowledge_site.py --year 2025 --out _site
           python3 scripts/generate_knowledge_site.py --year 2026 --out _site
 

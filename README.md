@@ -28,7 +28,7 @@ copyrighted media). See [ROADMAP.md](ROADMAP.md) for the full vision and status.
 
 - `conferences/unosw.json` — conference config (canonical URL, official sources, topic vocabulary).
 - `schema/*.schema.json` — JSON Schema for each dataset plus a shared provenance object.
-- `data/unosw/2025/*.json` — curated, fully provenanced datasets (sessions, speakers, organizations, projects, topics, quotes, references) extracted from the CC BY 4.0 UN Open Source Week 2025 Conference Report.
+- `data/unosw/<year>/*.json` — curated, fully provenanced datasets (sessions, speakers, organizations, projects, topics, quotes, references) for each conference year: **2024** (OSPOs for Good, from the concept-note agenda), **2025** (extracted from the CC BY 4.0 UN Open Source Week 2025 Conference Report), and **2026** (imported from the published agenda). Recorded plenary sessions link their UN Web TV recording and the community draft transcript under `conferences/<year>/`.
 - `scripts/knowledge_utils.py` — slugify, schema validation, derived indexes, knowledge-graph builder.
 - `scripts/generate_knowledge_site.py` — conference-agnostic generator that emits profile/index pages, `api/<conf>/<year>/*.json`, `api/knowledge-graph.json`, and the sitemap into `_site` at build time.
 
@@ -73,8 +73,9 @@ python -m unittest discover -s tests -v
 # Knowledge platform
 pip install -r requirements-dev.txt                              # test-only deps (jsonschema)
 python scripts/import_agenda.py --year 2026                      # (re)build data/unosw/2026 from the agenda
+python scripts/generate_knowledge_site.py --year 2024 --out _site   # build 2024 pages + datasets
 python scripts/generate_knowledge_site.py --year 2025 --out _site   # build 2025 pages + datasets
-python scripts/generate_knowledge_site.py --year 2026 --out _site   # build 2026 (coexists under /unosw/<year>/)
+python scripts/generate_knowledge_site.py --year 2026 --out _site   # build 2026 (all coexist under /unosw/<year>/)
 ```
 
 Generated pages live under `/unosw/<year>/` with a cross-year hub at `/explore.html`, a
