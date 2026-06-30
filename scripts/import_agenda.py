@@ -59,6 +59,39 @@ DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sun
 MONTHS = ["", "January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
 
+# Recorded plenary sessions, mapped (date, part) -> UN Web TV asset id from the
+# authoritative conferences/<year>/README.md. Only the live-streamed main hall is
+# attached; parallel breakouts in other rooms were not on these streams, so we do
+# not claim they were. The transcript filename and UN Web TV URL both derive from
+# the asset id (e.g. "k14ej1ucqu" -> "k14/k14ej1ucqu", "k14-k14ej1ucqu-English").
+PLENARY_HALLS = {"ECOSOC Chamber"}
+PLENARY_AFTERNOON_FROM = "13:00"  # sessions at/after this local time are "Part 2"
+RECORDINGS: dict[int, dict[tuple[str, str], str]] = {
+    2026: {
+        ("2026-06-23", "am"): "k14ej1ucqu",  # Open Source for AI & Emerging Tech, Part 1
+        ("2026-06-23", "pm"): "k1b443e64t",  # Open Source for AI & Emerging Tech, Part 2
+        ("2026-06-24", "am"): "k1cqj3jcdx",  # DPI Day, Part 1
+        ("2026-06-24", "pm"): "k136ks9z9x",  # DPI Day, Part 2
+        ("2026-06-25", "am"): "k12620x8tm",  # OSPOs for Good, Part 1
+        ("2026-06-25", "pm"): "k1i4m11zkv",  # OSPOs for Good, Part 2
+    },
+}
+TRANSCRIPT_REPO_BASE = "https://github.com/mgifford/unosw.plus/blob/main"
+
+
+def recording_for(year: int, date_str: str, room: str, start_time: str) -> tuple[str, str] | None:
+    """Return (video_url, transcript_url) for a recorded main-hall plenary session, else None."""
+    if room not in PLENARY_HALLS or not start_time:
+        return None
+    part = "am" if start_time < PLENARY_AFTERNOON_FROM else "pm"
+    asset = RECORDINGS.get(year, {}).get((date_str, part))
+    if not asset:
+        return None
+    prefix = asset[:3]
+    video_url = f"https://webtv.un.org/en/asset/{prefix}/{asset}"
+    transcript_url = f"{TRANSCRIPT_REPO_BASE}/conferences/{year}/{prefix}-{asset}-English.transcript.md"
+    return video_url, transcript_url
+
 
 def classify_topics(text: str) -> list[str]:
     text = text.lower()
@@ -193,6 +226,9 @@ def build(events: list[dict[str, Any]], conference: dict[str, Any], year: int) -
             session["summary"] = summary
         if http_url(event.get("original_source_url", "")):
             session["official_url"] = event["original_source_url"]
+        rec = recording_for(year, str(event.get("event_date", "")), room, str(event.get("start_time", "")))
+        if rec:
+            session["video_url"], session["transcript_url"] = rec
         sessions.append(session)
 
     return {
