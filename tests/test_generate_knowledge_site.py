@@ -110,6 +110,23 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         manifest = json.loads((self.out / "api" / "index.json").read_text())
         self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
 
+    def test_relationship_graph(self):
+        page = self.out / "graph.html"
+        self.assertTrue(page.exists(), "missing /graph.html relationship map")
+        graph = json.loads((self.out / "api" / "graph.json").read_text())
+        self.assertGreater(len(graph["nodes"]), 0)
+        self.assertGreater(len(graph["edges"]), 0)
+        node_ids = {n["id"] for n in graph["nodes"]}
+        for n in graph["nodes"]:  # every node carries a computed position
+            self.assertIn("x", n)
+            self.assertIn("y", n)
+        dangling = [e for e in graph["edges"] if e["source"] not in node_ids or e["target"] not in node_ids]
+        self.assertEqual(dangling, [], "graph has dangling edges")
+        # the SVG is decorative; the accessible index links real pages
+        html = page.read_text()
+        self.assertIn('aria-hidden="true"', html)
+        self.assertIn("Relationship index", html)
+
     def test_topic_page_links_people_and_organizations(self):
         # Connection blocks: a topic page navigates to the people and orgs active on it.
         topic = (self.out / f"{PREFIX}/topics/ai.html").read_text()

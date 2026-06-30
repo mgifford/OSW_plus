@@ -24,7 +24,8 @@ import shutil
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote
+import math
+from urllib.parse import quote, urlsplit
 
 import knowledge_utils as ku
 from knowledge_utils import html_escape as esc
@@ -731,6 +732,7 @@ def rebuild_top_level(out_dir: Path, base_url: str, repo_root: Path | None = Non
 
     _write_search_index(out, manifests, repo_root)
     _write_search_page(out, base)
+    _write_graph_page(out, base, manifests)
     _write_top_hub(out, manifests)
     _write_sitemap(out, base)
     _write_platform_manifest(out, base, manifests)
@@ -907,6 +909,324 @@ def _humanize_doc(stem: str) -> str:
     """Turn a document filename stem into a readable title."""
     text = stem.replace("_", " ").replace("-", " ").strip()
     return " ".join(text.split())
+
+
+# ── relationship graph map (Phase 4 visual) ───────────────────────────────────
+GRAPH_TYPE_META = [  # ordered; (type, label, colour)
+    ("topic", "Theme", "#015d86"),
+    ("organization", "Organization", "#b45309"),
+    ("person", "Person", "#6d28d9"),
+    ("project", "Project", "#0f766e"),
+    ("country", "Country", "#be185d"),
+    ("session", "Session", "#475569"),
+]
+GRAPH_COLOR = {t: c for t, _, c in GRAPH_TYPE_META}
+GRAPH_LABEL = {t: l for t, l, _ in GRAPH_TYPE_META}
+
+
+def _build_combined_graph(out: Path, manifests: list[dict[str, Any]]) -> tuple[list[dict], list[dict]]:
+    """Merge every year's knowledge-graph.json into one graph (Phase 4).
+
+    Nodes are deduped by id, so a shared theme or a recurring organization
+    becomes a single node bridging the years it appears in — a genuine
+    cross-year relationship graph. Node urls are made root-relative.
+    """
+    nodes: dict[str, dict[str, Any]] = {}
+    edges: dict[tuple, dict[str, Any]] = {}
+    for m in manifests:
+        base_path, year = m.get("base_path"), m.get("year")
+        if not base_path:
+            continue
+        try:
+            g = json.loads((out / base_path / "api" / "knowledge-graph.json").read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        for n in g.get("nodes", []):
+            rec = nodes.get(n["id"])
+            path = urlsplit(n["url"]).path if n.get("url") else ""
+            if rec is None:
+                nodes[n["id"]] = {"id": n["id"], "type": n.get("type", ""),
+                                  "label": n.get("label", n["id"]), "url": path,
+                                  "years": {year} if year else set()}
+            else:
+                if year:
+                    rec["years"].add(year)
+                if path and not rec["url"]:
+                    rec["url"] = path
+        for e in g.get("edges", []):
+            key = (e["source"], e["target"], e["type"])
+            rec = edges.get(key)
+            if rec is None:
+                edges[key] = {"source": e["source"], "target": e["target"],
+                              "type": e["type"], "years": {year} if year else set()}
+            elif year:
+                rec["years"].add(year)
+
+    node_ids = set(nodes)
+    edge_list = [e for e in edges.values() if e["source"] in node_ids and e["target"] in node_ids]
+    deg = {nid: 0 for nid in nodes}
+    for e in edge_list:
+        deg[e["source"]] += 1
+        deg[e["target"]] += 1
+    for nid, n in nodes.items():
+        n["degree"] = deg[nid]
+        n["years"] = sorted(n["years"])
+    for e in edge_list:
+        e["years"] = sorted(e["years"])
+    return list(nodes.values()), edge_list
+
+
+def _layout_graph(nodes: list[dict], edges: list[dict], width: float, height: float,
+                  iterations: int = 160) -> dict[str, list[float]]:
+    """Deterministic Fruchterman–Reingold layout (pure Python, build-time)."""
+    ids = [n["id"] for n in nodes]
+    idx = {nid: i for i, nid in enumerate(ids)}
+    n = len(ids)
+    if n == 0:
+        return {}
+    ga = math.pi * (3 - math.sqrt(5))          # golden angle → stable spiral seed
+    radius = 0.45 * min(width, height)
+    pos = []
+    for i in range(n):
+        r = radius * math.sqrt((i + 0.5) / n)
+        a = i * ga
+        pos.append([width / 2 + r * math.cos(a), height / 2 + r * math.sin(a)])
+    k = math.sqrt((width * height) / n)         # ideal edge length
+    elist = [(idx[e["source"]], idx[e["target"]]) for e in edges]
+    t = width / 10.0
+    cool = t / (iterations + 1)
+    disp = [[0.0, 0.0] for _ in range(n)]
+    for _ in range(iterations):
+        for d in disp:
+            d[0] = d[1] = 0.0
+        for i in range(n):
+            xi, yi = pos[i]
+            for j in range(i + 1, n):
+                dx = xi - pos[j][0]
+                dy = yi - pos[j][1]
+                dist2 = dx * dx + dy * dy
+                if dist2 < 0.01:
+                    dx, dy, dist2 = 0.1 + (i - j) * 0.01, 0.1, 0.02
+                dist = math.sqrt(dist2)
+                force = k * k / dist
+                fx, fy = dx / dist * force, dy / dist * force
+                disp[i][0] += fx
+                disp[i][1] += fy
+                disp[j][0] -= fx
+                disp[j][1] -= fy
+        for a, b in elist:
+            dx = pos[a][0] - pos[b][0]
+            dy = pos[a][1] - pos[b][1]
+            dist = math.sqrt(dx * dx + dy * dy) or 0.01
+            force = dist * dist / k
+            fx, fy = dx / dist * force, dy / dist * force
+            disp[a][0] -= fx
+            disp[a][1] -= fy
+            disp[b][0] += fx
+            disp[b][1] += fy
+        for i in range(n):
+            dx, dy = disp[i]
+            d = math.sqrt(dx * dx + dy * dy) or 0.01
+            pos[i][0] = min(width - 24, max(24, pos[i][0] + dx / d * min(d, t)))
+            pos[i][1] = min(height - 24, max(24, pos[i][1] + dy / d * min(d, t)))
+        t = max(t - cool, 1.0)
+    return {ids[i]: [round(pos[i][0], 1), round(pos[i][1], 1)] for i in range(n)}
+
+
+def _write_graph_page(out: Path, base: str, manifests: list[dict[str, Any]]) -> None:
+    """Write /graph.html — a static, clickable SVG map of the whole knowledge graph,
+    with an equivalent accessible relationship index, plus /api/graph.json (Phase 4).
+
+    The SVG is rendered at build time (works with no JavaScript and is fully
+    linkable); JavaScript only adds type/year filtering and text focus on top.
+    """
+    nodes, edges = _build_combined_graph(out, manifests)
+    if not nodes:
+        return
+    W, H = 1600.0, 1100.0
+    pos = _layout_graph(nodes, edges, W, H)
+    by_id = {n["id"]: n for n in nodes}
+
+    # Machine-readable graph with positions.
+    payload = {"nodes": [{**{k: n[k] for k in ("id", "type", "label", "url", "years", "degree")},
+                          "x": pos[n["id"]][0], "y": pos[n["id"]][1]} for n in nodes],
+               "edges": [{"source": e["source"], "target": e["target"],
+                          "type": e["type"], "years": e["years"]} for e in edges]}
+    (out / "api").mkdir(parents=True, exist_ok=True)
+    (out / "api" / "graph.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    svg_edges = "".join(
+        f'<line x1="{pos[e["source"]][0]}" y1="{pos[e["source"]][1]}" '
+        f'x2="{pos[e["target"]][0]}" y2="{pos[e["target"]][1]}" class="kpg-edge" '
+        f'data-st="{by_id[e["source"]]["type"]}" data-tt="{by_id[e["target"]]["type"]}" '
+        f'data-yr="{" ".join(str(y) for y in e["years"])}" />'
+        for e in edges)
+
+    svg_nodes = []
+    for n in sorted(nodes, key=lambda n: n["degree"]):  # hubs drawn last (on top)
+        x, y = pos[n["id"]]
+        color = GRAPH_COLOR.get(n["type"], "#475569")
+        r = round(3 + min(9.0, n["degree"] * 0.7), 1)
+        yrs = " ".join(str(y2) for y2 in n["years"])
+        title = f'{esc(n["label"])} — {GRAPH_LABEL.get(n["type"], "Node")}'
+        inner = (f'<circle r="{r}" cx="{x}" cy="{y}" fill="{color}" stroke="#fff" '
+                 f'stroke-width="1.2"><title>{title}</title></circle>')
+        if n["type"] == "topic" or (n["type"] in ("organization", "project", "country") and n["degree"] >= 3):
+            inner += (f'<text x="{x + r + 2}" y="{y + 3.5}" class="kpg-label">'
+                      f'{esc(n["label"][:30])}</text>')
+        if n.get("url"):
+            # tabindex=-1: the SVG is a decorative visual (see aria-hidden on the
+            # canvas); the "Relationship index" list below is the accessible,
+            # keyboard-navigable equivalent. Mouse users can still click nodes.
+            svg_nodes.append(f'<a href="{esc(n["url"])}" tabindex="-1" class="kpg-node" data-type="{n["type"]}" '
+                             f'data-yr="{yrs}" data-label="{esc(n["label"].lower())}">{inner}</a>')
+        else:
+            svg_nodes.append(f'<g class="kpg-node" data-type="{n["type"]}" data-yr="{yrs}" '
+                             f'data-label="{esc(n["label"].lower())}">{inner}</g>')
+
+    legend = "".join(f'<li><span class="kpg-dot" style="background:{c}"></span>{esc(l)}</li>'
+                     for _, l, c in GRAPH_TYPE_META)
+    type_boxes = "".join(
+        f'<label class="kpg-check"><input type="checkbox" class="kpg-type" value="{t}" checked /> '
+        f'{esc(l)}</label>' for t, l, _ in GRAPH_TYPE_META)
+    years = sorted({y for n in nodes for y in n["years"]}, reverse=True)
+    year_opts = ('<option value="">All years</option>'
+                 + "".join(f'<option value="{y}">{y}</option>' for y in years))
+
+    groups = ""
+    for t, label, _ in GRAPH_TYPE_META:
+        members = sorted([n for n in nodes if n["type"] == t],
+                         key=lambda n: (-n["degree"], n["label"].lower()))
+        if not members:
+            continue
+        items = ""
+        for n in members:
+            yrs = " ".join(str(y) for y in n["years"])
+            link = (f'<a href="{esc(n["url"])}">{esc(n["label"])}</a>' if n.get("url")
+                    else esc(n["label"]))
+            items += (f'<li class="kpg-item" data-type="{t}" data-yr="{yrs}" '
+                      f'data-label="{esc(n["label"].lower())}">{link} '
+                      f'<span class="kp-meta">· {n["degree"]} connections · {yrs}</span></li>')
+        groups += (f'<section class="kpg-group" data-type="{t}"><h3>{esc(label)}s '
+                   f'<span class="kp-meta">({len(members)})</span></h3>'
+                   f'<ul class="kpg-list">{items}</ul></section>')
+
+    aria = (f"Relationship map of {len(nodes)} people, organizations, themes, projects and "
+            f"sessions across UN Open Source Week, with {len(edges)} connections. "
+            f"An equivalent, fully linked relationship index follows below.")
+
+    html = _GRAPH_TEMPLATE
+    for token, value in (("__BASE__", esc(base)), ("__ARIA__", esc(aria)),
+                         ("__LEGEND__", legend), ("__TYPES__", type_boxes),
+                         ("__YEAROPTS__", year_opts), ("__EDGES__", svg_edges),
+                         ("__NODES__", "".join(svg_nodes)), ("__GROUPS__", groups),
+                         ("__NODECOUNT__", str(len(nodes))), ("__EDGECOUNT__", str(len(edges)))):
+        html = html.replace(token, value)
+    (out / "graph.html").write_text(html, encoding="utf-8")
+
+
+_GRAPH_TEMPLATE = """<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relationship map · UN Open Source Week Knowledge Platform</title>
+    <meta name="description" content="A relationship map of the people, organizations, themes, projects and sessions of UN Open Source Week and how they connect across years." />
+    <link rel="canonical" href="__BASE__/graph.html" />
+    <link rel="stylesheet" href="/shared.css" />
+    <link rel="stylesheet" href="/knowledge.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="kp-header"><div class="kp-header-inner">
+      <p class="kp-eyebrow">Knowledge Platform</p>
+      <h1>Relationship map</h1>
+      <p>How the people, organizations, themes, projects and sessions of UN Open Source Week
+         connect — across years. Themes and recurring organizations bridge the years.</p>
+    </div></header>
+    <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>
+      <li><a href="/">Home</a></li><li><a href="/explore.html">Knowledge</a></li>
+      <li aria-current="page">Relationship map</li>
+    </ol></nav>
+    <main id="main-content" class="kp-main">
+      <section class="kp-section">
+        <form id="kpg-controls" class="kpg-controls" aria-label="Filter the map">
+          <fieldset class="kpg-fieldset"><legend>Show</legend>__TYPES__</fieldset>
+          <div class="kpg-row">
+            <label for="kpg-year"><strong>Year</strong></label>
+            <select id="kpg-year" style="padding:0.4rem 0.6rem;border:1px solid var(--border);border-radius:0.4rem;">__YEAROPTS__</select>
+            <label for="kpg-focus"><strong>Focus</strong></label>
+            <input id="kpg-focus" type="search" placeholder="highlight by name…" autocomplete="off"
+                   style="padding:0.4rem 0.6rem;border:1px solid var(--border);border-radius:0.4rem;" />
+          </div>
+        </form>
+        <ul class="kpg-legend">__LEGEND__</ul>
+        <p class="visually-hidden">__ARIA__</p>
+        <div class="kpg-canvas" aria-hidden="true">
+          <svg id="kpg-svg" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMid meet">
+            <g id="kpg-edges">__EDGES__</g>
+            <g id="kpg-nodes">__NODES__</g>
+          </svg>
+        </div>
+        <p class="kp-meta">__NODECOUNT__ nodes · __EDGECOUNT__ connections. The map is generated from the
+           published <a href="/api/graph.json"><code>graph.json</code></a>; click any node to open its page,
+           or use the fully linked index below.</p>
+      </section>
+      <section class="kp-section">
+        <h2>Relationship index</h2>
+        <p class="kp-meta">Every node in the map, grouped by kind and ordered by how connected it is —
+           a fully linked, accessible equivalent of the diagram above.</p>
+        <div id="kpg-index">__GROUPS__</div>
+      </section>
+    </main>
+    <footer class="kp-footer"><p>Generated from the knowledge-platform datasets · provenance on every record.</p></footer>
+    <script src="/nav.js" defer></script>
+    <script>
+      (function () {
+        var svg = document.getElementById("kpg-svg");
+        var year = document.getElementById("kpg-year");
+        var focus = document.getElementById("kpg-focus");
+        var typeBoxes = Array.prototype.slice.call(document.querySelectorAll(".kpg-type"));
+        function enabledTypes() {
+          var s = {};
+          typeBoxes.forEach(function (b) { if (b.checked) s[b.value] = true; });
+          return s;
+        }
+        function yrOk(data, y) { return !y || (" " + data + " ").indexOf(" " + y + " ") !== -1; }
+        function apply() {
+          var types = enabledTypes(), y = year.value, q = focus.value.trim().toLowerCase();
+          document.querySelectorAll(".kpg-node").forEach(function (el) {
+            var ok = types[el.getAttribute("data-type")] && yrOk(el.getAttribute("data-yr"), y);
+            el.style.display = ok ? "" : "none";
+            var hit = ok && q && el.getAttribute("data-label").indexOf(q) !== -1;
+            el.classList.toggle("kpg-hit", !!hit);
+            if (q) el.style.opacity = (ok && (!q || el.getAttribute("data-label").indexOf(q) !== -1)) ? "1" : "0.15";
+            else el.style.opacity = "";
+          });
+          document.querySelectorAll(".kpg-edge").forEach(function (el) {
+            var ok = types[el.getAttribute("data-st")] && types[el.getAttribute("data-tt")]
+                     && yrOk(el.getAttribute("data-yr"), y);
+            el.style.display = ok ? "" : "none";
+          });
+          document.querySelectorAll(".kpg-item").forEach(function (el) {
+            var ok = types[el.getAttribute("data-type")] && yrOk(el.getAttribute("data-yr"), y)
+                     && (!q || el.getAttribute("data-label").indexOf(q) !== -1);
+            el.style.display = ok ? "" : "none";
+          });
+          document.querySelectorAll(".kpg-group").forEach(function (g) {
+            var any = g.querySelectorAll(".kpg-item:not([style*='none'])").length;
+            g.style.display = any ? "" : "none";
+          });
+        }
+        typeBoxes.forEach(function (b) { b.addEventListener("change", apply); });
+        year.addEventListener("change", apply);
+        focus.addEventListener("input", apply);
+      })();
+    </script>
+  </body>
+</html>
+"""
 
 
 def _write_search_page(out: Path, base: str) -> None:
@@ -1100,6 +1420,7 @@ def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
       <section class="kp-section"><h2>Across years</h2>
         <p><a href="/knowledge-search.html">Search the knowledge platform</a> — sessions,
            speakers, organizations, projects, and themes across every year.</p>
+        <p><a href="/graph.html">Relationship map</a> — how people, organizations, and themes connect.</p>
         <p><a href="/timeline.html">Timeline — themes across years</a></p>
       </section>
       <section class="kp-section"><h2>For AI &amp; developers</h2>
