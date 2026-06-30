@@ -1,0 +1,37 @@
+Caption cleanup warnings
+
+- Possible OSPO casing issue: Welcome to OSPO for Good.
+- Possible OSPO casing issue: The start of the open source week was OSPO for Good, then it expanded to the open source
+- Possible OSPO casing issue: But despite remarkable growth, we had kept OSPO for Good at the heart of the program
+- Possible OSPO casing issue: challenge the assumptions and shape us, build OSPO for good.
+- Possible missing space or camelCase term: Kubernetes, at the training layer, PyTorch, at the agentic layer,
+- Possible missing space or camelCase term: These are not the 80 million repos on GitHub, these are the million open source projects
+- Possible missing space or camelCase term: Our next and last speaker before we start our panel today will be Louise McKeever.
+- Possible missing space or camelCase term: and the GovStack Building Blocks architecture, as our target architecture,
+- Possessive acronym may need review: but the third time for a few the fourth under the name OSPO's for Good,
+- Possible OSPO casing issue: but the third time for a few the fourth under the name OSPO's for Good,
+- Possible OSPO casing issue: And those are where the structure of an open source program office or an OSPO,
+- Possible OSPO casing issue: this OSPO is for good title, becomes important.
+- Possible OSPO casing issue: Because an OSPO is the mechanism that lets an organization engage with the open source community
+- Possible OSPO casing issue: Because a government or public institution OSPO is not exactly the same as a corporate one.
+- Possible OSPO casing issue: So can you lead us in with the key functions that an OSPO should perform,
+- Possible OSPO casing issue: truly feels about open source based on where they place their OSPO, what team that sits in.
+- Possessive acronym may need review: what role do you feel that OSPO's play in helping them make more informed choices?
+- Possible OSPO casing issue: what role do you feel that OSPO's play in helping them make more informed choices?
+- Possessive acronym may need review: And I think that the OSPO's -- public sector OSPO's can play a key role in enabling that, so.
+- Possible OSPO casing issue: And I think that the OSPO's -- public sector OSPO's can play a key role in enabling that, so.
+- Possible OSPO casing issue: Thanks. That's a great segue to some thoughts I think Adriana has for us about what happens after the OSPO.
+- Possible OSPO casing issue: So, for a lot of government agencies building their open source capacity, they create the OSPO.
+- Possible OSPO casing issue: So, we see the Sub-intech agency as an instrument that we also believe should exist in every government that is complementary to what an OSPO is doing.
+- Possible OSPO casing issue: And I think the other element that I would like to say is we, of course, have an OSPO, essentially.
+- Possible OSPO casing issue: So, the way to think about this is if digital sovereignty is where we want to get to, OSPO is really the intention
+- Possessive acronym may need review: Thanks. So piecing these two parts together, the OSPO's and the digital sovereignty and all of the other goals.
+- Possible OSPO casing issue: Thanks. So piecing these two parts together, the OSPO's and the digital sovereignty and all of the other goals.
+- Possessive acronym may need review: Arun, can you come back around to how OSPO's can help with this? Give us thoughts on how international organizations, government, public institutions can build OSPO's that genuinely contribute back
+- Possible OSPO casing issue: Arun, can you come back around to how OSPO's can help with this? Give us thoughts on how international organizations, government, public institutions can build OSPO's that genuinely contribute back
+- Possessive acronym may need review: And as I said earlier, OSPO is really the catalyst for that. And so the several roles that OSPO can play, for example, as you start consuming open source, they need to make sure that your CDE's vulnerabilities don't go unidentified.
+- Possible OSPO casing issue: And as I said earlier, OSPO is really the catalyst for that. And so the several roles that OSPO can play, for example, as you start consuming open source, they need to make sure that your CDE's vulnerabilities don't go unidentified.
+- Possessive acronym may need review: >> Thanks. So adjacent to that, Margaret, though, what are the organizational barriers that are preventing the wider adoption of OSPO's in these institutions?
+- Possible OSPO casing issue: >> Thanks. So adjacent to that, Margaret, though, what are the organizational barriers that are preventing the wider adoption of OSPO's in these institutions?
+- Possible OSPO casing issue: So, I'm hoping to exactly what, you know, Sachiko and Adriana are talking about, that the way corporates have evolved over the last 10, 15 years, you know, maybe in the next OSPO for good or UN open source week, you know, one of the ministers come and say here that, hey, you know what?
+- Possible OSPO casing issue: And as part of the to-do group, they have very extensive research, studies, playbooks, guidebooks on how to build an OSPO, different levels.

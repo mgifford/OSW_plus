@@ -1,0 +1,12 @@
+Caption cleanup warnings
+
+- Possessive acronym may need review: As you know, the IMF's mandate is to promote global macroeconomic and financial stability
+- Possessive acronym may need review: Maybe take us back, how would you say UNESCO's approach to open source has evolved over time?
+- Possible missing space or camelCase term: New forms of cooperation are also emerging through initiatives such as the edX, that's
+- Possible missing space or camelCase term: We have the Digital Commons edX and the IMPACT edX, where member states are pooling resources
+- Possible OSPO casing issue: I think Brian Prophet wrote a great piece that's on the website on what is an OSPO, how do
+- Possessive acronym may need review: Thank you so much, Anne Catherine, and good afternoon to all of you WHO's staying with
+- Possessive acronym may need review: I think OSPO's can serve really as a function to direct some of these changes and to connect
+- Possible OSPO casing issue: I think OSPO's can serve really as a function to direct some of these changes and to connect
+- Possible OSPO casing issue: It looks like you survived the OSPO for a good day.
+- Possible missing space or camelCase term: So you'll soon get to the GitHub perception, and then tomorrow is the community day, where

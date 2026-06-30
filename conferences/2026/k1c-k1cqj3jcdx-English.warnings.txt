@@ -1,0 +1,7 @@
+Caption cleanup warnings
+
+- Possible missing space or camelCase term: to build new details on the existing. We are one of the grounders of GovStack. GovStack
+- Possessive acronym may need review: sure that it's built for everyone. That's where UNDP's heart is right now. Thank you.
+- Possessive acronym may need review: had to really think through. Specific for a country WHO's a founding member of the DPGA
+- Possible missing space or camelCase term: to open source worldwide. Conference room 11 will have women building digital, the GovStack
+- Possible missing space or camelCase term: women in GovTech challenge. Conference room A will have DPI that delivers from failure points

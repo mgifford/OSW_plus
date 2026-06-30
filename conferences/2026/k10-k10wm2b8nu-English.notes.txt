@@ -1,0 +1,55 @@
+Caption cleanup notes
+
+Source file: k10-k10wm2b8nu-English.txt
+Output file: k10-k10wm2b8nu-English.accessible.vtt
+Input cue count: 1918
+Output cue count: 1918
+
+What changed:
+- Converted Whisper TXT or rough VTT into valid WebVTT.
+- Added cue numbers.
+- Merged very short adjacent cues where safe.
+- Split long cues into shorter cues.
+- Wrapped captions for readability.
+- Applied conservative dictionary-based corrections.
+- Applied explicit replacement rules where provided.
+- Added validation and warning notes.
+
+What was not changed:
+- No audio re-transcription was performed.
+- Event agenda support was not used.
+- No uncertain speaker names were invented.
+- No substantive rewriting was performed.
+
+Dictionary groups loaded:
+- accessibility_and_inclusion: 11 entries
+- acronyms: 49 entries
+- ai_terms: 24 entries
+- countries: 38 entries
+- countries_and_places: 27 entries
+- event_names: 9 entries
+- open_source_terms: 28 entries
+- organizations: 111 entries
+- people: 34 entries
+- people_titles: 10 entries
+- projects_and_platforms: 27 entries
+- regions: 21 entries
+- standards_and_policy: 13 entries
+- terms: 77 entries
+- un_digital_terms: 27 entries
+- un_entities: 26 entries
+- replacements: 5 entries
+
+Applied replacements:
+- WHO: 38
+- OSPO: 8
+- DPIs: 3
+- UN: 2
+- FLOSS: 1
+- RISE: 1
+
+Validation:
+- no validation issues found
+
+Warnings:
+- 33 warning(s) written to the warnings file.

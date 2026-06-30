@@ -1,0 +1,124 @@
+Caption cleanup warnings
+
+- Possible OSPO casing issue: And today we kick off our third edition of OSPO, OSPO for Good.
+- Possessive acronym may need review: through UNICEF's mission.
+- Possible OSPO casing issue: And then moving on from today till the end of the week at the OSPO for good, we'll continue
+- Possessive acronym may need review: And for that, I'm very happy to call on our moderator, Satikko Muto, WHO's the chairwoman
+- Possessive acronym may need review: I'm sure I'm not the first, nor the last WHO's going to do this, but, you know, putting
+- Possible missing space or camelCase term: posting on LinkedIn and everything like that.
+- Possible OSPO casing issue: And the way to do that is through the institutionalization of open source practice through an OSPO.
+- Possible OSPO casing issue: That's not necessarily called an OSPO, although naming it something like that helps with the
+- Possible OSPO casing issue: sort of collaborative aspects of, and the outward facing aspects of an OSPO.
+- Possible OSPO casing issue: So, I think, you know, we kept the name OSPO for good, even though we're talking about
+- Possessive acronym may need review: And again, I think that OSPO's that started out in, sort of, in big, inside big tech companies,
+- Possible OSPO casing issue: And again, I think that OSPO's that started out in, sort of, in big, inside big tech companies,
+- Possessive acronym may need review: It's through these, OSPO's, that we can have a chance, I think, to truly collaborate, not
+- Possible OSPO casing issue: It's through these, OSPO's, that we can have a chance, I think, to truly collaborate, not
+- Possible OSPO casing issue: Associate Dean for Digital Infrastructure and Director of OSPO.
+- Possible OSPO casing issue: Nithya, Nithya Ruff, Head of OSPO at Amazon.
+- Possible missing space or camelCase term: You can manage senior director education at GitHub.
+- Possessive acronym may need review: So, we have representatives from OSPO's, from academia, government, and the private sector.
+- Possible OSPO casing issue: So, we have representatives from OSPO's, from academia, government, and the private sector.
+- Possible OSPO casing issue: It's about what you can learn from how others have set up in OSPO.
+- Possible OSPO casing issue: a short background on the origins of their OSPO, really focusing on sort of what was
+- Possible OSPO casing issue: what was, you know, what were decision makers trying to achieve by establishing an OSPO.
+- Possible OSPO casing issue: As Sachiko mentioned, the creation of the OSPO formalized our strategy and our implementation
+- Possible OSPO casing issue: trying to build a culture, and trying to advance the work of the OSPO as it supports the university's
+- Possessive acronym may need review: And in fact, the Sloan Foundation has given multiple awards to U. S. University OSPO's,
+- Possible OSPO casing issue: And in fact, the Sloan Foundation has given multiple awards to U. S. University OSPO's,
+- Possessive acronym may need review: and we formed into a network called the Consortium of University and Research Institution OSPO's.
+- Possible OSPO casing issue: and we formed into a network called the Consortium of University and Research Institution OSPO's.
+- Possessive acronym may need review: Several of my colleagues from the other university OSPO's are in attendance today.
+- Possible OSPO casing issue: Several of my colleagues from the other university OSPO's are in attendance today.
+- Possible OSPO casing issue: at Amazon OSPO.
+- Possible OSPO casing issue: I lead the OSPO at Amazon, which includes all of Amazon, the AWS portion as well as our
+- Possible OSPO casing issue: And the OSPO at Amazon started back in early 2004, 2007, when we realized that open source
+- Possible OSPO casing issue: And with all this in mind, we started the OSPO to first focus on the compliance side
+- Possible OSPO casing issue: The driving motivation, often for an OSPO, starts with compliance but then moves to engagement
+- Possible OSPO casing issue: And what the OSPO brought us is connections with other Ospos.
+- Possible OSPO casing issue: He said, "No, OSPO is an island, and I would like to reiterate that thanks to the denium
+- Possible OSPO casing issue: OSPO, we were able to build partnership with other ministries."
+- Possible OSPO casing issue: But thank you very much, Avni, back to private sector OSPO.
+- Possible missing space or camelCase term: So GitHub, while GitHub has always had open source activities and advocates, we formalized
+- Possible OSPO casing issue: our OSPO after the Microsoft acquisition to mature our open source practices, right?
+- Possible missing space or camelCase term: And GitHub moved from having these ad hoc type activities to a structured program managing
+- Possible missing space or camelCase term: of open source packages, managing the release of GitHub's own open source packages.
+- Possible OSPO casing issue: And our drivers for creating the OSPO were really, we want to, like, make sure that we're
+- Possible missing space or camelCase term: international collaboration from, and I think just from GitHub's perspective, we want to
+- Possible OSPO casing issue: Bastion, in a different, you know, in a different light as a bastion of, you know, OSPO expertise.
+- Possible OSPO casing issue: You mentioned, actually, quite a few functions that an OSPO can have, and I think, again,
+- Possible OSPO casing issue: And I think maybe not every OSPO will feel or have as their mandate to sort of have all
+- Possible OSPO casing issue: Richard Givers, a newly formed OSPO in South Africa.
+- Possible OSPO casing issue: So in South Africa, we didn't start with an OSPO.
+- Possible OSPO casing issue: OSPO inside government and is coordinated by an departmental working group, which is
+- Possible OSPO casing issue: OSPO that's had I not been on a part of the gathering last year, maybe you wouldn't have
+- Possible OSPO casing issue: understood as much as of how powerful the OSPO framing can be and the needs could be.
+- Possessive acronym may need review: source TPI's as a delivery unit coordinates the development of these in governmental communities
+- Possible OSPO casing issue: Our job as a government OSPO is to be able to not fit one user perfectly but to be able
+- Possible OSPO casing issue: and design an OSPO that can deliver into that space.
+- Possible OSPO casing issue: And so I think there's also an interesting space in this OSPO DPI space around stacks.
+- Possible OSPO casing issue: OSPO driven DPI interventions and the rest of the continent.
+- Possible OSPO casing issue: We're going to move, as I said, towards focusing on this internal functioning of OSPO.
+- Possessive acronym may need review: will be common to OSPO's no matter the context, I'd be eager to hear from my panelists about
+- Possible OSPO casing issue: will be common to OSPO's no matter the context, I'd be eager to hear from my panelists about
+- Possible OSPO casing issue: And we talked about the maturity stages of an OSPO and I think when I arrived at Carnegie
+- Possible OSPO casing issue: said this is wonderful, we have an OSPO, how can we work with you, how can we help you?
+- Possible OSPO casing issue: And I just want to highlight Tom Hughes, WHO is the community manager for the OSPO team
+- Possible OSPO casing issue: Yeah, so when we started the OSPO, my idea was that free software shouldn't depend too
+- Possible OSPO casing issue: And that having an OSPO would be, would let me go away in one year and let the organization
+- Possible missing space or camelCase term: community because Blue Hats is in every ministry, it's not just DeNub.
+- Possible missing space or camelCase term: So when DeNub questioned the utility of the OSPO, when you had the whole Blue Hats community
+- Possible OSPO casing issue: So when DeNub questioned the utility of the OSPO, when you had the whole Blue Hats community
+- Possible OSPO casing issue: So OSPO is very bureaucratic, it's an institution, it's made so that it can survive people WHO
+- Possible OSPO casing issue: Also mentioning, of course, the pre-OSPO journey, which I think there probably should
+- Possible OSPO casing issue: How do you get to the OSPO that stage?
+- Possible OSPO casing issue: I think it's so important for an OSPO to not live in isolation, but to be very aligned
+- Possible OSPO casing issue: So I often think of myself and the OSPO as a bridge builder, building bridges from the
+- Possible OSPO casing issue: internal OSPO language and the Amazon language to the language of the open source community
+- Possible missing space or camelCase term: I think due to GitHub's role in, the OSPO's role in managing our inbound consumption
+- Possessive acronym may need review: I think due to GitHub's role in, the OSPO's role in managing our inbound consumption
+- Possible OSPO casing issue: I think due to GitHub's role in, the OSPO's role in managing our inbound consumption
+- Possessive acronym may need review: So, and I think one of the ways that OSPO's can help build support is by, like, helping
+- Possible OSPO casing issue: So, and I think one of the ways that OSPO's can help build support is by, like, helping
+- Possible missing space or camelCase term: When we think of, like, impact beyond the company, right, I think GitHub, specifically,
+- Possessive acronym may need review: like, I think one of the things that you hear on this panel is the diversity among OSPO's,
+- Possible OSPO casing issue: like, I think one of the things that you hear on this panel is the diversity among OSPO's,
+- Possible OSPO casing issue: OSPO.
+- Possible missing space or camelCase term: And when I think, like, for GitHub, the GitHub OSPO does some amazing work, like supporting
+- Possible OSPO casing issue: And when I think, like, for GitHub, the GitHub OSPO does some amazing work, like supporting
+- Possible missing space or camelCase term: the GitHub secure open source fund through our sponsors program, and also maintainer month
+- Possible OSPO casing issue: regardless of what type of OSPO or what type of open source organization you come from.
+- Possible OSPO casing issue: So the OSPO at Carnegie Mellon is, in fact, based in Pittsburgh.
+- Possessive acronym may need review: And we are also planning an additional reboot the Earth hackathon at CMU's campus in Qatar
+- Possible missing space or camelCase term: We had that LinkedIn, you know, side event yesterday, and it was talking about the skills
+- Possessive acronym may need review: And so we are able to then track down WHO's doing open source work across the company and
+- Possible missing space or camelCase term: And we could find out only by, we have many platforms, GitLab, GitHub, many repositories,
+- Possible missing space or camelCase term: I do think like for, I want to give one example of GitHub where we've been collaborating with
+- Possessive acronym may need review: the World Health Organization since 2020, both in helping strengthen the WHO's in our
+- Possible OSPO casing issue: source software development processes as well as supporting the creation of their OSPO.
+- Possible OSPO casing issue: And also, of course, we heard from the French OSPO, but Omar asked me also this week, introduced
+- Possible OSPO casing issue: me to tell me about this new OSPO that's formed in Trinidad and Tobago.
+- Possible OSPO casing issue: And you are also one of the leads of the Trinidad and Tobago OSPO and the executive
+- Possible OSPO casing issue: formation of the Trinidad and Tobago OSPO, that would be great.
+- Possessive acronym may need review: And as we have heard already, the OSPO's model has evolved into a powerful force, not
+- Possible OSPO casing issue: And as we have heard already, the OSPO's model has evolved into a powerful force, not
+- Possible OSPO casing issue: European Commission, not only the establishment of an OSPO in the Republic of Trinidad and
+- Possessive acronym may need review: It is to create a replicable, scalable model toward a global network of OSPO's across the
+- Possible OSPO casing issue: It is to create a replicable, scalable model toward a global network of OSPO's across the
+- Possessive acronym may need review: Our Trinidad and Tobago's and Kenya's OSPO's are particularly unique in the way they are
+- Possible OSPO casing issue: Our Trinidad and Tobago's and Kenya's OSPO's are particularly unique in the way they are
+- Possessive acronym may need review: leadership outside of the government by institutions such as my own university, these OSPO's are
+- Possible OSPO casing issue: leadership outside of the government by institutions such as my own university, these OSPO's are
+- Possible OSPO casing issue: We will be hosting an open and engaging discussion with our OSPO teams, and we are eager to share
+- Possessive acronym may need review: OSPO's WHO have come before us.
+- Possible OSPO casing issue: OSPO's WHO have come before us.
+- Possessive acronym may need review: about more examples of newly formed OSPO's or OSPO's in the planning.
+- Possible OSPO casing issue: about more examples of newly formed OSPO's or OSPO's in the planning.
+- Possible missing space or camelCase term: PiLadies and other smaller communities that are hyper-local and WHO get together and teach
+- Possible OSPO casing issue: I would say the founding team of an OSPO is so important having people with experience
+- Possessive acronym may need review: Everyone these days is about sovereignty and I think OSPO's, public sector OSPO shouldn't
+- Possible OSPO casing issue: Everyone these days is about sovereignty and I think OSPO's, public sector OSPO shouldn't
+- Possessive acronym may need review: friends to build the list of public sector OSPO's so if you have an OSPO in a government
+- Possible OSPO casing issue: friends to build the list of public sector OSPO's so if you have an OSPO in a government
+- Possible OSPO casing issue: I would say don't forget about documentation and training as you build up your OSPO because
+- Possible OSPO casing issue: will really help you build the bridges from your OSPO to the work that you're trying to

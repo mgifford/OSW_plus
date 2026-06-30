@@ -1,0 +1,62 @@
+Caption cleanup warnings
+
+- Possessive acronym may need review: I represent UNICEF's Office of Innovation,
+- Possible missing space or camelCase term: and program lead for GitHub's All in Africa initiative.
+- Possible missing space or camelCase term: was started by GitHub.
+- Possible missing space or camelCase term: And GitHub had this curriculum that they had designed.
+- Possible missing space or camelCase term: how to use GitHub as a collaborative tool
+- Possible missing space or camelCase term: So as Ruth does with GitHub in terms of training
+- Possible missing space or camelCase term: How do you push things up to GitHub?
+- Possible missing space or camelCase term: I work for ByteDance.
+- Possible missing space or camelCase term: JavaScript on everything to be built.
+- Possessive acronym may need review: In particular, the role of OSPO's--
+- Possible OSPO casing issue: In particular, the role of OSPO's--
+- Possible OSPO casing issue: Jacob is the founder of OSPO Plus Plus,
+- Possessive acronym may need review: for OSPO's in the world.
+- Possible OSPO casing issue: for OSPO's in the world.
+- Possessive acronym may need review: He's often up at 3 AM, sending us emails about OSPO's.
+- Possible OSPO casing issue: He's often up at 3 AM, sending us emails about OSPO's.
+- Possessive acronym may need review: and a steadfast advocate for OSPO's in the United States
+- Possible OSPO casing issue: and a steadfast advocate for OSPO's in the United States
+- Possible OSPO casing issue: Let's talk about OSPO, the open source program office, which is an organizational construct
+- Possible OSPO casing issue: OSPO may help in your work to have impact.
+- Possible OSPO casing issue: Yeah, OSPO is great.
+- Possessive acronym may need review: I just started to understand what OSPO's could be, because I'm here now at the conference.
+- Possible OSPO casing issue: I just started to understand what OSPO's could be, because I'm here now at the conference.
+- Possessive acronym may need review: The city as a lab is a very nice idea, and I think it's, if OSPO's took place in many,
+- Possible OSPO casing issue: The city as a lab is a very nice idea, and I think it's, if OSPO's took place in many,
+- Possessive acronym may need review: many cities in the world, and if OSPO's created power also to connect cities,
+- Possible OSPO casing issue: many cities in the world, and if OSPO's created power also to connect cities,
+- Possessive acronym may need review: I think terminology is really important because I think, you know, we've got city science labs, we've got OSPO's,
+- Possible OSPO casing issue: I think terminology is really important because I think, you know, we've got city science labs, we've got OSPO's,
+- Possible OSPO casing issue: to me, but I'm familiar to different practices that represent OSPO.
+- Possible OSPO casing issue: to start working with startup and so on. So, I think OSPO is there, but with different terminologies.
+- Possible OSPO casing issue: In my point of view, the OSPO or initiatives like this are extremely relevant and place a crucial role for collaboration because the initiatives bring the relevant stakeholder together
+- Possible OSPO casing issue: I think for me, the two things that stand out at OSPO and OSPO like entities can do, one is convening governments, if you talk about public services, where we work,
+- Possessive acronym may need review: So that basically reduces the complexity for somebody WHO's solving their problem with their own context.
+- Possessive acronym may need review: We have seen through experimentation specifically around OSPO's for open science as the idea of code is a product
+- Possible OSPO casing issue: We have seen through experimentation specifically around OSPO's for open science as the idea of code is a product
+- Possible missing space or camelCase term: We replace the Microsoft Office to LibreOffice and we implement in LibreOffice accessibility checker. We check the documents of accessibility for our administration and this solution is now available for the community for 200 million users.
+- Possible OSPO casing issue: writes out the complexity of the user's experience. We're not customers, we're residents, and so I think a lot of it is about that. It's about understanding, and that's why I said the business model or the idea of an OSPO at a city level is completely different,
+- Possessive acronym may need review: and the time to engage with open source is once we've understood why and WHO's problem we're solving for what.
+- Possible OSPO casing issue: and to take the lessons learned from 20 years of open source and 20 years of OSPO in industry
+- Possible missing space or camelCase term: security foundation, OpenSSF.
+- Possible missing space or camelCase term: Before joining the OpenSSF, he led security and engineering organizations at financial
+- Possible missing space or camelCase term: So Linux Foundation created a GitHub repo and org where all of these repos are created.
+- Possible missing space or camelCase term: So one of the activities that I got deeply engaged with is KubeCon, which is sort of our
+- Possible missing space or camelCase term: KubeCon Paris happened earlier this year.
+- Possible missing space or camelCase term: And again, it was really exciting Omar and I were up on the KubeCon stage and really
+- Possible missing space or camelCase term: We are doing it again later this year when KubeCon goes to India.
+- Possible missing space or camelCase term: at KubeCon or at TED AI, organizing those hackathons, and it's also a privilege where
+- Possessive acronym may need review: They are wonderful Arun, WHO's our board chair shared an acronym with me, Big Harry Audacious
+- Possible OSPO casing issue: You could work on, as part of an OSPO, gathering interest and input and ensuring that the word
+- Possible missing space or camelCase term: at the work that we've all been doing, whether it be within the OpenSSF or any of the other
+- Possible missing space or camelCase term: for other kinds of things, or it's just information shared socially in networks like on WhatsApp.
+- Possible missing space or camelCase term: OpenSSF as well as my wife and I have been involved with personally.
+- Possible missing space or camelCase term: Within the OpenSSF, we have a DEI work group for this purpose and we have a number of very
+- Possible missing space or camelCase term: from GitHub, referenced the diversity, equity and inclusion study that was conducted in
+- Possessive acronym may need review: we take a pause, like, hey, you know what, everybody has been talking, everybody WHO's
+- Possible missing space or camelCase term: OpenSSF.
+- Possible missing space or camelCase term: I mean, if we can't get the term global majority in another sense, just by going to GitHub,
+- Possible OSPO casing issue: government of Germany, but OFU, and OSPO++, WHO spent a lot, many, many hours online.
+- Possible OSPO casing issue: thank you everybody for coming, and appointment is taken for next year, OSPO for good 2025.
