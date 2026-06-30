@@ -1,4 +1,4 @@
-# Files/reports from 2026.
+# Files/reports from 2026
 
 ## Tuesday, 23 June 2026
 
