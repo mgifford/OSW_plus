@@ -103,6 +103,37 @@ class SiteGenerator:
         title = s["title"] if s else session_id
         return f'<a href="{self.prefix}/sessions/{esc(session_id)}.html">{esc(title)}</a>'
 
+    # ── relationship / "connections" helpers ──────────────────────────────
+    def distinct_people_for(self, sessions: list[dict[str, Any]], exclude: str | None = None) -> list[str]:
+        """Distinct speaker slugs appearing across the given sessions (order preserved)."""
+        out: list[str] = []
+        seen: set[str] = set()
+        for s in sessions:
+            for sp in s.get("speakers", []):
+                if sp != exclude and sp not in seen and sp in self.idx["speakers_by_slug"]:
+                    seen.add(sp)
+                    out.append(sp)
+        return out
+
+    def distinct_orgs_for(self, sessions: list[dict[str, Any]], exclude: str | None = None) -> list[str]:
+        """Distinct organization slugs appearing across the given sessions."""
+        out: list[str] = []
+        seen: set[str] = set()
+        for s in sessions:
+            for o in s.get("organizations", []):
+                if o != exclude and o not in seen and o in self.idx["orgs_by_slug"]:
+                    seen.add(o)
+                    out.append(o)
+        return out
+
+    def related_section(self, heading: str, links: list[str]) -> str:
+        """A 'Related/Connections' block: a wrapped list of entity links, or '' if empty."""
+        if not links:
+            return ""
+        items = "".join(f"<li>{a}</li>" for a in links)
+        return (f'<section class="kp-section"><h2>{esc(heading)}</h2>'
+                f'<ul class="kp-related">{items}</ul></section>')
+
     def reference_chip(self, ref_id: str) -> str:
         ref = self.idx["references_by_id"].get(ref_id)
         if not ref:
@@ -351,6 +382,12 @@ class SiteGenerator:
             tags = "".join(self.topic_tag(t) for t in topics)
             parts.append(f'<section class="kp-section"><h2>Topics discussed</h2><div class="kp-tags">{tags}</div></section>')
         parts.append(self.session_list_section("Sessions", sessions))
+        peers = self.distinct_people_for(sessions, exclude=slug)
+        parts.append(self.related_section("Connected speakers (shared a session)",
+                                          [self.speaker_link(s) for s in peers]))
+        related_orgs = self.distinct_orgs_for(sessions, exclude=org_slug)
+        parts.append(self.related_section("Organizations in their sessions",
+                                          [self.org_link(o) for o in related_orgs]))
         if quotes:
             parts.append(self.quotes_section(quotes))
         parts.append(self.provenance_block(speaker.get("provenance", {})))
@@ -407,6 +444,9 @@ class SiteGenerator:
             tags = "".join(self.topic_tag(t) for t in topics)
             parts.append(f'<section class="kp-section"><h2>Topics</h2><div class="kp-tags">{tags}</div></section>')
         parts.append(self.session_list_section("Sessions", sessions))
+        related = self.distinct_orgs_for(sessions, exclude=slug)
+        parts.append(self.related_section("Related organizations (shared a session)",
+                                          [self.org_link(o) for o in related]))
         parts.append(self.provenance_block(org.get("provenance", {})))
 
         jsonld = {"@context": "https://schema.org", "@type": "Organization", "name": name,
@@ -463,6 +503,16 @@ class SiteGenerator:
         )
         parts: list[str] = []
         parts.append(self.session_list_section("Sessions on this topic", sessions))
+        people = self.distinct_people_for(sessions)
+        parts.append(self.related_section("People who spoke on this theme",
+                                          [self.speaker_link(s) for s in people]))
+        orgs = self.distinct_orgs_for(sessions)
+        parts.append(self.related_section("Organizations active on this theme",
+                                          [self.org_link(o) for o in orgs]))
+        parts.append(
+            f'<section class="kp-section"><h2>Across years</h2>'
+            f'<p><a href="/timeline.html#theme-{esc(slug)}">'
+            f'See how “{esc(name)}” recurs across UN Open Source Week years →</a></p></section>')
         if quotes:
             parts.append(self.quotes_section(quotes))
         note = {
@@ -1118,7 +1168,7 @@ def write_timeline(out_dir: Path, conference: dict[str, Any], base_url: str) -> 
     body_rows = ""
     for name, slug, counts, first, latest in rows:
         cells = "".join(f"<td>{counts[y] or '·'}</td>" for y in years)
-        body_rows += (f'<tr><th scope="row">'
+        body_rows += (f'<tr id="theme-{esc(slug)}"><th scope="row">'
                       f'<a href="/{cid}/{latest}/topics/{esc(slug)}.html">{esc(name)}</a></th>'
                       f"{cells}<td>{first}</td></tr>")
     table = (f'<table class="kp-table"><caption class="visually-hidden">'

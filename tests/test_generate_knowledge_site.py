@@ -110,6 +110,17 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         manifest = json.loads((self.out / "api" / "index.json").read_text())
         self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
 
+    def test_topic_page_links_people_and_organizations(self):
+        # Connection blocks: a topic page navigates to the people and orgs active on it.
+        topic = (self.out / f"{PREFIX}/topics/ai.html").read_text()
+        self.assertIn("People who spoke on this theme", topic)
+        self.assertIn("Organizations active on this theme", topic)
+        self.assertRegex(topic, rf'href="/{PREFIX}/speakers/[a-z0-9-]+\.html"')
+        self.assertRegex(topic, rf'href="/{PREFIX}/organizations/[a-z0-9-]+\.html"')
+        self.assertIn("/timeline.html#theme-ai", topic)  # cross-year link
+        speaker = (self.out / f"{PREFIX}/speakers/sachiko-muto.html").read_text()
+        self.assertIn("Connected speakers", speaker)
+
     def test_sitemap_uses_canonical_host(self):
         sitemap = (self.out / "sitemap.xml").read_text()
         self.assertIn(BASE_HOST, sitemap)

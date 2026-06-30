@@ -127,6 +127,13 @@ main.kp-main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
 
 footer.kp-footer { max-width: 1080px; margin: 2rem auto 3rem; padding: 1rem 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
 
+/* Related / connections blocks (people ↔ orgs ↔ themes) */
+.kp-related { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0; margin: 0.5rem 0; list-style: none; }
+.kp-related li { position: relative; padding-right: 1rem; }
+.kp-related li::after { content: "·"; position: absolute; right: 0.35rem; color: var(--text-muted); }
+.kp-related li:last-child { padding-right: 0; }
+.kp-related li:last-child::after { content: ""; }
+
 /* Cross-year timeline table */
 .kp-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; overflow: hidden; font-size: 0.9rem; }
 .kp-table caption { text-align: left; }
