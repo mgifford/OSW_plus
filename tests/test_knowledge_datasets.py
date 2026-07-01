@@ -77,8 +77,13 @@ class KnowledgeDatasetTests(unittest.TestCase):
         for year, datasets in self.datasets.items():
             with self.subTest(year=year):
                 referenced = {sp for s in datasets["sessions"] for sp in s.get("speakers", [])}
-                orphans = {s["slug"] for s in datasets["speakers"]} - referenced
-                self.assertEqual(orphans, set(), f"{year} speakers not in any session: {sorted(orphans)}")
+                # Roster-imported speakers (from the official Speakers page, marked by
+                # an official_url) need not be mapped to a session yet — the published
+                # agenda carries no per-session speaker data. Curated speakers must be.
+                orphans = {s["slug"] for s in datasets["speakers"]
+                           if not s.get("official_url")} - referenced
+                self.assertEqual(orphans, set(),
+                                 f"{year} curated speakers not in any session: {sorted(orphans)}")
 
     def test_knowledge_graph_is_consistent_and_valid(self):
         for year, datasets in self.datasets.items():
