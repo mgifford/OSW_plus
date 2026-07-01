@@ -1523,9 +1523,24 @@ def _write_reports(out: Path, base: str, manifests: list[dict[str, Any]]) -> Non
             theme_cards += (f'<li class="kp-card"><h3><a href="/reports/{cid}/themes/{esc(slug)}.html">'
                             f'{esc(topic_name.get(slug, slug))}</a></h3><p class="kp-meta">{ys}</p></li>')
 
+        _write_directories(out, base, cid, name, years, yd)
+        has_people = any(yd[y]["speakers"] for y in years)
+        has_refs = any(yd[y]["projects"] or yd[y]["references"] for y in years)
+        dir_cards = (f'<li class="kp-card"><h3><a href="/reports/{cid}/organizations.html">'
+                     f'Organizations</a></h3><p class="kp-meta">every organization, by year</p></li>')
+        if has_people:
+            dir_cards += (f'<li class="kp-card"><h3><a href="/reports/{cid}/people.html">People</a></h3>'
+                          f'<p class="kp-meta">every speaker, by year</p></li>')
+        if has_refs:
+            dir_cards += (f'<li class="kp-card"><h3><a href="/reports/{cid}/repositories-and-standards.html">'
+                          f'Repositories &amp; standards</a></h3>'
+                          f'<p class="kp-meta">projects, standards &amp; frameworks</p></li>')
+
         index_body.append(
             f'<section class="kp-section"><h2>{esc(name)} — annual briefings</h2>'
             f'<ul class="kp-grid">{annual_cards}</ul></section>'
+            f'<section class="kp-section"><h2>{esc(name)} — directories &amp; indexes</h2>'
+            f'<ul class="kp-grid">{dir_cards}</ul></section>'
             f'<section class="kp-section"><h2>{esc(name)} — theme briefings</h2>'
             f'<ul class="kp-grid">{theme_cards}</ul></section>')
 
@@ -1537,6 +1552,116 @@ def _write_reports(out: Path, base: str, manifests: list[dict[str, Any]]) -> Non
         "briefings — each linking back to the underlying provenanced records.",
         [("Home", "/"), ("Knowledge", "/explore.html"), ("Reports", None)], "\n".join(index_body))
     (out / "reports" / "index.html").write_text(html, encoding="utf-8")
+
+
+def _write_directories(out: Path, base: str, cid: str, name: str,
+                       years: list[int], yd: dict[int, dict]) -> None:
+    """Cross-year aggregate indexes: organizations, people, and repositories/standards."""
+    crumbs = [("Home", "/"), ("Knowledge", "/explore.html"), ("Reports", "/reports/index.html")]
+
+    # ── Organizations directory ──────────────────────────────────────────
+    org_agg: dict[str, dict] = {}
+    for y in years:
+        sess_by_org: dict[str, list] = {}
+        for s in yd[y]["sessions"]:
+            for o in s.get("organizations", []):
+                sess_by_org.setdefault(o, []).append(s)
+        for o in yd[y]["organizations"]:
+            a = org_agg.setdefault(o["slug"], {"name": o["name"], "type": o.get("type", ""),
+                                               "years": set(), "sessions": 0, "latest": y})
+            a["name"], a["years"], a["latest"] = o["name"], a["years"] | {y}, max(a["latest"], y)
+            a["type"] = o.get("type", "") or a["type"]
+            a["sessions"] += len(sess_by_org.get(o["slug"], []))
+    rows = ""
+    for slug, a in sorted(org_agg.items(), key=lambda kv: kv[1]["name"].lower()):
+        yrs = ", ".join(str(y) for y in sorted(a["years"]))
+        rows += (f'<tr><th scope="row"><a href="/{cid}/{a["latest"]}/organizations/{esc(slug)}.html">'
+                 f'{esc(a["name"])}</a></th><td>{esc(ORG_TYPE_LABELS.get(a["type"], "Organization"))}</td>'
+                 f'<td>{yrs}</td><td>{a["sessions"]}</td></tr>')
+    table = (f'<table class="kp-table"><thead><tr><th scope="col">Organization</th>'
+             f'<th scope="col">Type</th><th scope="col">Years</th><th scope="col">Sessions</th>'
+             f'</tr></thead><tbody>{rows}</tbody></table>')
+    body = (f'<section class="kp-section"><p>Every organization that has taken part in {esc(name)}, '
+            f'across years, linked to its profile.</p>{table}</section>')
+    _write_report_file(out, cid, "organizations.html",
+                       _standalone_page(f"Organizations · {name} reports",
+                                        f"Directory of every organization across {name}, by year and session count.",
+                                        f"/reports/{cid}/organizations.html", base, f"Directory · {name}",
+                                        "Organizations", f"Every organization across {name}, and the years they took part.",
+                                        crumbs + [("Organizations", None)], body))
+
+    # ── People directory ─────────────────────────────────────────────────
+    ppl_agg: dict[str, dict] = {}
+    for y in years:
+        for sp in yd[y]["speakers"]:
+            a = ppl_agg.setdefault(sp["slug"], {"name": sp["name"], "role": sp.get("role", ""),
+                                                "org": sp.get("organization", ""), "years": set(),
+                                                "official": sp.get("official_url", ""), "latest": y})
+            a["years"], a["latest"] = a["years"] | {y}, max(a["latest"], y)
+            a["role"] = sp.get("role", "") or a["role"]
+            a["org"] = sp.get("organization", "") or a["org"]
+            a["official"] = sp.get("official_url", "") or a["official"]
+    if ppl_agg:
+        rows = ""
+        for slug, a in sorted(ppl_agg.items(), key=lambda kv: kv[1]["name"].lower()):
+            aff = " · ".join(p for p in (a["role"], a["org"]) if p)
+            yrs = ", ".join(str(y) for y in sorted(a["years"]))
+            rows += (f'<tr><th scope="row"><a href="/{cid}/{a["latest"]}/speakers/{esc(slug)}.html">'
+                     f'{esc(a["name"])}</a></th><td>{esc(aff)}</td><td>{yrs}</td></tr>')
+        table = (f'<table class="kp-table"><thead><tr><th scope="col">Person</th>'
+                 f'<th scope="col">Role / affiliation</th><th scope="col">Years</th>'
+                 f'</tr></thead><tbody>{rows}</tbody></table>')
+        body = (f'<section class="kp-section"><p>Everyone recorded as speaking at {esc(name)}, '
+                f'across years, linked to their profile.</p>{table}</section>')
+        _write_report_file(out, cid, "people.html",
+                           _standalone_page(f"People · {name} reports",
+                                            f"Directory of every speaker across {name}.",
+                                            f"/reports/{cid}/people.html", base, f"Directory · {name}",
+                                            "People", f"Everyone who has spoken at {name}, across years.",
+                                            crumbs + [("People", None)], body))
+
+    # ── Repositories & standards index ───────────────────────────────────
+    proj_agg: dict[str, dict] = {}
+    ref_agg: dict[str, dict] = {}
+    for y in years:
+        for p in yd[y]["projects"]:
+            proj_agg.setdefault(p["slug"], {**p, "latest": y})
+        for r in yd[y]["references"]:
+            ref_agg.setdefault(r["id"], r)
+    if proj_agg or ref_agg:
+        sections = ""
+        if proj_agg:
+            items = ""
+            for p in sorted(proj_agg.values(), key=lambda p: p.get("name", "").lower()):
+                link = (f'<a href="{esc(p["website"])}" rel="noopener noreferrer">{esc(p["name"])}</a>'
+                        if p.get("website") else esc(p.get("name", p["slug"])))
+                extra = " · ".join(x for x in (p.get("license", ""), (p.get("description", "") or "")[:120]) if x)
+                meta = f' <span class="kp-meta">· {esc(extra)}</span>' if extra else ""
+                items += f'<li>{link}{meta}</li>'
+            sections += f'<section class="kp-section"><h2>Open source projects</h2><ul>{items}</ul></section>'
+        if ref_agg:
+            items = ""
+            for r in sorted(ref_agg.values(), key=lambda r: r.get("title", "").lower()):
+                link = (f'<a href="{esc(r["url"])}" rel="noopener noreferrer">{esc(r.get("title", r["id"]))}</a>'
+                        if r.get("url") else esc(r.get("title", r["id"])))
+                extra = " · ".join(x for x in (r.get("type", ""), (r.get("description", "") or "")[:140]) if x)
+                meta = f' <span class="kp-meta">· {esc(extra)}</span>' if extra else ""
+                items += f'<li>{link}{meta}</li>'
+            sections += (f'<section class="kp-section"><h2>Standards, frameworks &amp; references</h2>'
+                         f'<ul>{items}</ul></section>')
+        _write_report_file(out, cid, "repositories-and-standards.html",
+                           _standalone_page(f"Repositories &amp; standards · {name} reports",
+                                            f"Open source projects and the standards/frameworks referenced across {name}.",
+                                            f"/reports/{cid}/repositories-and-standards.html", base,
+                                            f"Index · {name}", "Repositories & standards",
+                                            f"Open source projects and the standards and frameworks referenced across {name}.",
+                                            crumbs + [("Repositories & standards", None)], sections))
+
+
+def _write_report_file(out: Path, cid: str, filename: str, html: str) -> None:
+    p = out / "reports" / cid / filename
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(html, encoding="utf-8")
 
 
 def _write_annual_report(out: Path, base: str, cid: str, name: str, year: int, ds: dict[str, list]) -> None:

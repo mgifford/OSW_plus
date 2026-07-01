@@ -122,6 +122,12 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         self.assertIn("Across years", html)
         # theme briefing links back into the year's real session pages
         self.assertRegex(html, rf'href="/{PREFIX}/sessions/[^"]+\.html"')
+        # cross-year directories exist and link back to real profile pages
+        orgs = self.out / "reports" / "unosw" / "organizations.html"
+        self.assertTrue(orgs.exists(), "missing organizations directory")
+        self.assertRegex(orgs.read_text(), rf'href="/{PREFIX}/organizations/[^"]+\.html"')
+        repos = self.out / "reports" / "unosw" / "repositories-and-standards.html"
+        self.assertTrue(repos.exists(), "missing repositories & standards index")
 
     def test_relationship_graph(self):
         page = self.out / "graph.html"
