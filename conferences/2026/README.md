@@ -4,7 +4,7 @@
 
 Open Source for AI and Emerging Technologies (Part 1)
 
-[Video](https://webtv.un.org/en/asset/k14/k14ej1ucqu) & [UN Transcript (empty)](https://transcripts.un.org/en/asset/k14/k14ej1ucqu) 
+[Video](https://webtv.un.org/en/asset/k14/k14ej1ucqu) & [UN Transcript](https://transcripts.un.org/en/asset/k14/k14ej1ucqu) 
 
 
 Topics:
@@ -55,7 +55,7 @@ Theme:
 
 OSPOs for Good (Part 1)
 
-[Video](https://webtv.un.org/en/asset/k12/k12620x8tm) & [UN Transcript (empty)](https://transcripts.un.org/en/asset/k12/k12620x8tm) 
+[Video](https://webtv.un.org/en/asset/k12/k12620x8tm) & [UN Transcript](https://transcripts.un.org/en/asset/k12/k12620x8tm) 
 
 
 Theme:
@@ -68,7 +68,7 @@ Theme:
 
 ## OSPOs for Good (Part 2)
 
-[Video](https://webtv.un.org/en/asset/k1i/k1i4m11zkv) & [UN Transcript (empty)](https://transcripts.un.org/en/asset/k1i/k1i4m11zkv)
+[Video](https://webtv.un.org/en/asset/k1i/k1i4m11zkv) & [UN Transcript](https://transcripts.un.org/en/asset/k1i/k1i4m11zkv)
 
 Theme:
 
