@@ -110,6 +110,19 @@ class GenerateKnowledgeSiteTests(unittest.TestCase):
         manifest = json.loads((self.out / "api" / "index.json").read_text())
         self.assertEqual(manifest.get("search_index"), "/api/search-index.json")
 
+    def test_research_reports(self):
+        idx = self.out / "reports" / "index.html"
+        self.assertTrue(idx.exists(), "missing /reports/index.html")
+        annual = self.out / "reports" / "unosw" / "2025.html"
+        self.assertTrue(annual.exists(), "missing annual briefing")
+        self.assertIn("Sessions by day", annual.read_text())
+        theme = self.out / "reports" / "unosw" / "themes" / "ai.html"
+        self.assertTrue(theme.exists(), "missing theme briefing")
+        html = theme.read_text()
+        self.assertIn("Across years", html)
+        # theme briefing links back into the year's real session pages
+        self.assertRegex(html, rf'href="/{PREFIX}/sessions/[^"]+\.html"')
+
     def test_relationship_graph(self):
         page = self.out / "graph.html"
         self.assertTrue(page.exists(), "missing /graph.html relationship map")
