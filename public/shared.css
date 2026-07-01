@@ -103,6 +103,19 @@
   color: #0d1f3c !important;
 }
 
+/* Disabled state when event submissions are outside their seasonal window */
+.submit-closed {
+  cursor: not-allowed;
+  text-decoration: none;
+  opacity: 0.85;
+}
+a.submit-closed { color: #64748b !important; }
+.site-nav-submit.submit-closed {
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+  font-weight: 600;
+}
+
 /* ─── Mobile hamburger toggle ─── */
 .site-nav-toggle {
   display: none;
