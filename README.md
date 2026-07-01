@@ -72,7 +72,8 @@ python -m unittest discover -s tests -v
 
 # Knowledge platform
 pip install -r requirements-dev.txt                              # test-only deps (jsonschema)
-python scripts/import_agenda.py --year 2026                      # (re)build data/unosw/2026 from the agenda
+python scripts/import_agenda.py --year 2026                      # (re)build data/unosw/2026 sessions from the agenda
+python scripts/import_speakers.py --year 2026                    # (re)build data/unosw/2026 speakers from the captured Speakers page
 python scripts/generate_knowledge_site.py --year 2024 --out _site   # build 2024 pages + datasets
 python scripts/generate_knowledge_site.py --year 2025 --out _site   # build 2025 pages + datasets
 python scripts/generate_knowledge_site.py --year 2026 --out _site   # build 2026 (all coexist under /unosw/<year>/)

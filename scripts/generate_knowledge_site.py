@@ -370,8 +370,9 @@ class SiteGenerator:
             dl.append(f"<dt>Organization</dt><dd>{esc(org_display)}</dd>")
         if speaker.get("country"):
             dl.append(f"<dt>Country</dt><dd>{esc(speaker['country'])}</dd>")
-        for field, label in [("github", "GitHub"), ("mastodon", "Mastodon"),
-                             ("bluesky", "Bluesky"), ("linkedin", "LinkedIn"), ("website", "Website")]:
+        for field, label in [("official_url", "Official profile"), ("github", "GitHub"),
+                             ("mastodon", "Mastodon"), ("bluesky", "Bluesky"),
+                             ("linkedin", "LinkedIn"), ("website", "Website")]:
             if speaker.get(field):
                 dl.append(f'<dt>{label}</dt><dd><a href="{esc(speaker[field])}" rel="noopener noreferrer">{esc(speaker[field])}</a></dd>')
         if dl:
@@ -999,12 +1000,16 @@ def _build_combined_graph(out: Path, manifests: list[dict[str, Any]]) -> tuple[l
     for e in edge_list:
         deg[e["source"]] += 1
         deg[e["target"]] += 1
-    for nid, n in nodes.items():
-        n["degree"] = deg[nid]
-        n["years"] = sorted(n["years"])
+    # A relationship map is about relationships: drop nodes with no connections
+    # (e.g. speakers not yet mapped to any session) so they don't clutter it.
+    # They remain available on their profile pages and in search.
+    kept = {nid for nid, d in deg.items() if d > 0}
+    for nid in kept:
+        nodes[nid]["degree"] = deg[nid]
+        nodes[nid]["years"] = sorted(nodes[nid]["years"])
     for e in edge_list:
         e["years"] = sorted(e["years"])
-    return list(nodes.values()), edge_list
+    return [nodes[nid] for nid in nodes if nid in kept], edge_list
 
 
 def _layout_graph(nodes: list[dict], edges: list[dict], width: float, height: float,

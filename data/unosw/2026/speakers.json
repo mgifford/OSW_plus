@@ -1,1 +1,338 @@
-[]
+[
+  {
+    "slug": "adriana-groh",
+    "name": "Adriana Groh",
+    "role": "Managing Director, Sovereign Tech Agency",
+    "official_url": "https://www.unopensource.org/speaker/adriana-groh",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "ahunna-eziakonwa",
+    "name": "Ahunna Eziakonwa",
+    "role": "Assistant Secretary-General and UNDP Regional Director for Africa, UNDP",
+    "official_url": "https://www.unopensource.org/speaker/ahunna-eziakonwa",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "alberto-gago",
+    "name": "Alberto Gago",
+    "role": "Director General, Spanish Agency for the Supervision of Artificial Intelligence (AESIA)",
+    "official_url": "https://www.unopensource.org/speaker/alberto-gago",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "amandeep-singh-gill",
+    "name": "Amandeep Singh Gill",
+    "role": "Under-Secretary-General and Special Envoy for Digital and Emerging Technologies, UN Office for Digital and Emerging Technologies (UN-ODET)",
+    "official_url": "https://www.unopensource.org/speaker/amandeep-singh-gill",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "annisa-paramita",
+    "name": "Annisa Paramita",
+    "role": "First Secretary, Permanent Mission of Indonesia to the United Nations in New York",
+    "official_url": "https://www.unopensource.org/speaker/annisa-paramita",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "armando-manzueta",
+    "name": "Armando Manzueta",
+    "role": "Vice Minister of Innovation and Technology, Ministry of Public Administration of the Dominican Republic",
+    "official_url": "https://www.unopensource.org/speaker/armando-manzueta",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "assista-de",
+    "name": "Assista De",
+    "role": "Deputy Regional Director, UNDP RBA",
+    "official_url": "https://www.unopensource.org/speaker/assista-de",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "bakhtiyar-mukhametkaliyev",
+    "name": "Bakhtiyar Mukhametkaliyev",
+    "role": "Vice Minister of Artificial Intelligence and Digital Development of the Republic of Kazakhstan",
+    "official_url": "https://www.unopensource.org/speaker/bakhtiyar-mukhametkaliyev",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "bernardo-mariano-joaquim-junior",
+    "name": "Bernardo Mariano Joaquim Junior",
+    "role": "Assistant Secretary-General and Chief Information Technology Officer, UN Office for Information and Communications Technology (UN-OICT)",
+    "official_url": "https://www.unopensource.org/speaker/bernardo-mariano-joaquim-junior",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "brian-behlendorf",
+    "name": "Brian Behlendorf",
+    "role": "Independent Advisor, Consultant, Investor, and Board-Level Director",
+    "official_url": "https://www.unopensource.org/speaker/brian-behlendorf",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "cosmas-luckyson-zavazava",
+    "name": "Cosmas Luckyson Zavazava",
+    "role": "Director, Telecommunication Development Bureau, International Telecommunication Union",
+    "official_url": "https://www.unopensource.org/speaker/cosmas-luckyson-zavazava",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "frederik-blachetta",
+    "name": "Frederik Blachetta",
+    "role": "Chief Technology Officer, Bundesdruckerei Group",
+    "official_url": "https://www.unopensource.org/speaker/frederik-blachetta",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-amal-el-fallah-seghrouchni",
+    "name": "Hon. Amal El Fallah Seghrouchni",
+    "role": "Head of Government in charge of Digital Transition and Administrative Reform for the Kingdom of Morocco",
+    "official_url": "https://www.unopensource.org/speaker/hon-amal-el-fallah-seghrouchni",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-amb-audrey-marks",
+    "name": "Hon. Amb. Audrey Marks",
+    "role": "Minister of Efficiency, Innovation and Digital Transformation, Office of the Prime Minister, Jamaica",
+    "official_url": "https://www.unopensource.org/speaker/hon-amb-audrey-marks",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-liisa-ly-pakosta",
+    "name": "Hon. Liisa-Ly Pakosta",
+    "role": "Minister of Justice and Digital Affairs, Republic of Estonia",
+    "official_url": "https://www.unopensource.org/speaker/hon-liisa-ly-pakosta",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-mr-ankhbayar-nyamdorj",
+    "name": "Hon. Mr. Ankhbayar Nyamdorj",
+    "role": "Permanent Representative of Mongolia to the United Nations",
+    "official_url": "https://www.unopensource.org/speaker/hon-mr-ankhbayar-nyamdorj",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-nthati-moorosi",
+    "name": "Hon. Nthati Moorosi",
+    "role": "Minister of Information, Communications, Science, Technology and Innovation, Kingdom of Lesotho",
+    "official_url": "https://www.unopensource.org/speaker/hon-nthati-moorosi",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-salima-bah",
+    "name": "Hon. Salima Bah",
+    "role": "Minister of Communications, Technology and Innovation, Sierra Leone",
+    "official_url": "https://www.unopensource.org/speaker/hon-salima-bah",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "hon-sigmund-freund",
+    "name": "Hon. Sigmund Freund",
+    "role": "Minister of Public Administration, Dominican Republic",
+    "official_url": "https://www.unopensource.org/speaker/hon-sigmund-freund",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "indra-pradana-singawinata",
+    "name": "Indra Pradana Singawinata",
+    "role": "Secretary-General, Asian Productivity Organization (APO)",
+    "official_url": "https://www.unopensource.org/speaker/indra-pradana-singawinata",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "jim-zemlin",
+    "name": "Jim Zemlin",
+    "role": "Chief Executive Officer, Linux Foundation",
+    "official_url": "https://www.unopensource.org/speaker/jim-zemlin",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "john-ellis",
+    "name": "John Ellis",
+    "role": "President and Head of Product, Codethink",
+    "official_url": "https://www.unopensource.org/speaker/john-ellis",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "ruth-suehle",
+    "name": "Ruth Suehle",
+    "role": "President, Apache Software Foundation",
+    "official_url": "https://www.unopensource.org/speaker/ruth-suehle",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  },
+  {
+    "slug": "yann-lecun",
+    "name": "Yann LeCun",
+    "role": "Executive Chairman of Advanced Machine Intelligence (AMI Labs); Jacob T. Schwartz Chaired Professor of Computer Science at New York University (NYU)",
+    "official_url": "https://www.unopensource.org/speaker/yann-lecun",
+    "provenance": {
+      "source_url": "https://www.unopensource.org/speakers",
+      "source_title": "UN Open Source Week 2026 — Speakers",
+      "license": "public-domain",
+      "method": "automated-ingestion",
+      "retrieved": "2026-07-01",
+      "locator": "Official speakers page"
+    }
+  }
+]

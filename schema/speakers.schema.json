@@ -6,22 +6,65 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["slug", "name", "provenance"],
+    "required": [
+      "slug",
+      "name",
+      "provenance"
+    ],
     "properties": {
-      "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-      "name": { "type": "string", "minLength": 1 },
-      "role": { "type": "string" },
-      "organization": { "type": "string" },
-      "organization_slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-      "country": { "type": "string" },
-      "biography": { "type": "string" },
-      "topics": { "type": "array", "items": { "type": "string" } },
-      "github": { "type": "string" },
-      "mastodon": { "type": "string" },
-      "bluesky": { "type": "string" },
-      "linkedin": { "type": "string" },
-      "website": { "type": "string" },
-      "provenance": { "$ref": "https://unosw.plus/schema/provenance.schema.json" }
+      "slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "role": {
+        "type": "string"
+      },
+      "organization": {
+        "type": "string"
+      },
+      "organization_slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "country": {
+        "type": "string"
+      },
+      "biography": {
+        "type": "string"
+      },
+      "topics": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "github": {
+        "type": "string"
+      },
+      "mastodon": {
+        "type": "string"
+      },
+      "bluesky": {
+        "type": "string"
+      },
+      "linkedin": {
+        "type": "string"
+      },
+      "website": {
+        "type": "string"
+      },
+      "provenance": {
+        "$ref": "https://unosw.plus/schema/provenance.schema.json"
+      },
+      "official_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "Confirmed official profile page on the conference site."
+      }
     }
   }
 }
