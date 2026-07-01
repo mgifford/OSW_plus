@@ -962,6 +962,37 @@ def _build_combined_graph(out: Path, manifests: list[dict[str, Any]]) -> tuple[l
             elif year:
                 rec["years"].add(year)
 
+        # Derive direct person↔theme and organization↔theme edges (through the
+        # sessions that connect them) so a people/themes/organizations view is
+        # connected on its own, without the session nodes.
+        ntype = {n["id"]: n.get("type") for n in g.get("nodes", [])}
+        s_people: dict[str, list] = {}
+        s_orgs: dict[str, list] = {}
+        s_topics: dict[str, list] = {}
+        for e in g.get("edges", []):
+            s, t, ty = e["source"], e["target"], e["type"]
+            if ty == "spoke_at" and ntype.get(t) == "session":
+                s_people.setdefault(t, []).append(s)
+            elif ty == "organized" and ntype.get(t) == "session":
+                s_orgs.setdefault(t, []).append(s)
+            elif ty == "discussed_topic" and ntype.get(s) == "session":
+                s_topics.setdefault(s, []).append(t)
+
+        def _derive(a: str, b: str, ty: str) -> None:
+            rec = edges.get((a, b, ty))
+            if rec is None:
+                edges[(a, b, ty)] = {"source": a, "target": b, "type": ty,
+                                     "years": {year} if year else set()}
+            elif year:
+                rec["years"].add(year)
+
+        for sid, topics in s_topics.items():
+            for tp in topics:
+                for p in s_people.get(sid, ()):
+                    _derive(p, tp, "spoke_on_theme")
+                for o in s_orgs.get(sid, ()):
+                    _derive(o, tp, "active_on_theme")
+
     node_ids = set(nodes)
     edge_list = [e for e in edges.values() if e["source"] in node_ids and e["target"] in node_ids]
     deg = {nid: 0 for nid in nodes}
@@ -1087,9 +1118,13 @@ def _write_graph_page(out: Path, base: str, manifests: list[dict[str, Any]]) -> 
 
     legend = "".join(f'<li><span class="kpg-dot" style="background:{c}"></span>{esc(l)}</li>'
                      for _, l, c in GRAPH_TYPE_META)
+    # People, themes and organizations are shown by default; sessions, projects
+    # and countries start hidden so the opening view is the people↔themes↔orgs graph.
+    default_off = {"session", "country", "project"}
     type_boxes = "".join(
-        f'<label class="kpg-check"><input type="checkbox" class="kpg-type" value="{t}" checked /> '
-        f'{esc(l)}</label>' for t, l, _ in GRAPH_TYPE_META)
+        f'<label class="kpg-check"><input type="checkbox" class="kpg-type" value="{t}"'
+        f'{"" if t in default_off else " checked"} /> {esc(l)}</label>'
+        for t, l, _ in GRAPH_TYPE_META)
     years = sorted({y for n in nodes for y in n["years"]}, reverse=True)
     year_opts = ('<option value="">All years</option>'
                  + "".join(f'<option value="{y}">{y}</option>' for y in years))
@@ -1142,8 +1177,9 @@ _GRAPH_TEMPLATE = """<!doctype html>
     <header class="kp-header"><div class="kp-header-inner">
       <p class="kp-eyebrow">Knowledge Platform</p>
       <h1>Relationship map</h1>
-      <p>How the people, organizations, themes, projects and sessions of UN Open Source Week
-         connect — across years. Themes and recurring organizations bridge the years.</p>
+      <p>How the people, organizations and themes of UN Open Source Week connect — across years.
+         People and organizations link through the themes they work on; add sessions or countries
+         with the filters below. Themes and recurring organizations bridge the years.</p>
     </div></header>
     <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>
       <li><a href="/">Home</a></li><li><a href="/explore.html">Knowledge</a></li>
@@ -1222,6 +1258,7 @@ _GRAPH_TEMPLATE = """<!doctype html>
         typeBoxes.forEach(function (b) { b.addEventListener("change", apply); });
         year.addEventListener("change", apply);
         focus.addEventListener("input", apply);
+        apply();  // honour the default filters (sessions/countries start hidden)
       })();
     </script>
   </body>
