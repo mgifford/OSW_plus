@@ -734,6 +734,7 @@ def rebuild_top_level(out_dir: Path, base_url: str, repo_root: Path | None = Non
     _write_search_index(out, manifests, repo_root)
     _write_search_page(out, base)
     _write_graph_page(out, base, manifests)
+    _write_reports(out, base, manifests)
     _write_top_hub(out, manifests)
     _write_sitemap(out, base)
     _write_platform_manifest(out, base, manifests)
@@ -1425,6 +1426,289 @@ def _write_search_page(out: Path, base: str) -> None:
     (out / "knowledge-search.html").write_text(html, encoding="utf-8")
 
 
+def _standalone_page(title: str, description: str, canonical_path: str, base: str,
+                     eyebrow: str, h1: str, intro: str,
+                     breadcrumb: list[tuple[str, str | None]], body: str) -> str:
+    """Full HTML shell for a top-level generated page (reports, etc.)."""
+    crumbs = "".join(
+        (f'<li><a href="{esc(href)}">{esc(label)}</a></li>' if href
+         else f'<li aria-current="page">{esc(label)}</li>')
+        for label, href in breadcrumb)
+    intro_html = f"<p>{esc(intro)}</p>" if intro else ""
+    return f"""<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{esc(title)}</title>
+    <meta name="description" content="{esc(description)}" />
+    <link rel="canonical" href="{esc(base.rstrip('/'))}{esc(canonical_path)}" />
+    <link rel="stylesheet" href="/shared.css" />
+    <link rel="stylesheet" href="/knowledge.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="kp-header"><div class="kp-header-inner">
+      <p class="kp-eyebrow">{esc(eyebrow)}</p>
+      <h1>{esc(h1)}</h1>
+      {intro_html}
+    </div></header>
+    <nav class="kp-breadcrumb" aria-label="Breadcrumb"><ol>{crumbs}</ol></nav>
+    <main id="main-content" class="kp-main">
+{body}
+    </main>
+    <footer class="kp-footer"><p>Generated from the knowledge-platform datasets · provenance on every record.</p></footer>
+    <script src="/nav.js" defer></script>
+  </body>
+</html>
+"""
+
+
+def _load_year_datasets(out: Path, base_path: str) -> dict[str, list]:
+    api = out / base_path / "api"
+    ds: dict[str, list] = {}
+    for name in ("sessions", "speakers", "organizations", "projects", "topics", "quotes", "references"):
+        try:
+            ds[name] = json.loads((api / f"{name}.json").read_text())
+        except (OSError, json.JSONDecodeError):
+            ds[name] = []
+    return ds
+
+
+def _rlink(href: str, label: str, meta: str = "") -> str:
+    m = f' <span class="kp-meta">· {esc(meta)}</span>' if meta else ""
+    return f'<li><a href="{esc(href)}">{esc(label)}</a>{m}</li>'
+
+
+def _write_reports(out: Path, base: str, manifests: list[dict[str, Any]]) -> None:
+    """Generated research outputs (Phase 15): an annual briefing per conference-year
+    and a cross-year theme briefing per topic, plus an index. All aggregated from
+    the generated datasets and fully linked back to the underlying records."""
+    confs: dict[str, dict[str, Any]] = {}
+    for m in manifests:
+        cid = m.get("conference") or m.get("base_path", "/").split("/")[0]
+        entry = confs.setdefault(cid, {"name": m.get("name", cid), "years": {}})
+        entry["name"] = m.get("name", entry["name"])
+        if m.get("year") and m.get("base_path"):
+            entry["years"][m["year"]] = m["base_path"]
+    if not confs:
+        return
+    (out / "reports").mkdir(parents=True, exist_ok=True)
+
+    index_body = []
+    for cid, info in sorted(confs.items()):
+        name = info["name"]
+        years = sorted(info["years"], reverse=True)
+        yd = {y: _load_year_datasets(out, info["years"][y]) for y in years}
+
+        annual_cards = ""
+        for y in years:
+            _write_annual_report(out, base, cid, name, y, yd[y])
+            annual_cards += (f'<li class="kp-card"><h3><a href="/reports/{cid}/{y}.html">'
+                             f'{esc(name)} {y}</a></h3>'
+                             f'<p class="kp-meta">{len(yd[y]["sessions"])} sessions · briefing</p></li>')
+
+        topic_name: dict[str, str] = {}
+        theme_years: dict[str, set] = {}
+        for y in years:
+            for t in yd[y]["topics"]:
+                topic_name[t["slug"]] = t["name"]
+            for s in yd[y]["sessions"]:
+                for tp in s.get("topics", []):
+                    theme_years.setdefault(tp, set()).add(y)
+        theme_cards = ""
+        for slug in sorted(theme_years, key=lambda s: topic_name.get(s, s).lower()):
+            _write_theme_report(out, base, cid, name, slug, topic_name.get(slug, slug), years, yd)
+            ys = ", ".join(str(y) for y in sorted(theme_years[slug]))
+            theme_cards += (f'<li class="kp-card"><h3><a href="/reports/{cid}/themes/{esc(slug)}.html">'
+                            f'{esc(topic_name.get(slug, slug))}</a></h3><p class="kp-meta">{ys}</p></li>')
+
+        index_body.append(
+            f'<section class="kp-section"><h2>{esc(name)} — annual briefings</h2>'
+            f'<ul class="kp-grid">{annual_cards}</ul></section>'
+            f'<section class="kp-section"><h2>{esc(name)} — theme briefings</h2>'
+            f'<ul class="kp-grid">{theme_cards}</ul></section>')
+
+    html = _standalone_page(
+        "Research outputs · UN Open Source Week Knowledge Platform",
+        "Generated, provenanced briefings for UN Open Source Week — annual overviews and cross-year theme reports.",
+        "/reports/index.html", base, "Knowledge Platform", "Research outputs & briefings",
+        "Generated summaries of the knowledge platform — annual overviews and cross-year theme "
+        "briefings — each linking back to the underlying provenanced records.",
+        [("Home", "/"), ("Knowledge", "/explore.html"), ("Reports", None)], "\n".join(index_body))
+    (out / "reports" / "index.html").write_text(html, encoding="utf-8")
+
+
+def _write_annual_report(out: Path, base: str, cid: str, name: str, year: int, ds: dict[str, list]) -> None:
+    prefix = f"/{cid}/{year}"
+    sessions, orgs, topics, quotes = ds["sessions"], ds["organizations"], ds["topics"], ds["quotes"]
+    topic_name = {t["slug"]: t["name"] for t in topics}
+    recordings: dict[str, dict] = {}
+    for s in sessions:
+        v = s.get("video_url")
+        if v and v not in recordings:
+            recordings[v] = {"day": s.get("day", ""), "video": v, "transcript": s.get("transcript_url", "")}
+
+    stats = [("Sessions", len(sessions)), ("Speakers", len(ds["speakers"])),
+             ("Organizations", len(orgs)),
+             ("Themes", len({tp for s in sessions for tp in s.get("topics", [])})),
+             ("Recordings", len(recordings))]
+    stat_html = "".join(f'<li class="kp-stat"><span class="kp-stat-num">{v}</span>'
+                        f'<span class="kp-stat-label">{esc(l)}</span></li>' for l, v in stats if v)
+    parts = [f'<section class="kp-section"><ul class="kp-stats">{stat_html}</ul></section>']
+
+    by_day: dict[str, list] = {}
+    for s in sessions:
+        by_day.setdefault(s.get("day", ""), []).append(s)
+    day_html = ""
+    for day in sorted(by_day):
+        items = "".join(_rlink(f'{prefix}/sessions/{s["id"]}.html', s.get("title", s["id"]),
+                               TYPE_LABELS.get(s.get("type", ""), "")) for s in by_day[day])
+        day_html += f'<h3>{esc(day) or "Sessions"}</h3><ul>{items}</ul>'
+    parts.append(f'<section class="kp-section"><h2>Sessions by day</h2>{day_html}</section>')
+
+    tc: dict[str, int] = {}
+    for s in sessions:
+        for tp in s.get("topics", []):
+            tc[tp] = tc.get(tp, 0) + 1
+    theme_items = "".join(_rlink(f'/reports/{cid}/themes/{tp}.html', topic_name.get(tp, tp), f'{c} sessions')
+                          for tp, c in sorted(tc.items(), key=lambda x: -x[1]))
+    if theme_items:
+        parts.append(f'<section class="kp-section"><h2>Themes</h2><ul class="kp-related">{theme_items}</ul></section>')
+
+    org_items = "".join(_rlink(f'{prefix}/organizations/{o["slug"]}.html', o["name"])
+                        for o in sorted(orgs, key=lambda o: o["name"].lower()))
+    if org_items:
+        parts.append(f'<section class="kp-section"><h2>Organizations</h2>'
+                     f'<ul class="kp-related">{org_items}</ul></section>')
+
+    if recordings:
+        rec_items = ""
+        for info in recordings.values():
+            tr = (f' · <a href="{esc(info["transcript"])}" rel="noopener noreferrer">draft transcript</a>'
+                  if info["transcript"] else "")
+            rec_items += (f'<li><a href="{esc(info["video"])}" rel="noopener noreferrer">'
+                          f'{esc(info["day"]) or "Recording"} — UN Web TV</a>{tr}</li>')
+        parts.append(f'<section class="kp-section"><h2>Recordings &amp; transcripts</h2><ul>{rec_items}</ul></section>')
+
+    if quotes:
+        qh = ""
+        for q in quotes[:8]:
+            who = q.get("speaker_name") or ""
+            cite = f'<cite>— {esc(who)}</cite>' if who else ""
+            qh += f'<figure class="kp-quote"><blockquote>{esc(q["text"])}</blockquote>{cite}</figure>'
+        parts.append(f'<section class="kp-section"><h2>Selected quotes</h2>{qh}</section>')
+
+    parts.append('<section class="kp-provenance"><p>Generated from the '
+                 f'<a href="{prefix}/api/index.json">{esc(name)} {year} dataset</a> — every session, '
+                 'organization, recording and quote links to its provenanced record.</p></section>')
+
+    html = _standalone_page(
+        f"{name} {year} briefing · UN Open Source Week Knowledge Platform",
+        f"Generated briefing for {name} {year}: sessions, themes, organizations, recordings and quotes.",
+        f"/reports/{cid}/{year}.html", base, f"Annual briefing · {name}", f"{name} {year} — briefing",
+        f"An at-a-glance, fully linked summary of {name} {year}, generated from the published dataset.",
+        [("Home", "/"), ("Knowledge", "/explore.html"), ("Reports", "/reports/index.html"),
+         (f"{name} {year}", None)], "\n".join(parts))
+    p = out / "reports" / cid / f"{year}.html"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(html, encoding="utf-8")
+
+
+def _write_theme_report(out: Path, base: str, cid: str, name: str, slug: str, tname: str,
+                        years: list[int], yd: dict[int, dict]) -> None:
+    description = ""
+    for y in years:
+        match = next((t for t in yd[y]["topics"] if t["slug"] == slug and t.get("description")), None)
+        if match:
+            description = match["description"]
+            break
+
+    counts = {y: sum(1 for s in yd[y]["sessions"] if slug in s.get("topics", [])) for y in years}
+    present = [y for y in sorted(years) if counts[y]]
+    head = "".join(f'<th scope="col">{y}</th>' for y in present)
+    vals = "".join(f'<td>{counts[y]}</td>' for y in present)
+    table = (f'<table class="kp-table"><caption class="visually-hidden">Sessions per year on '
+             f'{esc(tname)}</caption><thead><tr><th scope="col">Theme</th>{head}</tr></thead>'
+             f'<tbody><tr><th scope="row">{esc(tname)}</th>{vals}</tr></tbody></table>')
+    parts = [f'<section class="kp-section">{f"<p>{esc(description)}</p>" if description else ""}'
+             f'<h2>Across years</h2>{table}'
+             f'<p><a href="/timeline.html#theme-{esc(slug)}">See this theme on the cross-year timeline →</a></p></section>']
+
+    orgs_seen: dict[str, tuple[int, str]] = {}
+    people_seen: dict[str, tuple[int, str]] = {}
+    refs_seen: dict[str, dict] = {}
+    quotes_all: list[tuple[int, dict]] = []
+    for y in sorted(present, reverse=True):
+        prefix = f"/{cid}/{y}"
+        ds = yd[y]
+        org_name = {o["slug"]: o["name"] for o in ds["organizations"]}
+        sp_name = {s["slug"]: s["name"] for s in ds["speakers"]}
+        ref_by_id = {r["id"]: r for r in ds["references"]}
+        theme_sessions = [s for s in ds["sessions"] if slug in s.get("topics", [])]
+        items = "".join(_rlink(f'{prefix}/sessions/{s["id"]}.html', s.get("title", s["id"]), s.get("day", ""))
+                        for s in theme_sessions)
+        parts.append(f'<section class="kp-section"><h3>{esc(name)} {y} '
+                     f'<span class="kp-meta">({len(theme_sessions)} sessions)</span></h3><ul>{items}</ul></section>')
+        for s in theme_sessions:
+            for o in s.get("organizations", []):
+                if o in org_name:
+                    orgs_seen.setdefault(o, (y, org_name[o]))
+            for sp in s.get("speakers", []):
+                if sp in sp_name:
+                    people_seen.setdefault(sp, (y, sp_name[sp]))
+            for rid in s.get("references", []):
+                if rid in ref_by_id and rid not in refs_seen:
+                    refs_seen[rid] = ref_by_id[rid]
+        for q in ds["quotes"]:
+            if slug in q.get("topics", []):
+                quotes_all.append((y, q))
+
+    if orgs_seen:
+        items = "".join(_rlink(f'/{cid}/{y}/organizations/{s}.html', nm)
+                        for s, (y, nm) in sorted(orgs_seen.items(), key=lambda kv: kv[1][1].lower()))
+        parts.append(f'<section class="kp-section"><h2>Organizations active on this theme</h2>'
+                     f'<ul class="kp-related">{items}</ul></section>')
+    if people_seen:
+        items = "".join(_rlink(f'/{cid}/{y}/speakers/{s}.html', nm)
+                        for s, (y, nm) in sorted(people_seen.items(), key=lambda kv: kv[1][1].lower()))
+        parts.append(f'<section class="kp-section"><h2>People who spoke on this theme</h2>'
+                     f'<ul class="kp-related">{items}</ul></section>')
+    if refs_seen:
+        items = ""
+        for r in sorted(refs_seen.values(), key=lambda r: r.get("title", "").lower()):
+            label = r.get("title", r["id"])
+            typ = f' <span class="kp-meta">· {esc(r.get("type", ""))}</span>' if r.get("type") else ""
+            if r.get("url"):
+                items += f'<li><a href="{esc(r["url"])}" rel="noopener noreferrer">{esc(label)}</a>{typ}</li>'
+            else:
+                items += f'<li>{esc(label)}{typ}</li>'
+        parts.append(f'<section class="kp-section"><h2>Reading list — standards &amp; references</h2>'
+                     f'<ul>{items}</ul></section>')
+    if quotes_all:
+        qh = ""
+        for y, q in quotes_all[:10]:
+            who = q.get("speaker_name") or ""
+            cite = f'<cite>— {esc(who)}, {name} {y}</cite>' if who else f'<cite>— {name} {y}</cite>'
+            qh += f'<figure class="kp-quote"><blockquote>{esc(q["text"])}</blockquote>{cite}</figure>'
+        parts.append(f'<section class="kp-section"><h2>Quotes</h2>{qh}</section>')
+
+    parts.append('<section class="kp-provenance"><p>Aggregated across years from the published '
+                 'session, organization, speaker, reference and quote records — each links back to its source.</p></section>')
+
+    html = _standalone_page(
+        f"{tname} across {name} · theme briefing",
+        f"Cross-year briefing on “{tname}” at {name}: sessions, organizations, people, references and quotes.",
+        f"/reports/{cid}/themes/{slug}.html", base, f"Theme briefing · {name}", f"{tname}",
+        f"How “{tname}” runs through {name}, across years — every session, organization, person and "
+        "reference linked back to its record.",
+        [("Home", "/"), ("Knowledge", "/explore.html"), ("Reports", "/reports/index.html"),
+         (tname, None)], "\n".join(parts))
+    p = out / "reports" / cid / "themes" / f"{slug}.html"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(html, encoding="utf-8")
+
+
 def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
     cards = ""
     for m in sorted(manifests, key=lambda m: (m.get("conference", ""), -int(m.get("year", 0)))):
@@ -1463,6 +1747,7 @@ def _write_top_hub(out: Path, manifests: list[dict[str, Any]]) -> None:
         <p><a href="/knowledge-search.html">Search the knowledge platform</a> — sessions,
            speakers, organizations, projects, and themes across every year.</p>
         <p><a href="/graph.html">Relationship map</a> — how people, organizations, and themes connect.</p>
+        <p><a href="/reports/index.html">Research briefings</a> — annual overviews and cross-year theme reports.</p>
         <p><a href="/timeline.html">Timeline — themes across years</a></p>
       </section>
       <section class="kp-section"><h2>For AI &amp; developers</h2>
