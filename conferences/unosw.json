@@ -97,5 +97,10 @@
       "slug": "digital-sovereignty",
       "name": "Digital Sovereignty"
     }
-  ]
+  ],
+  "event_state": {
+    "upcoming_year": null,
+    "upcoming_dates": null,
+    "archive_mode": true
+  }
 }

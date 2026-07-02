@@ -1,10 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ═══════════════════════════════════════════════════════════════════════════════
+         EVENT STATE CONFIGURATION
+         ═════════════════════════════════════════════════════════════════════════════
+         Update the meta description and hero text below based on event state.
+         
+         ARCHIVE MODE (No upcoming event):
+           - Meta description: Focus on archive/knowledge platform
+           - Hero text: Emphasize multi-year resources collected from the community
+           - Config: conferences/unosw.json event_state.archive_mode = true
+         
+         PROMOTION MODE (Upcoming event planned):
+           - Meta description: Focus on promoting the upcoming event
+           - Hero text: Encourage attendance and event submissions
+           - Config: conferences/unosw.json event_state.upcoming_year = 2027 (example)
+                                           event_state.upcoming_dates = "June 22–26, 2027"
+                                           event_state.archive_mode = false
+         ═════════════════════════════════════════════════════════════════════════════ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OS Week Plus NYC</title>
-    <meta name="description" content="A website promoting the UN Open Source Week Plus Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure." />
+    <title>OSW+ NYC</title>
+    <!-- ARCHIVE MODE (current): Description emphasizes the knowledge platform and archive -->
+    <meta name="description" content="Archive and knowledge platform for UN Open Source Week Plus. Resources, recordings, and knowledge compiled from sessions, speakers, organizations, and projects across multiple years of conferences in New York." />
     <style>
       /* Skip navigation */
       .skip-link {
@@ -80,7 +98,9 @@
 
     <header>
       <h1>OS Week Plus (OSW+) NYC</h1>
-      <p>A website promoting the UN Open Source Week Plus Side Events. We are taking the week June 22–26, 2026, and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure.</p>
+      <p>Knowledge platform and community archive for <strong>UN Open Source Week</strong>. Resources, insights, and conversations about open source, Digital Public Goods, and Digital Public Infrastructure collected across multiple years of conferences (2024–2026 and beyond).</p>
+      <!-- ALTERNATE (for promotion mode): Replace above with:
+           <p>A website promoting the <strong>UN Open Source Week Plus</strong> Side Events. We are taking [DATE_RANGE], and looking before and after to see if we can use this annual event to drive a global discussion around open source, Digital Public Goods and Digital Public Infrastructure.</p> -->
     </header>
 
     <main id="main-content">
